@@ -4,6 +4,10 @@ import router from "./router";
 import store from "./store";
 import "./registerServiceWorker";
 
+import MainContent from "@/components/MainContent";
+
+Vue.component(`foobars-main-content`, MainContent);
+
 Vue.config.productionTip = false;
 
 new Vue({
