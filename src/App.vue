@@ -2,10 +2,19 @@
 #app
   nav.main-navigation
     router-link.main-navigation__link(to="/") Barz
-    router-link.main-navigation__link(to="/night") Night
-    router-link.main-navigation__link(to="/about") About
+    router-link.main-navigation__link(to="/night") {{ $t(`night`) }}
+    router-link.main-navigation__link(to="/about") {{ $t(`about`) }}
   router-view
 </template>
+
+<i18n>
+{
+  "en": {
+    "night": "night",
+    "about": "About"
+  }
+}
+</i18n>
 
 <style lang="scss">
 :root {

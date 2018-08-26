@@ -1,7 +1,7 @@
 <template lang="pug">
-  main(role="main").main-content(:class="`page-${page}`")
-    h1.main-title(v-if="title") {{title}}
-    slot
+main.main-content(role="main" :class="`page-${page}`" )
+  h1.main-title(v-if="title") {{title}}
+  slot
 </template>
 
 <style lang="scss" scoped>

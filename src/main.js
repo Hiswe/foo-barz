@@ -1,17 +1,19 @@
-import Vue from "vue";
-import App from "./App.vue";
-import router from "./router";
-import store from "./store";
-import "./registerServiceWorker";
+import Vue from 'vue'
 
-import MainContent from "@/components/MainContent";
+import App from './App.vue'
+import router from './router'
+import store from './store/index'
+import './registerServiceWorker'
+import MainContent from '@/components/MainContent'
+import i18n from './i18n'
 
-Vue.component(`foobars-main-content`, MainContent);
+Vue.component(`foobars-main-content`, MainContent)
 
-Vue.config.productionTip = false;
+Vue.config.productionTip = false
 
 new Vue({
   router,
   store,
+  i18n,
   render: h => h(App)
-}).$mount("#app");
+}).$mount(`#app`)
