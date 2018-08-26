@@ -37,6 +37,8 @@ html {
   // https://css-tricks.com/snippets/css/system-font-stack/#article-header-id-1
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
     Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+
+  font-size: percentage(20/16);
 }
 html,
 body {
@@ -50,6 +52,16 @@ input,
 textarea,
 select {
   font: inherit;
+  color: currentColor;
+}
+body:not(.user-is-tabbing) {
+  a:focus,
+  button:focus,
+  input:focus,
+  select:focus,
+  textarea:focus {
+    outline: none;
+  }
 }
 button {
   touch-action: manipulation;
@@ -60,7 +72,7 @@ button {
   bottom: 0;
   left: 0;
   right: 0;
-  border-top: 1px solid var(--c-primary-darker);
+  border-top: 5px solid var(--c-primary-darker);
   display: flex;
 
   &__link {

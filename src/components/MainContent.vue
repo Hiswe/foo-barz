@@ -6,22 +6,23 @@ main.main-content(role="main" :class="`page-${page}`" )
 
 <style lang="scss" scoped>
 .main-content {
-  // need this for stacking page transitions
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: var(--navigation-height);
-  left: 0;
-  overflow-x: hidden;
-  // momemtum scrolling
-  // https://css-tricks.com/snippets/css/momentum-scrolling-on-ios-overflow-elements/
-  overflow-y: scroll;
-  -webkit-overflow-scrolling: touch;
-  display: flex;
-  padding: var(--gutter);
-  flex: 1 0 auto;
-  width: 100%;
-  flex-direction: column;
+  padding: 1rem;
+  // // need this for stacking page transitions
+  // position: fixed;
+  // top: 0;
+  // right: 0;
+  // bottom: var(--navigation-height);
+  // left: 0;
+  // overflow-x: hidden;
+  // // momemtum scrolling
+  // // https://css-tricks.com/snippets/css/momentum-scrolling-on-ios-overflow-elements/
+  // overflow-y: scroll;
+  // -webkit-overflow-scrolling: touch;
+  // display: flex;
+  // padding: var(--gutter);
+  // flex: 1 0 auto;
+  // width: 100%;
+  // flex-direction: column;
 }
 .main-title {
   text-align: center;
