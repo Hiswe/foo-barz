@@ -7,6 +7,7 @@ foobars-main-content(page="settinfs" :title="$t(`title`)")
       input.product__name(type="text" v-model="product.name")
       input.product__price(type="number" v-model="product.price")
     button(type="submit") {{ $t(`submit`) }}
+  footer.version {{ $t(`version`) }} {{ version }}
 </template>
 
 <i18n>
@@ -14,7 +15,8 @@ foobars-main-content(page="settinfs" :title="$t(`title`)")
   "en": {
     "title": "settings",
     "products": "products",
-    "submit": "submit"
+    "submit": "submit",
+    "version": "version"
   }
 }
 </i18n>
@@ -54,16 +56,27 @@ button {
   text-transform: uppercase;
   color: var(--c-primary-darkest);
 }
+.version {
+  margin-top: 2rem;
+  padding: 1rem 0 0;
+  border-top: 5px solid black;
+  text-align: center;
+}
 </style>
 
 
 <script>
 import { mapMutations } from 'vuex'
 
+import { version } from '../../package.json'
+
 export default {
   name: `page-settings`,
   data() {
-    return { products: [] }
+    return {
+      version,
+      products: [],
+    }
   },
   created() {
     this.products = this.$store.state.night.products.map(product => ({
