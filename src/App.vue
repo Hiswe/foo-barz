@@ -26,6 +26,8 @@
   --c-primary-darker: hsl(var(--c-primary-h), var(--c-primary-s), 30%);
   --c-primary-darkest: hsl(var(--c-primary-h), var(--c-primary-s), 17%);
   --c-accent: hsl(32, 100%, 50%);
+
+  --navigation-height: 55px;
 }
 *,
 *::before,
@@ -68,25 +70,32 @@ button {
 }
 
 .main-navigation {
-  position: absolute;
+  position: fixed;
+  background: var(--c-primary-darkest);
   bottom: 0;
   left: 0;
   right: 0;
   border-top: 5px solid var(--c-primary-darker);
   display: flex;
+  height: var(--navigation-height);
 
   &__link {
     font-weight: bold;
     flex: 1 0 auto;
     text-align: center;
-    padding: 1rem;
     text-decoration: none;
     color: var(--c-primary-lightest);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     &--active {
       background: var(--c-accent);
       color: var(--c-primary-darkest);
     }
   }
+}
+.icon {
+  fill: var(--c-primary);
 }
 </style>
