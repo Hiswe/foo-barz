@@ -55,9 +55,15 @@ export const mutations = {
       ...product,
     })
   },
+  REMOVE_ITEM(state, itemId) {
+    state.items = state.items.filter(item => item.id === itemId)
+  },
   ADD_PERSON(state) {
     state.persons.push({
       id: shortid.generate(),
     })
+  },
+  REMOVE_PERSON(state, personId) {
+    state.persons = state.persons.filter(person => person.id === personId)
   },
 }

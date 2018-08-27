@@ -18,19 +18,26 @@ foobars-main-content(page="night" title="Night")
       foobars-icon(name="person-add" :scale="2.5")
   h2 selection
   div
-    foobars-icon(
+    button(
       v-for="(item, index) in items"
-      :key="index"
-      :name="item.icon"
+      :key="item.id"
+      @click="removeItem(item.id)"
     )
+      foobars-icon(
+        :name="item.icon"
+      )
   h2 people
   div
-    foobars-icon(
+    button(
       v-for="person in persons"
-      :key="person.id"
-      name="person"
-      :scale="2.5"
+        :key="person.id"
+      @click="removePerson(person.id)"
     )
+      foobars-icon(
+
+        name="person"
+        :scale="2.5"
+      )
 </template>
 
 <script>
@@ -48,7 +55,9 @@ export default {
   },
   methods: mapMutations({
     addItem: `ADD_ITEM`,
+    removeItem: `REMOVE_ITEM`,
     addPerson: `ADD_PERSON`,
+    removePerson: `REMOVE_PERSON`,
   }),
 }
 </script>
