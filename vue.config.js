@@ -7,6 +7,7 @@ module.exports = {
       .use('i18n')
       .loader('@kazupon/vue-i18n-loader')
   },
+
   pluginOptions: {
     i18n: {
       locale: 'en',
@@ -15,4 +16,10 @@ module.exports = {
       enableInSFC: true,
     },
   },
+
+  pwa: {
+    name: 'Foo Barz',
+    themeColor: '#282D2E',
+    msTileColor: '#282D2E'
+  }
 }

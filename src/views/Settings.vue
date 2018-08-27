@@ -1,5 +1,5 @@
 <template lang="pug">
-foobars-main-content(page="settinfs" :title="$t(`title`)")
+foobars-main-content(page="settings" :title="$t(`title`)")
   h2 {{ $t(`products`) }}
   form(@submit.prevent="updateProducts(products)")
     .product(v-for="(product, index) in products" :key="product.index")
