@@ -1,9 +1,9 @@
 <template lang="pug">
 foobars-main-content(page="home" title="Barz")
-  form.form(@submit.prevent="addBar")
-    label.form__label(for="bar-name") {{ $t(`new-bar`) }}
-    input.form__input(v-model="name")
-    button.form__button(type="submit") ➕
+  //- form.form(@submit.prevent="addBar")
+  //-   label.form__label(for="bar-name") {{ $t(`new-bar`) }}
+  //-   input.form__input(v-model="name")
+  //-   button.form__button(type="submit") ➕
 
 </template>
 
