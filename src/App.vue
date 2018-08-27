@@ -3,15 +3,15 @@
   nav.main-navigation
     router-link.main-navigation__link(to="/") Barz
     router-link.main-navigation__link(to="/night") {{ $t(`night`) }}
-    router-link.main-navigation__link(to="/about") {{ $t(`about`) }}
+    router-link.main-navigation__link(to="/settings")
+      foobars-icon(name="settings" :scale="1.5")
   router-view
 </template>
 
 <i18n>
 {
   "en": {
-    "night": "night",
-    "about": "About"
+    "night": "night"
   }
 }
 </i18n>
@@ -92,6 +92,10 @@ button {
     &--active {
       background: var(--c-accent);
       color: var(--c-primary-darkest);
+    }
+
+    .icon {
+      fill: currentColor;
     }
   }
 }

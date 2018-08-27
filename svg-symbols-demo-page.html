@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>9 Symbols</title>
+  <title>10 Symbols</title>
   <meta name="viewport" content="width=device-width" />
   <style>
     html {
@@ -384,6 +384,11 @@
       height: 24px;
     }
     
+    .gss-showOriginal .gss-iconbox #gss-icon-settings {
+      width: 20px;
+      height: 20px;
+    }
+    
     .gss-showOriginal .gss-iconbox #gss-icon-beer {
       width: 48px;
       height: 72px;
@@ -435,6 +440,9 @@
   <symbol id="person-add" viewBox="0 0 24 24">
      <path d="M15 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm-9-2V7H4v3H1v2h3v3h2v-3h3v-2H6zm9 4c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/> 
   </symbol>
+  <symbol id="settings" viewBox="0 0 20 20">
+     <path d="M15.95 10.78c.03-.25.05-.51.05-.78s-.02-.53-.06-.78l1.69-1.32c.15-.12.19-.34.1-.51l-1.6-2.77c-.1-.18-.31-.24-.49-.18l-1.99.8c-.42-.32-.86-.58-1.35-.78L12 2.34c-.03-.2-.2-.34-.4-.34H8.4c-.2 0-.36.14-.39.34l-.3 2.12c-.49.2-.94.47-1.35.78l-1.99-.8c-.18-.07-.39 0-.49.18l-1.6 2.77c-.1.18-.06.39.1.51l1.69 1.32c-.04.25-.07.52-.07.78s.02.53.06.78L2.37 12.1c-.15.12-.19.34-.1.51l1.6 2.77c.1.18.31.24.49.18l1.99-.8c.42.32.86.58 1.35.78l.3 2.12c.04.2.2.34.4.34h3.2c.2 0 .37-.14.39-.34l.3-2.12c.49-.2.94-.47 1.35-.78l1.99.8c.18.07.39 0 .49-.18l1.6-2.77c.1-.18.06-.39-.1-.51l-1.67-1.32zM10 13c-1.65 0-3-1.35-3-3s1.35-3 3-3 3 1.35 3 3-1.35 3-3 3z"/> 
+  </symbol>
   <symbol id="beer" viewBox="0 0 48 72">
     <g><ellipse cx="24" cy="9.923" rx="5.205" ry="3.293"/><ellipse cx="24" cy="6.51" rx="5.205" ry="3.293"/><path d="M20.348,12.333c-0.005,-0.036 -0.007,-0.072 -0.007,-0.108c0,-1.01 1.64,-1.83 3.659,-1.83c2.019,0 3.659,0.82 3.659,1.83c0,0.036 -0.002,0.072 -0.007,0.108l0.007,0.001c0,0 0.158,5.111 0.912,8.123c0.702,2.811 3.736,6.887 3.736,13.128c0,0.127 -0.004,0.253 -0.012,0.376l0.012,0l0,31.095l-0.003,0c-0.116,2.242 -3.792,4.045 -8.304,4.045c-4.512,0 -8.188,-1.803 -8.304,-4.045l-0.003,0l0,-31.095l0.012,0c-0.008,-0.123 -0.012,-0.249 -0.012,-0.376c0,-6.241 3.034,-10.317 3.736,-13.128c0.754,-3.012 0.912,-8.123 0.912,-8.123l0.007,-0.001Z"/></g>
   </symbol>
@@ -464,13 +472,13 @@
   </symbol>
 </svg>
 <header class="gss-toolbar">
-  <h1>9 Symbols</h1>
+  <h1>10 Symbols</h1>
   <button class="gss-toolbar-list">
     <svg aria-label="Compact" width="15" height="15"><use xlink:href="#gss-icon-list"></use>
     </svg> List
   </button>
   <input class="gss-toolbar-filter" type="search"
-         placeholder="Filter 9 symbols…"
+         placeholder="Filter 10 symbols…"
          aria-label="Filter by id" title="Filter by id">
   <button class="gss-toolbar-orig" data-toggle-class="gss-showOriginal">Original Size</button>
   <button class="gss-toolbar-outl" data-toggle-class="gss-showColor">Test Color</button>
@@ -528,6 +536,35 @@
       <div class="gss-iconbox-code">
         <code>&lt;svg role=&quot;img&quot; class=&quot;person-add&quot;&gt;
   &lt;use xlink:href=&quot;#person-add&quot;&gt;&lt;/use&gt;
+&lt;/svg&gt;</code>
+      </div>
+    </div>
+    <div class="gss-iconbox-action">
+      <button data-action="copy">Copy</button>
+      <button data-action="info">Show</button>
+    </div>
+  </div>
+  <div class="gss-iconbox gss-searchable"
+       id="gss-iconbox-settings"
+       data-search="settings settings 20x20 <1 <2 <3 <4 <5 <6 <7 <8 <9">
+    <div class="gss-iconbox-header">
+      <h2>settings</h2>
+      <span>0.7&thinsp;kB</span>
+    </div>
+    <p class="gss-iconbox-head2">
+      <span>settings.svg</span>
+      <span>20&thinsp;×&thinsp;20</span>
+      <span>706&thinsp;B</span>
+    </p>
+    <div class="gss-iconbox-wrapper">
+      <div class="gss-iconbox-icon" data-dimensions="20&thinsp;×&thinsp;20">
+        <svg role="img" id="gss-icon-settings">
+          <use xlink:href="#settings"></use>
+        </svg>
+      </div>
+      <div class="gss-iconbox-code">
+        <code>&lt;svg role=&quot;img&quot; class=&quot;settings&quot;&gt;
+  &lt;use xlink:href=&quot;#settings&quot;&gt;&lt;/use&gt;
 &lt;/svg&gt;</code>
       </div>
     </div>

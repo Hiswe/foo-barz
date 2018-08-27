@@ -1,5 +1,5 @@
 <template lang="pug">
-foobars-main-content(page="night" title="Night")
+foobars-main-content(page="night" :title="$t(`title`)")
   dl
     dt {{ $t( 'total') }}
     dd {{totals.all}}
@@ -42,6 +42,7 @@ foobars-main-content(page="night" title="Night")
 <i18n>
 {
   "en": {
+    "title": "Night",
     "total": "total",
     "total-person": "per person",
     "selection": "selection",
