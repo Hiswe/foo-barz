@@ -14,7 +14,12 @@ const icons = () => {
       .src(`./src/assets-source/icons/*.svg`)
       .pipe(
         $.cheerio({
-          run: $ => $(`#Bounding_Boxes`).remove(),
+          run: $ => {
+            $(`#Bounding_Boxes`).remove()
+            $(`path[fill=none]`).remove()
+            $(`rect[fill=none]`).remove()
+            $(`rect[style="fill:none;"]`).remove()
+          },
           parserOptions: {
             xmlMode: true,
           },
