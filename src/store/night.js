@@ -5,32 +5,32 @@ export const state = () => ({
     {
       id: `beer`,
       icon: `beer`,
+      name: `beer chang`,
       price: 70,
-      currency: `฿`,
     },
     {
       id: `whisky`,
       icon: `whisky`,
+      name: `sangsom`,
       price: 400,
-      currency: `฿`,
     },
     {
       id: `mixer`,
       icon: `water`,
+      name: `mixer`,
       price: 20,
-      currency: `฿`,
     },
     {
       id: `ice`,
       icon: `bucket`,
+      name: `ice bucket`,
       price: 30,
-      currency: `฿`,
     },
     {
       id: `promotion`,
       icon: `promotion`,
+      name: `promotion – 3 beers & ice`,
       price: 200,
-      currency: `฿`,
     },
   ],
   items: [],
@@ -51,6 +51,12 @@ export const getters = {
 }
 
 export const mutations = {
+  EDIT_PRODUCT(state, products) {
+    state.products = products.map(product => {
+      product.price = ~~product.price
+      return product
+    })
+  },
   ADD_ITEM(state, product) {
     if (!state.products.includes(product)) return
     state.items.push({
@@ -60,6 +66,10 @@ export const mutations = {
   },
   REMOVE_ITEM(state, itemId) {
     state.items = state.items.filter(item => item.id === itemId)
+  },
+  CLEAR_NIGHT(state) {
+    state.items = []
+    state.persons = []
   },
   ADD_PERSON(state) {
     state.persons.push({

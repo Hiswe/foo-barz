@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>10 Symbols</title>
+  <title>11 Symbols</title>
   <meta name="viewport" content="width=device-width" />
   <style>
     html {
@@ -384,6 +384,11 @@
       height: 24px;
     }
     
+    .gss-showOriginal .gss-iconbox #gss-icon-remove-shopping-cart {
+      width: 24px;
+      height: 24px;
+    }
+    
     .gss-showOriginal .gss-iconbox #gss-icon-settings {
       width: 20px;
       height: 20px;
@@ -440,6 +445,9 @@
   <symbol id="person-add" viewBox="0 0 24 24">
      <path d="M15 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm-9-2V7H4v3H1v2h3v3h2v-3h3v-2H6zm9 4c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/> 
   </symbol>
+  <symbol id="remove-shopping-cart" viewBox="0 0 24 24">
+     <path d="M22.73 22.73L2.77 2.77 2 2l-.73-.73L0 2.54l4.39 4.39 2.21 4.66-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h7.46l1.38 1.38c-.5.36-.83.95-.83 1.62 0 1.1.89 2 1.99 2 .67 0 1.26-.33 1.62-.84L21.46 24l1.27-1.27zM7.42 15c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h2.36l2 2H7.42zm8.13-2c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H6.54l9.01 9zM7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2z"/> 
+  </symbol>
   <symbol id="settings" viewBox="0 0 20 20">
      <path d="M15.95 10.78c.03-.25.05-.51.05-.78s-.02-.53-.06-.78l1.69-1.32c.15-.12.19-.34.1-.51l-1.6-2.77c-.1-.18-.31-.24-.49-.18l-1.99.8c-.42-.32-.86-.58-1.35-.78L12 2.34c-.03-.2-.2-.34-.4-.34H8.4c-.2 0-.36.14-.39.34l-.3 2.12c-.49.2-.94.47-1.35.78l-1.99-.8c-.18-.07-.39 0-.49.18l-1.6 2.77c-.1.18-.06.39.1.51l1.69 1.32c-.04.25-.07.52-.07.78s.02.53.06.78L2.37 12.1c-.15.12-.19.34-.1.51l1.6 2.77c.1.18.31.24.49.18l1.99-.8c.42.32.86.58 1.35.78l.3 2.12c.04.2.2.34.4.34h3.2c.2 0 .37-.14.39-.34l.3-2.12c.49-.2.94-.47 1.35-.78l1.99.8c.18.07.39 0 .49-.18l1.6-2.77c.1-.18.06-.39-.1-.51l-1.67-1.32zM10 13c-1.65 0-3-1.35-3-3s1.35-3 3-3 3 1.35 3 3-1.35 3-3 3z"/> 
   </symbol>
@@ -472,13 +480,13 @@
   </symbol>
 </svg>
 <header class="gss-toolbar">
-  <h1>10 Symbols</h1>
+  <h1>11 Symbols</h1>
   <button class="gss-toolbar-list">
     <svg aria-label="Compact" width="15" height="15"><use xlink:href="#gss-icon-list"></use>
     </svg> List
   </button>
   <input class="gss-toolbar-filter" type="search"
-         placeholder="Filter 10 symbols…"
+         placeholder="Filter 11 symbols…"
          aria-label="Filter by id" title="Filter by id">
   <button class="gss-toolbar-orig" data-toggle-class="gss-showOriginal">Original Size</button>
   <button class="gss-toolbar-outl" data-toggle-class="gss-showColor">Test Color</button>
@@ -536,6 +544,35 @@
       <div class="gss-iconbox-code">
         <code>&lt;svg role=&quot;img&quot; class=&quot;person-add&quot;&gt;
   &lt;use xlink:href=&quot;#person-add&quot;&gt;&lt;/use&gt;
+&lt;/svg&gt;</code>
+      </div>
+    </div>
+    <div class="gss-iconbox-action">
+      <button data-action="copy">Copy</button>
+      <button data-action="info">Show</button>
+    </div>
+  </div>
+  <div class="gss-iconbox gss-searchable"
+       id="gss-iconbox-remove-shopping-cart"
+       data-search="remove-shopping-cart remove-shopping-cart 24x24 <1 <2 <3 <4 <5 <6 <7 <8 <9">
+    <div class="gss-iconbox-header">
+      <h2>remove-shopping-cart</h2>
+      <span>0.5&thinsp;kB</span>
+    </div>
+    <p class="gss-iconbox-head2">
+      <span>remove-shopping-cart.svg</span>
+      <span>24&thinsp;×&thinsp;24</span>
+      <span>503&thinsp;B</span>
+    </p>
+    <div class="gss-iconbox-wrapper">
+      <div class="gss-iconbox-icon" data-dimensions="24&thinsp;×&thinsp;24">
+        <svg role="img" id="gss-icon-remove-shopping-cart">
+          <use xlink:href="#remove-shopping-cart"></use>
+        </svg>
+      </div>
+      <div class="gss-iconbox-code">
+        <code>&lt;svg role=&quot;img&quot; class=&quot;remove-shopping-cart&quot;&gt;
+  &lt;use xlink:href=&quot;#remove-shopping-cart&quot;&gt;&lt;/use&gt;
 &lt;/svg&gt;</code>
       </div>
     </div>

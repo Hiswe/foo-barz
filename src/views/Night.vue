@@ -2,8 +2,14 @@
 foobars-main-content(page="night" :title="$t(`title`)")
   dl
     dt {{ $t( 'total') }}
-    dd {{totals.all}}
-    dd(v-if="totals.perPerson") {{ $t( 'total-person') }} {{totals.perPerson}}
+    dd {{totals.all}}฿
+    dd(v-if="totals.perPerson") {{ $t( 'total-person') }} {{totals.perPerson}}฿
+
+  button(@click="clearNight")
+    foobars-icon(
+      name="remove-shopping-cart"
+      :scale="2.5"
+    )
   menu
     button(
       v-for="product in products"
@@ -11,7 +17,7 @@ foobars-main-content(page="night" :title="$t(`title`)")
       @click="addItem(product)"
     )
       foobars-icon(:name="product.icon")
-      div {{product.price}} {{product.currency}}
+      div {{product.price}}฿
     button(
       @click="addPerson"
     )
@@ -66,6 +72,7 @@ export default {
   },
   methods: mapMutations({
     addItem: `ADD_ITEM`,
+    clearNight: `CLEAR_NIGHT`,
     removeItem: `REMOVE_ITEM`,
     addPerson: `ADD_PERSON`,
     removePerson: `REMOVE_PERSON`,
