@@ -1,5 +1,6 @@
 <template lang="pug">
 foobars-main-content(page="home" title="Barz")
+  p {{$t('description')}}
   //- form.form(@submit.prevent="addBar")
   //-   label.form__label(for="bar-name") {{ $t(`new-bar`) }}
   //-   input.form__input(v-model="name")
@@ -30,7 +31,8 @@ foobars-main-content(page="home" title="Barz")
 <i18n>
 {
   "en": {
-    "new-bar": "new bar"
+    "new-bar": "new bar",
+    "description": "a simple app to compute a bar's bill"
   }
 }
 </i18n>

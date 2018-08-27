@@ -1,9 +1,9 @@
 <template lang="pug">
 foobars-main-content(page="night" title="Night")
   dl
-    dt total
+    dt {{ $t( 'total') }}
     dd {{totals.all}}
-    dd(v-if="totals.perPerson") per person {{totals.perPerson}}
+    dd(v-if="totals.perPerson") {{ $t( 'total-person') }} {{totals.perPerson}}
   menu
     button(
       v-for="product in products"
@@ -16,7 +16,7 @@ foobars-main-content(page="night" title="Night")
       @click="addPerson"
     )
       foobars-icon(name="person-add" :scale="2.5")
-  h2 selection
+  h2 {{ $t('selection') }}
   div
     button(
       v-for="(item, index) in items"
@@ -26,7 +26,7 @@ foobars-main-content(page="night" title="Night")
       foobars-icon(
         :name="item.icon"
       )
-  h2 people
+  h2 {{ $t('people') }}
   div
     button(
       v-for="person in persons"
@@ -34,11 +34,21 @@ foobars-main-content(page="night" title="Night")
       @click="removePerson(person.id)"
     )
       foobars-icon(
-
         name="person"
         :scale="2.5"
       )
 </template>
+
+<i18n>
+{
+  "en": {
+    "total": "total",
+    "total-person": "per person",
+    "selection": "selection",
+    "people": "people"
+  }
+}
+</i18n>
 
 <script>
 import { mapState, mapMutations, mapGetters } from 'vuex'

@@ -42,7 +42,10 @@ export const getters = {
     const total = state.items.reduce((total, item) => total + item.price, 0)
     return {
       all: total,
-      perPerson: state.persons.length ? total / state.persons.length : ``,
+      perPerson:
+        state.persons.length > 1
+          ? Math.round(total / state.persons.length)
+          : ``,
     }
   },
 }
