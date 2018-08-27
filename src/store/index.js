@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import createPersistedState from 'vuex-persistedstate'
 
 import * as bar from './bar'
 import * as night from './night'
@@ -11,4 +12,5 @@ export default new Vuex.Store({
     bar,
     night,
   },
+  plugins: [createPersistedState({ key: `foo-barz` })],
 })
