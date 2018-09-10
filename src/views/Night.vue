@@ -1,30 +1,32 @@
 <template lang="pug">
 foobars-main-content(page="night" :title="$t(`title`)")
-  dl
-    dt {{ $t( 'total') }}
-    dd {{totals.all}}฿
-    dd(v-if="totals.perPerson") {{ $t( 'total-person') }} {{totals.perPerson}}฿
+  dl.totals
+    dt.totals__label {{ $t( 'total') }}
+    dd.totals__value {{totals.all}}฿
+    template(v-if="totals.perPerson")
+      dt.totals__label {{ $t( 'total-person') }}
+      dd.totals__value {{totals.perPerson}}฿
 
-  button(@click="clearNight")
+  button.night__action(@click="clearNight")
     foobars-icon(
       name="remove-shopping-cart"
       :scale="2.5"
     )
   menu
-    button(
+    button.night__action(
       v-for="product in products"
       :key="product.id"
       @click="addItem(product)"
     )
       foobars-icon(:name="product.icon")
       div {{product.price}}฿
-    button(
+    button.night__action(
       @click="addPerson"
     )
       foobars-icon(name="person-add" :scale="2.5")
   h2 {{ $t('selection') }}
   div
-    button(
+    button.night__action(
       v-for="(item, index) in items"
       :key="item.id"
       @click="removeItem(item.id)"
@@ -34,7 +36,7 @@ foobars-main-content(page="night" :title="$t(`title`)")
       )
   h2 {{ $t('people') }}
   div
-    button(
+    button.night__action(
       v-for="person in persons"
         :key="person.id"
       @click="removePerson(person.id)"
@@ -44,6 +46,15 @@ foobars-main-content(page="night" :title="$t(`title`)")
         :scale="2.5"
       )
 </template>
+
+<style lang="scss" scoped>
+.night {
+  &__action {
+    border: 0;
+    background: none;
+  }
+}
+</style>
 
 <i18n>
 {

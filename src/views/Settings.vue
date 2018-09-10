@@ -6,7 +6,7 @@ foobars-main-content(page="settings" :title="$t(`title`)")
       foobars-icon.product__icon(:name="product.icon")
       input.product__name(type="text" v-model="product.name")
       input.product__price(type="number" v-model="product.price")
-    button(type="submit") {{ $t(`submit`) }}
+    button(type="submit") {{ $t(`update`) }}
   footer.version {{ $t(`version`) }} {{ version }}
 </template>
 
@@ -15,7 +15,7 @@ foobars-main-content(page="settings" :title="$t(`title`)")
   "en": {
     "title": "settings",
     "products": "products",
-    "submit": "submit",
+    "update": "update",
     "version": "version"
   }
 }

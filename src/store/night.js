@@ -60,8 +60,8 @@ export const mutations = {
   ADD_ITEM(state, product) {
     if (!state.products.includes(product)) return
     state.items.push({
-      id: shortid.generate(),
       ...product,
+      id: shortid.generate(),
     })
   },
   REMOVE_ITEM(state, itemId) {
