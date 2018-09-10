@@ -65,7 +65,7 @@ export const mutations = {
     })
   },
   REMOVE_ITEM(state, itemId) {
-    state.items = state.items.filter(item => item.id === itemId)
+    state.items = state.items.filter(item => item.id !== itemId)
   },
   CLEAR_NIGHT(state) {
     state.items = []
@@ -77,6 +77,6 @@ export const mutations = {
     })
   },
   REMOVE_PERSON(state, personId) {
-    state.persons = state.persons.filter(person => person.id === personId)
+    state.persons = state.persons.filter(person => person.id !== personId)
   },
 }
