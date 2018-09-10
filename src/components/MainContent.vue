@@ -1,20 +1,28 @@
 <template lang="pug">
-main.main-content(role="main" :class="`page-${page}`" )
-  h1.main-title(v-if="title") {{title}}
-  slot
+main.main(role="main" :class="`page-${page}`" )
+  h1.main__title(v-if="title") {{title}}
+  .main__content: slot
 </template>
 
 <style lang="scss" scoped>
-.main-content {
-  padding: 1rem 1rem calc(1rem + var(--navigation-height));
-}
-.main-title {
-  text-align: center;
-  font-weight: 300;
-  font-size: 2.5em;
-  font-variant: small-caps;
-  margin: 0;
-  padding: 0 0 1.5rem;
+.main {
+  background: var(--c-primary-darkest);
+  min-height: 100vh;
+
+  &__title {
+    text-align: center;
+    font-weight: 300;
+    font-size: 1.75em;
+    font-variant: small-caps;
+    text-transform: uppercase;
+    margin: 0;
+    padding: 0.5em 1rem;
+    background: var(--c-black);
+  }
+
+  &__content {
+    padding: 1rem 1rem calc(1rem + var(--navigation-height));
+  }
 }
 </style>
 

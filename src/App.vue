@@ -1,20 +1,10 @@
 <template lang="pug">
 #app
-  nav.main-navigation
-    router-link.main-navigation__link(to="/") Barz
-    router-link.main-navigation__link(to="/night") {{ $t(`night`) }}
-    router-link.main-navigation__link(to="/settings")
-      foobars-icon(name="settings" :scale="1.5")
+  foobarz-main-navigation
   router-view
 </template>
 
-<i18n>
-{
-  "en": {
-    "night": "night"
-  }
-}
-</i18n>
+
 
 <style lang="scss">
 :root {
@@ -25,6 +15,7 @@
   --c-primary: hsl(var(--c-primary-h), var(--c-primary-s), 50%);
   --c-primary-darker: hsl(var(--c-primary-h), var(--c-primary-s), 30%);
   --c-primary-darkest: hsl(var(--c-primary-h), var(--c-primary-s), 17%);
+  --c-black: hsl(var(--c-primary-h), var(--c-primary-s), 7%);
   --c-accent: hsl(32, 100%, 50%);
 
   --navigation-height: 55px;
@@ -43,7 +34,7 @@ html {
 }
 html,
 body {
-  background: var(--c-primary-darkest);
+  background: var(--c-black);
   color: white;
   margin: 0;
   padding: 0;
@@ -68,36 +59,6 @@ button {
   touch-action: manipulation;
 }
 
-.main-navigation {
-  position: fixed;
-  background: var(--c-primary-darkest);
-  bottom: 0;
-  left: 0;
-  right: 0;
-  border-top: 5px solid var(--c-primary-darker);
-  display: flex;
-  height: var(--navigation-height);
-
-  &__link {
-    font-weight: bold;
-    flex: 1 0 auto;
-    text-align: center;
-    text-decoration: none;
-    color: var(--c-primary-lightest);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    &--active {
-      background: var(--c-accent);
-      color: var(--c-primary-darkest);
-    }
-
-    .icon {
-      fill: currentColor;
-    }
-  }
-}
 .icon {
   fill: var(--c-primary);
 }
@@ -164,3 +125,15 @@ input {
   }
 }
 </style>
+
+<script>
+import MainNavigation from '@/components/MainNavigation'
+
+export default {
+  name: `app`,
+  components: {
+    'foobarz-main-navigation': MainNavigation,
+  },
+}
+</script>
+
