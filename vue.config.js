@@ -1,9 +1,25 @@
 'use strict'
 
+const webpack = require('webpack')
+
+const serviceWorkerConfig = require('./service-worker.config.js')
+
 const isPreProd = process.env.OUTPUT_DIR === `pre-production`
 
 module.exports = {
   outputDir: isPreProd ? `dist-preprod` : `dist`,
+
+  // https://github.com/vuejs/vue-cli/issues/787#issuecomment-390899673
+  configureWebpack: {
+    plugins: [
+      new webpack.DefinePlugin({
+        'process.env': {
+          SW_NAME: JSON.stringify(serviceWorkerConfig.name),
+        },
+      }),
+    ],
+  },
+
   chainWebpack: config => {
     config.module
       .rule(`i18n`)
@@ -26,10 +42,11 @@ module.exports = {
     name: 'Foo Barz',
     themeColor: '#282D2E',
     msTileColor: '#282D2E',
+    workboxPluginMode: 'InjectManifest',
     workboxOptions: {
-      swDest: `foobarz-service-worker.js`,
+      swSrc: `src/${serviceWorkerConfig.name}`,
+      swDest: serviceWorkerConfig.name,
       importWorkboxFrom: `local`,
-      cacheId: `foobarz-cache-v1`,
     },
   },
 }

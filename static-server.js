@@ -4,6 +4,7 @@ const path = require(`path`)
 const fs = require(`fs`)
 const https = require(`https`)
 const Koa = require(`koa`)
+const cors = require('@koa/cors')
 const logger = require(`koa-logger`)
 const serveStatic = require(`koa-static`)
 
@@ -15,7 +16,24 @@ const HTTPS_OPTIONS = {
 }
 
 const app = new Koa()
+app.use(cors())
 app.use(logger())
+
+app.use(async (ctx, next) => {
+  try {
+    await next()
+    const status = ctx.status || 404
+    if (status === 404) {
+      ctx.throw(404)
+    }
+  } catch (err) {
+    ctx.status = err.status || 500
+    if (ctx.status === 404) {
+      ctx.type = `html`
+      ctx.body = fs.createReadStream(path.join(STATIC_PATH, `index.html`))
+    }
+  }
+})
 
 app.use(
   serveStatic(STATIC_PATH, {

@@ -10,7 +10,7 @@
     ],
     "headers": [
       {
-        "source": "thaime-service-worker.js",
+        "source": "foobarz-service-worker.js",
         "headers": [
           {
             "key": "Cache-Control",
