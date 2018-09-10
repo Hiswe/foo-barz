@@ -1,5 +1,6 @@
 {
   "name": "foo-barz",
+  "description": "get your foo barz bill",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -7,13 +8,13 @@
     "serve": "vue-cli-service serve",
     "serve:preprod": "node static-server.js",
     "dev": "yarn serve",
-    "build": "vue-cli-service build",
+    "build": "del-cli dist && vue-cli-service build",
     "build:icons": "yarn gulp build:icons",
-    "build:preprod": "yarn build:icons && cross-env OUTPUT_DIR=pre-production yarn build",
+    "build:ico": "png-to-ico src/assets/logo.png > public/favicon.ico",
+    "build:preprod": "del-cli dist-preprod && yarn build:icons && cross-env OUTPUT_DIR=pre-production yarn build",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "register-service-worker": "^1.0.0",
     "vue": "^2.5.17",
     "vue-i18n": "^8.0.0",
     "vue-router": "^3.0.1",
@@ -25,10 +26,10 @@
     "@koa/cors": "^2.2.2",
     "@vue/cli-plugin-babel": "^3.0.0",
     "@vue/cli-plugin-eslint": "^3.0.0",
-    "@vue/cli-plugin-pwa": "^3.0.0",
     "@vue/cli-service": "^3.0.1",
     "@vue/eslint-config-prettier": "^3.0.1",
     "cross-env": "^5.2.0",
+    "del-cli": "^1.1.0",
     "gulp": "^4.0.0",
     "gulp-cheerio": "^0.6.3",
     "gulp-if": "^2.0.2",
@@ -40,13 +41,16 @@
     "koa-logger": "^3.2.0",
     "koa-static": "^5.0.0",
     "node-sass": "^4.9.0",
+    "png-to-ico": "^2.0.0",
     "pug": "^2.0.3",
     "pug-plain-loader": "^1.0.0",
     "sass-loader": "^7.0.1",
     "shortid": "^2.2.13",
     "vue-cli-plugin-i18n": "^0.5.0",
     "vue-template-compiler": "^2.5.17",
-    "workbox-build": "^3.4.1"
+    "webpack-pwa-manifest": "^3.7.1",
+    "workbox-build": "^3.4.1",
+    "workbox-webpack-plugin": "^3.4.1"
   },
   "eslintConfig": {
     "root": true,
