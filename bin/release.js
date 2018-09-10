@@ -54,7 +54,7 @@ async function initRelease() {
     {
       type: `list`,
       name: `bumpType`,
-      message: `version number? (actual is ${pkg.version})`,
+      message: `bump type? (actual is ${pkg.version})`,
       when: data => data.bump,
       default: 0,
       choices: [
@@ -66,7 +66,7 @@ async function initRelease() {
     },
     {
       name: `version`,
-      message: `version number? (actual is ${pkg.version})`,
+      message: `please specify the custom version? (actual is ${pkg.version})`,
       when: data => data.bumpType === `custom`,
       validate: value => /\d+\.\d+\.\d+/.test(value),
     },
@@ -85,13 +85,13 @@ async function initRelease() {
     shell.exit(0)
   }
 
-  let version = false
+  let VERSION = false
   if (params.bump) {
     shell.echo(`bumping…`)
     shell.exec(`yarn bump --to=${params.version || params.bumpType}`)
     shell.echo(`✅ bumping done!`)
     const packageJSON = fs.readFileSync(path.join(__dirname, `../package.json`))
-    version = JSON.parse(packageJSON).version
+    VERSION = JSON.parse(packageJSON).version
   }
 
   ////////
@@ -193,7 +193,7 @@ async function initRelease() {
   if (!params.skipPushReleaseBranch) {
     shell.exec(`git add .`, { silent: true })
     const branchReleaseMessage = params.bump
-      ? ` – version ${params.version}`
+      ? ` – version ${VERSION}`
       : ` – unversioned`
     shell.exec(`git commit -m "RELEASE${branchReleaseMessage}"`, {
       silent: true,
@@ -217,7 +217,7 @@ async function initRelease() {
 
   if (params.bump) {
     shell.echo(`tagging version…`)
-    shell.exec(`git tag v${params.version}`, { silent: true })
+    shell.exec(`git tag v${VERSION}`, { silent: true })
     const tagPush = shell.exec(`git push --tags`, { silent: true })
     if (tagPush.code !== 0) {
       shell.echo(`❌ Error: Git tag push failed`)
