@@ -3907,6 +3907,13 @@ gulp-svg-symbols@^3.2.0:
     through2 "^2.0.1"
     vinyl "^2.2.0"
 
+gulp-svgmin@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/gulp-svgmin/-/gulp-svgmin-2.0.0.tgz#afee16f9848fd1e77f5eb5921214830d96933c3c"
+  dependencies:
+    plugin-error "^1.0.1"
+    svgo "^1.0.5"
+
 gulp@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/gulp/-/gulp-4.0.0.tgz#95766c601dade4a77ed3e7b2b6dc03881b596366"
@@ -7783,7 +7790,7 @@ sver-compat@^1.5.0:
     es6-iterator "^2.0.1"
     es6-symbol "^3.1.1"
 
-svgo@^1.0.0:
+svgo@^1.0.0, svgo@^1.0.5:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/svgo/-/svgo-1.0.5.tgz#7040364c062a0538abacff4401cea6a26a7a389a"
   dependencies:
