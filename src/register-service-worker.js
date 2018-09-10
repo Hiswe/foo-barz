@@ -1,7 +1,7 @@
 if (process.env.NODE_ENV === 'production') {
   const BASE_CLASS = `pwa-refresh-ui`
 
-  function showRefreshUI(registration) {
+  const showRefreshUI = registration => {
     const refreshContainer = document.createElement(`div`)
     refreshContainer.classList.add(BASE_CLASS)
 
@@ -41,7 +41,7 @@ if (process.env.NODE_ENV === 'production') {
   }
 
   // https://redfin.engineering/how-to-fix-the-refresh-button-when-using-service-workers-a8e27af6df68#06d3
-  function listenForWaitingServiceWorker(registration, callback) {
+  const listenForWaitingServiceWorker = (registration, callback) => {
     function awaitStateChange() {
       registration.installing.addEventListener(`statechange`, function() {
         if (this.state === 'installed') callback(registration)
@@ -61,7 +61,7 @@ if (process.env.NODE_ENV === 'production') {
     })
   }
 
-  function onRegistration(registration) {
+  const onRegistration = registration => {
     // Track updates to the Service Worker.
     if (!navigator.serviceWorker.controller) {
       // The window client isn't currently controlled so it's a new service
@@ -71,7 +71,7 @@ if (process.env.NODE_ENV === 'production') {
 
     // When the user asks to refresh the UI, we'll need to reload the window
     let preventDevToolsReloadLoop = false
-    navigator.serviceWorker.addEventListener(`controllerchange`, event => {
+    navigator.serviceWorker.addEventListener(`controllerchange`, () => {
       // Ensure refresh is only called once.
       // This works around a bug in "force update on reload".
       if (preventDevToolsReloadLoop) {
