@@ -3,6 +3,10 @@
   "description": "get your foo barz bill",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "8.11.4",
+    "yarn": "1.9.4"
+  },
   "scripts": {
     "start": "yarn build:preprod && yarn serve:preprod",
     "serve": "vue-cli-service serve",
