@@ -1,8 +1,10 @@
 'use strict'
 
 const path = require(`path`)
-const fs = require(`fs`)
 const https = require(`https`)
+const fs = require(`fs`)
+const ip = require(`ip`)
+const chalk = require(`chalk`)
 const Koa = require(`koa`)
 const cors = require('@koa/cors')
 const logger = require(`koa-logger`)
@@ -55,5 +57,7 @@ app.use(
 
 https.createServer(HTTPS_OPTIONS, app.callback()).listen(PORT, err => {
   if (err) return console.log(err)
-  console.log(`listening to https://127.0.0.1:8080`)
+  console.log(chalk.green(`https://localhost:${PORT}`))
+  console.log(chalk.green(`https://127.0.0.1:${PORT}`))
+  console.log(chalk.green(`https://${ip.address()}:${PORT}/`))
 })

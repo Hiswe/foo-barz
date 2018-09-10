@@ -27,7 +27,6 @@ module.exports = {
         description: pkg.description,
         background_color: `#000000`,
         theme_color: `#000000`,
-        publicPath: `img/icons`,
         icons: [
           {
             src: path.resolve('src/assets/logo.png'),
