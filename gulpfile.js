@@ -3,7 +3,25 @@
 const path = require('path')
 const gulp = require('gulp')
 const $ = require('gulp-load-plugins')()
-const mergeStream = require('merge-stream')
+const args = require('yargs').argv
+
+////////
+// BUMP
+////////
+
+const bump = () => {
+  if (!args.to) {
+    console.log(chalk.red(`bump task needs the --to argument`))
+    return done()
+  }
+  const isVersion = /\d+\.\d+\.\d+/.test(args.to)
+  return gulp
+    .src(`package.json`)
+    .pipe($.bump(isVersion ? { version: args.to } : { type: args.to }))
+    .pipe(gulp.dest(`.`))
+}
+bump.description = `bump`
+exports[`bump`] = bump
 
 ////////
 // ICONS
