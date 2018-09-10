@@ -4,8 +4,6 @@
   router-view
 </template>
 
-
-
 <style lang="scss">
 :root {
   --c-primary-h: 190;
@@ -136,4 +134,3 @@ export default {
   },
 }
 </script>
-

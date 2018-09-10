@@ -39,10 +39,11 @@ module.exports = {
   },
 
   pwa: {
-    name: 'Foo Barz',
-    themeColor: '#282D2E',
-    msTileColor: '#282D2E',
-    workboxPluginMode: 'InjectManifest',
+    name: `Foo Barz`,
+    themeColor: `#282D2E`,
+    msTileColor: `#FF8800`,
+    appleMobileWebAppStatusBarStyle: `black`,
+    workboxPluginMode: `InjectManifest`,
     workboxOptions: {
       swSrc: `src/${serviceWorkerConfig.name}`,
       swDest: serviceWorkerConfig.name,
