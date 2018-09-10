@@ -40,31 +40,6 @@ if (process.env.NODE_ENV === 'production') {
     document.body.appendChild(refreshContainer)
   }
 
-  function onNewServiceWorker(registration, callback) {
-    if (registration.waiting) {
-      // SW is waiting to activate. Can occur if multiple clients open and
-      // one of the clients is refreshed.
-      return callback()
-    }
-
-    function listenInstalledStateChange() {
-      registration.installing.addEventListener(`statechange`, event => {
-        if (event.target.state === `installed`) {
-          // A new service worker is available, inform the user
-          callback()
-        }
-      })
-    }
-
-    if (registration.installing) {
-      return listenInstalledStateChange()
-    }
-
-    // We are currently controlled so a new SW may be found...
-    // Add a listener in case a new SW is found,
-    registration.addEventListener(`updatefound`, listenInstalledStateChange)
-  }
-
   // https://redfin.engineering/how-to-fix-the-refresh-button-when-using-service-workers-a8e27af6df68#06d3
   function listenForWaitingServiceWorker(registration, callback) {
     function awaitStateChange() {
