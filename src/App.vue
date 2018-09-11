@@ -2,6 +2,7 @@
 #app
   foobarz-main-navigation
   router-view
+  notifications(classes="foobarz-notifications" position="bottom center")
 </template>
 
 <style lang="scss">
@@ -14,7 +15,12 @@
   --c-primary-darker: hsl(var(--c-primary-h), var(--c-primary-s), 30%);
   --c-primary-darkest: hsl(var(--c-primary-h), var(--c-primary-s), 17%);
   --c-black: hsl(var(--c-primary-h), var(--c-primary-s), 7%);
-  --c-accent: hsl(32, 100%, 50%);
+
+  --c-accent-h: 32;
+  --c-accent-s: 100%;
+  --c-accent: hsl(var(--c-accent-h), var(--c-accent-s), 50%);
+  --c-accent-lighter: hsl(var(--c-accent-h), var(--c-accent-s), 65%);
+  --c-accent-lightest: hsl(var(--c-accent-h), var(--c-accent-s), 80%);
 
   --navigation-height: 55px;
 }
@@ -77,6 +83,25 @@ input {
   &[type='number'] {
     text-align: right;
   }
+}
+
+//////
+// NOTIFICATION
+//////
+
+// override default notification styling
+// https://github.com/euvl/vue-notification/blob/master/demo/src/App.vue#L267-L287
+.notification.foobarz-notifications {
+  margin: 1rem;
+  margin-bottom: 0;
+  border-radius: 0.25em;
+  font-size: 1.5em;
+  text-align: center;
+  padding: 10px 20px;
+  color: var(--c-text);
+  background: var(--c-accent-lightest);
+  border: 0;
+  color: var(--c-black);
 }
 
 //////

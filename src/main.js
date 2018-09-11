@@ -9,12 +9,14 @@ import './register-service-worker'
 import i18n from './i18n'
 import MainContent from '@/components/MainContent'
 import SvgIcon from '@/components/ui/SvgIcons'
+import Button from '@/components/ui/Button'
 
 Vue.use(VueClipboard)
 Vue.use(VueNotifications)
 
-Vue.component(`foobars-main-content`, MainContent)
-Vue.component(`foobars-icon`, SvgIcon)
+Vue.component(`foobarz-main-content`, MainContent)
+Vue.component(`foobarz-icon`, SvgIcon)
+Vue.component(`foobarz-button`, Button)
 
 Vue.config.productionTip = false
 

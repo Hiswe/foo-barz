@@ -1,9 +1,9 @@
 <template lang="pug">
-foobars-main-content(page="settings" :title="$t(`title`)")
+foobarz-main-content(page="settings" :title="$t(`title`)")
   h2 {{ $t(`products`) }}
   form(@submit.prevent="updateProducts(products)")
     .product(v-for="(product, index) in products" :key="product.index")
-      foobars-icon.product__icon(:name="product.icon")
+      foobarz-icon.product__icon(:name="product.icon")
       input.product__name(type="text" v-model="product.name")
       input.product__price(type="number" v-model="product.price")
     button(type="submit") {{ $t(`update`) }}

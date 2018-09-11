@@ -1,5 +1,5 @@
 <template lang="pug">
-foobars-main-content(page="night" :title="$t(`title`)")
+foobarz-main-content(page="night" :title="$t(`title`)")
   dl.totals
     dt.totals__label {{ $t( 'total') }}
     dd.totals__value {{totals.all}}฿
@@ -8,7 +8,7 @@ foobars-main-content(page="night" :title="$t(`title`)")
       dd.totals__value {{totals.perPerson}}฿
 
   button.night__action.night__action--clear(@click="clearNight")
-    foobars-icon(
+    foobarz-icon(
       name="remove-shopping-cart"
       :scale="2.5"
     )
@@ -18,12 +18,12 @@ foobars-main-content(page="night" :title="$t(`title`)")
       :key="product.id"
       @click="addItem(product)"
     )
-      foobars-icon(:name="product.icon")
+      foobarz-icon(:name="product.icon")
       div {{product.price}}฿
     button.night__action.night__action--add-person(
       @click="addPerson"
     )
-      foobars-icon(name="person-add" :scale="2.5")
+      foobarz-icon(name="person-add" :scale="2.5")
   template(v-if="items.length")
     h2.night__title {{ $t('selection') }}
     div
@@ -32,7 +32,7 @@ foobars-main-content(page="night" :title="$t(`title`)")
         :key="item.id"
         @click="removeItem(item.id)"
       )
-        foobars-icon(
+        foobarz-icon(
           :name="item.icon"
         )
   template(v-if="persons.length")
@@ -43,7 +43,7 @@ foobars-main-content(page="night" :title="$t(`title`)")
           :key="person.id"
         @click="removePerson(person.id)"
       )
-        foobars-icon(
+        foobarz-icon(
           name="person"
           :scale="2.5"
         )

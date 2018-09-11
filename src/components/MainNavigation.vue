@@ -3,9 +3,9 @@ nav.main-navigation
   router-link.main-navigation__link(to="/") Barz
   router-link.main-navigation__link(to="/night") {{ $t(`night`) }}
   router-link.main-navigation__link(to="/settings")
-    foobars-icon(name="settings" :scale="1.5")
+    foobarz-icon(name="settings" :scale="1.5")
   router-link.main-navigation__link(to="/information")
-    foobars-icon(name="info" :scale="1.5")
+    foobarz-icon(name="info" :scale="1.5")
 </template>
 
 <style lang="scss" scoped>
@@ -32,7 +32,6 @@ nav.main-navigation
       background: var(--c-accent);
       color: var(--c-primary-darkest);
     }
-
     .icon {
       fill: currentColor;
     }

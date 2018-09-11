@@ -1,5 +1,5 @@
 <template lang="pug">
-foobars-main-content(page="home" title="Barz")
+foobarz-main-content(page="home" title="Barz")
   p {{$t('description')}}
   //- form.form(@submit.prevent="addBar")
   //-   label.form__label(for="bar-name") {{ $t(`new-bar`) }}
