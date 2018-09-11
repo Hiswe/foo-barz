@@ -39,6 +39,10 @@ foobars-main-content(page="settings" :title="$t(`title`)")
     align-self: center;
     justify-self: center;
   }
+  &__name,
+  &__price {
+    width: 100%;
+  }
   &__name {
     grid-area: name;
   }
