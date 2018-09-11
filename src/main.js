@@ -1,4 +1,6 @@
 import Vue from 'vue'
+import VueClipboard from 'vue-clipboard2'
+import VueNotifications from 'vue-notification'
 
 import App from './App.vue'
 import router from './router'
@@ -7,6 +9,9 @@ import './register-service-worker'
 import i18n from './i18n'
 import MainContent from '@/components/MainContent'
 import SvgIcon from '@/components/ui/SvgIcons'
+
+Vue.use(VueClipboard)
+Vue.use(VueNotifications)
 
 Vue.component(`foobars-main-content`, MainContent)
 Vue.component(`foobars-icon`, SvgIcon)
