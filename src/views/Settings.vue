@@ -6,8 +6,7 @@ foobarz-main-content(page="settings" :title="$t(`title`)")
       foobarz-icon.product__icon(:name="product.icon")
       input.product__name(type="text" v-model="product.name")
       input.product__price(type="number" v-model="product.price")
-    button(type="submit") {{ $t(`update`) }}
-  footer.version {{ $t(`version`) }} {{ version }}
+    foobarz-button(type="submit") {{ $t(`update`) }}
 </template>
 
 <i18n>
@@ -59,12 +58,6 @@ button {
   width: 100%;
   text-transform: uppercase;
   color: var(--c-primary-darkest);
-}
-.version {
-  margin-top: 2rem;
-  padding: 1rem 0 0;
-  border-top: 5px solid black;
-  text-align: center;
 }
 </style>
 
