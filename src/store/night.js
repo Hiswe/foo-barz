@@ -5,20 +5,20 @@ export const state = () => ({
     {
       id: `beer`,
       icon: `beer`,
-      name: `beer chang`,
+      name: `beer leo`,
       price: 70,
     },
     {
       id: `whisky`,
       icon: `whisky`,
       name: `sangsom`,
-      price: 400,
+      price: 375,
     },
     {
       id: `mixer`,
       icon: `water`,
       name: `mixer`,
-      price: 20,
+      price: 30,
     },
     {
       id: `ice`,
@@ -29,7 +29,7 @@ export const state = () => ({
     {
       id: `promotion`,
       icon: `promotion`,
-      name: `promotion – 3 beers & ice`,
+      name: `promotion – 3 beers`,
       price: 200,
     },
   ],
@@ -51,12 +51,12 @@ export const getters = {
 }
 
 export const mutations = {
-  EDIT_PRODUCT(state, products) {
-    state.products = products.map(product => {
-      product.price = ~~product.price
-      return product
-    })
-  },
+  // EDIT_PRODUCT(state, products) {
+  //   state.products = products.map(product => {
+  //     product.price = ~~product.price
+  //     return product
+  //   })
+  // },
   ADD_ITEM(state, product) {
     if (!state.products.includes(product)) return
     state.items.push({

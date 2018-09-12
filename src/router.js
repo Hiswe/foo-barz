@@ -22,10 +22,16 @@ export default new Router({
         import(/* webpackChunkName: "night" */ './views/Night.vue'),
     },
     {
-      path: '/settings',
-      name: 'settings',
+      path: '/articles',
+      name: 'articles',
       component: () =>
-        import(/* webpackChunkName: "settings" */ './views/Settings.vue'),
+        import(/* webpackChunkName: "settings" */ './views/Articles.vue'),
+    },
+    {
+      path: '/articles/:id',
+      name: 'edit-articles',
+      component: () =>
+        import(/* webpackChunkName: "settings" */ './views/ArticlesNewEdit.vue'),
     },
     {
       path: '/information',

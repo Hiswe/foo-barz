@@ -2,7 +2,7 @@
 nav.main-navigation
   router-link.main-navigation__link(to="/") Barz
   router-link.main-navigation__link(to="/night") {{ $t(`night`) }}
-  router-link.main-navigation__link(to="/settings")
+  router-link.main-navigation__link(to="/articles")
     foobarz-icon(name="settings" :scale="1.5")
   router-link.main-navigation__link(to="/information")
     foobarz-icon(name="info" :scale="1.5")
