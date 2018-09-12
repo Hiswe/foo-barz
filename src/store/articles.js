@@ -8,10 +8,8 @@ export const state = () => ({
 export const mutations = {
   ARTICLE_UPDATE(state, payload) {
     state.list = state.list.map(article => {
-      if (article.id === payload.id) {
-        return Object.assign({}, article, payload)
-      }
-      return article
+      if (article.id !== payload.id) return article
+      return Object.assign({}, article, payload)
     })
   },
 }

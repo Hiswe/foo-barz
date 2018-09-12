@@ -26,6 +26,13 @@ export const mutations = {
       articleId: payload.id,
     })
   },
+  ARTICLE_UPDATE(state, payload) {
+    state.items = state.items.map(item => {
+      if (!item.articleId === payload.id) return item
+      const { id, ...cleanedPayload } = payload
+      return Object.assign({}, item, cleanedPayload)
+    })
+  },
   REMOVE_ITEM(state, itemId) {
     state.items = state.items.filter(item => item.id !== itemId)
   },

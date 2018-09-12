@@ -1,7 +1,7 @@
 <template lang="pug">
   .input
     foobarz-icon.input__decrement(
-      v-if="type === `number`"
+      v-if="isNumber"
       name="remove-circle"
       :scale="2"
       @click.native="decrement"
@@ -9,10 +9,10 @@
     input.input__field(
       :type="type"
       :value="value"
-      @input="$emit('input', $event.target.value)"
+      @input="onInput"
     )
     foobarz-icon.input__increment(
-      v-if="type === `number`"
+      v-if="isNumber"
       name="add-circle"
       :scale="2"
       @click.native="increment"
@@ -58,6 +58,11 @@
 <script>
 export default {
   name: `foobarz-input`,
+  computed: {
+    isNumber() {
+      return this.type === `number`
+    },
+  },
   props: {
     type: {
       type: String,
@@ -72,6 +77,11 @@ export default {
     },
   },
   methods: {
+    onInput($event) {
+      let { value } = $event.target
+      value = this.isNumber ? ~~value : value
+      this.$emit('input', value)
+    },
     increment() {
       this.$emit('input', this.value + 10)
     },
