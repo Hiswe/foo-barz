@@ -14,6 +14,7 @@ button.foobarz-button(:type="type")
   text-transform: uppercase;
   color: var(--c-primary-darkest);
   transition: transform 0.25s;
+  border-radius: 0.25rem;
 
   &:active {
     transform: translateY(3px);
