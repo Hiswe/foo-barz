@@ -38,11 +38,22 @@ test('adding an item to the night update the total', t => {
   })
 })
 
-test('adding more than 1 people get a per person price', t => {
-  const { store, testArticle } = t.context
-
-  store.commit(`ADD_ITEM`, testArticle)
+test('adding the 1st person add two (and the opposite is true)', t => {
+  const { store } = t.context
+  t.is(store.state.night.persons.length, 0)
   store.commit(`ADD_PERSON`)
+  t.is(store.state.night.persons.length, 2)
+  store.commit(`ADD_PERSON`)
+  t.is(store.state.night.persons.length, 3)
+  store.commit(`REMOVE_PERSON`, store.state.night.persons[0].id)
+  t.is(store.state.night.persons.length, 2)
+  store.commit(`REMOVE_PERSON`, store.state.night.persons[0].id)
+  t.is(store.state.night.persons.length, 0)
+})
+
+test('having more than 1 person get a per person price', t => {
+  const { store, testArticle } = t.context
+  store.commit(`ADD_ITEM`, testArticle)
   store.commit(`ADD_PERSON`)
   t.deepEqual(store.getters.totals, {
     all: testArticle.price,

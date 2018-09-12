@@ -41,11 +41,22 @@ export const mutations = {
     state.persons = []
   },
   ADD_PERSON(state) {
+    if (!state.persons.length) {
+      return (state.persons = [
+        {
+          id: shortid.generate(),
+        },
+        {
+          id: shortid.generate(),
+        },
+      ])
+    }
     state.persons.push({
       id: shortid.generate(),
     })
   },
   REMOVE_PERSON(state, personId) {
+    if (state.persons.length < 3) return (state.persons = [])
     state.persons = state.persons.filter(person => person.id !== personId)
   },
 }
