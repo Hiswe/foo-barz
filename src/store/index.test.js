@@ -1,4 +1,3 @@
-import util from 'util'
 import test from 'ava'
 import { createLocalVue } from '@vue/test-utils'
 import Vuex from 'vuex'
