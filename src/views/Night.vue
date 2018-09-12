@@ -14,12 +14,12 @@ foobarz-main-content(page="night" :title="$t(`title`)")
     )
   menu.night__items
     button.night__action(
-      v-for="product in products"
-      :key="product.id"
-      @click="addItem(product)"
+      v-for="article in articles"
+      :key="article.id"
+      @click="addItem(article)"
     )
-      foobarz-icon(:name="product.icon")
-      div {{product.price}}฿
+      foobarz-icon(:name="article.icon")
+      div {{article.price}}฿
     button.night__action.night__action--add-person(
       @click="addPerson"
     )
@@ -119,24 +119,30 @@ foobarz-main-content(page="night" :title="$t(`title`)")
 </i18n>
 
 <script>
-import { mapState, mapMutations, mapGetters } from 'vuex'
+import { mapState, mapMutations, mapActions, mapGetters } from 'vuex'
 
 export default {
   name: `page-night`,
   computed: {
     ...mapState({
+      articles: state => state.articles.list,
       products: state => state.night.products,
       items: state => state.night.items,
       persons: state => state.night.persons,
     }),
     ...mapGetters([`totals`]),
   },
-  methods: mapMutations({
-    addItem: `ADD_ITEM`,
-    clearNight: `CLEAR_NIGHT`,
-    removeItem: `REMOVE_ITEM`,
-    addPerson: `ADD_PERSON`,
-    removePerson: `REMOVE_PERSON`,
-  }),
+  methods: {
+    ...mapMutations({
+      // addItem: `ADD_ITEM`,
+      clearNight: `CLEAR_NIGHT`,
+      removeItem: `REMOVE_ITEM`,
+      addPerson: `ADD_PERSON`,
+      removePerson: `REMOVE_PERSON`,
+    }),
+    ...mapActions({
+      addItem: `ADD_ITEM`,
+    }),
+  },
 }
 </script>

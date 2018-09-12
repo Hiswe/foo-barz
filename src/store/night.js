@@ -1,38 +1,6 @@
 import shortid from 'shortid'
 
 export const state = () => ({
-  products: [
-    {
-      id: `beer`,
-      icon: `beer`,
-      name: `beer leo`,
-      price: 70,
-    },
-    {
-      id: `whisky`,
-      icon: `whisky`,
-      name: `sangsom`,
-      price: 375,
-    },
-    {
-      id: `mixer`,
-      icon: `water`,
-      name: `mixer`,
-      price: 30,
-    },
-    {
-      id: `ice`,
-      icon: `bucket`,
-      name: `ice bucket`,
-      price: 30,
-    },
-    {
-      id: `promotion`,
-      icon: `promotion`,
-      name: `promotion – 3 beers`,
-      price: 200,
-    },
-  ],
   items: [],
   persons: [],
 })
@@ -51,17 +19,11 @@ export const getters = {
 }
 
 export const mutations = {
-  // EDIT_PRODUCT(state, products) {
-  //   state.products = products.map(product => {
-  //     product.price = ~~product.price
-  //     return product
-  //   })
-  // },
-  ADD_ITEM(state, product) {
-    if (!state.products.includes(product)) return
+  ADD_ITEM(state, payload) {
     state.items.push({
-      ...product,
+      ...payload,
       id: shortid.generate(),
+      articleId: payload.id,
     })
   },
   REMOVE_ITEM(state, itemId) {
@@ -78,5 +40,12 @@ export const mutations = {
   },
   REMOVE_PERSON(state, personId) {
     state.persons = state.persons.filter(person => person.id !== personId)
+  },
+}
+
+export const actions = {
+  ADD_ITEM({ rootState, commit }, payload) {
+    if (!rootState.articles.list.includes(payload)) return
+    commit(`ADD_ITEM`, payload)
   },
 }
