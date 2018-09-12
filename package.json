@@ -2,7 +2,7 @@
   "name": "foo-barz",
   "description": "get your foo barz bill",
   "homepage": "https://foo-barz-7d9a2.firebaseapp.com/",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "private": true,
   "engines": {
     "node": "8.11.4",
