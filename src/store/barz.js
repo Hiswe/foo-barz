@@ -3,7 +3,7 @@ export const state = () => ({
 })
 
 export const mutations = {
-  ADD(state, name) {
+  ADD_BAR(state, name) {
     if (typeof name !== `string`) return
     name = name.trim()
     if (!(name.length > 0)) return
