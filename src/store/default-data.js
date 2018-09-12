@@ -1,4 +1,4 @@
-export const products = [
+export const articles = [
   {
     id: `ctFq_MtBE`,
     icon: `beer`,

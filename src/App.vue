@@ -68,24 +68,6 @@ button {
 }
 
 //////
-// FORM
-//////
-
-input {
-  display: block;
-  background: none;
-  border: 2px solid var(--c-primary);
-  padding: 0.25rem 0.5rem;
-
-  &:focus {
-    border-color: var(--c-primary-lighter);
-  }
-  &[type='number'] {
-    text-align: right;
-  }
-}
-
-//////
 // NOTIFICATION
 //////
 

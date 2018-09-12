@@ -1,17 +1,17 @@
-import shortid from 'shortid'
-
-import { products, icons } from './default-data'
+import { articles, icons } from './default-data'
 
 export const state = () => ({
-  list: products,
+  list: articles,
   icons: icons,
 })
 
 export const mutations = {
-  EDIT_PRODUCT(state, product) {
-    // state.products = products.map(product => {
-    //   product.price = ~~product.price
-    //   return product
-    // })
+  ARTICLE_UPDATE(state, payload) {
+    state.list = state.list.map(article => {
+      if (article.id === payload.id) {
+        return Object.assign({}, article, payload)
+      }
+      return article
+    })
   },
 }
