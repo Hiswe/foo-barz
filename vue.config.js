@@ -13,6 +13,8 @@ const isPreProd = process.env.OUTPUT_DIR === `pre-production`
 module.exports = {
   outputDir: isPreProd ? `dist-preprod` : `dist`,
 
+  lintOnSave: false,
+
   // https://github.com/vuejs/vue-cli/issues/787#issuecomment-390899673
   configureWebpack: {
     plugins: [
