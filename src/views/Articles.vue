@@ -27,7 +27,7 @@ foobarz-main-content(page="articles" :title="$t(`title`)")
   text-align: center;
   display: grid;
   grid-gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(min-content, 170px));
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
 
   &__item {
     display: flex;
