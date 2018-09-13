@@ -15,31 +15,31 @@ self.__precacheManifest = [
     "url": "/img/icons/safari-pinned-tab.svg"
   },
   {
-    "revision": "2ffc1a351ba0a8cdaa21",
-    "url": "/js/information.69a10228.js"
+    "revision": "e745d608890a34fe4bdd",
+    "url": "/js/information.cbf1495e.js"
   },
   {
-    "revision": "eac0849aee8845b0dd27",
-    "url": "/js/app.be45594c.js"
+    "revision": "c0b10b697b0db75ccb1d",
+    "url": "/js/app.b73c0e22.js"
   },
   {
     "revision": "8c573f3479ca212a69ef",
     "url": "/js/night.6859bc26.js"
   },
   {
-    "revision": "3ed337168c2e95dc9043c1cc8c0e2c1b",
+    "revision": "1819569df21a80f87105a38d55d40241",
     "url": "/index.html"
   },
   {
-    "revision": "7621a3a47485f1d7adbf",
-    "url": "/js/settings.bb3a1e00.js"
+    "revision": "32f4070c17e2db825030",
+    "url": "/js/settings.8d80acae.js"
   },
   {
     "url": "/img/icons/icon_384x384.434a8ff39838fe5c388f120ad5ea74ed.png"
   },
   {
-    "revision": "7621a3a47485f1d7adbf",
-    "url": "/css/settings.738df292.css"
+    "revision": "32f4070c17e2db825030",
+    "url": "/css/settings.3ae197ea.css"
   },
   {
     "url": "/img/icons/icon_120x120.e452fd22066243b560fc64951fe738cc.png"
@@ -65,11 +65,11 @@ self.__precacheManifest = [
     "url": "/css/night.4dcdcba4.css"
   },
   {
-    "revision": "2ffc1a351ba0a8cdaa21",
+    "revision": "e745d608890a34fe4bdd",
     "url": "/css/information.f1572333.css"
   },
   {
-    "revision": "eac0849aee8845b0dd27",
-    "url": "/css/app.d97426a6.css"
+    "revision": "c0b10b697b0db75ccb1d",
+    "url": "/css/app.a0cd869b.css"
   }
 ];
