@@ -126,6 +126,7 @@ export default {
   methods: {
     createUpdateBar() {
       this.UPDATE_BAR(this.bar)
+      this.$router.push({ name: `home` })
     },
     openEditPanel(index) {
       if (this.editArticle === index) {

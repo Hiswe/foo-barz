@@ -29,6 +29,12 @@ export default new Router({
         import(/* webpackChunkName: "night" */ './views/Night.vue'),
     },
     {
+      path: '/night/:barId/:id',
+      name: 'night',
+      component: () =>
+        import(/* webpackChunkName: "night" */ './views/Night.vue'),
+    },
+    {
       path: '/articles',
       name: 'articles',
       component: () =>

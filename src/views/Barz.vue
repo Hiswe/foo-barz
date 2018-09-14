@@ -5,16 +5,18 @@ foobarz-main-content(page="barz" title="Barz")
     li.barz__item(
       v-for="bar in barz"
       :key="bar.id"
-      @click="edit(bar.id)"
     )
       span.barz__name {{bar.name}}
       span.barz__action.barz__action--remove(
         v-if="!bar.isDefault"
         @click.stop="remove(bar.id)"
       ): foobarz-icon(name="delete-forever" :scale="1.25")
-      span.barz__action.barz__action--edit(
-        @click="edit(bar.id)"
+      router-link.barz__action.barz__action--edit(
+        :to="`/barz/${bar.id}`"
       ): foobarz-icon(name="edit" :scale="1.25")
+      router-link.barz__action.barz__action--new-night(
+        :to="`/night/${bar.id}/new`"
+      ): foobarz-icon(name="new-night" :scale="1.15")
   router-link(to="/barz/new") {{ $t(`new-bar`) }}
 
 </template>
@@ -67,9 +69,6 @@ export default {
     }),
   },
   methods: {
-    edit(barId) {
-      this.$router.push(`/barz/${barId}`)
-    },
     remove(barId) {
       this.REMOVE_BAR(barId)
     },
