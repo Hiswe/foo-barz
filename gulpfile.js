@@ -30,7 +30,7 @@ exports[`bump`] = bump
 const materialName = /(?:outline|baseline)-([^\d]*)-[\d]+px/
 const icons = () => {
   return gulp
-    .src(`./src/assets-source/icons/*.svg`)
+    .src(`./assets-source/icons/*.svg`)
     .pipe(
       $.svgmin(file => {
         const { relative } = file
