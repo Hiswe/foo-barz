@@ -108,6 +108,42 @@ const SVG_LIB = {
     'viewBox': `0 0 24 24`,
     content: ` <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/> `,
   },
+  "color-lens": {
+    id: `color-lens`,
+    class: [
+      `icon`,
+      `icon--color-lens`,
+    ],
+    preserveAspectRatio: ``,
+    width: {size: 24, unit: `px`},
+    height: {size: 24, unit: `px`},
+    'viewBox': `0 0 24 24`,
+    content: ` <g> <path d="M12 22C6.49 22 2 17.51 2 12S6.49 2 12 2s10 4.04 10 9c0 3.31-2.69 6-6 6h-1.77c-.28 0-.5.22-.5.5 0 .12.05.23.13.33.41.47.64 1.06.64 1.67A2.5 2.5 0 0 1 12 22zm0-18c-4.41 0-8 3.59-8 8s3.59 8 8 8c.28 0 .5-.22.5-.5a.54.54 0 0 0-.14-.35c-.41-.46-.63-1.05-.63-1.65a2.5 2.5 0 0 1 2.5-2.5H16c2.21 0 4-1.79 4-4 0-3.86-3.59-7-8-7z"/> <circle cx="6.5" cy="11.5" r="1.5"/> <circle cx="9.5" cy="7.5" r="1.5"/> <circle cx="14.5" cy="7.5" r="1.5"/> <circle cx="17.5" cy="11.5" r="1.5"/> </g> `,
+  },
+  "delete-forever": {
+    id: `delete-forever`,
+    class: [
+      `icon`,
+      `icon--delete-forever`,
+    ],
+    preserveAspectRatio: ``,
+    width: {size: 24, unit: `px`},
+    height: {size: 24, unit: `px`},
+    'viewBox': `0 0 24 24`,
+    content: ` <g> <path d="M14.12 10.47L12 12.59l-2.13-2.12-1.41 1.41L10.59 14l-2.12 2.12 1.41 1.41L12 15.41l2.12 2.12 1.41-1.41L13.41 14l2.12-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4z"/> <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM8 9h8v10H8V9z"/> </g> `,
+  },
+  "edit": {
+    id: `edit`,
+    class: [
+      `icon`,
+      `icon--edit`,
+    ],
+    preserveAspectRatio: ``,
+    width: {size: 24, unit: `px`},
+    height: {size: 24, unit: `px`},
+    'viewBox': `0 0 24 24`,
+    content: ` <g> <path d="M14.06 9.02l.92.92L5.92 19H5v-.92l9.06-9.06M17.66 3c-.25 0-.51.1-.7.29l-1.83 1.83 3.75 3.75 1.83-1.83a.996.996 0 0 0 0-1.41l-2.34-2.34c-.2-.2-.45-.29-.71-.29zm-3.6 3.19L3 17.25V21h3.75L17.81 9.94l-3.75-3.75z"/> </g> `,
+  },
   "info": {
     id: `info`,
     class: [

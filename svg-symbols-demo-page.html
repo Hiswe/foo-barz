@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>17 Symbols</title>
+  <title>20 Symbols</title>
   <meta name="viewport" content="width=device-width" />
   <style>
     html {
@@ -419,6 +419,21 @@
       height: 24px;
     }
     
+    .gss-showOriginal .gss-iconbox #gss-icon-color-lens {
+      width: 24px;
+      height: 24px;
+    }
+    
+    .gss-showOriginal .gss-iconbox #gss-icon-delete-forever {
+      width: 24px;
+      height: 24px;
+    }
+    
+    .gss-showOriginal .gss-iconbox #gss-icon-edit {
+      width: 24px;
+      height: 24px;
+    }
+    
     .gss-showOriginal .gss-iconbox #gss-icon-info {
       width: 24px;
       height: 24px;
@@ -497,6 +512,15 @@
   <symbol id="add-circle" viewBox="0 0 24 24">
      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/> 
   </symbol>
+  <symbol id="color-lens" viewBox="0 0 24 24">
+     <g> <path d="M12 22C6.49 22 2 17.51 2 12S6.49 2 12 2s10 4.04 10 9c0 3.31-2.69 6-6 6h-1.77c-.28 0-.5.22-.5.5 0 .12.05.23.13.33.41.47.64 1.06.64 1.67A2.5 2.5 0 0 1 12 22zm0-18c-4.41 0-8 3.59-8 8s3.59 8 8 8c.28 0 .5-.22.5-.5a.54.54 0 0 0-.14-.35c-.41-.46-.63-1.05-.63-1.65a2.5 2.5 0 0 1 2.5-2.5H16c2.21 0 4-1.79 4-4 0-3.86-3.59-7-8-7z"/> <circle cx="6.5" cy="11.5" r="1.5"/> <circle cx="9.5" cy="7.5" r="1.5"/> <circle cx="14.5" cy="7.5" r="1.5"/> <circle cx="17.5" cy="11.5" r="1.5"/> </g> 
+  </symbol>
+  <symbol id="delete-forever" viewBox="0 0 24 24">
+     <g> <path d="M14.12 10.47L12 12.59l-2.13-2.12-1.41 1.41L10.59 14l-2.12 2.12 1.41 1.41L12 15.41l2.12 2.12 1.41-1.41L13.41 14l2.12-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4z"/> <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM8 9h8v10H8V9z"/> </g> 
+  </symbol>
+  <symbol id="edit" viewBox="0 0 24 24">
+     <g> <path d="M14.06 9.02l.92.92L5.92 19H5v-.92l9.06-9.06M17.66 3c-.25 0-.51.1-.7.29l-1.83 1.83 3.75 3.75 1.83-1.83a.996.996 0 0 0 0-1.41l-2.34-2.34c-.2-.2-.45-.29-.71-.29zm-3.6 3.19L3 17.25V21h3.75L17.81 9.94l-3.75-3.75z"/> </g> 
+  </symbol>
   <symbol id="info" viewBox="0 0 24 24">
      <path d="M11 7h2v2h-2zM11 11h2v6h-2z"/> <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/> 
   </symbol>
@@ -529,13 +553,13 @@
   </symbol>
 </svg>
 <header class="gss-toolbar">
-  <h1>17 Symbols</h1>
+  <h1>20 Symbols</h1>
   <button class="gss-toolbar-list">
     <svg aria-label="Compact" width="15" height="15"><use xlink:href="#gss-icon-list"></use>
     </svg> List
   </button>
   <input class="gss-toolbar-filter" type="search"
-         placeholder="Filter 17 symbols…"
+         placeholder="Filter 20 symbols…"
          aria-label="Filter by id" title="Filter by id">
   <button class="gss-toolbar-orig" data-toggle-class="gss-showOriginal">Original Size</button>
   <button class="gss-toolbar-outl" data-toggle-class="gss-showColor">Test Color</button>
@@ -796,6 +820,93 @@
       <div class="gss-iconbox-code">
         <code>&lt;svg role=&quot;img&quot; class=&quot;add-circle&quot;&gt;
   &lt;use xlink:href=&quot;#add-circle&quot;&gt;&lt;/use&gt;
+&lt;/svg&gt;</code>
+      </div>
+    </div>
+    <div class="gss-iconbox-action">
+      <button data-action="copy">Copy</button>
+      <button data-action="info">Show</button>
+    </div>
+  </div>
+  <div class="gss-iconbox gss-searchable"
+       id="gss-iconbox-color-lens"
+       data-search="color-lens color-lens 24x24 <1 <2 <3 <4 <5 <6 <7 <8 <9">
+    <div class="gss-iconbox-header">
+      <h2>color-lens</h2>
+      <span>0.5&thinsp;kB</span>
+    </div>
+    <p class="gss-iconbox-head2">
+      <span>color-lens.svg</span>
+      <span>24&thinsp;×&thinsp;24</span>
+      <span>549&thinsp;B</span>
+    </p>
+    <div class="gss-iconbox-wrapper">
+      <div class="gss-iconbox-icon" data-dimensions="24&thinsp;×&thinsp;24">
+        <svg role="img" id="gss-icon-color-lens">
+          <use xlink:href="#color-lens"></use>
+        </svg>
+      </div>
+      <div class="gss-iconbox-code">
+        <code>&lt;svg role=&quot;img&quot; class=&quot;color-lens&quot;&gt;
+  &lt;use xlink:href=&quot;#color-lens&quot;&gt;&lt;/use&gt;
+&lt;/svg&gt;</code>
+      </div>
+    </div>
+    <div class="gss-iconbox-action">
+      <button data-action="copy">Copy</button>
+      <button data-action="info">Show</button>
+    </div>
+  </div>
+  <div class="gss-iconbox gss-searchable"
+       id="gss-iconbox-delete-forever"
+       data-search="delete-forever delete-forever 24x24 <1 <2 <3 <4 <5 <6 <7 <8 <9">
+    <div class="gss-iconbox-header">
+      <h2>delete-forever</h2>
+      <span>0.3&thinsp;kB</span>
+    </div>
+    <p class="gss-iconbox-head2">
+      <span>delete-forever.svg</span>
+      <span>24&thinsp;×&thinsp;24</span>
+      <span>309&thinsp;B</span>
+    </p>
+    <div class="gss-iconbox-wrapper">
+      <div class="gss-iconbox-icon" data-dimensions="24&thinsp;×&thinsp;24">
+        <svg role="img" id="gss-icon-delete-forever">
+          <use xlink:href="#delete-forever"></use>
+        </svg>
+      </div>
+      <div class="gss-iconbox-code">
+        <code>&lt;svg role=&quot;img&quot; class=&quot;delete-forever&quot;&gt;
+  &lt;use xlink:href=&quot;#delete-forever&quot;&gt;&lt;/use&gt;
+&lt;/svg&gt;</code>
+      </div>
+    </div>
+    <div class="gss-iconbox-action">
+      <button data-action="copy">Copy</button>
+      <button data-action="info">Show</button>
+    </div>
+  </div>
+  <div class="gss-iconbox gss-searchable"
+       id="gss-iconbox-edit"
+       data-search="edit edit 24x24 <1 <2 <3 <4 <5 <6 <7 <8 <9">
+    <div class="gss-iconbox-header">
+      <h2>edit</h2>
+      <span>0.3&thinsp;kB</span>
+    </div>
+    <p class="gss-iconbox-head2">
+      <span>edit.svg</span>
+      <span>24&thinsp;×&thinsp;24</span>
+      <span>284&thinsp;B</span>
+    </p>
+    <div class="gss-iconbox-wrapper">
+      <div class="gss-iconbox-icon" data-dimensions="24&thinsp;×&thinsp;24">
+        <svg role="img" id="gss-icon-edit">
+          <use xlink:href="#edit"></use>
+        </svg>
+      </div>
+      <div class="gss-iconbox-code">
+        <code>&lt;svg role=&quot;img&quot; class=&quot;edit&quot;&gt;
+  &lt;use xlink:href=&quot;#edit&quot;&gt;&lt;/use&gt;
 &lt;/svg&gt;</code>
       </div>
     </div>

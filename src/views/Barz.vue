@@ -1,13 +1,20 @@
 <template lang="pug">
 foobarz-main-content(page="barz" title="Barz")
   p {{$t('description')}}
-  .barz
-    router-link.barz__item(
+  ul.barz
+    li.barz__item(
       v-for="bar in barz"
       :key="bar.id"
-      :to="`/barz/${bar.id}`"
+      @click="edit(bar.id)"
     )
       span.barz__name {{bar.name}}
+      span.barz__action.barz__action--remove(
+        v-if="!bar.isDefault"
+        @click.stop="remove(bar.id)"
+      ): foobarz-icon(name="delete-forever" :scale="1.25")
+      span.barz__action.barz__action--edit(
+        @click="edit(bar.id)"
+      ): foobarz-icon(name="edit" :scale="1.25")
   router-link(to="/barz/new") {{ $t(`new-bar`) }}
 
 </template>
@@ -21,9 +28,18 @@ foobarz-main-content(page="barz" title="Barz")
   &__item {
     color: currentColor;
     text-decoration: none;
-    display: inline-block;
+    display: flex;
     border: 1px solid var(--c-primary);
     padding: 1em;
+  }
+  &__name {
+    margin-right: auto;
+  }
+  &__action {
+    margin-left: 1rem;
+    &--remove .icon {
+      fill: red;
+    }
   }
 }
 </style>
@@ -38,7 +54,7 @@ foobarz-main-content(page="barz" title="Barz")
 </i18n>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapMutations } from 'vuex'
 
 export default {
   name: 'page-barz',
@@ -49,6 +65,15 @@ export default {
     ...mapState({
       barz: state => state.barz.list,
     }),
+  },
+  methods: {
+    edit(barId) {
+      this.$router.push(`/barz/${barId}`)
+    },
+    remove(barId) {
+      this.REMOVE_BAR(barId)
+    },
+    ...mapMutations([`REMOVE_BAR`]),
   },
 }
 </script>
