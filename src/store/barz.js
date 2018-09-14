@@ -25,7 +25,7 @@ export const mutations = {
     payload.name = payload.name.trim()
     const barIndex = state.list.findIndex(bar => bar.id === payload.id)
     if (barIndex < 0) return state.list.push(payload)
-    state.list = cloneDeep(state.list.splice(barIndex, 1, payload))
+    state.list.splice(barIndex, 1, payload)
   },
   REMOVE_BAR(state, payload) {
     const bar = state.list.find(bar => bar.id === payload)
