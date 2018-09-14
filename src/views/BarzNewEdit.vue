@@ -36,7 +36,7 @@ export default {
     const { id } = this.$route.params
     if (id === `new`) {
       this.isNew = true
-      return (this.bar = this.$store.getters.blankBar)
+      return (this.bar = this.$store.getters.blankBar())
     }
     const bar = this.$store.state.barz.list.find(bar => bar.id === id)
     if (!bar) return this.$router.push({ name: `404` })

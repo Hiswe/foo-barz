@@ -4,7 +4,7 @@ import cloneDeep from 'lodash.clonedeep'
 import * as defaultData from './default-data'
 
 export const getters = {
-  blankBar() {
+  blankBar: () => () => {
     return {
       name: `new-bar`,
       id: shortid.generate(),
