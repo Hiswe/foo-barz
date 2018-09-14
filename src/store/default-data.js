@@ -48,18 +48,22 @@ export const bar = {
 export const icons = [
   {
     id: `3di0TB3TT`,
-    iconName: `beer`,
+    name: `beer`,
   },
   {
     id: `eNc8GKOWP`,
-    iconName: `whisky`,
+    name: `whisky`,
+  },
+  {
+    id: `ig_yZ7meQ`,
+    name: `bucket`,
   },
   {
     id: `9Jn_cJqXl`,
-    iconName: `water`,
+    name: `water`,
   },
   {
     id: `2LEQRlbIj`,
-    iconName: `promotion`,
+    name: `promotion`,
   },
 ]

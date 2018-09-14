@@ -1,5 +1,4 @@
 import shortid from 'shortid'
-import cloneDeep from 'lodash.clonedeep'
 
 import * as defaultData from './default-data'
 

@@ -18,6 +18,8 @@ foobarz-main-content(page="barz-new-edit" :title="title")
         )
           foobarz-input.articles__edit-name(v-model="article.name")
           foobarz-input.articles__edit-price(type="number" v-model="article.price")
+          foobarz-color-picker(v-model="article.color")
+          foobarz-icon-picker(v-model="article.icon")
 
     foobarz-button(type="submit")
       | {{ $t(isNew ? `submit-new`: `submit-update`) }}
@@ -84,8 +86,15 @@ foobarz-main-content(page="barz-new-edit" :title="title")
 import cloneDeep from 'lodash.clonedeep'
 import { mapMutations } from 'vuex'
 
+import ColorPicker from '@/components/ui/ColorPicker'
+import IconPicker from '@/components/ui/IconPicker'
+
 export default {
   name: `page-bar`,
+  components: {
+    'foobarz-color-picker': ColorPicker,
+    'foobarz-icon-picker': IconPicker,
+  },
   data() {
     return {
       editArticle: false,
