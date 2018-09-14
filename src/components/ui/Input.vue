@@ -47,10 +47,10 @@
     }
   }
   &__decrement {
-    margin-right: 1rem;
+    margin-right: 0.5rem;
   }
   &__increment {
-    margin-left: 1rem;
+    margin-left: 0.5rem;
   }
 }
 </style>

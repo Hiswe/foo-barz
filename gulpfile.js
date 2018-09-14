@@ -59,6 +59,9 @@ const icons = () => {
           $(`path[fill=none]`).remove()
           $(`rect[fill=none]`).remove()
           $(`rect[style="fill:none;"]`).remove()
+          $(`[fill="#e0f"]`)
+            .removeAttr(`fill`)
+            .addClass(`icon-secondary-color`)
 
           const $clipPath = $(`clipPath`)
           let $defs = $(`defs`)

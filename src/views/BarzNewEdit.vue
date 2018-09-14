@@ -16,10 +16,10 @@ foobarz-main-content(page="barz-new-edit" :title="title")
           :key="`${article.id}-edit`"
           v-if="editArticle === index"
         )
+          foobarz-icon-picker(v-model="article.icon")
+          foobarz-color-picker(v-model="article.color")
           foobarz-input.articles__edit-name(v-model="article.name")
           foobarz-input.articles__edit-price(type="number" v-model="article.price")
-          foobarz-color-picker(v-model="article.color")
-          foobarz-icon-picker(v-model="article.icon")
 
     foobarz-button(type="submit")
       | {{ $t(isNew ? `submit-new`: `submit-update`) }}
