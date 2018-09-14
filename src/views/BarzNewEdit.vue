@@ -9,7 +9,10 @@ foobarz-main-content(page="barz-new-edit" :title="title")
           @click="openEditPanel(index)"
         )
           span.articles__icon
-            foobarz-icon(:name="article.icon")
+            foobarz-icon(
+              :name="article.icon"
+              :style="{'--secondary-color': article.color}"
+            )
           span.articles__name {{ article.name }}
           span.articles__price {{article.price}}฿
         dd.articles__edit(

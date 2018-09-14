@@ -66,6 +66,9 @@ button {
 .icon {
   fill: var(--c-primary);
 }
+.icon-secondary-color {
+  fill: var(--secondary-color, --c-primary);
+}
 
 //////
 // NOTIFICATION
