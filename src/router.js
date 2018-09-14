@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Barz from './views/Barz.vue'
+import NotFound from './views/NotFound.vue'
 
 Vue.use(Router)
 
@@ -25,7 +26,7 @@ export default new Router({
       path: '/articles',
       name: 'articles',
       component: () =>
-        import(/* webpackChunkName: "settings" */ './views/Articles.vue'),
+        import(/* webpackChunkName: "articles" */ './views/Articles.vue'),
     },
     {
       path: '/articles/:id',
@@ -38,6 +39,11 @@ export default new Router({
       name: 'information',
       component: () =>
         import(/* webpackChunkName: "information" */ './views/Information.vue'),
+    },
+    {
+      path: '*',
+      name: '404',
+      component: NotFound,
     },
   ],
 })
