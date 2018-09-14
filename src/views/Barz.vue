@@ -1,9 +1,14 @@
 <template lang="pug">
-foobarz-main-content(page="home" title="Barz")
+foobarz-main-content(page="barz" title="Barz")
   p {{$t('description')}}
-  ul.barz
-    li.barz__item(v-for="bar in barz")
-      p.barz__name {{bar.name}}
+  .barz
+    router-link.barz__item(
+      v-for="bar in barz"
+      :key="bar.id"
+      :to="`/barz/${bar.id}`"
+    )
+      span.barz__name {{bar.name}}
+  router-link(to="/barz/new") {{ $t(`new-bar`) }}
 
 </template>
 
@@ -12,6 +17,14 @@ foobarz-main-content(page="home" title="Barz")
   list-style: none;
   margin: 0;
   padding: 0;
+
+  &__item {
+    color: currentColor;
+    text-decoration: none;
+    display: inline-block;
+    border: 1px solid var(--c-primary);
+    padding: 1em;
+  }
 }
 </style>
 

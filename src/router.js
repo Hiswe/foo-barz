@@ -14,11 +14,17 @@ export default new Router({
       component: Barz,
     },
     {
-      path: '/night',
-      name: 'night',
+      path: '/barz/:id',
+      name: 'bar',
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
+      component: () =>
+        import(/* webpackChunkName: "barz-new-edit" */ './views/BarzNewEdit.vue'),
+    },
+    {
+      path: '/night',
+      name: 'night',
       component: () =>
         import(/* webpackChunkName: "night" */ './views/Night.vue'),
     },
@@ -41,8 +47,12 @@ export default new Router({
         import(/* webpackChunkName: "information" */ './views/Information.vue'),
     },
     {
-      path: '*',
+      path: '/404',
       name: '404',
+      component: NotFound,
+    },
+    {
+      path: '*',
       component: NotFound,
     },
   ],
