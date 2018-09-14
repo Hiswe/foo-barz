@@ -1,16 +1,16 @@
 <template lang="pug">
 nav.main-navigation
   router-link.main-navigation__link(to="/")
-    foobarz-icon(name="store" :scale="1.5")
+    foobarz-icon.main-navigation__icon(name="store" :scale="1.5")
     span.main-navigation__label {{ $t(`barz`) }}
   router-link.main-navigation__link(to="/night")
-    foobarz-icon(name="night" :scale="1.5")
+    foobarz-icon.main-navigation__icon(name="night" :scale="1.5")
     span.main-navigation__label {{ $t(`night`) }}
   router-link.main-navigation__link(to="/articles")
-    foobarz-icon(name="settings" :scale="1.5")
+    foobarz-icon.main-navigation__icon(name="settings" :scale="1.5")
     span.main-navigation__label pouic
   router-link.main-navigation__link(to="/information")
-    foobarz-icon(name="info" :scale="1.5")
+    foobarz-icon.main-navigation__icon(name="info" :scale="1.5")
     span.main-navigation__label {{ $t(`info`) }}
 </template>
 
@@ -39,9 +39,9 @@ nav.main-navigation
       background: var(--c-accent);
       color: var(--c-primary-darkest);
     }
-    .icon {
-      fill: currentColor;
-    }
+  }
+  &__icon {
+    fill: currentColor;
   }
   &__label {
     font-size: 0.5rem;

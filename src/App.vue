@@ -108,6 +108,7 @@ button {
   }
   &__text {
     flex: 1 1 auto;
+    color: black;
     padding-left: 0.5rem;
   }
   &__dismiss,

@@ -1,5 +1,9 @@
+import shortid from 'shortid'
+
+import * as defaultDate from './default-data'
+
 export const state = () => ({
-  shops: [],
+  list: [defaultDate.bar],
 })
 
 export const mutations = {
