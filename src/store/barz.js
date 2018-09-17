@@ -21,17 +21,17 @@ export const getters = {
 }
 
 export const mutations = {
-  UPDATE_BAR(state, payload) {
-    payload.name = payload.name.trim()
-    const barIndex = state.list.findIndex(bar => bar.id === payload.id)
-    if (barIndex < 0) return state.list.push(payload)
-    state.list.splice(barIndex, 1, payload)
+  UPDATE_BAR(state, barWithItems) {
+    barWithItems.name = barWithItems.name.trim()
+    const barIndex = state.list.findIndex(bar => bar.id === barWithItems.id)
+    if (barIndex < 0) return state.list.push(barWithItems)
+    state.list.splice(barIndex, 1, barWithItems)
   },
-  REMOVE_BAR(state, payload) {
-    const bar = state.list.find(bar => bar.id === payload)
+  REMOVE_BAR(state, barId) {
+    const bar = state.list.find(bar => bar.id === barId)
     if (!bar) return
     if (bar.isDefault) return
-    return (state.list = state.list.filter(bar => bar.id !== payload))
+    return (state.list = state.list.filter(bar => bar.id !== barId))
   },
   RESET(state) {
     state.list = [defaultData.bar]

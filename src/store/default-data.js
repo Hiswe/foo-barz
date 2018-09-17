@@ -67,3 +67,14 @@ export const icons = [
     name: `promotion`,
   },
 ]
+
+export const night = {
+  name: `new-night`,
+  createdAt: new Date().valueOf,
+  articles: [],
+  persons: [],
+  totals: {
+    all: 0,
+    perPerson: false,
+  },
+}

@@ -2,7 +2,7 @@ import { createLocalVue } from '@vue/test-utils'
 import Vuex from 'vuex'
 
 import * as barz from './barz'
-import * as night from './night'
+import * as nights from './nights'
 import * as articles from './articles'
 
 export default function createTestStore() {
@@ -12,7 +12,7 @@ export default function createTestStore() {
   return new Vuex.Store({
     modules: {
       barz,
-      night,
+      nights,
       articles,
     },
   })

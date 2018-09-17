@@ -3,7 +3,7 @@ import Vuex from 'vuex'
 import createPersistedState from 'vuex-persistedstate'
 
 import * as barz from './barz'
-import * as night from './night'
+import * as nights from './nights'
 import * as articles from './articles'
 
 Vue.use(Vuex)
@@ -11,7 +11,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   modules: {
     barz,
-    night,
+    nights,
     articles,
   },
   plugins: [createPersistedState({ key: `foo-barz` })],
