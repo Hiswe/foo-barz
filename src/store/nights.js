@@ -4,11 +4,20 @@ import clonedeep from 'lodash.clonedeep'
 import * as defaultData from './default-data'
 
 const ADD_NIGHT = `UNSAFE_ADD_NIGHT`
+const COMPUTE_NIGHT = `UNSAFE_COMPUTE_NIGHT`
 const CLEAR_NIGHT = `UNSAFE_CLEAR_NIGHT`
-const ADD_ITEM = `UNSAFE_ADD_ITEM`
-const REMOVE_ITEM = `UNSAFE_REMOVE_ITEM`
+const ADD_NIGHT_ARTICLE = `UNSAFE_ADD_NIGHT_ARTICLE`
+const REMOVE_NIGHT_ARTICLE = `UNSAFE_REMOVE_NIGHT_ARTICLE`
 const ADD_PERSON = `UNSAFE_ADD_PERSON`
 const REMOVE_PERSON = `UNSAFE_REMOVE_PERSON`
+
+function computeTotal(night) {
+  const all = night.products.reduce((total, { price }) => total + price, 0)
+  const personsNumber = night.persons.length
+  const isSingleBill = personsNumber < 2
+  const perPerson = isSingleBill ? false : Math.round(total / personsNumber)
+  return { all, perPerson }
+}
 
 export const state = () => ({
   list: [],
@@ -24,19 +33,28 @@ export const mutations = {
     night.articles = []
     night.persons = []
   },
-  [ADD_ITEM](state, payload) {
-    const { nightId, item } = payload
+  [COMPUTE_NIGHT](state, payload) {
+    const { nightId } = payload
+    const night = state.list.find(night => night.id === nightId)
+    const all = night.articles.reduce((total, { price }) => total + price, 0)
+    const personsNumber = night.persons.length
+    const isSingleBill = personsNumber < 2
+    const perPerson = isSingleBill ? false : Math.round(all / personsNumber)
+    night.total = { all, perPerson }
+  },
+  [ADD_NIGHT_ARTICLE](state, payload) {
+    const { nightId, article } = payload
     const night = state.list.find(night => night.id === nightId)
     night.articles.push({
-      ...item,
+      ...article,
       id: shortid.generate(),
-      articleId: item.id,
+      articleId: article.id,
     })
   },
-  [REMOVE_ITEM](state, payload) {
-    const { nightId, itemId } = payload
+  [REMOVE_NIGHT_ARTICLE](state, payload) {
+    const { nightId, articleId } = payload
     const night = state.list.find(night => night.id === nightId)
-    night.items = night.articles.filter(item => item.id !== itemId)
+    night.articles = night.articles.filter(article => article.id !== articleId)
   },
   // ARTICLE_UPDATE(state, payload) {
   //   state.items = state.items.map(item => {
@@ -89,34 +107,39 @@ export const actions = {
     const night = state.list.find(night => night.id === nightId)
     if (!night) return
     commit(CLEAR_NIGHT, payload)
+    commit(COMPUTE_NIGHT, payload)
   },
-  ADD_ITEM({ rootState, state, commit }, payload) {
-    const { barId, nightId, item } = payload
+  ADD_NIGHT_ARTICLE({ rootState, state, commit }, payload) {
+    const { barId, nightId, article } = payload
     const bar = rootState.barz.list.find(bar => bar.id === barId)
     if (!bar) return
     const night = state.list.find(night => night.id === nightId)
     const isValidNight = night && night.barId === barId
     if (!isValidNight) return
-    const isValidItem = bar.articles.includes(item)
-    if (!isValidItem) return
-    commit(ADD_ITEM, payload)
+    const isValidArticle = bar.articles.includes(article)
+    if (!isValidArticle) return
+    commit(ADD_NIGHT_ARTICLE, payload)
+    commit(COMPUTE_NIGHT, payload)
   },
-  REMOVE_ITEM({ state, commit }, payload) {
+  REMOVE_NIGHT_ARTICLE({ state, commit }, payload) {
     const { nightId } = payload
     const night = state.list.find(night => night.id === nightId)
     if (!night) return
-    commit(REMOVE_ITEM, payload)
+    commit(REMOVE_NIGHT_ARTICLE, payload)
+    commit(COMPUTE_NIGHT, payload)
   },
   ADD_PERSON({ state, commit }, payload) {
     const { nightId } = payload
     const night = state.list.find(night => night.id === nightId)
     if (!night) return
     commit(ADD_PERSON, payload)
+    commit(COMPUTE_NIGHT, payload)
   },
   REMOVE_PERSON({ state, commit }, payload) {
     const { nightId } = payload
     const night = state.list.find(night => night.id === nightId)
     if (!night) return
     commit(REMOVE_PERSON, payload)
+    commit(COMPUTE_NIGHT, payload)
   },
 }
