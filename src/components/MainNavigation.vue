@@ -5,7 +5,7 @@ nav.main-navigation
     span.main-navigation__label {{ $t(`barz`) }}
   router-link.main-navigation__link(to="/nights")
     foobarz-icon.main-navigation__icon(name="night" :scale="1.5")
-    span.main-navigation__label {{ $t(`night`) }}
+    span.main-navigation__label {{ $t(`nights`) }}
   //- router-link.main-navigation__link(to="/articles")
   //-   foobarz-icon.main-navigation__icon(name="settings" :scale="1.5")
   //-   span.main-navigation__label pouic
@@ -56,7 +56,7 @@ nav.main-navigation
   "en": {
     "barz": "barz",
     "info": "info",
-    "night": "night"
+    "nights": "nights"
   }
 }
 </i18n>

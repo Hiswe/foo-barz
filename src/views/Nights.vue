@@ -4,7 +4,7 @@ foobarz-main-content(page="nights" :title="$t(`title`)")
     li(v-for="night in nights" :key="night.id")
       p  {{ night.name }} at {{ night.barName }}
       p: small {{ night.createdAt | date }}
-      p {{ night.totals.all }}$ for {{ night.persons.length }} people
+      p {{ night.total.all | price }} for {{ night.persons.length }} people
       router-link(:to="`/nights/${night.barId}/${night.id}`") see
 </template>
 
