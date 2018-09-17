@@ -1,10 +1,14 @@
 import shortid from 'shortid'
 import clonedeep from 'lodash.clonedeep'
 
-import * as defaultData from './default-data'
+import { bar as defaultBar, articles as defaultArticles } from './default-data'
 
 export const state = () => ({
-  list: [defaultData.bar],
+  list: [defaultBar],
+  entities: {
+    [defaultBar.id]: clonedeep(defaultBar),
+  },
+  ids: [defaultBar.id],
 })
 
 export const getters = {
@@ -12,7 +16,7 @@ export const getters = {
     return {
       name: `new-bar`,
       id: shortid.generate(),
-      articles: clonedeep(defaultData.articles).map(article => {
+      articles: clonedeep(defaultArticles).map(article => {
         article.id = shortid.generate()
         return article
       }),

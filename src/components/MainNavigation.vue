@@ -6,9 +6,6 @@ nav.main-navigation
   router-link.main-navigation__link(to="/nights")
     foobarz-icon.main-navigation__icon(name="night" :scale="1.5")
     span.main-navigation__label {{ $t(`nights`) }}
-  //- router-link.main-navigation__link(to="/articles")
-  //-   foobarz-icon.main-navigation__icon(name="settings" :scale="1.5")
-  //-   span.main-navigation__label pouic
   router-link.main-navigation__link(to="/information")
     foobarz-icon.main-navigation__icon(name="info" :scale="1.5")
     span.main-navigation__label {{ $t(`info`) }}

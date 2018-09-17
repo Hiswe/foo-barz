@@ -21,6 +21,8 @@ function computeTotal(night) {
 
 export const state = () => ({
   list: [],
+  entities: {},
+  ids: [],
 })
 
 export const mutations = {
