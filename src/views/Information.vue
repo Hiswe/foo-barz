@@ -9,8 +9,9 @@ foobarz-main-content(page="information" title="Information")
     foobarz-button(
       v-clipboard:copy="homepage"
       v-clipboard:success="onCopy"
-    )
-      | {{ $t(`shareButton`) }}
+    ) {{ $t(`shareButton`) }}
+  hr.separator
+  foobarz-button(@click.native="reset") {{ $t(`reset`) }}
   footer.version {{ $t(`version`) }} {{ version }}
 </template>
 
@@ -22,6 +23,11 @@ a {
   text-decoration: none;
   color: var(--c-text);
   box-shadow: inset 0 -0.08em var(--c-accent), 0 0.08em var(--c-accent);
+}
+.separator {
+  border: none;
+  border-top: 5px solid black;
+  margin-top: 2rem;
 }
 .version {
   margin-top: 2rem;
@@ -38,12 +44,15 @@ a {
     "shareDescription": "The app can be shared with this link",
     "shareButton": "Share",
     "shareCopied": "Link copied!",
+    "reset": "Reset",
     "version": "version"
   }
 }
 </i18n>
 
 <script>
+import { mapMutations } from 'vuex'
+
 import { name, homepage, description, version } from '../../package.json'
 
 import Category from '@/components/ui/Category'
@@ -76,6 +85,9 @@ export default {
     notifyCopy() {
       this.$notify(this.$t(`shareCopied`))
     },
+    ...mapMutations({
+      reset: `RESET`,
+    }),
   },
 }
 </script>

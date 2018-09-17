@@ -32,4 +32,7 @@ export const mutations = {
     if (bar.isDefault) return
     return (state.list = state.list.filter(bar => bar.id !== payload))
   },
+  RESET(state) {
+    state.list = [defaultData.bar]
+  },
 }

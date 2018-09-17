@@ -59,6 +59,10 @@ export const mutations = {
     if (state.persons.length < 3) return (state.persons = [])
     state.persons = state.persons.filter(person => person.id !== personId)
   },
+  RESET(state) {
+    state.items = []
+    state.persons = []
+  },
 }
 
 export const actions = {
