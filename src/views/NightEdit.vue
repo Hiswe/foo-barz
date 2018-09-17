@@ -2,46 +2,41 @@
 foobarz-main-content(page="night" :title="$t(`title`)")
   dl.totals
     dt.totals__label {{ $t( 'total') }}
-    dd.totals__value {{totals.all}}฿
-    template(v-if="totals.perPerson")
-      dt.totals__label {{ $t( 'total-person') }} ({{persons.length}})
-      dd.totals__value {{totals.perPerson}}฿
+    dd.totals__value {{ night.total.all | price }}
+    template(v-if="night.total.perPerson")
+      dt.totals__label {{ $t( 'total-person') }} ({{night.persons.length}})
+      dd.totals__value {{ night.total.perPerson | price }}
 
-  button.night__action.night__action--clear(@click="clearNight")
-    foobarz-icon(
-      name="remove-shopping-cart"
-      :scale="2.5"
-    )
   menu.night__items
     button.night__action(
-      v-for="article in articles"
+      v-for="article in bar.articles"
       :key="article.id"
-      @click="addItem(article)"
+      @click="addArticle({barId, nightId, article})"
     )
       foobarz-icon(:name="article.icon")
-      div {{article.price}}฿
+      div {{ article.price | price }}
     button.night__action.night__action--add-person(
-      @click="addPerson"
+      @click="addPerson({nightId})"
     )
       foobarz-icon(name="person-add" :scale="2.5")
-  template(v-if="items.length")
+  template(v-if="night.articles.length")
     h2.night__title {{ $t('selection') }}
     div
       button.night__action(
-        v-for="(item, index) in items"
-        :key="item.id"
-        @click="removeItem(item.id)"
+        v-for="article in night.articles"
+        :key="article.id"
+        @click="removeArticle({nightId, articleId: article.id})"
       )
         foobarz-icon(
-          :name="item.icon"
+          :name="article.icon"
         )
-  template(v-if="persons.length")
+  template(v-if="night.persons.length")
     h2.night__title {{ $t('people') }}
     div
       button.night__action(
-        v-for="person in persons"
-          :key="person.id"
-        @click="removePerson(person.id)"
+        v-for="person in night.persons"
+        :key="person.id"
+        @click="removePerson({nightId, personId: person.id})"
       )
         foobarz-icon(
           name="person"
@@ -66,15 +61,9 @@ foobarz-main-content(page="night" :title="$t(`title`)")
     border: 0;
     background: none;
 
-    &--clear,
     &--add-person {
       position: absolute;
       top: 0.5rem;
-    }
-    &--clear {
-      left: 1rem;
-    }
-    &--add-person {
       right: 1rem;
     }
   }
@@ -124,24 +113,27 @@ import { mapState, mapMutations, mapActions, mapGetters } from 'vuex'
 export default {
   name: `page-night`,
   computed: {
+    barId() {
+      return this.$route.params.barId
+    },
+    nightId() {
+      return this.$route.params.nightId
+    },
     ...mapState({
-      articles: state => state.articles.list,
-      products: state => state.night.products,
-      items: state => state.night.items,
-      persons: state => state.night.persons,
+      bar(state) {
+        return state.barz.list.find(bar => bar.id === this.barId)
+      },
+      night(state) {
+        return state.nights.list.find(night => night.id === this.nightId)
+      },
     }),
-    ...mapGetters([`totals`]),
   },
   methods: {
-    ...mapMutations({
-      // addItem: `ADD_ITEM`,
-      clearNight: `CLEAR_NIGHT`,
-      removeItem: `REMOVE_ITEM`,
+    ...mapActions({
+      addArticle: `ADD_NIGHT_ARTICLE`,
+      removeArticle: `REMOVE_NIGHT_ARTICLE`,
       addPerson: `ADD_PERSON`,
       removePerson: `REMOVE_PERSON`,
-    }),
-    ...mapActions({
-      addItem: `ADD_ITEM`,
     }),
   },
 }

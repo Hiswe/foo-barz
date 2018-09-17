@@ -77,9 +77,9 @@ test(`delete`, t => {
   const payload = store.getters.blankBar()
   store.commit(`UPDATE_BAR`, payload)
   t.is(store.state.barz.list.length, 2, `a new bar has been added`)
-  store.commit(`REMOVE_BAR`, payload.id)
+  store.commit(`REMOVE_BAR`, { barId: payload.id })
   t.is(store.state.barz.list.length, 1, `bar has been erased`)
-  store.commit(`REMOVE_BAR`, store.state.barz.list[0].id)
+  store.commit(`REMOVE_BAR`, { barId: store.state.barz.list[0].id })
   t.is(store.state.barz.list.length, 1, `can't remove default bar`)
 })
 

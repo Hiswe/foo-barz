@@ -14,8 +14,8 @@ foobarz-main-content(page="barz" title="Barz")
       router-link.barz__action.barz__action--edit(
         :to="`/barz/${bar.id}`"
       ): foobarz-icon(name="edit" :scale="1.25")
-      router-link.barz__action.barz__action--new-night(
-        :to="`/night/${bar.id}/new`"
+      .barz__action.barz__action--new-night(
+        @click="newNight(bar.id)"
       ): foobarz-icon(name="new-night" :scale="1.15")
   router-link(to="/barz/new") {{ $t(`new-bar`) }}
 
@@ -56,7 +56,7 @@ foobarz-main-content(page="barz" title="Barz")
 </i18n>
 
 <script>
-import { mapState, mapMutations } from 'vuex'
+import { mapState, mapMutations, mapActions } from 'vuex'
 
 export default {
   name: 'page-barz',
@@ -66,13 +66,22 @@ export default {
   computed: {
     ...mapState({
       barz: state => state.barz.list,
+      lastNight: state => state.nights.list[0],
     }),
   },
   methods: {
     remove(barId) {
-      this.REMOVE_BAR(barId)
+      this.REMOVE_BAR({ barId })
+    },
+    newNight(barId) {
+      this.ADD_NIGHT({ barId })
+      this.$router.push({
+        name: `night`,
+        params: { barId, nightId: this.lastNight },
+      })
     },
     ...mapMutations([`REMOVE_BAR`]),
+    ...mapActions([`ADD_NIGHT`]),
   },
 }
 </script>

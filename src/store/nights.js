@@ -12,10 +12,10 @@ const ADD_PERSON = `UNSAFE_ADD_PERSON`
 const REMOVE_PERSON = `UNSAFE_REMOVE_PERSON`
 
 function computeTotal(night) {
-  const all = night.products.reduce((total, { price }) => total + price, 0)
+  const all = night.articles.reduce((total, { price }) => total + price, 0)
   const personsNumber = night.persons.length
   const isSingleBill = personsNumber < 2
-  const perPerson = isSingleBill ? false : Math.round(total / personsNumber)
+  const perPerson = isSingleBill ? false : Math.round(all / personsNumber)
   return { all, perPerson }
 }
 
@@ -24,23 +24,20 @@ export const state = () => ({
 })
 
 export const mutations = {
-  [ADD_NIGHT](state, night) {
-    state.list.push(night)
-  },
-  [CLEAR_NIGHT](state, payload) {
-    const { nightId } = payload
-    const night = state.list.find(night => night.id === nightId)
-    night.articles = []
-    night.persons = []
+  [ADD_NIGHT](state, payload) {
+    const { barId, barName } = payload
+    state.list.unshift({
+      ...clonedeep(defaultData.night),
+      barId,
+      barName,
+      id: shortid.generate(),
+      createdAt: new Date().valueOf(),
+    })
   },
   [COMPUTE_NIGHT](state, payload) {
     const { nightId } = payload
     const night = state.list.find(night => night.id === nightId)
-    const all = night.articles.reduce((total, { price }) => total + price, 0)
-    const personsNumber = night.persons.length
-    const isSingleBill = personsNumber < 2
-    const perPerson = isSingleBill ? false : Math.round(all / personsNumber)
-    night.total = { all, perPerson }
+    night.total = computeTotal(night)
   },
   [ADD_NIGHT_ARTICLE](state, payload) {
     const { nightId, article } = payload
@@ -56,13 +53,6 @@ export const mutations = {
     const night = state.list.find(night => night.id === nightId)
     night.articles = night.articles.filter(article => article.id !== articleId)
   },
-  // ARTICLE_UPDATE(state, payload) {
-  //   state.items = state.items.map(item => {
-  //     if (!item.articleId === payload.id) return item
-  //     const { id, ...cleanedPayload } = payload
-  //     return Object.assign({}, item, cleanedPayload)
-  //   })
-  // },
   [ADD_PERSON](state, payload) {
     const { nightId } = payload
     const night = state.list.find(night => night.id === nightId)
@@ -86,21 +76,28 @@ export const mutations = {
     if (night.persons.length < 3) return (night.persons = [])
     night.persons = night.persons.filter(person => person.id !== personId)
   },
+  // UPDATE_BAR(state, barWithItems) {
+  //   const barId = barWithItems.id
+  //   const nights = state.list.filter(night => night.barId === barId)
+  //   if (!nights.length) return
+  //   // state.items = state.items.map(item => {
+  //   //   if (!item.articleId === payload.id) return item
+  //   //   const { id, ...cleanedPayload } = payload
+  //   //   return Object.assign({}, item, cleanedPayload)
+  //   // })
+  // },
   RESET(state) {
     state.list = []
   },
 }
 
 export const actions = {
-  ADD_NIGHT({ rootState, commit }, barId) {
+  ADD_NIGHT({ rootState, commit }, payload) {
+    const { barId } = payload
     const bar = rootState.barz.list.find(bar => bar.id === barId)
+    payload.barName = bar.name
     if (!bar) return
-    commit(ADD_NIGHT, {
-      ...clonedeep(defaultData.night),
-      barId,
-      id: shortid.generate(),
-      createdAt: new Date().valueOf,
-    })
+    commit(ADD_NIGHT, payload)
   },
   CLEAR_NIGHT({ commit }, payload) {
     const { nightId } = payload

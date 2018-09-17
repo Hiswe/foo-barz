@@ -15,6 +15,9 @@ import Input from '@/components/ui/Input'
 Vue.use(VueClipboard)
 Vue.use(VueNotifications)
 
+Vue.filter(`date`, value => new Date(value).toLocaleString(`en-GB`))
+Vue.filter(`price`, value => `${value}฿`)
+
 Vue.component(`foobarz-main-content`, MainContent)
 Vue.component(`foobarz-icon`, SvgIcon)
 Vue.component(`foobarz-button`, Button)

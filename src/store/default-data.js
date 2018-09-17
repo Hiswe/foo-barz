@@ -73,7 +73,7 @@ export const night = {
   createdAt: new Date().valueOf,
   articles: [],
   persons: [],
-  totals: {
+  total: {
     all: 0,
     perPerson: false,
   },

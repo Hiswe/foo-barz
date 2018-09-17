@@ -7,23 +7,31 @@ test.beforeEach(t => {
   const store = createStateStore()
   t.context.store = store
   const bar = store.state.barz.list[0]
+  t.context.bar = bar
   t.context.barId = bar.id
   t.context.testArticle = bar.articles[0]
 })
 
 test(`new night`, t => {
-  const { store, barId } = t.context
-  t.is(store.state.nights.list.length, 0)
-  store.dispatch(`ADD_NIGHT`, barId)
-  t.is(store.state.nights.list.length, 1, `add a new night in an existing bar`)
-  store.dispatch(`ADD_NIGHT`, shortid.generate())
-  t.is(store.state.nights.list.length, 1, `ignore nonexisting bar`)
+  const { store, bar, barId } = t.context
+  const nights = store.state.nights.list
+  t.is(nights.length, 0)
+  store.dispatch(`ADD_NIGHT`, { barId })
+  t.is(nights.length, 1, `add a new night in an existing bar`)
+  t.is(nights[0].barId, barId, `has the right bar ID`)
+  t.is(nights[0].barName, bar.name, `has the right bar name`)
+  const firstNightId = nights[0].id
+  store.dispatch(`ADD_NIGHT`, { barId: shortid.generate() })
+  t.is(nights.length, 1, `ignore nonexisting bar`)
+  store.dispatch(`ADD_NIGHT`, { barId })
+  t.is(nights.length, 2, `can add multiple nights in the same bar`)
+  t.is(nights[1].id, firstNightId, `new nights are put on top`)
 })
 
 test(`reset`, t => {
-  const { store } = t.context
+  const { store, barId } = t.context
   t.is(store.state.nights.list.length, 0)
-  store.dispatch(`ADD_NIGHT`, store.state.barz.list[0].id)
+  store.dispatch(`ADD_NIGHT`, { barId })
   t.is(store.state.nights.list.length, 1)
   store.commit(`RESET`)
   t.is(store.state.nights.list.length, 0, `can reset`)
@@ -31,7 +39,7 @@ test(`reset`, t => {
 
 test(`add article`, t => {
   const { store, barId, testArticle } = t.context
-  store.dispatch(`ADD_NIGHT`, barId)
+  store.dispatch(`ADD_NIGHT`, { barId })
   const night = store.state.nights.list[0]
   const nightId = night.id
   t.is(night.articles.length, 0)
@@ -51,7 +59,7 @@ test(`add article`, t => {
 
 test(`remove article`, t => {
   const { store, barId, testArticle } = t.context
-  store.dispatch(`ADD_NIGHT`, barId)
+  store.dispatch(`ADD_NIGHT`, { barId })
   const night = store.state.nights.list[0]
   const nightId = night.id
   t.is(night.articles.length, 0)
@@ -84,7 +92,7 @@ test(`remove article`, t => {
 
 test(`adding/removing person`, t => {
   const { store, barId } = t.context
-  store.dispatch(`ADD_NIGHT`, barId)
+  store.dispatch(`ADD_NIGHT`, { barId })
   const night = store.state.nights.list[0]
   const nightId = night.id
   t.is(night.persons.length, 0)
@@ -100,7 +108,7 @@ test(`adding/removing person`, t => {
 
 test(`total computation`, t => {
   const { store, barId, testArticle } = t.context
-  store.dispatch(`ADD_NIGHT`, barId)
+  store.dispatch(`ADD_NIGHT`, { barId })
   const night = store.state.nights.list[0]
   const nightId = night.id
   store.dispatch(`ADD_NIGHT_ARTICLE`, { barId, nightId, article: testArticle })

@@ -27,7 +27,8 @@ export const mutations = {
     if (barIndex < 0) return state.list.push(barWithItems)
     state.list.splice(barIndex, 1, barWithItems)
   },
-  REMOVE_BAR(state, barId) {
+  REMOVE_BAR(state, payload) {
+    const { barId } = payload
     const bar = state.list.find(bar => bar.id === barId)
     if (!bar) return
     if (bar.isDefault) return

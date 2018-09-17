@@ -23,16 +23,16 @@ export default new Router({
         import(/* webpackChunkName: "barz-new-edit" */ './views/BarzNewEdit.vue'),
     },
     {
-      path: '/night',
-      name: 'night',
+      path: '/nights',
+      name: 'nights',
       component: () =>
-        import(/* webpackChunkName: "night" */ './views/Night.vue'),
+        import(/* webpackChunkName: "night" */ './views/Nights.vue'),
     },
     {
-      path: '/night/:barId/:id',
+      path: '/nights/:barId/:nightId',
       name: 'night',
       component: () =>
-        import(/* webpackChunkName: "night" */ './views/Night.vue'),
+        import(/* webpackChunkName: "night" */ './views/NightEdit.vue'),
     },
     {
       path: '/articles',

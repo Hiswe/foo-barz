@@ -3,9 +3,9 @@ nav.main-navigation
   router-link.main-navigation__link(to="/")
     foobarz-icon.main-navigation__icon(name="store" :scale="1.5")
     span.main-navigation__label {{ $t(`barz`) }}
-  //- router-link.main-navigation__link(to="/night")
-  //-   foobarz-icon.main-navigation__icon(name="night" :scale="1.5")
-  //-   span.main-navigation__label {{ $t(`night`) }}
+  router-link.main-navigation__link(to="/nights")
+    foobarz-icon.main-navigation__icon(name="night" :scale="1.5")
+    span.main-navigation__label {{ $t(`night`) }}
   //- router-link.main-navigation__link(to="/articles")
   //-   foobarz-icon.main-navigation__icon(name="settings" :scale="1.5")
   //-   span.main-navigation__label pouic
