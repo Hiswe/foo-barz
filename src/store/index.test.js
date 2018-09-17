@@ -21,7 +21,7 @@ test.beforeEach(t => {
   t.context.testArticle = defaultData.articles[0]
 })
 
-test('adding an item to the night update the total', t => {
+test.skip('adding an item to the night update the total', t => {
   const { store, testArticle } = t.context
   t.is(store.state.night.items.length, 0)
 
@@ -37,7 +37,7 @@ test('adding an item to the night update the total', t => {
   })
 })
 
-test('adding the 1st person add two (and the opposite is true)', t => {
+test.skip('adding the 1st person add two (and the opposite is true)', t => {
   const { store } = t.context
   t.is(store.state.night.persons.length, 0)
   store.commit(`ADD_PERSON`)
@@ -50,7 +50,7 @@ test('adding the 1st person add two (and the opposite is true)', t => {
   t.is(store.state.night.persons.length, 0)
 })
 
-test('having more than 1 person get a per person price', t => {
+test.skip('having more than 1 person get a per person price', t => {
   const { store, testArticle } = t.context
   store.commit(`ADD_ITEM`, testArticle)
   store.commit(`ADD_PERSON`)
@@ -60,7 +60,7 @@ test('having more than 1 person get a per person price', t => {
   })
 })
 
-test('update an article price reflect on the night price', t => {
+test.skip('update an article price reflect on the night price', t => {
   const { store, testArticle } = t.context
   const NEW_PRICE = 99
   store.commit(`ADD_ITEM`, testArticle)

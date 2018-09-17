@@ -1,4 +1,5 @@
 import shortid from 'shortid'
+import clonedeep from 'lodash.clonedeep'
 
 import * as defaultData from './default-data'
 
@@ -11,7 +12,7 @@ export const getters = {
     return {
       name: `new-bar`,
       id: shortid.generate(),
-      articles: defaultData.articles.map(article => {
+      articles: clonedeep(defaultData.articles).map(article => {
         article.id = shortid.generate()
         return article
       }),
