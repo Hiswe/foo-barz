@@ -77,7 +77,7 @@ export default {
       this.ADD_NIGHT({ barId })
       this.$router.push({
         name: `night`,
-        params: { barId, nightId: this.lastNight },
+        params: { barId, nightId: this.lastNight.id },
       })
     },
     ...mapMutations([`REMOVE_BAR`]),
