@@ -1,5 +1,5 @@
 <template lang="pug">
-foobarz-main-content(page="barz-new-edit" :title="title")
+foobarz-main-content(page="barz-new-edit" :title="bar.name")
   form(@submit.prevent="createUpdateBar")
     foobarz-input(v-model="bar.name")
     dl.articles
@@ -25,7 +25,7 @@ foobarz-main-content(page="barz-new-edit" :title="title")
           foobarz-input.articles__edit-price(type="number" v-model="article.price")
 
     foobarz-button(type="submit")
-      | {{ $t(isNew ? `submit-new`: `submit-update`) }}
+      | {{ $t(`submit-update`) }}
 </template>
 
 <style lang="scss" scoped>
@@ -77,8 +77,6 @@ foobarz-main-content(page="barz-new-edit" :title="title")
 <i18n>
 {
   "en": {
-    "title-new": "new bar – {barName}",
-    "title-edit": "edit – {barName}",
     "submit-new": "create",
     "submit-update": "update"
   }
@@ -87,7 +85,7 @@ foobarz-main-content(page="barz-new-edit" :title="title")
 
 <script>
 import cloneDeep from 'lodash.clonedeep'
-import { mapMutations } from 'vuex'
+import { mapState, mapMutations } from 'vuex'
 
 import ColorPicker from '@/components/ui/ColorPicker'
 import IconPicker from '@/components/ui/IconPicker'
@@ -101,27 +99,24 @@ export default {
   data() {
     return {
       editArticle: false,
-      bar: {},
     }
   },
   computed: {
-    isNew() {
-      return this.$route.params.id === `new`
+    barId() {
+      return this.$route.params.barId
     },
-    title() {
-      const i18nKey = this.isNew ? `title-new` : `title-edit`
-      return this.$t(i18nKey, { barName: this.bar.name })
-    },
+    ...mapState({
+      isValidParams(state) {
+        const isValidBar = state.barz.ids.includes(this.barId)
+        return isValidBar
+      },
+      bar(state) {
+        return state.barz.entities[this.barId]
+      },
+    }),
   },
   created() {
-    const { id } = this.$route.params
-    if (this.isNew) {
-      return (this.bar = this.$store.getters.blankBar())
-    }
-    const bar = this.$store.state.barz.list.find(bar => bar.id === id)
-    if (!bar) return this.$router.push({ name: `404` })
-    // make a draft of the current bar
-    this.bar = cloneDeep(bar)
+    if (!this.isValidParams) return this.$router.push({ name: `404` })
   },
   methods: {
     createUpdateBar() {

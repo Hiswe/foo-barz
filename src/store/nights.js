@@ -20,10 +20,16 @@ function computeTotal(night) {
 }
 
 export const state = () => ({
-  list: [],
   entities: {},
   ids: [],
 })
+
+export const getters = {
+  nights: state => pagination => {
+    return state.ids.map(id => state.entities[id])
+  },
+  lastNightId: state => state.ids[0],
+}
 
 export const mutations = {
   [ADD_NIGHT](state, payload) {

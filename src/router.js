@@ -14,37 +14,25 @@ export default new Router({
       component: Barz,
     },
     {
-      path: '/barz/:id',
+      path: '/barz/:barId',
       name: 'bar',
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () =>
-        import(/* webpackChunkName: "barz-new-edit" */ './views/BarzNewEdit.vue'),
+        import(/* webpackChunkName: "barz-edit" */ './views/BarzEdit.vue'),
     },
     {
       path: '/nights',
       name: 'nights',
       component: () =>
-        import(/* webpackChunkName: "night" */ './views/Nights.vue'),
+        import(/* webpackChunkName: "nights" */ './views/Nights.vue'),
     },
     {
       path: '/nights/:barId/:nightId',
       name: 'night',
       component: () =>
-        import(/* webpackChunkName: "night" */ './views/NightEdit.vue'),
-    },
-    {
-      path: '/articles',
-      name: 'articles',
-      component: () =>
-        import(/* webpackChunkName: "articles" */ './views/Articles.vue'),
-    },
-    {
-      path: '/articles/:id',
-      name: 'edit-articles',
-      component: () =>
-        import(/* webpackChunkName: "settings" */ './views/ArticlesNewEdit.vue'),
+        import(/* webpackChunkName: "nights-edit" */ './views/NightEdit.vue'),
     },
     {
       path: '/information',

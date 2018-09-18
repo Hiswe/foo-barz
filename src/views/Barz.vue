@@ -17,8 +17,7 @@ foobarz-main-content(page="barz" title="Barz")
       .barz__action.barz__action--new-night(
         @click="newNight(bar.id)"
       ): foobarz-icon(name="new-night" :scale="1.15")
-  router-link(to="/barz/new") {{ $t(`new-bar`) }}
-
+  foobarz-button(@click.native="newBar") {{ $t(`new-bar`) }}
 </template>
 
 <style lang="scss" scoped>
@@ -56,31 +55,35 @@ foobarz-main-content(page="barz" title="Barz")
 </i18n>
 
 <script>
-import { mapState, mapMutations, mapActions } from 'vuex'
+import { mapGetters, mapMutations, mapActions } from 'vuex'
 
 export default {
   name: 'page-barz',
-  data: () => ({
-    name: ``,
-  }),
   computed: {
-    ...mapState({
-      barz: state => state.barz.list,
-      lastNight: state => state.nights.list[0],
-    }),
+    barz() {
+      return this.$store.getters.barz()
+    },
+    ...mapGetters([`lastNightId`, `lastBarId`]),
   },
   methods: {
     remove(barId) {
       this.REMOVE_BAR({ barId })
     },
+    newBar() {
+      this.CREATE_BAR()
+      this.$router.push({
+        name: `bar`,
+        params: { barId: this.lastBarId },
+      })
+    },
     newNight(barId) {
       this.ADD_NIGHT({ barId })
       this.$router.push({
         name: `night`,
-        params: { barId, nightId: this.lastNight.id },
+        params: { barId, nightId: this.lastNightId },
       })
     },
-    ...mapMutations([`REMOVE_BAR`]),
+    ...mapMutations([`REMOVE_BAR`, `CREATE_BAR`]),
     ...mapActions([`ADD_NIGHT`]),
   },
 }

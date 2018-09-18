@@ -11,8 +11,15 @@ export const state = () => ({
 })
 
 export const getters = {
-  blankBar: () => () => {
-    return {
+  barz: state => pagination => {
+    return state.ids.map(id => state.entities[id])
+  },
+  lastBarId: state => state.ids[0],
+}
+
+export const mutations = {
+  CREATE_BAR(state) {
+    const bar = {
       name: `new-bar`,
       id: shortid.generate(),
       articles: clonedeep(defaultArticles).map(article => {
@@ -20,17 +27,14 @@ export const getters = {
         return article
       }),
     }
+    state.entities[bar.id] = bar
+    state.ids.unshift(bar.id)
   },
-}
-
-export const mutations = {
   UPDATE_BAR(state, barWithItems) {
     barWithItems.name = barWithItems.name.trim()
     const { id } = barWithItems
     const existingBar = state.entities[id]
     if (existingBar) return (state.entities[id] = barWithItems)
-    state.entities[id] = barWithItems
-    state.ids.push(id)
   },
   REMOVE_BAR(state, payload) {
     const { barId } = payload

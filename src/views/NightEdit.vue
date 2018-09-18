@@ -112,6 +112,10 @@ import { mapState, mapMutations, mapActions, mapGetters } from 'vuex'
 
 export default {
   name: `page-night`,
+  created() {
+    console.log(this.isValidParams)
+    if (!this.isValidParams) return this.$router.push(`/404`)
+  },
   computed: {
     barId() {
       return this.$route.params.barId
@@ -120,11 +124,16 @@ export default {
       return this.$route.params.nightId
     },
     ...mapState({
+      isValidParams(state) {
+        const isValidBar = state.barz.ids.includes(this.barId)
+        const isValidNight = state.nights.ids.includes(this.nightId)
+        return isValidBar && isValidNight
+      },
       bar(state) {
-        return state.barz.list.find(bar => bar.id === this.barId)
+        return state.barz.entities[this.barId]
       },
       night(state) {
-        return state.nights.list.find(night => night.id === this.nightId)
+        return state.nights.entities[this.nightId]
       },
     }),
   },

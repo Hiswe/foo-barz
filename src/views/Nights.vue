@@ -17,13 +17,15 @@ foobarz-main-content(page="nights" :title="$t(`title`)")
 </i18n>
 
 <script>
-import { mapState } from 'vuex'
+import { mapGetters } from 'vuex'
 
 export default {
   name: `page-nights`,
-  computed: mapState({
-    nights: state => state.nights.list,
-  }),
+  computed: {
+    nights() {
+      return this.$store.getters.nights()
+    },
+  },
 }
 </script>
 
