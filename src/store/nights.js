@@ -3,13 +3,13 @@ import clonedeep from 'lodash.clonedeep'
 
 import * as defaultData from './default-data'
 
-const ADD_NIGHT = `UNSAFE_ADD_NIGHT`
-const COMPUTE_NIGHT = `UNSAFE_COMPUTE_NIGHT`
-const CLEAR_NIGHT = `UNSAFE_CLEAR_NIGHT`
-const ADD_NIGHT_ARTICLE = `UNSAFE_ADD_NIGHT_ARTICLE`
-const REMOVE_NIGHT_ARTICLE = `UNSAFE_REMOVE_NIGHT_ARTICLE`
-const ADD_PERSON = `UNSAFE_ADD_PERSON`
-const REMOVE_PERSON = `UNSAFE_REMOVE_PERSON`
+const ADD_NIGHT = `ACTION_ADD_NIGHT`
+const COMPUTE_NIGHT = `ACTION_COMPUTE_NIGHT`
+const CLEAR_NIGHT = `ACTION_CLEAR_NIGHT`
+const ADD_NIGHT_ARTICLE = `ACTION_ADD_NIGHT_ARTICLE`
+const REMOVE_NIGHT_ARTICLE = `ACTION_REMOVE_NIGHT_ARTICLE`
+const ADD_PERSON = `ACTION_ADD_PERSON`
+const REMOVE_PERSON = `ACTION_REMOVE_PERSON`
 
 function computeTotal(night) {
   const all = night.articles.reduce((total, { price }) => total + price, 0)
@@ -86,16 +86,24 @@ export const mutations = {
     if (night.persons.length < 3) return (night.persons = [])
     night.persons = night.persons.filter(person => person.id !== personId)
   },
-  // UPDATE_BAR(state, barWithItems) {
-  //   const barId = barWithItems.id
-  //   const nights = state.list.filter(night => night.barId === barId)
-  //   if (!nights.length) return
-  //   // state.items = state.items.map(item => {
-  //   //   if (!item.articleId === payload.id) return item
-  //   //   const { id, ...cleanedPayload } = payload
-  //   //   return Object.assign({}, item, cleanedPayload)
-  //   // })
-  // },
+  UPDATE_BAR(state, bar) {
+    const barId = bar.id
+    Object.values(state.entities)
+      .filter(night => night.barId === barId)
+      .forEach(night => {
+        night.barName = bar.name
+        bar.articles.forEach(barArticle => {
+          const articleId = barArticle.id
+          const { id, ...updatedArticle } = barArticle
+          night.articles
+            .filter(nightArticle => nightArticle.articleId === articleId)
+            .forEach(nightArticle => {
+              Object.assign(nightArticle, updatedArticle)
+            })
+        })
+        night.total = computeTotal(night)
+      })
+  },
   RESET(state) {
     state.entities = {}
     state.ids = []

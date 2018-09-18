@@ -113,7 +113,6 @@ import { mapState, mapMutations, mapActions, mapGetters } from 'vuex'
 export default {
   name: `page-night`,
   created() {
-    console.log(this.isValidParams)
     if (!this.isValidParams) return this.$router.push(`/404`)
   },
   computed: {

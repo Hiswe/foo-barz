@@ -1,5 +1,6 @@
 import test from 'ava'
 import shortid from 'shortid'
+import clonedeep from 'lodash.clonedeep'
 
 import createStateStore from './_create-test-store'
 
@@ -138,4 +139,25 @@ test(`total computation`, t => {
     { all: 0, perPerson: false },
     `recompute total when removing product`,
   )
+})
+
+test(`bar prices update`, t => {
+  const { store, barId, bar, testArticle } = t.context
+  store.dispatch(`ADD_NIGHT`, { barId })
+  const nightId = store.state.nights.ids[0]
+  store.dispatch(`ADD_NIGHT_ARTICLE`, {
+    barId,
+    nightId,
+    article: testArticle,
+  })
+  const barUpdate = clonedeep(bar)
+  barUpdate.name = `pouic`
+  barUpdate.articles[0].name = `clapou`
+  barUpdate.articles[0].price = 1000
+  store.commit(`UPDATE_BAR`, barUpdate)
+  const night = store.state.nights.entities[nightId]
+  t.is(night.total.all, 1000, `total has been updated`)
+  t.is(night.barName, `pouic`, `bar name has been updated`)
+  t.is(night.articles[0].name, `clapou`, `item name has been updated`)
+  t.is(night.articles[0].price, 1000, `item price has been updated`)
 })
