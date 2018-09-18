@@ -28,22 +28,24 @@ export const state = () => ({
 export const mutations = {
   [ADD_NIGHT](state, payload) {
     const { barId, barName } = payload
-    state.list.unshift({
+    const nightId = shortid.generate()
+    state.ids.unshift(nightId)
+    state.entities[nightId] = {
       ...clonedeep(defaultData.night),
       barId,
       barName,
-      id: shortid.generate(),
+      id: nightId,
       createdAt: new Date().valueOf(),
-    })
+    }
   },
   [COMPUTE_NIGHT](state, payload) {
     const { nightId } = payload
-    const night = state.list.find(night => night.id === nightId)
+    const night = state.entities[nightId]
     night.total = computeTotal(night)
   },
   [ADD_NIGHT_ARTICLE](state, payload) {
     const { nightId, article } = payload
-    const night = state.list.find(night => night.id === nightId)
+    const night = state.entities[nightId]
     night.articles.push({
       ...article,
       id: shortid.generate(),
@@ -52,12 +54,12 @@ export const mutations = {
   },
   [REMOVE_NIGHT_ARTICLE](state, payload) {
     const { nightId, articleId } = payload
-    const night = state.list.find(night => night.id === nightId)
+    const night = state.entities[nightId]
     night.articles = night.articles.filter(article => article.id !== articleId)
   },
   [ADD_PERSON](state, payload) {
     const { nightId } = payload
-    const night = state.list.find(night => night.id === nightId)
+    const night = state.entities[nightId]
     if (!night.persons.length) {
       return (night.persons = [
         {
@@ -74,7 +76,7 @@ export const mutations = {
   },
   [REMOVE_PERSON](state, payload) {
     const { nightId, personId } = payload
-    const night = state.list.find(night => night.id === nightId)
+    const night = state.entities[nightId]
     if (night.persons.length < 3) return (night.persons = [])
     night.persons = night.persons.filter(person => person.id !== personId)
   },
@@ -89,30 +91,31 @@ export const mutations = {
   //   // })
   // },
   RESET(state) {
-    state.list = []
+    state.entities = {}
+    state.ids = []
   },
 }
 
 export const actions = {
   ADD_NIGHT({ rootState, commit }, payload) {
     const { barId } = payload
-    const bar = rootState.barz.list.find(bar => bar.id === barId)
-    payload.barName = bar.name
+    const bar = rootState.barz.entities[barId]
     if (!bar) return
+    payload.barName = bar.name
     commit(ADD_NIGHT, payload)
   },
   CLEAR_NIGHT({ commit }, payload) {
     const { nightId } = payload
-    const night = state.list.find(night => night.id === nightId)
+    const night = state.entities[nightId]
     if (!night) return
     commit(CLEAR_NIGHT, payload)
     commit(COMPUTE_NIGHT, payload)
   },
   ADD_NIGHT_ARTICLE({ rootState, state, commit }, payload) {
     const { barId, nightId, article } = payload
-    const bar = rootState.barz.list.find(bar => bar.id === barId)
+    const bar = rootState.barz.entities[barId]
     if (!bar) return
-    const night = state.list.find(night => night.id === nightId)
+    const night = state.entities[nightId]
     const isValidNight = night && night.barId === barId
     if (!isValidNight) return
     const isValidArticle = bar.articles.includes(article)
@@ -122,21 +125,21 @@ export const actions = {
   },
   REMOVE_NIGHT_ARTICLE({ state, commit }, payload) {
     const { nightId } = payload
-    const night = state.list.find(night => night.id === nightId)
+    const night = state.entities[nightId]
     if (!night) return
     commit(REMOVE_NIGHT_ARTICLE, payload)
     commit(COMPUTE_NIGHT, payload)
   },
   ADD_PERSON({ state, commit }, payload) {
     const { nightId } = payload
-    const night = state.list.find(night => night.id === nightId)
+    const night = state.entities[nightId]
     if (!night) return
     commit(ADD_PERSON, payload)
     commit(COMPUTE_NIGHT, payload)
   },
   REMOVE_PERSON({ state, commit }, payload) {
     const { nightId } = payload
-    const night = state.list.find(night => night.id === nightId)
+    const night = state.entities[nightId]
     if (!night) return
     commit(REMOVE_PERSON, payload)
     commit(COMPUTE_NIGHT, payload)
