@@ -85,9 +85,11 @@ export default {
     notifyCopy() {
       this.$notify(this.$t(`shareCopied`))
     },
-    ...mapMutations({
-      reset: `RESET`,
-    }),
+    reset() {
+      this.RESET()
+      window.localStorage.removeItem(`foo-barz`)
+    },
+    ...mapMutations([`RESET`]),
   },
 }
 </script>

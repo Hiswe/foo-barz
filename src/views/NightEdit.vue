@@ -1,5 +1,6 @@
 <template lang="pug">
 foobarz-main-content(page="night" :title="$t(`title`)")
+  p at {{night.barName}}
   dl.totals
     dt.totals__label {{ $t( 'total') }}
     dd.totals__value {{ night.total.all | price }}
@@ -113,7 +114,7 @@ import { mapState, mapMutations, mapActions, mapGetters } from 'vuex'
 export default {
   name: `page-night`,
   created() {
-    if (!this.isValidParams) return this.$router.push(`/404`)
+    if (!this.isValidParams) return this.$router.push({ name: `404` })
   },
   computed: {
     barId() {
