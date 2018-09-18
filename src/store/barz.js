@@ -1,5 +1,6 @@
 import shortid from 'shortid'
 import clonedeep from 'lodash.clonedeep'
+import Vue from 'vue'
 
 import { bar as defaultBar, articles as defaultArticles } from './default-data'
 
@@ -27,7 +28,7 @@ export const mutations = {
         return article
       }),
     }
-    state.entities[bar.id] = bar
+    Vue.set(state.entities, bar.id, bar)
     state.ids.unshift(bar.id)
   },
   UPDATE_BAR(state, barWithItems) {

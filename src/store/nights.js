@@ -1,5 +1,6 @@
 import shortid from 'shortid'
 import clonedeep from 'lodash.clonedeep'
+import Vue from 'vue'
 
 import * as defaultData from './default-data'
 
@@ -36,13 +37,13 @@ export const mutations = {
     const { barId, barName } = payload
     const nightId = shortid.generate()
     state.ids.unshift(nightId)
-    state.entities[nightId] = {
+    Vue.set(state.entities, nightId, {
       ...clonedeep(defaultData.night),
       barId,
       barName,
       id: nightId,
       createdAt: new Date().valueOf(),
-    }
+    })
   },
   [REMOVE_NIGHT](state, payload) {
     const { nightId } = payload
@@ -56,23 +57,21 @@ export const mutations = {
   },
   [ADD_NIGHT_ARTICLE](state, payload) {
     const { nightId, article } = payload
-    const night = clonedeep(state.entities[nightId])
+    const night = state.entities[nightId]
     night.articles.push({
       ...article,
       id: shortid.generate(),
       articleId: article.id,
     })
-    state.entities[nightId] = night
   },
   [REMOVE_NIGHT_ARTICLE](state, payload) {
     const { nightId, articleId } = payload
-    const night = clonedeep(state.entities[nightId])
+    const night = state.entities[nightId]
     night.articles = night.articles.filter(article => article.id !== articleId)
-    state.entities[nightId] = night
   },
   [ADD_PERSON](state, payload) {
     const { nightId } = payload
-    const night = clonedeep(state.entities[nightId])
+    const night = state.entities[nightId]
     if (!night.persons.length) {
       night.persons.push({
         id: shortid.generate(),
@@ -81,17 +80,15 @@ export const mutations = {
     night.persons.push({
       id: shortid.generate(),
     })
-    state.entities[nightId] = night
   },
   [REMOVE_PERSON](state, payload) {
     const { nightId, personId } = payload
-    const night = clonedeep(state.entities[nightId])
+    const night = state.entities[nightId]
     if (night.persons.length < 3) {
       night.persons = []
     } else {
       night.persons = night.persons.filter(person => person.id !== personId)
     }
-    state.entities[nightId] = night
   },
   UPDATE_BAR(state, bar) {
     const barId = bar.id
