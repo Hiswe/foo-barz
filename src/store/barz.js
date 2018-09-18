@@ -4,7 +4,6 @@ import clonedeep from 'lodash.clonedeep'
 import { bar as defaultBar, articles as defaultArticles } from './default-data'
 
 export const state = () => ({
-  list: [defaultBar],
   entities: {
     [defaultBar.id]: clonedeep(defaultBar),
   },
@@ -27,18 +26,24 @@ export const getters = {
 export const mutations = {
   UPDATE_BAR(state, barWithItems) {
     barWithItems.name = barWithItems.name.trim()
-    const barIndex = state.list.findIndex(bar => bar.id === barWithItems.id)
-    if (barIndex < 0) return state.list.push(barWithItems)
-    state.list.splice(barIndex, 1, barWithItems)
+    const { id } = barWithItems
+    const existingBar = state.entities[id]
+    if (existingBar) return (state.entities[id] = barWithItems)
+    state.entities[id] = barWithItems
+    state.ids.push(id)
   },
   REMOVE_BAR(state, payload) {
     const { barId } = payload
-    const bar = state.list.find(bar => bar.id === barId)
+    const bar = state.entities[barId]
     if (!bar) return
     if (bar.isDefault) return
-    return (state.list = state.list.filter(bar => bar.id !== barId))
+    delete state.entities[barId]
+    state.ids = state.ids.filter(id => id !== barId)
   },
   RESET(state) {
-    state.list = [defaultData.bar]
+    state.entities = {
+      [defaultBar.id]: clonedeep(defaultBar),
+    }
+    state.ids = [defaultBar.id]
   },
 }
