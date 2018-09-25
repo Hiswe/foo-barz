@@ -10,7 +10,7 @@ test.beforeEach(t => {
   const bar = store.state.barz.entities[store.state.barz.ids[0]]
   t.context.bar = bar
   t.context.barId = bar.id
-  t.context.testArticle = bar.articles[0]
+  t.context.testArticle = bar.articles[Object.keys(bar.articles)[0]]
 })
 
 test(`new night`, t => {
@@ -64,11 +64,11 @@ test(`remove article`, t => {
   const nightId = store.state.nights.ids[0]
   const night = store.state.nights.entities[nightId]
   store.dispatch(`ADD_NIGHT_ARTICLE`, {
-    barId,
     nightId,
     article: testArticle,
   })
   store.dispatch(`REMOVE_NIGHT_ARTICLE`, {
+    barId,
     nightId: shortid.generate(),
     articleId: night.articles[0].id,
   })
@@ -152,12 +152,11 @@ test(`bar prices update`, t => {
   })
   const barUpdate = clonedeep(bar)
   barUpdate.name = `pouic`
-  barUpdate.articles[0].name = `clapou`
-  barUpdate.articles[0].price = 1000
+
+  barUpdate.articles[Object.keys(barUpdate.articles)[0]].name = `clapou`
+  barUpdate.articles[Object.keys(barUpdate.articles)[0]].price = 1000
   store.commit(`UPDATE_BAR`, barUpdate)
   const night = store.state.nights.entities[nightId]
   t.is(night.total.all, 1000, `total has been updated`)
   t.is(night.barName, `pouic`, `bar name has been updated`)
-  t.is(night.articles[0].name, `clapou`, `item name has been updated`)
-  t.is(night.articles[0].price, 1000, `item price has been updated`)
 })

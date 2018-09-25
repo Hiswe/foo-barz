@@ -1,42 +1,42 @@
 import clonedeep from 'lodash.clonedeep'
 
-export const articles = [
-  {
+export const articles = {
+  ctFq_MtBE: {
     id: `ctFq_MtBE`,
     icon: `beer`,
     name: `beer leo`,
     color: `#738588`,
     price: 70,
   },
-  {
+  __ay3tMUY: {
     id: `__ay3tMUY`,
     icon: `whisky`,
     name: `sangsom`,
     color: `#738588`,
     price: 375,
   },
-  {
+  Zd6cI_aIP: {
     id: `Zd6cI_aIP`,
     icon: `water`,
     name: `mixer`,
     color: `#738588`,
     price: 30,
   },
-  {
+  '53ARc_XD5': {
     id: `53ARc_XD5`,
     icon: `bucket`,
     name: `ice bucket`,
     color: `#738588`,
     price: 30,
   },
-  {
+  WPXHXTsJp: {
     id: `WPXHXTsJp`,
     icon: `promotion`,
     name: `promotion – 3 beers`,
     color: `#738588`,
     price: 200,
   },
-]
+}
 
 export const bar = {
   id: `_d6caZLLC`,

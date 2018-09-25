@@ -20,13 +20,16 @@ export const getters = {
 
 export const mutations = {
   CREATE_BAR(state) {
+    const articles = {}
+
+    Object.values(clonedeep(defaultArticles)).forEach(article => {
+      article.id = shortid.generate()
+      articles[article.id] = article
+    })
     const bar = {
       name: `new-bar`,
       id: shortid.generate(),
-      articles: clonedeep(defaultArticles).map(article => {
-        article.id = shortid.generate()
-        return article
-      }),
+      articles,
     }
     Vue.set(state.entities, bar.id, bar)
     state.ids.unshift(bar.id)

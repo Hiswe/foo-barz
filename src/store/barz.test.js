@@ -14,6 +14,13 @@ function getLastBar(store) {
   return store.state.barz.entities[store.getters.lastBarId]
 }
 
+function reduceArticles(articles, key) {
+  return Object.values(articles).reduce(
+    (acc, article) => `${acc}${article[key]}`,
+    ``,
+  )
+}
+
 test(`create`, t => {
   const { store } = t.context
   t.is(store.state.barz.ids.length, 1)
@@ -26,28 +33,28 @@ test(`create`, t => {
   const newBar = getLastBar(store)
   t.true(shortid.isValid(newBar.id), `have an id has be generated`)
   t.is(
-    defaultArticles.reduce((acc, article) => `${acc}${article.name}`, ``),
-    newBar.articles.reduce((acc, article) => `${acc}${article.name}`, ``),
+    reduceArticles(defaultArticles, `name`),
+    reduceArticles(newBar.articles, `name`),
     `articles have the same names than default`,
   )
   t.is(
-    defaultArticles.length,
-    newBar.articles.length,
+    Object.keys(defaultArticles).length,
+    Object.keys(newBar.articles).length,
     `have the same number of articles`,
   )
   t.is(
-    defaultArticles.reduce((acc, article) => `${acc}${article.price}`, ``),
-    newBar.articles.reduce((acc, article) => `${acc}${article.price}`, ``),
+    reduceArticles(defaultArticles, `price`),
+    reduceArticles(newBar.articles, `price`),
     `articles have the same prices than default`,
   )
   t.is(
-    defaultArticles.reduce((acc, article) => `${acc}${article.icon}`, ``),
-    newBar.articles.reduce((acc, article) => `${acc}${article.icon}`, ``),
+    reduceArticles(defaultArticles, `icon`),
+    reduceArticles(newBar.articles, `icon`),
     `articles have the same icons than default`,
   )
   t.not(
-    defaultArticles.reduce((acc, article) => `${acc}${article.id}`, ``),
-    newBar.articles.reduce((acc, article) => `${acc}${article.id}`, ``),
+    reduceArticles(defaultArticles, `id`),
+    reduceArticles(newBar.articles, `id`),
     `articles have different ids than default`,
   )
 })

@@ -12,12 +12,33 @@ const REMOVE_NIGHT_ARTICLE = `ACTION_REMOVE_NIGHT_ARTICLE`
 const ADD_PERSON = `ACTION_ADD_PERSON`
 const REMOVE_PERSON = `ACTION_REMOVE_PERSON`
 
-function computeTotal(night) {
-  const all = night.articles.reduce((total, { price }) => total + price, 0)
+function computeTotal(night, bar) {
+  const all = night.articles.reduce(
+    (total, article) => total + bar.articles[article.articleId].price,
+    0,
+  )
   const personsNumber = night.persons.length
   const isSingleBill = personsNumber < 2
   const perPerson = isSingleBill ? false : Math.round(all / personsNumber)
   return { all, perPerson }
+}
+
+function getNightAndBar(store, nightId, message = `NIGHT`) {
+  const { rootState, state } = store
+  const night = state.entities[nightId]
+  if (!night) {
+    console.warn(`${message} – no night`)
+    return {}
+  }
+  const bar = rootState.barz.entities[night.barId]
+  if (!bar) {
+    console.warn(`${message} – no bar`)
+    return {}
+  }
+  return {
+    night,
+    bar,
+  }
 }
 
 export const state = () => ({
@@ -51,15 +72,14 @@ export const mutations = {
     state.ids = state.ids.filter(id => id !== nightId)
   },
   [COMPUTE_NIGHT](state, payload) {
-    const { nightId } = payload
+    const { nightId, bar } = payload
     const night = state.entities[nightId]
-    night.total = computeTotal(night)
+    night.total = computeTotal(night, bar)
   },
   [ADD_NIGHT_ARTICLE](state, payload) {
     const { nightId, article } = payload
     const night = state.entities[nightId]
     night.articles.push({
-      ...article,
       id: shortid.generate(),
       articleId: article.id,
     })
@@ -96,16 +116,16 @@ export const mutations = {
       .filter(night => night.barId === barId)
       .forEach(night => {
         night.barName = bar.name
-        bar.articles.forEach(barArticle => {
-          const articleId = barArticle.id
-          const { id, ...updatedArticle } = barArticle
-          night.articles
-            .filter(nightArticle => nightArticle.articleId === articleId)
-            .forEach(nightArticle => {
-              Object.assign(nightArticle, updatedArticle)
-            })
-        })
-        night.total = computeTotal(night)
+        // bar.articles.forEach(barArticle => {
+        //   const articleId = barArticle.id
+        //   const { id, ...updatedArticle } = barArticle
+        //   night.articles
+        //     .filter(nightArticle => nightArticle.articleId === articleId)
+        //     .forEach(nightArticle => {
+        //       Object.assign(nightArticle, updatedArticle)
+        //     })
+        // })
+        night.total = computeTotal(night, bar)
       })
   },
   RESET(state) {
@@ -115,50 +135,65 @@ export const mutations = {
 }
 
 export const actions = {
-  ADD_NIGHT({ rootState, commit }, payload) {
+  ADD_NIGHT(store, payload) {
     const { barId } = payload
-    const bar = rootState.barz.entities[barId]
-    if (!bar) return
+    const bar = store.rootState.barz.entities[barId]
+    if (!bar) return console.warn(`ADD NIGHT – no bar found`)
     payload.barName = bar.name
-    commit(ADD_NIGHT, payload)
+    store.commit(ADD_NIGHT, payload)
   },
-  REMOVE_NIGHT({ state, commit }, payload) {
+  REMOVE_NIGHT(store, payload) {
     const { nightId } = payload
-    const night = state.entities[nightId]
+    const night = store.state.entities[nightId]
     if (!night) return
-    commit(REMOVE_NIGHT, payload)
+    store.commit(REMOVE_NIGHT, payload)
   },
-  ADD_NIGHT_ARTICLE({ rootState, state, commit }, payload) {
-    const { barId, nightId, article } = payload
-    const bar = rootState.barz.entities[barId]
-    if (!bar) return
-    const night = state.entities[nightId]
-    const isValidNight = night && night.barId === barId
-    if (!isValidNight) return
-    const isValidArticle = bar.articles.includes(article)
-    if (!isValidArticle) return
-    commit(ADD_NIGHT_ARTICLE, payload)
-    commit(COMPUTE_NIGHT, payload)
-  },
-  REMOVE_NIGHT_ARTICLE({ state, commit }, payload) {
-    const { nightId } = payload
-    const night = state.entities[nightId]
+  ADD_NIGHT_ARTICLE(store, payload) {
+    const { nightId, article } = payload
+    const { night, bar } = getNightAndBar(store, nightId, `ADD NIGHT ARTICLE`)
     if (!night) return
-    commit(REMOVE_NIGHT_ARTICLE, payload)
-    commit(COMPUTE_NIGHT, payload)
+    const isValidArticle = bar.articles[article.id]
+    if (!isValidArticle) {
+      return console.warn(`ADD NIGHT ARTICLE – no article found`)
+    }
+    store.commit(ADD_NIGHT_ARTICLE, payload)
+    store.commit(COMPUTE_NIGHT, {
+      nightId,
+      bar,
+    })
   },
-  ADD_PERSON({ state, commit }, payload) {
+  REMOVE_NIGHT_ARTICLE(store, payload) {
     const { nightId } = payload
-    const night = state.entities[nightId]
-    if (!night) return console.log(`no night`)
-    commit(ADD_PERSON, payload)
-    commit(COMPUTE_NIGHT, payload)
-  },
-  REMOVE_PERSON({ state, commit }, payload) {
-    const { nightId } = payload
-    const night = state.entities[nightId]
+    const { night, bar } = getNightAndBar(
+      store,
+      nightId,
+      `REMOVE NIGHT ARTICLE`,
+    )
     if (!night) return
-    commit(REMOVE_PERSON, payload)
-    commit(COMPUTE_NIGHT, payload)
+    store.commit(REMOVE_NIGHT_ARTICLE, payload)
+    store.commit(COMPUTE_NIGHT, {
+      nightId,
+      bar,
+    })
+  },
+  ADD_PERSON(store, payload) {
+    const { nightId } = payload
+    const { night, bar } = getNightAndBar(store, nightId, `ADD PERSON`)
+    if (!night) return
+    store.commit(ADD_PERSON, payload)
+    store.commit(COMPUTE_NIGHT, {
+      nightId,
+      bar,
+    })
+  },
+  REMOVE_PERSON(store, payload) {
+    const { nightId } = payload
+    const { night, bar } = getNightAndBar(store, nightId, `REMOVE PERSON`)
+    if (!night) return
+    store.commit(REMOVE_PERSON, payload)
+    store.commit(COMPUTE_NIGHT, {
+      nightId,
+      bar,
+    })
   },
 }
