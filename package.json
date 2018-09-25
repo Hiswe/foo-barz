@@ -24,6 +24,7 @@
     "toc": "doctoc *.md --github"
   },
   "dependencies": {
+    "alloyfinger": "^0.1.15",
     "lodash.clonedeep": "^4.5.0",
     "shortid": "^2.2.13",
     "vue": "^2.5.17",

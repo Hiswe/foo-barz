@@ -1,13 +1,13 @@
 <template lang="pug">
 nav.main-navigation
   router-link.main-navigation__link(to="/")
-    foobarz-icon.main-navigation__icon(name="store" :scale="1.5")
+    foobarz-icon.main-navigation__icon(name="store" :scale="1")
     span.main-navigation__label {{ $t(`barz`) }}
   router-link.main-navigation__link(to="/nights")
-    foobarz-icon.main-navigation__icon(name="night" :scale="1.5")
+    foobarz-icon.main-navigation__icon(name="night" :scale="1")
     span.main-navigation__label {{ $t(`nights`) }}
   router-link.main-navigation__link(to="/information")
-    foobarz-icon.main-navigation__icon(name="info" :scale="1.5")
+    foobarz-icon.main-navigation__icon(name="info" :scale="1.2")
     span.main-navigation__label {{ $t(`info`) }}
 </template>
 
@@ -30,7 +30,7 @@ nav.main-navigation
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
 
     &--active {
       background: var(--c-accent);

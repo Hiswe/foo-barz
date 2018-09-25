@@ -106,7 +106,7 @@ const icons = () => {
     )
     .pipe($.if(/[.]vue$/, $.rename(`SvgIcons.vue`)))
     .pipe($.if(/[.]vue$/, gulp.dest(`src/components/ui`)))
-    .pipe($.if(/[.]html$/, gulp.dest(`.`)))
+    .pipe($.if(/[.]html$/, gulp.dest(`assets-source`)))
 }
 icons.description = `build SVG icons`
 exports[`build:icons`] = icons

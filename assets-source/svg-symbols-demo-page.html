@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>19 Symbols</title>
+  <title>20 Symbols</title>
   <meta name="viewport" content="width=device-width" />
   <style>
     html {
@@ -374,6 +374,11 @@
     }
   </style>
   <style>
+    .gss-showOriginal .gss-iconbox #gss-icon-add {
+      width: 24px;
+      height: 24px;
+    }
+    
     .gss-showOriginal .gss-iconbox #gss-icon-person {
       width: 24px;
       height: 24px;
@@ -479,6 +484,9 @@
     <clipPath id="beer-a"> <path d="M20.348 12.333a.783.783 0 0 1-.007-.108c0-1.01 1.64-1.83 3.659-1.83s3.659.82 3.659 1.83a.783.783 0 0 1-.007.108l.007.001s.158 5.111.912 8.123c.702 2.811 3.736 6.887 3.736 13.128 0 .127-.004.253-.012.376h.012v31.095h-.003c-.116 2.242-3.792 4.045-8.304 4.045-4.512 0-8.188-1.803-8.304-4.045h-.003V33.961h.012a5.808 5.808 0 0 1-.012-.376c0-6.241 3.034-10.317 3.736-13.128.754-3.012.912-8.123.912-8.123l.007-.001z"/> </clipPath>
   </defs>
   
+  <symbol id="add" viewBox="0 0 24 24">
+     <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/> 
+  </symbol>
   <symbol id="person" viewBox="0 0 24 24">
      <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/> 
   </symbol>
@@ -544,13 +552,13 @@
   </symbol>
 </svg>
 <header class="gss-toolbar">
-  <h1>19 Symbols</h1>
+  <h1>20 Symbols</h1>
   <button class="gss-toolbar-list">
     <svg aria-label="Compact" width="15" height="15"><use xlink:href="#gss-icon-list"></use>
     </svg> List
   </button>
   <input class="gss-toolbar-filter" type="search"
-         placeholder="Filter 19 symbols…"
+         placeholder="Filter 20 symbols…"
          aria-label="Filter by id" title="Filter by id">
   <button class="gss-toolbar-orig" data-toggle-class="gss-showOriginal">Original Size</button>
   <button class="gss-toolbar-outl" data-toggle-class="gss-showColor">Test Color</button>
@@ -558,6 +566,35 @@
 <main>
 <nav class="gss-iconlist" hidden></nav>
 <div class="gss-iconboxes">
+  <div class="gss-iconbox gss-searchable"
+       id="gss-iconbox-add"
+       data-search="add add 24x24 <1 <2 <3 <4 <5 <6 <7 <8 <9">
+    <div class="gss-iconbox-header">
+      <h2>add</h2>
+      <span>0.1&thinsp;kB</span>
+    </div>
+    <p class="gss-iconbox-head2">
+      <span>add.svg</span>
+      <span>24&thinsp;×&thinsp;24</span>
+      <span>102&thinsp;B</span>
+    </p>
+    <div class="gss-iconbox-wrapper">
+      <div class="gss-iconbox-icon" data-dimensions="24&thinsp;×&thinsp;24">
+        <svg role="img" id="gss-icon-add">
+          <use xlink:href="#add"></use>
+        </svg>
+      </div>
+      <div class="gss-iconbox-code">
+        <code>&lt;svg role=&quot;img&quot; class=&quot;add&quot;&gt;
+  &lt;use xlink:href=&quot;#add&quot;&gt;&lt;/use&gt;
+&lt;/svg&gt;</code>
+      </div>
+    </div>
+    <div class="gss-iconbox-action">
+      <button data-action="copy">Copy</button>
+      <button data-action="info">Show</button>
+    </div>
+  </div>
   <div class="gss-iconbox gss-searchable"
        id="gss-iconbox-person"
        data-search="person person 24x24 <1 <2 <3 <4 <5 <6 <7 <8 <9">

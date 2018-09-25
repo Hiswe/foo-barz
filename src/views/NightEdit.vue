@@ -1,3 +1,55 @@
+<script>
+import { mapState, mapMutations, mapActions, mapGetters } from 'vuex'
+
+export default {
+  name: `page-night`,
+  created() {
+    if (!this.isValidParams) return this.$router.push({ name: `404` })
+  },
+  computed: {
+    barId() {
+      return this.$route.params.barId
+    },
+    nightId() {
+      return this.$route.params.nightId
+    },
+    ...mapState({
+      isValidParams(state) {
+        const isValidBar = state.barz.ids.includes(this.barId)
+        const isValidNight = state.nights.ids.includes(this.nightId)
+        return isValidBar && isValidNight
+      },
+      bar(state) {
+        return state.barz.entities[this.barId]
+      },
+      night(state) {
+        return state.nights.entities[this.nightId]
+      },
+    }),
+  },
+  methods: {
+    ...mapActions({
+      addArticle: `ADD_NIGHT_ARTICLE`,
+      removeArticle: `REMOVE_NIGHT_ARTICLE`,
+      addPerson: `ADD_PERSON`,
+      removePerson: `REMOVE_PERSON`,
+    }),
+  },
+}
+</script>
+
+<i18n>
+{
+  "en": {
+    "title": "Night",
+    "total": "total",
+    "total-person": "per person",
+    "selection": "selection",
+    "people": "people"
+  }
+}
+</i18n>
+
 <template lang="pug">
 foobarz-main-content(page="night" :title="$t(`title`)")
   p at {{night.barName}}
@@ -22,7 +74,7 @@ foobarz-main-content(page="night" :title="$t(`title`)")
     button.night__action.night__action--add-person(
       @click="addPerson({nightId})"
     )
-      foobarz-icon(name="person-add" :scale="2.5")
+      foobarz-icon(name="person-add" :scale="1.5")
   template(v-if="night.articles.length")
     h2.night__title {{ $t('selection') }}
     div
@@ -68,8 +120,8 @@ foobarz-main-content(page="night" :title="$t(`title`)")
 
     &--add-person {
       position: absolute;
-      top: 0.5rem;
-      right: 1rem;
+      top: 0.25rem;
+      right: 0.5rem;
     }
   }
 }
@@ -99,55 +151,3 @@ foobarz-main-content(page="night" :title="$t(`title`)")
   }
 }
 </style>
-
-<i18n>
-{
-  "en": {
-    "title": "Night",
-    "total": "total",
-    "total-person": "per person",
-    "selection": "selection",
-    "people": "people"
-  }
-}
-</i18n>
-
-<script>
-import { mapState, mapMutations, mapActions, mapGetters } from 'vuex'
-
-export default {
-  name: `page-night`,
-  created() {
-    if (!this.isValidParams) return this.$router.push({ name: `404` })
-  },
-  computed: {
-    barId() {
-      return this.$route.params.barId
-    },
-    nightId() {
-      return this.$route.params.nightId
-    },
-    ...mapState({
-      isValidParams(state) {
-        const isValidBar = state.barz.ids.includes(this.barId)
-        const isValidNight = state.nights.ids.includes(this.nightId)
-        return isValidBar && isValidNight
-      },
-      bar(state) {
-        return state.barz.entities[this.barId]
-      },
-      night(state) {
-        return state.nights.entities[this.nightId]
-      },
-    }),
-  },
-  methods: {
-    ...mapActions({
-      addArticle: `ADD_NIGHT_ARTICLE`,
-      removeArticle: `REMOVE_NIGHT_ARTICLE`,
-      addPerson: `ADD_PERSON`,
-      removePerson: `REMOVE_PERSON`,
-    }),
-  },
-}
-</script>

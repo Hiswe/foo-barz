@@ -9,13 +9,19 @@ import './register-service-worker'
 import i18n from './i18n'
 import MainContent from '@/components/MainContent'
 import SvgIcon from '@/components/ui/SvgIcons'
-import Button from '@/components/ui/Button'
+import Button from '@/components/ui/FoobarzButton'
 import Input from '@/components/ui/Input'
 
 Vue.use(VueClipboard)
 Vue.use(VueNotifications)
 
-Vue.filter(`date`, value => new Date(value).toLocaleString(`en-GB`))
+Vue.filter(`date`, value =>
+  new Date(value).toLocaleString(`en-GB`, {
+    year: `numeric`,
+    month: `numeric`,
+    day: `numeric`,
+  }),
+)
 Vue.filter(`price`, value => `${value}฿`)
 
 Vue.component(`foobarz-main-content`, MainContent)

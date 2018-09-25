@@ -11,8 +11,9 @@ main.main(role="main" :class="`page-${page}`" )
 
   &__title {
     text-align: center;
+    height: 50px;
     font-weight: 300;
-    font-size: 1.75em;
+    font-size: 1.15em;
     font-variant: small-caps;
     text-transform: uppercase;
     margin: 0;

@@ -22,7 +22,12 @@
   --c-accent-lighter: hsl(var(--c-accent-h), var(--c-accent-s), 65%);
   --c-accent-lightest: hsl(var(--c-accent-h), var(--c-accent-s), 80%);
 
-  --navigation-height: 55px;
+  --navigation-height: 50px;
+
+  --font-mono: Consolas, 'Andale Mono WT', 'Andale Mono', 'Lucida Console',
+    'Lucida Sans Typewriter', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono',
+    'Liberation Mono', 'Nimbus Mono L', Monaco, 'Courier New', Courier,
+    monospace;
 }
 *,
 *::before,
