@@ -14,7 +14,10 @@ foobarz-main-content(page="night" :title="$t(`title`)")
       :key="article.id"
       @click="addArticle({barId, nightId, article})"
     )
-      foobarz-icon(:name="article.icon")
+      foobarz-icon(
+        :name="article.icon"
+        :style="{'--secondary-color': article.color}"
+      )
       div {{ article.price | price }}
     button.night__action.night__action--add-person(
       @click="addPerson({nightId})"
@@ -29,7 +32,8 @@ foobarz-main-content(page="night" :title="$t(`title`)")
         @click="removeArticle({nightId, articleId: article.id})"
       )
         foobarz-icon(
-          :name="article.icon"
+          :name="bar.articles[article.articleId].icon"
+          :style="{'--secondary-color': bar.articles[article.articleId].color}"
         )
   template(v-if="night.persons.length")
     h2.night__title {{ $t('people') }}
