@@ -51,8 +51,8 @@ export default {
 </i18n>
 
 <template lang="pug">
-foobarz-main-content(page="night" :title="$t(`title`)")
-  p at {{night.barName}}
+foobarz-main-content(page="night" noPadding :title="$t(`title`)")
+  h2.night__bar at {{night.barName}}
   dl.totals
     dt.totals__label {{ $t( 'total') }}
     dd.totals__value {{ night.total.all | price }}
@@ -60,8 +60,8 @@ foobarz-main-content(page="night" :title="$t(`title`)")
       dt.totals__label {{ $t( 'total-person') }} ({{night.persons.length}})
       dd.totals__value {{ night.total.perPerson | price }}
 
-  menu.night__items
-    button.night__action(
+  menu.bar-menu
+    button.article(
       v-for="article in bar.articles"
       :key="article.id"
       @click="addArticle({barId, nightId, article})"
@@ -71,14 +71,14 @@ foobarz-main-content(page="night" :title="$t(`title`)")
         :style="{'--secondary-color': article.color}"
       )
       div {{ article.price | price }}
-    button.night__action.night__action--add-person(
+    button.article.article--add-person(
       @click="addPerson({nightId})"
     )
       foobarz-icon(name="person-add" :scale="1.5")
-  template(v-if="night.articles.length")
-    h2.night__title {{ $t('selection') }}
-    div
-      button.night__action(
+  section.selection.selection--articles(v-if="night.articles.length")
+    h3.selection__title {{ $t('selection') }}
+    .selection__content
+      button.article(
         v-for="article in night.articles"
         :key="article.id"
         @click="removeArticle({nightId, articleId: article.id})"
@@ -87,10 +87,10 @@ foobarz-main-content(page="night" :title="$t(`title`)")
           :name="bar.articles[article.articleId].icon"
           :style="{'--secondary-color': bar.articles[article.articleId].color}"
         )
-  template(v-if="night.persons.length")
-    h2.night__title {{ $t('people') }}
-    div
-      button.night__action(
+  section.selection.selection--people(v-if="night.persons.length")
+    h3.selection__title {{ $t('people') }}
+    .selection__content
+      button.article(
         v-for="person in night.persons"
         :key="person.id"
         @click="removePerson({nightId, personId: person.id})"
@@ -102,37 +102,52 @@ foobarz-main-content(page="night" :title="$t(`title`)")
 </template>
 
 <style lang="scss" scoped>
-.night {
-  &__title {
-    text-align: center;
-    text-transform: uppercase;
-    font-weight: 300;
-    letter-spacing: 0.05em;
-  }
-  &__items {
-    margin: 0;
-    padding: 1rem 0;
-    text-align: center;
-  }
-  &__action {
-    border: 0;
-    background: none;
+.page-night /deep/ .main__content {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-areas:
+    'bar bar'
+    'menu total'
+    'menu articles'
+    'menu people';
+  // grid-auto-rows: min-content;
+  grid-template-rows: min-content min-content 1fr 1fr;
+}
 
-    &--add-person {
-      position: absolute;
-      top: 0.25rem;
-      right: 0.5rem;
-    }
+.article {
+  border: 0;
+  background: none;
+
+  &--add-person {
+    position: absolute;
+    top: 0.25rem;
+    right: 0.5rem;
   }
+}
+
+.night {
+  &__bar {
+    text-align: center;
+    font-weight: 400;
+    font-size: 1.25rem;
+    grid-area: bar;
+  }
+}
+.bar-menu {
+  margin: 0;
+  padding: 1rem 0;
+  text-align: center;
+  grid-area: menu;
 }
 .totals {
   background: var(--c-primary-darker);
   padding: 1rem;
   margin: 0;
   display: grid;
-  grid-template-rows: repeat(2, 1fr);
+  grid-template-rows: repeat(2, min-content);
   grid-gap: 0.5rem;
   border-radius: 0.5rem;
+  grid-area: total;
 
   &__label,
   &__value {
@@ -148,6 +163,21 @@ foobarz-main-content(page="night" :title="$t(`title`)")
   &__value {
     grid-row: 2;
     color: var(--c-accent);
+  }
+}
+.selection {
+  &--articles {
+    grid-area: articles;
+  }
+  &--people {
+    grid-area: people;
+  }
+
+  &__title {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 300;
+    letter-spacing: 0.05em;
   }
 }
 </style>

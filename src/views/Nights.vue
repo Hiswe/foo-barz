@@ -23,7 +23,7 @@ export default {
     "title": "Perdition list",
     "remove": "remove",
     "at": " at",
-    "perPerson": " for",
+    "for": " for",
     "people": "{count} peoples"
   }
 }

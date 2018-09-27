@@ -11,7 +11,11 @@ foobarz-main-content(page="information" title="Information")
       v-clipboard:success="onCopy"
     ) {{ $t(`shareButton`) }}
   hr.separator
-  foobarz-button(@click.native="reset") {{ $t(`reset`) }}
+  p {{ $t(`dangerZone`) }}
+  foobarz-button(
+    @click.passive="reset"
+    danger
+  ) {{ $t(`reset`) }}
   footer.version {{ $t(`version`) }} {{ version }}
 </template>
 
@@ -43,6 +47,7 @@ a {
     "shareTitle": "Share the app",
     "shareDescription": "The app can be shared with this link",
     "shareButton": "Share",
+    "dangerZone": "danger zone",
     "shareCopied": "Link copied!",
     "reset": "Reset",
     "version": "version"

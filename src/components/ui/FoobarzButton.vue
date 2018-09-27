@@ -43,6 +43,12 @@ button.foobarz-button(
       fill: var(--c-black);
     }
   }
+
+  &--danger {
+    color: red;
+    background: none;
+    border: 3px solid currentColor;
+  }
 }
 </style>
 
@@ -58,11 +64,16 @@ export default {
       type: Boolean,
       default: false,
     },
+    danger: {
+      type: Boolean,
+      default: false,
+    },
   },
   computed: {
     additionalClass() {
       return {
         'foobarz-button--fab': this.fab,
+        'foobarz-button--danger': this.danger,
       }
     },
   },
