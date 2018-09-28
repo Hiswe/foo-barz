@@ -39,7 +39,7 @@ html {
   // https://css-tricks.com/snippets/css/system-font-stack/#article-header-id-1
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
     Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
-  font-size: percentage(20/16);
+  font-size: percentage(18/16);
 }
 html,
 body {

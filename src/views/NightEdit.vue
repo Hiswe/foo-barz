@@ -1,8 +1,15 @@
 <script>
 import { mapState, mapMutations, mapActions, mapGetters } from 'vuex'
 
+import BarMenu from '@/components/nights/BarMenu'
+import NightTotal from '@/components/nights/NightTotal'
+
 export default {
   name: `page-night`,
+  components: {
+    BarMenu,
+    NightTotal,
+  },
   created() {
     if (!this.isValidParams) return this.$router.push({ name: `404` })
   },
@@ -29,7 +36,6 @@ export default {
   },
   methods: {
     ...mapActions({
-      addArticle: `ADD_NIGHT_ARTICLE`,
       removeArticle: `REMOVE_NIGHT_ARTICLE`,
       addPerson: `ADD_PERSON`,
       removePerson: `REMOVE_PERSON`,
@@ -41,9 +47,6 @@ export default {
 <i18n>
 {
   "en": {
-    "title": "Night",
-    "total": "total",
-    "total-person": "per person",
     "selection": "selection",
     "people": "people"
   }
@@ -51,30 +54,18 @@ export default {
 </i18n>
 
 <template lang="pug">
-foobarz-main-content(page="night" noPadding :title="$t(`title`)")
-  h2.night__bar at {{night.barName}}
-  dl.totals
-    dt.totals__label {{ $t( 'total') }}
-    dd.totals__value {{ night.total.all | price }}
-    template(v-if="night.total.perPerson")
-      dt.totals__label {{ $t( 'total-person') }} ({{night.persons.length}})
-      dd.totals__value {{ night.total.perPerson | price }}
+//- foobarz-main-content.night(page="night" noPadding :title="$t(`title`)")
+section.night(v-if="isValidParams")
 
-  menu.bar-menu
-    button.article(
-      v-for="article in bar.articles"
-      :key="article.id"
-      @click="addArticle({barId, nightId, article})"
-    )
-      foobarz-icon(
-        :name="article.icon"
-        :style="{'--secondary-color': article.color}"
-      )
-      div {{ article.price | price }}
-    button.article.article--add-person(
-      @click="addPerson({nightId})"
-    )
-      foobarz-icon(name="person-add" :scale="1.5")
+  night-total.night__total(:night="night")
+  bar-menu.night__menu(
+    :bar="bar"
+    :nightId="nightId"
+  )
+
+  foobarz-button(@click="addPerson({nightId})" fab)
+    foobarz-icon(name="person-add" :scale="1.5")
+
   section.selection.selection--articles(v-if="night.articles.length")
     h3.selection__title {{ $t('selection') }}
     .selection__content
@@ -102,16 +93,25 @@ foobarz-main-content(page="night" noPadding :title="$t(`title`)")
 </template>
 
 <style lang="scss" scoped>
-.page-night /deep/ .main__content {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  grid-template-areas:
-    'bar bar'
-    'menu total'
-    'menu articles'
-    'menu people';
-  // grid-auto-rows: min-content;
-  grid-template-rows: min-content min-content 1fr 1fr;
+.night {
+  --total-height: 70px;
+  position: relative;
+  // padding-left: percentage(1/3);
+
+  &__total {
+    height: var(--total-height);
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+
+  &__menu {
+    position: absolute;
+    top: var(--total-height);
+    left: 0;
+    bottom: var(--navigation-height);
+    width: percentage(1/3);
+  }
 }
 
 .article {
@@ -125,47 +125,15 @@ foobarz-main-content(page="night" noPadding :title="$t(`title`)")
   }
 }
 
-.night {
-  &__bar {
-    text-align: center;
-    font-weight: 400;
-    font-size: 1.25rem;
-    grid-area: bar;
-  }
-}
 .bar-menu {
   margin: 0;
   padding: 1rem 0;
   text-align: center;
   grid-area: menu;
 }
-.totals {
-  background: var(--c-primary-darker);
-  padding: 1rem;
-  margin: 0;
-  display: grid;
-  grid-template-rows: repeat(2, min-content);
-  grid-gap: 0.5rem;
-  border-radius: 0.5rem;
-  grid-area: total;
-
-  &__label,
-  &__value {
-    margin: 0;
-    padding: 0;
-    text-align: center;
-  }
-  &__label {
-    text-transform: uppercase;
-    font-size: 0.9rem;
-    grid-row: 1;
-  }
-  &__value {
-    grid-row: 2;
-    color: var(--c-accent);
-  }
-}
 .selection {
+  padding-left: percentage(1/3);
+
   &--articles {
     grid-area: articles;
   }

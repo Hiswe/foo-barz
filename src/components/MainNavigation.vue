@@ -19,6 +19,7 @@ nav.main-navigation
   left: 0;
   right: 0;
   display: flex;
+  z-index: 10;
   height: var(--navigation-height);
 
   &__link {
