@@ -6,6 +6,7 @@ foobarz-main-content(page="barz-new-edit" :title="bar.name")
       template(v-for="(article, index) in bar.articles" )
         dt.articles__title(
           :key="`${article.id}-title`"
+          :class="editArticle === index ? `articles__title--edit` : ``"
           @click="openEditPanel(index)"
         )
           span.articles__icon
@@ -19,13 +20,13 @@ foobarz-main-content(page="barz-new-edit" :title="bar.name")
           :key="`${article.id}-edit`"
           v-if="editArticle === index"
         )
-          foobarz-icon-picker(v-model="article.icon")
-          foobarz-color-picker(v-model="article.color")
+          foobarz-icon-picker.articles__edit-icon(v-model="article.icon")
           foobarz-input.articles__edit-name(v-model="article.name")
+          foobarz-color-picker.articles__edit-color(v-model="article.color")
           foobarz-input.articles__edit-price(type="number" v-model="article.price")
 
-    foobarz-button(type="submit")
-      | {{ $t(`submit-update`) }}
+    foobarz-button(type="submit" fab)
+      | save
 </template>
 
 <style lang="scss" scoped>
@@ -34,6 +35,11 @@ foobarz-main-content(page="barz-new-edit" :title="bar.name")
     display: flex;
     padding: 0.5rem 0;
     align-items: baseline;
+
+    &--edit {
+      background: black;
+      border-radius: 0.5rem 0.5rem 0 0;
+    }
 
     &::before {
       content: '';
@@ -56,19 +62,21 @@ foobarz-main-content(page="barz-new-edit" :title="bar.name")
     order: 2;
   }
   &__edit {
-    display: flex;
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    grid-gap: 1rem;
     background: black;
     margin: 0;
     padding: 1rem;
-    border-radius: 0.5rem;
+    border-radius: 0 0 0.5rem 0.5rem;
 
     &-name {
-      flex: 1 1 auto;
+      margin: 0;
     }
 
     &-price {
-      width: 40%;
-      margin-left: 1rem;
+      margin: 0;
+      // width: 40%;
     }
   }
 }

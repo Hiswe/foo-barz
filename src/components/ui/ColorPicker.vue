@@ -16,6 +16,8 @@
 
 <style lang="scss" scoped>
 .foobarz-color-picker {
+  position: relative;
+
   &__bucket {
     height: 2rem;
     width: 2rem;
@@ -28,6 +30,10 @@
     list-style: none;
     border-radius: 0.5rem;
     padding: 0.5rem;
+    position: absolute;
+    left: 100%;
+    top: 50%;
+    transform: translateY(-50%);
   }
 }
 </style>
@@ -37,7 +43,13 @@ export default {
   name: `foobarz-icon-picker`,
   data() {
     return {
-      colorList: [`#738588`, `#000`, `#F00`, `#0F0`, `#00F`],
+      colorList: [
+        `#738588`,
+        `#000`,
+        `rgb(237, 98, 55)`,
+        `rgb(151, 192, 92)`,
+        `rgb(70, 169, 238)`,
+      ],
       open: false,
     }
   },

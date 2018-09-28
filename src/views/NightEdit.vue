@@ -44,15 +44,6 @@ export default {
 }
 </script>
 
-<i18n>
-{
-  "en": {
-    "selection": "selection",
-    "people": "people"
-  }
-}
-</i18n>
-
 <template lang="pug">
 //- foobarz-main-content.night(page="night" noPadding :title="$t(`title`)")
 section.night(v-if="isValidParams")
@@ -67,7 +58,6 @@ section.night(v-if="isValidParams")
     foobarz-icon(name="person-add" :scale="1.5")
 
   section.selection.selection--articles(v-if="night.articles.length")
-    h3.selection__title {{ $t('selection') }}
     .selection__content
       button.article(
         v-for="article in night.articles"
@@ -79,7 +69,6 @@ section.night(v-if="isValidParams")
           :style="{'--secondary-color': bar.articles[article.articleId].color}"
         )
   section.selection.selection--people(v-if="night.persons.length")
-    h3.selection__title {{ $t('people') }}
     .selection__content
       button.article(
         v-for="person in night.persons"
@@ -94,11 +83,15 @@ section.night(v-if="isValidParams")
 
 <style lang="scss" scoped>
 .night {
-  --total-height: 70px;
+  --total-height: 60px;
+  --menu-size: #{percentage(2/7)};
   position: relative;
-  // padding-left: percentage(1/3);
+  padding-top: var(--total-height);
+  padding-bottom: var(--navigation-height);
+  // min-height: calc(100vh - var(--navigation-height));
 
   &__total {
+    position: fixed;
     height: var(--total-height);
     top: 0;
     left: 0;
@@ -106,46 +99,45 @@ section.night(v-if="isValidParams")
   }
 
   &__menu {
-    position: absolute;
+    position: fixed;
     top: var(--total-height);
     left: 0;
     bottom: var(--navigation-height);
-    width: percentage(1/3);
+    width: var(--menu-size);
   }
 }
 
 .article {
   border: 0;
   background: none;
+  width: 100%;
+  padding: 100% 0 0;
+  position: relative;
 
-  &--add-person {
+  .icon {
     position: absolute;
-    top: 0.25rem;
-    right: 0.5rem;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 100%;
   }
-}
-
-.bar-menu {
-  margin: 0;
-  padding: 1rem 0;
-  text-align: center;
-  grid-area: menu;
 }
 .selection {
-  padding-left: percentage(1/3);
+  padding: 1rem 0.5rem;
+  padding-left: var(--menu-size);
 
-  &--articles {
-    grid-area: articles;
-  }
-  &--people {
-    grid-area: people;
-  }
+  &__content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+    grid-gap: 0.5rem;
 
-  &__title {
-    text-align: center;
-    text-transform: uppercase;
-    font-weight: 300;
-    letter-spacing: 0.05em;
+    // .icon {
+    //   height: 100%;
+    // }
   }
+}
+
+.selection + .selection {
+  border-top: 5px solid var(--c-primary-darker);
 }
 </style>

@@ -42,13 +42,23 @@ export default {
 <style lang="scss" scoped>
 .bar-menu {
   background: var(--c-black);
+  display: flex;
+  flex-direction: column;
 
   &__list {
     margin: 0;
     padding: 0.5rem;
+    flex: 1 1 auto;
+    overflow-y: scroll; /* has to be scroll, not auto */
+    -webkit-overflow-scrolling: touch;
+  }
+  &__name {
+    text-align: center;
+    padding: 0.5rem 0;
+    flex: 0 0 auto;
   }
   &__article {
-    background: var(--c-primary-darker);
+    background: var(--c-primary-darkest);
     border: 0;
     width: 100%;
     padding: 0;
@@ -81,7 +91,7 @@ export default {
     bottom: 0;
     transform-origin: bottom left;
     transform: rotate(-0.25turn) translateY(100%);
-    color: var(--c-primary-lightest);
+    color: var(--c-primary-lighter);
   }
 
   &__price {

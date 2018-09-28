@@ -15,6 +15,8 @@
 
 <style lang="scss" scoped>
 .foobarz-icon-picker {
+  position: relative;
+
   &__icon {
     height: 2rem;
     width: 2rem;
@@ -32,6 +34,11 @@
     list-style: none;
     border-radius: 0.5rem;
     padding: 0.5rem;
+
+    position: absolute;
+    left: 100%;
+    top: 50%;
+    transform: translateY(-50%);
   }
 }
 </style>
