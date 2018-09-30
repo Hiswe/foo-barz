@@ -26,7 +26,7 @@ foobarz-main-content(page="barz-new-edit" :title="bar.name")
           foobarz-input.articles__edit-price(type="number" v-model="article.price")
 
     foobarz-button(type="submit" fab)
-      | save
+      foobarz-icon(name="save" :scale="1.5")
 </template>
 
 <style lang="scss" scoped>
@@ -81,15 +81,6 @@ foobarz-main-content(page="barz-new-edit" :title="bar.name")
   }
 }
 </style>
-
-<i18n>
-{
-  "en": {
-    "submit-new": "create",
-    "submit-update": "update"
-  }
-}
-</i18n>
 
 <script>
 import cloneDeep from 'lodash.clonedeep'

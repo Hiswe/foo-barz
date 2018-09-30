@@ -1,6 +1,8 @@
 <script>
 import { mergeData } from 'vue-functional-data-merge'
 
+// scoped styles aren't passed automatically
+// https://github.com/vuejs/vue-loader/issues/1136
 // https://github.com/alexsasharegan/vue-functional-data-merge#scoped-styles
 /**
  * @param {Vue} parent

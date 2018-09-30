@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>20 Symbols</title>
+  <title>21 Symbols</title>
   <meta name="viewport" content="width=device-width" />
   <style>
     html {
@@ -454,6 +454,11 @@
       height: 24px;
     }
     
+    .gss-showOriginal .gss-iconbox #gss-icon-save {
+      width: 24px;
+      height: 24px;
+    }
+    
     .gss-showOriginal .gss-iconbox #gss-icon-promotion {
       width: 72px;
       height: 72px;
@@ -532,6 +537,9 @@
   <symbol id="remove-circle" viewBox="0 0 24 24">
      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11H7v-2h10v2z"/> 
   </symbol>
+  <symbol id="save" viewBox="0 0 24 24">
+     <path d="M17 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2V7l-4-4zm2 16H5V5h11.17L19 7.83V19zm-7-7c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3zM6 6h9v4H6z"/> 
+  </symbol>
   <symbol id="promotion" viewBox="0 0 72 72">
      <path d="M8.773 62.694a3.898 3.898 0 0 0 3.902 3.902h19.506V47.089H8.773v15.605zM39.983 66.596h19.506a3.898 3.898 0 0 0 3.902-3.902V47.089H39.983v19.507zM58.258 27.583h5.133a3.898 3.898 0 0 1 3.901 3.902v9.753c0 1.072-.878 1.95-1.951 1.95H6.823a1.957 1.957 0 0 1-1.951-1.95v-9.753a3.897 3.897 0 0 1 3.901-3.902h49.485z"/> <path d="M23.635 27.583H14.15c-.768-1.475-1.232-3.109-1.232-4.876 0-5.913 4.816-10.729 10.729-10.729 5.071 0 8.351 2.597 12.557 8.327 4.206-5.73 7.485-8.327 12.557-8.327 5.913 0 10.728 4.816 10.728 10.729 0 1.767-.475 3.401-1.231 4.876h-9.497a4.875 4.875 0 0 0 4.876-4.876 4.875 4.875 0 0 0-4.876-4.877c-2.487 0-4.23.427-10.497 9.753h-4.133c-6.278-9.35-8.07-9.753-10.496-9.753a4.876 4.876 0 0 0-4.877 4.877 4.875 4.875 0 0 0 4.877 4.876z" class="icon-secondary-color"/> 
   </symbol>
@@ -552,13 +560,13 @@
   </symbol>
 </svg>
 <header class="gss-toolbar">
-  <h1>20 Symbols</h1>
+  <h1>21 Symbols</h1>
   <button class="gss-toolbar-list">
     <svg aria-label="Compact" width="15" height="15"><use xlink:href="#gss-icon-list"></use>
     </svg> List
   </button>
   <input class="gss-toolbar-filter" type="search"
-         placeholder="Filter 20 symbols…"
+         placeholder="Filter 21 symbols…"
          aria-label="Filter by id" title="Filter by id">
   <button class="gss-toolbar-orig" data-toggle-class="gss-showOriginal">Original Size</button>
   <button class="gss-toolbar-outl" data-toggle-class="gss-showColor">Test Color</button>
@@ -1022,6 +1030,35 @@
       <div class="gss-iconbox-code">
         <code>&lt;svg role=&quot;img&quot; class=&quot;remove-circle&quot;&gt;
   &lt;use xlink:href=&quot;#remove-circle&quot;&gt;&lt;/use&gt;
+&lt;/svg&gt;</code>
+      </div>
+    </div>
+    <div class="gss-iconbox-action">
+      <button data-action="copy">Copy</button>
+      <button data-action="info">Show</button>
+    </div>
+  </div>
+  <div class="gss-iconbox gss-searchable"
+       id="gss-iconbox-save"
+       data-search="save save 24x24 <1 <2 <3 <4 <5 <6 <7 <8 <9">
+    <div class="gss-iconbox-header">
+      <h2>save</h2>
+      <span>0.2&thinsp;kB</span>
+    </div>
+    <p class="gss-iconbox-head2">
+      <span>save.svg</span>
+      <span>24&thinsp;×&thinsp;24</span>
+      <span>228&thinsp;B</span>
+    </p>
+    <div class="gss-iconbox-wrapper">
+      <div class="gss-iconbox-icon" data-dimensions="24&thinsp;×&thinsp;24">
+        <svg role="img" id="gss-icon-save">
+          <use xlink:href="#save"></use>
+        </svg>
+      </div>
+      <div class="gss-iconbox-code">
+        <code>&lt;svg role=&quot;img&quot; class=&quot;save&quot;&gt;
+  &lt;use xlink:href=&quot;#save&quot;&gt;&lt;/use&gt;
 &lt;/svg&gt;</code>
       </div>
     </div>
