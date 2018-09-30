@@ -47,15 +47,16 @@ export default {
 <template lang="pug">
 //- foobarz-main-content.night(page="night" noPadding :title="$t(`title`)")
 section.night(v-if="isValidParams")
+  foobarz-header(:title="bar.name")
+    foobarz-button.night__add-person(@click="addPerson({nightId})" fab)
+      foobarz-icon(name="person-add" :scale="1.5")
 
   night-total.night__total(:night="night")
+
   bar-menu.night__menu(
     :bar="bar"
     :nightId="nightId"
   )
-
-  foobarz-button(@click="addPerson({nightId})" fab)
-    foobarz-icon(name="person-add" :scale="1.5")
 
   section.selection.selection--articles(v-if="night.articles.length")
     .selection__content
@@ -68,8 +69,10 @@ section.night(v-if="isValidParams")
           :name="bar.articles[article.articleId].icon"
           :style="{'--secondary-color': bar.articles[article.articleId].color}"
         )
+
   section.selection.selection--people(v-if="night.persons.length")
     .selection__content
+
       button.article(
         v-for="person in night.persons"
         :key="person.id"
@@ -86,14 +89,12 @@ section.night(v-if="isValidParams")
   --total-height: 60px;
   --menu-size: #{percentage(2/7)};
   position: relative;
-  padding-top: var(--total-height);
-  padding-bottom: var(--navigation-height);
-  // min-height: calc(100vh - var(--navigation-height));
+  padding-bottom: calc(var(--navigation-height) + var(--total-height));
 
   &__total {
     position: fixed;
-    height: var(--total-height);
-    top: 0;
+    height: calc(var(--navigation-height) + var(--total-height));
+    bottom: 0;
     left: 0;
     right: 0;
   }
@@ -101,9 +102,16 @@ section.night(v-if="isValidParams")
   &__menu {
     position: fixed;
     top: var(--total-height);
-    left: 0;
-    bottom: var(--navigation-height);
+    right: 0;
+    bottom: calc(var(--navigation-height) + var(--total-height));
     width: var(--menu-size);
+  }
+
+  &__add-person {
+    bottom: auto;
+    top: 0.25rem;
+    right: 0.25rem;
+    // right: var(--menu-size);
   }
 }
 
@@ -124,7 +132,7 @@ section.night(v-if="isValidParams")
 }
 .selection {
   padding: 1rem 0.5rem;
-  padding-left: var(--menu-size);
+  padding-right: var(--menu-size);
 
   &__content {
     display: grid;

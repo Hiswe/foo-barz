@@ -46,10 +46,10 @@ foobarz-main-content(page="nights" :title="$t(`title`)" noPadding)
       .night__cost
         p.night__price {{ night.total.all | price }}
         template(v-if="night.total.perPerson")
-        p.night__price-per-person
-          | {{ night.total.perPerson | price }} {{ $t(`for`) }}
-        p.night__guests
-          | {{ $t(`people`, {count: night.persons.length}) }}
+          p.night__price-per-person
+            | {{ night.total.perPerson | price }} {{ $t(`for`) }}
+          p.night__guests
+            | {{ $t(`people`, {count: night.persons.length}) }}
       //- foobarz-button(
       //-   @click.stop="REMOVE_NIGHT({nightId: night.id})"
       //- ) {{$t(`remove`)}}
@@ -65,6 +65,7 @@ foobarz-main-content(page="nights" :title="$t(`title`)" noPadding)
   text-align: center;
   padding: 0.5rem;
   display: flex;
+  align-items: center;
   border-bottom: 2px solid var(--c-black);
 
   &__link {
@@ -84,7 +85,6 @@ foobarz-main-content(page="nights" :title="$t(`title`)" noPadding)
   &__date {
     display: block;
   }
-  &__date,
   &__bar,
   &__price {
     font-size: 1.2em;

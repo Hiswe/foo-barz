@@ -11,6 +11,8 @@ import MainContent from '@/components/MainContent'
 import SvgIcon from '@/components/ui/SvgIcons'
 import Button from '@/components/ui/FoobarzButton'
 import Input from '@/components/ui/Input'
+import Header from '@/components/ui/FoobarzHeader'
+import Article from '@/components/ui/foobarz-article'
 
 Vue.use(VueClipboard)
 Vue.use(VueNotifications)
@@ -28,6 +30,8 @@ Vue.component(`foobarz-main-content`, MainContent)
 Vue.component(`foobarz-icon`, SvgIcon)
 Vue.component(`foobarz-button`, Button)
 Vue.component(`foobarz-input`, Input)
+Vue.component(`foobarz-header`, Header)
+Vue.component(`foobarz-article`, Article)
 
 Vue.config.productionTip = false
 

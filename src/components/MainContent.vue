@@ -29,7 +29,7 @@ export default {
 
 <template lang="pug">
 main.main(role="main" :class="additionalClass" )
-  h1.main__title(v-if="title") {{title}}
+  foobarz-header(v-if="title" :title="title")
   .main__content: slot
 </template>
 
