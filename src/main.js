@@ -13,6 +13,8 @@ import Button from '@/components/ui/FoobarzButton'
 import Input from '@/components/ui/Input'
 import Header from '@/components/ui/FoobarzHeader'
 import Article from '@/components/ui/foobarz-article'
+import List from '@/components/ui/foobarz-list'
+import ListItem from '@/components/ui/foobarz-list-item'
 
 Vue.use(VueClipboard)
 Vue.use(VueNotifications)
@@ -32,6 +34,8 @@ Vue.component(`foobarz-button`, Button)
 Vue.component(`foobarz-input`, Input)
 Vue.component(`foobarz-header`, Header)
 Vue.component(`foobarz-article`, Article)
+Vue.component(`foobarz-ul`, List)
+Vue.component(`foobarz-li`, ListItem)
 
 Vue.config.productionTip = false
 

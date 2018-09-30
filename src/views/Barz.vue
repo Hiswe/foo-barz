@@ -43,10 +43,10 @@ export default {
 </i18n>
 
 <template lang="pug">
-foobarz-main-content(page="barz" title="Barz")
+foobarz-main-content(page="barz" title="Barz" noPadding)
   p.barz-help {{$t('description')}}
-  ul.barz
-    li.barz__item(
+  foobarz-ul
+    foobarz-li.barz__item(
       v-for="bar in barz"
       :key="bar.id"
     )
@@ -68,21 +68,18 @@ foobarz-main-content(page="barz" title="Barz")
 <style lang="scss" scoped>
 .barz-help {
   text-align: center;
+  border-bottom: 2px solid black;
+  padding: 1rem;
+  margin: 0;
 }
 .barz {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-
   &__item {
     color: currentColor;
     text-decoration: none;
     display: flex;
-    border: 1px solid var(--c-primary);
-    padding: 1em;
-  }
-  &__item + &__item {
-    border-top: 0;
+    align-items: center;
+    padding-top: 1.5em;
+    padding-bottom: 1.5em;
   }
   &__name {
     margin-right: auto;

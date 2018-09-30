@@ -62,45 +62,4 @@ menu.bar-menu
     border-radius: 0.5rem;
   }
 }
-// .article {
-//   position: absolute;
-//   top: 0;
-//   right: 0;
-//   bottom: 0;
-//   left: 0;
-
-//   &__name,
-//   &__price {
-//     font-size: 0.7rem;
-//   }
-
-//   &__name {
-//     width: 100%;
-//     position: absolute;
-//     left: 0;
-//     bottom: 0;
-//     transform-origin: bottom left;
-//     transform: rotate(-0.25turn) translateY(100%);
-//     color: var(--c-primary-lighter);
-//   }
-
-//   &__price {
-//     color: var(--c-accent);
-//     position: absolute;
-//     top: 0.25rem;
-//     right: 0.25rem;
-//   }
-//   &__icon {
-//     z-index: 2;
-//     position: absolute;
-//     top: 0;
-//     right: 0;
-//     bottom: 0;
-//     left: 0;
-//     height: auto;
-//     padding: 0.5rem;
-//     height: 100%;
-//     width: 100%;
-//   }
-// }
 </style>

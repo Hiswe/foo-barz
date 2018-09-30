@@ -31,8 +31,8 @@ export default {
 
 <template lang="pug">
 foobarz-main-content(page="nights" :title="$t(`title`)" noPadding)
-  ul.nights
-    li.night(
+  foobarz-ul
+    foobarz-li.night(
       v-for="night in nights"
       :key="night.id"
       @click="editNight(night)"
@@ -56,17 +56,10 @@ foobarz-main-content(page="nights" :title="$t(`title`)" noPadding)
 </template>
 
 <style lang="scss" scoped>
-.nights {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
 .night {
   text-align: center;
-  padding: 0.5rem;
   display: flex;
   align-items: center;
-  border-bottom: 2px solid var(--c-black);
 
   &__link {
     text-decoration: none;
