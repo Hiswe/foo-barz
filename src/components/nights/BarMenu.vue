@@ -29,22 +29,18 @@ menu.bar-menu
       :key="article.id"
       @click="addArticle({barId: bar.id, nightId, article})"
     )
-      .article
-        foobarz-icon.article__icon(
-          :name="article.icon"
-          :style="{'--secondary-color': article.color}"
-        )
-        .article__name {{ article.name }}
-        .article__price {{ article.price | price }}
+      foobarz-article(:article="article")
 </template>
 
 <style lang="scss" scoped>
 .bar-menu {
-  background: var(--c-black);
+  background: linear-gradient(
+    to bottom,
+    var(--c-black),
+    var(--c-primary-darkest)
+  );
   margin: 0;
   padding: 0.5rem;
-  border-top: 3px solid var(--c-primary-darker);
-  border-bottom: 3px solid var(--c-primary-darker);
   overflow-x: scroll; /* has to be scroll, not auto */
   -webkit-overflow-scrolling: touch;
 
@@ -56,56 +52,55 @@ menu.bar-menu
   &__article {
     flex: 0 0 auto;
     margin: 0 0.25rem;
-    background: var(--c-primary-darkest);
-    border: 0;
+    background: var(--c-black);
+    border: 1px solid var(--c-primary-darker);
     height: 70px;
     width: 70px;
     padding: 0;
-    // padding-top: 100%;
     position: relative;
     display: block;
     border-radius: 0.5rem;
   }
 }
-.article {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+// .article {
+//   position: absolute;
+//   top: 0;
+//   right: 0;
+//   bottom: 0;
+//   left: 0;
 
-  &__name,
-  &__price {
-    font-size: 0.7rem;
-  }
+//   &__name,
+//   &__price {
+//     font-size: 0.7rem;
+//   }
 
-  &__name {
-    width: 100%;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    transform-origin: bottom left;
-    transform: rotate(-0.25turn) translateY(100%);
-    color: var(--c-primary-lighter);
-  }
+//   &__name {
+//     width: 100%;
+//     position: absolute;
+//     left: 0;
+//     bottom: 0;
+//     transform-origin: bottom left;
+//     transform: rotate(-0.25turn) translateY(100%);
+//     color: var(--c-primary-lighter);
+//   }
 
-  &__price {
-    color: var(--c-accent);
-    position: absolute;
-    top: 0.25rem;
-    right: 0.25rem;
-  }
-  &__icon {
-    z-index: 2;
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    height: auto;
-    padding: 0.5rem;
-    height: 100%;
-    width: 100%;
-  }
-}
+//   &__price {
+//     color: var(--c-accent);
+//     position: absolute;
+//     top: 0.25rem;
+//     right: 0.25rem;
+//   }
+//   &__icon {
+//     z-index: 2;
+//     position: absolute;
+//     top: 0;
+//     right: 0;
+//     bottom: 0;
+//     left: 0;
+//     height: auto;
+//     padding: 0.5rem;
+//     height: 100%;
+//     width: 100%;
+//   }
+// }
 </style>

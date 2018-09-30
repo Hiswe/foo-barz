@@ -30,8 +30,12 @@ dl.totals
 
 <style lang="scss" scoped>
 .totals {
-  background: var(--c-primary-darker);
-  padding: 0.5rem 1rem;
+  background: linear-gradient(
+    to bottom,
+    var(--c-primary-darker),
+    var(--c-black)
+  );
+  padding: 0.5rem 3.5rem 0.5rem 1rem;
   margin: 0;
   display: grid;
   grid-template-rows: repeat(2, min-content);

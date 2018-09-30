@@ -15,7 +15,10 @@ export default {
 </script>
 
 <template lang="pug" functional>
-.article(v-if="props.article")
+.article(
+  v-if="props.article"
+  v-on="listeners"
+)
   foobarz-icon.article__icon(
     :name="props.article.icon"
     :style="{'--secondary-color': props.article.color}"
@@ -27,7 +30,11 @@ export default {
 
 <style lang="scss" scoped>
 .article {
-  position: relative;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
 
   &__name,
   &__price {

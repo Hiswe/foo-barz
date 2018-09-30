@@ -60,16 +60,15 @@ section.night(v-if="isValidParams")
 
   section.selection.selection--articles(v-if="night.articles.length")
     .selection__content
-      button.article(
+      .selection__article(
         v-for="article in night.articles"
         :key="article.id"
         @click="removeArticle({nightId, articleId: article.id})"
       )
-        foobarz-icon(
-          :name="bar.articles[article.articleId].icon"
-          :style="{'--secondary-color': bar.articles[article.articleId].color}"
+        foobarz-article(
+          :article="bar.articles[article.articleId]"
+          simple
         )
-
   section.selection.selection--people(v-if="night.persons.length")
     .selection__content
 
@@ -86,63 +85,45 @@ section.night(v-if="isValidParams")
 
 <style lang="scss" scoped>
 .night {
-  --total-height: 60px;
+  --total-height: 65px;
   --menu-size: #{percentage(2/7)};
   position: relative;
   padding-bottom: calc(var(--navigation-height) + var(--total-height));
 
   &__total {
     position: fixed;
-    height: calc(var(--navigation-height) + var(--total-height));
-    bottom: 0;
+    height: var(--total-height);
+    bottom: var(--navigation-height);
     left: 0;
     right: 0;
+    z-index: 2;
   }
 
   &__menu {
-    // position: fixed;
-    // top: var(--total-height);
-    // right: 0;
-    // left: 0;
-    // bottom: calc(var(--navigation-height) + var(--total-height));
-    // width: var(--menu-size);
+    position: sticky;
+    top: 0;
+    z-index: 10;
   }
 
   &__add-person {
-    bottom: calc(var(--navigation-height) + var(--total-height) + 0.5rem);
-    // top: 0.25rem;
-    // right: 0.25rem;
-    // right: var(--menu-size);
-  }
-}
-
-.article {
-  border: 0;
-  background: none;
-  width: 100%;
-  padding: 100% 0 0;
-  position: relative;
-
-  .icon {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    height: 100%;
+    z-index: 3;
   }
 }
 .selection {
   padding: 1rem 0.5rem;
-  padding-right: var(--menu-size);
 
   &__content {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
     grid-gap: 0.5rem;
+  }
 
-    // .icon {
-    //   height: 100%;
-    // }
+  &__article {
+    border: 0;
+    background: none;
+    width: 100%;
+    padding: 100% 0 0;
+    position: relative;
   }
 }
 
