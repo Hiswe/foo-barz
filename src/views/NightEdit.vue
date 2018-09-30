@@ -48,8 +48,8 @@ export default {
 //- foobarz-main-content.night(page="night" noPadding :title="$t(`title`)")
 section.night(v-if="isValidParams")
   foobarz-header(:title="bar.name")
-    foobarz-button.night__add-person(@click="addPerson({nightId})" fab)
-      foobarz-icon(name="person-add" :scale="1.5")
+  foobarz-button.night__add-person(@click="addPerson({nightId})" fab)
+    foobarz-icon(name="person-add" :scale="1.5")
 
   night-total.night__total(:night="night")
 
@@ -100,17 +100,18 @@ section.night(v-if="isValidParams")
   }
 
   &__menu {
-    position: fixed;
-    top: var(--total-height);
-    right: 0;
-    bottom: calc(var(--navigation-height) + var(--total-height));
-    width: var(--menu-size);
+    // position: fixed;
+    // top: var(--total-height);
+    // right: 0;
+    // left: 0;
+    // bottom: calc(var(--navigation-height) + var(--total-height));
+    // width: var(--menu-size);
   }
 
   &__add-person {
-    bottom: auto;
-    top: 0.25rem;
-    right: 0.25rem;
+    bottom: calc(var(--navigation-height) + var(--total-height) + 0.5rem);
+    // top: 0.25rem;
+    // right: 0.25rem;
     // right: var(--menu-size);
   }
 }

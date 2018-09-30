@@ -1,3 +1,31 @@
+<script>
+export default {
+  name: `foobarz-button`,
+  props: {
+    type: {
+      type: String,
+      default: `button`,
+    },
+    fab: {
+      type: Boolean,
+      default: false,
+    },
+    danger: {
+      type: Boolean,
+      default: false,
+    },
+  },
+  computed: {
+    additionalClass() {
+      return {
+        'foobarz-button--fab': this.fab,
+        'foobarz-button--danger': this.danger,
+      }
+    },
+  },
+}
+</script>
+
 <template lang="pug">
 button.foobarz-button(
   :type="type"
@@ -30,8 +58,8 @@ button.foobarz-button(
     width: var(--size);
     height: var(--size);
     border-radius: var(--size);
-    right: 1rem;
-    bottom: calc(var(--navigation-height) + 1rem);
+    right: 0.5rem;
+    bottom: calc(var(--navigation-height) + 0.5rem);
     margin: 0;
     padding: 0;
 
@@ -51,31 +79,3 @@ button.foobarz-button(
   }
 }
 </style>
-
-<script>
-export default {
-  name: `foobarz-button`,
-  props: {
-    type: {
-      type: String,
-      default: `button`,
-    },
-    fab: {
-      type: Boolean,
-      default: false,
-    },
-    danger: {
-      type: Boolean,
-      default: false,
-    },
-  },
-  computed: {
-    additionalClass() {
-      return {
-        'foobarz-button--fab': this.fab,
-        'foobarz-button--danger': this.danger,
-      }
-    },
-  },
-}
-</script>

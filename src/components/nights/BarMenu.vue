@@ -23,18 +23,19 @@ export default {
 
 <template lang="pug">
 menu.bar-menu
-  button.bar-menu__article(
-    v-for="article in bar.articles"
-    :key="article.id"
-    @click="addArticle({barId: bar.id, nightId, article})"
-  )
-    .article
-      foobarz-icon.article__icon(
-        :name="article.icon"
-        :style="{'--secondary-color': article.color}"
-      )
-      .article__name {{ article.name }}
-      .article__price {{ article.price | price }}
+  .bar-menu__list
+    button.bar-menu__article(
+      v-for="article in bar.articles"
+      :key="article.id"
+      @click="addArticle({barId: bar.id, nightId, article})"
+    )
+      .article
+        foobarz-icon.article__icon(
+          :name="article.icon"
+          :style="{'--secondary-color': article.color}"
+        )
+        .article__name {{ article.name }}
+        .article__price {{ article.price | price }}
 </template>
 
 <style lang="scss" scoped>
@@ -42,22 +43,28 @@ menu.bar-menu
   background: var(--c-black);
   margin: 0;
   padding: 0.5rem;
-  overflow-y: scroll; /* has to be scroll, not auto */
+  border-top: 3px solid var(--c-primary-darker);
+  border-bottom: 3px solid var(--c-primary-darker);
+  overflow-x: scroll; /* has to be scroll, not auto */
   -webkit-overflow-scrolling: touch;
 
+  &__list {
+    display: flex;
+    flex-wrap: nowrap;
+  }
+
   &__article {
+    flex: 0 0 auto;
+    margin: 0 0.25rem;
     background: var(--c-primary-darkest);
     border: 0;
-    width: 100%;
+    height: 70px;
+    width: 70px;
     padding: 0;
-    padding-top: 100%;
+    // padding-top: 100%;
     position: relative;
     display: block;
     border-radius: 0.5rem;
-  }
-
-  &__article + &__article {
-    margin-top: 0.5rem;
   }
 }
 .article {
