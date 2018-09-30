@@ -30,17 +30,16 @@ export default {
 </i18n>
 
 <template lang="pug">
-foobarz-main-content(page="nights" :title="$t(`title`)")
+foobarz-main-content(page="nights" :title="$t(`title`)" noPadding)
   ul.nights
     li.night(
       v-for="night in nights"
       :key="night.id"
       @click="editNight(night)"
     )
-      p.night__date {{ night.createdAt | date }}
       .night__text
         p.night__title
-          span.night__name {{ night.name }}
+          span.night__date {{ night.createdAt | date }}
           | {{ $t(`at`) }}
           |
           span.night__bar {{ night.barName }}
@@ -60,21 +59,17 @@ foobarz-main-content(page="nights" :title="$t(`title`)")
 .nights {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 .night {
   text-align: center;
-  border: 2px solid var(--c-black);
-  padding: 0 0.5rem 1rem;
+  padding: 0.5rem;
+  display: flex;
+  border-bottom: 2px solid var(--c-black);
 
   &__link {
     text-decoration: none;
     color: white;
-  }
-  &__date {
-    font: var(--font-mono);
-    font-size: 0.8em;
-    color: var(--c-primary);
-    margin: 0.5rem 0;
   }
   &__text,
   &__cost {
@@ -86,15 +81,15 @@ foobarz-main-content(page="nights" :title="$t(`title`)")
     color: var(--c-primary);
     margin: 0;
   }
-  &__name {
+  &__date {
     display: block;
   }
-  &__name,
+  &__date,
   &__bar,
   &__price {
     font-size: 1.2em;
   }
-  &__name,
+  &__date,
   &__bar {
     color: white;
   }
@@ -109,7 +104,10 @@ foobarz-main-content(page="nights" :title="$t(`title`)")
     color: var(--c-primary);
   }
   &__price-per-person {
-    margin-top: 0.5rem;
+    margin-top: 0.25rem;
+  }
+  .night + .night {
+    border-top: 2px solid var(--c-black);
   }
 }
 </style>
