@@ -36,7 +36,12 @@ export default {
     if (!this.isValidParams) return this.$router.push({ name: `404` })
   },
   methods: {
-    createUpdateBar() {
+    updateBar() {
+      console.log(`update`)
+      this.UPDATE_BAR(this.bar)
+      this.$el.blur()
+    },
+    onSave() {
       this.UPDATE_BAR(this.bar)
       this.$router.push({ name: `home` })
     },
@@ -53,7 +58,7 @@ export default {
 
 <template lang="pug">
 foobarz-main-content(page="barz-new-edit" :title="bar.name")
-  form(@submit.prevent="createUpdateBar")
+  form(@submit.prevent="updateBar")
     foobarz-input(v-model="bar.name")
     .products
       .products__item(
@@ -64,38 +69,15 @@ foobarz-main-content(page="barz-new-edit" :title="bar.name")
         foobarz-article(
           :article="article"
         )
-
     foobarz-article-edit(
       :article="editedArticle"
       @close="closeEditArticle"
     )
 
-
-
-    //- dl.articles
-    //-   template(v-for="(article, index) in bar.articles" )
-    //-     dt.articles__title(
-    //-       :key="`${article.id}-title`"
-    //-       :class="editArticle === index ? `articles__title--edit` : ``"
-    //-       @click="openEditPanel(index)"
-    //-     )
-    //-       span.articles__icon
-    //-         foobarz-icon(
-    //-           :name="article.icon"
-    //-           :style="{'--secondary-color': article.color}"
-    //-         )
-    //-       span.articles__name {{ article.name }}
-    //-       span.articles__price {{article.price}}฿
-    //-     dd.articles__edit(
-    //-       :key="`${article.id}-edit`"
-    //-       v-if="editArticle === index"
-    //-     )
-    //-       foobarz-icon-picker.articles__edit-icon(v-model="article.icon")
-    //-       foobarz-input.articles__edit-name(v-model="article.name")
-    //-       foobarz-color-picker.articles__edit-color(v-model="article.color")
-    //-       foobarz-input.articles__edit-price(type="number" v-model="article.price")
-
-    foobarz-button(type="submit" fab)
+    foobarz-button(
+      fab
+      @click="onSave"
+    )
       foobarz-icon(name="save" :scale="1.5")
 </template>
 

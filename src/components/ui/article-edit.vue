@@ -47,6 +47,9 @@ export default {
       v-model="article.price"
       type="number"
     )
+    input.article-edit__submit(
+      @focus="close"
+    )
 </template>
 
 <style lang="scss" scoped>
@@ -104,6 +107,17 @@ export default {
 
   &__price {
     grid-area: price;
+  }
+  &__submit {
+    width: 5px;
+    border: 0 !important;
+    clip: rect(0 0 0 0) !important;
+    height: 1px !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    position: absolute !important;
+    width: 1px !important;
   }
 }
 </style>

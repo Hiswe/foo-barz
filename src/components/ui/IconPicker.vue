@@ -34,11 +34,11 @@
     list-style: none;
     border-radius: 0.5rem;
     padding: 0.5rem;
-
     position: absolute;
     left: 100%;
     top: 50%;
     transform: translateY(-50%);
+    z-index: 2;
   }
 }
 </style>
