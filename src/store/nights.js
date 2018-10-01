@@ -69,7 +69,7 @@ export const mutations = {
   },
   [REMOVE_NIGHT](state, payload) {
     const { nightId } = payload
-    delete state.entities[nightId]
+    Vue.delete(state.entities, nightId)
     state.ids = state.ids.filter(id => id !== nightId)
   },
   [COMPUTE_NIGHT](state, payload) {
@@ -117,15 +117,6 @@ export const mutations = {
       .filter(night => night.barId === barId)
       .forEach(night => {
         night.barName = bar.name
-        // bar.articles.forEach(barArticle => {
-        //   const articleId = barArticle.id
-        //   const { id, ...updatedArticle } = barArticle
-        //   night.articles
-        //     .filter(nightArticle => nightArticle.articleId === articleId)
-        //     .forEach(nightArticle => {
-        //       Object.assign(nightArticle, updatedArticle)
-        //     })
-        // })
         night.total = computeTotal(night, bar)
       })
   },

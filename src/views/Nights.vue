@@ -12,6 +12,9 @@ export default {
     editNight(night) {
       this.$router.push(`/nights/${night.barId}/${night.id}`)
     },
+    remove(nightId) {
+      this.REMOVE_NIGHT({ nightId })
+    },
     ...mapActions([`REMOVE_NIGHT`]),
   },
 }
@@ -36,6 +39,7 @@ foobarz-main-content(page="nights" :title="$t(`title`)" noPadding)
       v-for="night in nights"
       :key="night.id"
       @click="editNight(night)"
+      @remove="remove(night.id)"
     )
       .night__text
         p.night__title
@@ -50,9 +54,6 @@ foobarz-main-content(page="nights" :title="$t(`title`)" noPadding)
             | {{ night.total.perPerson | price }} {{ $t(`for`) }}
           p.night__guests
             | {{ $t(`people`, {count: night.persons.length}) }}
-      //- foobarz-button(
-      //-   @click.stop="REMOVE_NIGHT({nightId: night.id})"
-      //- ) {{$t(`remove`)}}
 </template>
 
 <style lang="scss" scoped>

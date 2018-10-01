@@ -35,7 +35,7 @@ li.list__item(
   .list__item-content
     slot
   .list__item-action(
-    @click="remove"
+    @click.stop="remove"
     v-if="!preventRemove"
   )
     foobarz-icon(name="delete-forever" :scale="1.5")
