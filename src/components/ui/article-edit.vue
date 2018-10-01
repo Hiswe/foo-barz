@@ -19,21 +19,21 @@ export default {
     close() {
       this.$emit(`close`)
     },
+    noop() {},
   },
 }
 </script>
 
 <template lang="pug">
-.article-edit(
+aside.article-edit(
   v-if="article"
+  @click="close"
 )
   foobarz-icon.article-edit__close(
     name="close"
     :scale="2"
-    @click.native="close"
-
   )
-  .article-edit__in
+  .article-edit__in(@click.stop="noop")
     foobarz-icon-picker.article-edit__icon(
       v-model="article.icon"
     )

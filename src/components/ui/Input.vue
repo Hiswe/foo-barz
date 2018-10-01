@@ -1,3 +1,43 @@
+<script>
+export default {
+  name: `foobarz-input`,
+  computed: {
+    isNumber() {
+      return this.type === `number`
+    },
+  },
+  props: {
+    type: {
+      type: String,
+      default: `text`,
+      validator(value) {
+        return [`text`, `number`].includes(value)
+      },
+    },
+    value: {
+      default: ``,
+      type: [String, Number],
+    },
+  },
+  methods: {
+    onInput($event) {
+      let { value } = $event.target
+      value = this.isNumber ? ~~value : value
+      this.$emit('input', value)
+    },
+    onEnter($event) {
+      $event.target.blur()
+    },
+    increment() {
+      this.$emit('input', this.value + 10)
+    },
+    decrement() {
+      this.$emit('input', Math.max(0, this.value - 10))
+    },
+  },
+}
+</script>
+
 <template lang="pug">
   .input
     foobarz-icon.input__decrement(
@@ -10,6 +50,7 @@
       :type="type"
       :value="value"
       @input="onInput"
+      @keyup.enter="onEnter"
     )
     foobarz-icon.input__increment(
       v-if="isNumber"
@@ -54,40 +95,3 @@
   }
 }
 </style>
-
-<script>
-export default {
-  name: `foobarz-input`,
-  computed: {
-    isNumber() {
-      return this.type === `number`
-    },
-  },
-  props: {
-    type: {
-      type: String,
-      default: `text`,
-      validator(value) {
-        return [`text`, `number`].includes(value)
-      },
-    },
-    value: {
-      default: ``,
-      type: [String, Number],
-    },
-  },
-  methods: {
-    onInput($event) {
-      let { value } = $event.target
-      value = this.isNumber ? ~~value : value
-      this.$emit('input', value)
-    },
-    increment() {
-      this.$emit('input', this.value + 10)
-    },
-    decrement() {
-      this.$emit('input', Math.max(0, this.value - 10))
-    },
-  },
-}
-</script>
