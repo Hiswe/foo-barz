@@ -4,6 +4,10 @@ import clonedeep from 'lodash.clonedeep'
 
 import createStateStore from './_create-test-store'
 
+function getLastBar(store) {
+  return store.state.barz.entities[store.getters.lastBarId]
+}
+
 test.beforeEach(t => {
   const store = createStateStore()
   t.context.store = store
@@ -141,7 +145,7 @@ test(`total computation`, t => {
   )
 })
 
-test(`bar prices update`, t => {
+test(`bar – prices update`, t => {
   const { store, barId, bar, testArticle } = t.context
   store.dispatch(`ADD_NIGHT`, { barId })
   const nightId = store.state.nights.ids[0]
@@ -159,4 +163,16 @@ test(`bar prices update`, t => {
   const night = store.state.nights.entities[nightId]
   t.is(night.total.all, 1000, `total has been updated`)
   t.is(night.barName, `pouic`, `bar name has been updated`)
+})
+
+test(`bar – remove`, t => {
+  const { store, barId, bar, testArticle } = t.context
+  store.commit(`CREATE_BAR`)
+  const newBar = getLastBar(store)
+  store.dispatch(`ADD_NIGHT`, { barId: newBar.id })
+  const night = store.state.nights.entities[store.state.nights.ids[0]]
+  store.dispatch(`REMOVE_BAR`, { barId: newBar.id })
+
+  t.is(store.state.nights.ids.length, 0, `night remove from ids`)
+  t.falsy(store.state.nights.entities[night.id], `night removed from entities`)
 })

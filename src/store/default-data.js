@@ -32,7 +32,7 @@ export const articles = {
   WPXHXTsJp: {
     id: `WPXHXTsJp`,
     icon: `promotion`,
-    name: `promotion – 3 beers`,
+    name: `3 beers`,
     color: `#738588`,
     price: 200,
   },

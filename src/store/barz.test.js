@@ -71,10 +71,10 @@ test(`delete`, t => {
   const { store } = t.context
   store.commit(`CREATE_BAR`)
   const newBar = getLastBar(store)
-  store.commit(`REMOVE_BAR`, { barId: newBar.id })
+  store.dispatch(`REMOVE_BAR`, { barId: newBar.id })
   t.is(store.state.barz.ids.length, 1, `bar id has been erased`)
   t.falsy(store.state.barz.entities[newBar.id], `bar entity has been erased`)
-  store.commit(`REMOVE_BAR`, { barId: store.state.barz.ids[0] })
+  store.dispatch(`REMOVE_BAR`, { barId: store.state.barz.ids[0] })
   t.is(store.state.barz.ids.length, 1, `can't remove default bar`)
 })
 
