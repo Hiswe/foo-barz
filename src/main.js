@@ -1,14 +1,14 @@
 import Vue from 'vue'
 import VueClipboard from 'vue-clipboard2'
 import VueNotifications from 'vue-notification'
-import AlloyFinger from 'alloyfinger'
-import * as AlloyFingerPlugin from 'alloyfinger/vue/alloy_finger.vue'
 
-import App from './App.vue'
 import router from './router'
 import store from './store/index'
 import './register-service-worker'
 import i18n from './i18n'
+import AlloyFingerVue from './alloy-finger'
+
+import App from './App.vue'
 import MainContent from '@/components/MainContent'
 import SvgIcon from '@/components/ui/SvgIcons'
 import Button from '@/components/ui/FoobarzButton'
@@ -20,9 +20,7 @@ import ListItem from '@/components/ui/list-item'
 
 Vue.use(VueClipboard)
 Vue.use(VueNotifications)
-Vue.use(AlloyFingerPlugin, {
-  AlloyFinger,
-})
+Vue.use(AlloyFingerVue)
 
 Vue.filter(`date`, value =>
   new Date(value).toLocaleString(`en-GB`, {

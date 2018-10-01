@@ -20,6 +20,9 @@ export default {
         params: { barId: this.lastBarId },
       })
     },
+    remove(barId) {
+      console.log(`remove`, barId)
+    },
     newNight(barId) {
       this.ADD_NIGHT({ barId })
       this.$router.push({
@@ -51,6 +54,8 @@ foobarz-main-content(page="barz" title="Barz" noPadding)
     foobarz-li.barz__item(
       v-for="bar in barz"
       :key="bar.id"
+      @remove="remove(bar.id)"
+      :preventRemove="!bar.isDefault"
     )
       span.barz__name {{bar.name}}
       //- span.barz__action.barz__action--remove(
@@ -79,13 +84,11 @@ foobarz-main-content(page="barz" title="Barz" noPadding)
   margin: 0;
 }
 .barz {
-  &__item {
+  &__item /deep/ .list__item-content {
     color: currentColor;
     text-decoration: none;
     display: flex;
     align-items: center;
-    padding-top: 1.5em;
-    padding-bottom: 1.5em;
   }
   &__name {
     margin-right: auto;

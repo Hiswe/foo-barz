@@ -58,8 +58,11 @@ foobarz-main-content(page="nights" :title="$t(`title`)" noPadding)
 <style lang="scss" scoped>
 .night {
   text-align: center;
-  display: flex;
-  align-items: center;
+
+  /deep/ .list__item-content {
+    display: flex;
+    align-items: center;
+  }
 
   &__link {
     text-decoration: none;
