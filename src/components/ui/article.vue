@@ -22,7 +22,7 @@ export default {
     :name="props.article.icon"
     :style="{'--secondary-color': props.article.color}"
   )
-  template(v-if="!simple")
+  template(v-if="!props.simple")
     .article__name {{ props.article.name }}
     .article__price {{ props.article.price | price }}
 </template>
@@ -37,6 +37,12 @@ export default {
   right: 0;
   bottom: 0;
   left: 0;
+  max-height: 200px;
+
+  * {
+    // prevent text selection
+    pointer-events: none;
+  }
 
   &__name,
   &__price {
