@@ -1,3 +1,16 @@
+<script>
+export default {
+  name: `foobarz-page-header`,
+  props: {
+    title: {
+      type: String,
+      required: true,
+    },
+  },
+}
+</script>
+
+
 <template lang="pug" functional>
 header.header
   h1.header__title {{props.title}}

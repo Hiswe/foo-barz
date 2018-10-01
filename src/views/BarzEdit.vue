@@ -2,7 +2,7 @@
 import cloneDeep from 'lodash.clonedeep'
 import { mapState, mapMutations } from 'vuex'
 
-import ArticleEdit from '@/components/ui/foobarz-article-edit'
+import ArticleEdit from '@/components/ui/article-edit'
 
 export default {
   name: `page-bar`,

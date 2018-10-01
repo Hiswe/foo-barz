@@ -11,10 +11,10 @@ import MainContent from '@/components/MainContent'
 import SvgIcon from '@/components/ui/SvgIcons'
 import Button from '@/components/ui/FoobarzButton'
 import Input from '@/components/ui/Input'
-import Header from '@/components/ui/foobarz-header'
-import Article from '@/components/ui/foobarz-article'
-import List from '@/components/ui/foobarz-list'
-import ListItem from '@/components/ui/foobarz-list-item'
+import PageHeader from '@/components/ui/page-header'
+import Article from '@/components/ui/article'
+import List from '@/components/ui/list'
+import ListItem from '@/components/ui/list-item'
 
 Vue.use(VueClipboard)
 Vue.use(VueNotifications)
@@ -32,7 +32,7 @@ Vue.component(`foobarz-main-content`, MainContent)
 Vue.component(`foobarz-icon`, SvgIcon)
 Vue.component(`foobarz-button`, Button)
 Vue.component(`foobarz-input`, Input)
-Vue.component(`foobarz-header`, Header)
+Vue.component(`foobarz-header`, PageHeader)
 Vue.component(`foobarz-article`, Article)
 Vue.component(`foobarz-ul`, List)
 Vue.component(`foobarz-li`, ListItem)
