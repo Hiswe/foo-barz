@@ -3,6 +3,7 @@ import clonedeep from 'lodash.clonedeep'
 import Vue from 'vue'
 
 import * as defaultData from './default-data'
+import { REMOVE_BAR } from './barz'
 
 const ADD_NIGHT = `ACTION_ADD_NIGHT`
 const COMPUTE_NIGHT = `ACTION_COMPUTE_NIGHT`
@@ -126,6 +127,15 @@ export const mutations = {
         //     })
         // })
         night.total = computeTotal(night, bar)
+      })
+  },
+  [REMOVE_BAR](state, payload) {
+    const { barId } = payload
+    const NightsToRemove = Object.values(state.entities)
+      .filter(night => night.barId === barId)
+      .forEach(night => {
+        Vue.delete(state.entities, night.id)
+        state.ids = state.ids.filter(id => id !== night.id)
       })
   },
   RESET(state) {

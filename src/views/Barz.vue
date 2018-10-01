@@ -10,9 +10,6 @@ export default {
     ...mapGetters([`lastNightId`, `lastBarId`]),
   },
   methods: {
-    // remove(barId) {
-    //   this.REMOVE_BAR({ barId })
-    // },
     newBar() {
       this.CREATE_BAR()
       this.$router.push({
@@ -21,7 +18,7 @@ export default {
       })
     },
     remove(barId) {
-      console.log(`remove`, barId)
+      this.REMOVE_BAR({ barId })
     },
     newNight(barId) {
       this.ADD_NIGHT({ barId })
@@ -32,7 +29,7 @@ export default {
     },
     // ...mapMutations([`REMOVE_BAR`, `CREATE_BAR`]),
     ...mapMutations([`CREATE_BAR`]),
-    ...mapActions([`ADD_NIGHT`]),
+    ...mapActions([`ADD_NIGHT`, `REMOVE_BAR`]),
   },
 }
 </script>
@@ -42,7 +39,7 @@ export default {
   "en": {
     "description": "a simple app to compute a bar's bill",
     "edit": "edit",
-    "hangout": "go"
+    "hangout": "add"
   }
 }
 </i18n>
@@ -55,13 +52,9 @@ foobarz-main-content(page="barz" title="Barz" noPadding)
       v-for="bar in barz"
       :key="bar.id"
       @remove="remove(bar.id)"
-      :preventRemove="!bar.isDefault"
+      :preventRemove="bar.isDefault === true"
     )
       span.barz__name {{bar.name}}
-      //- span.barz__action.barz__action--remove(
-      //-   v-if="!bar.isDefault"
-      //-   @click.stop="remove(bar.id)"
-      //- ): foobarz-icon(name="delete-forever" :scale="1.25")
       router-link.barz__action.barz__action--edit(
         :to="`/barz/${bar.id}`"
       )
@@ -100,13 +93,6 @@ foobarz-main-content(page="barz" title="Barz" noPadding)
     align-items: center;
     color: currentColor;
     text-decoration: none;
-
-    &--remove .icon {
-      fill: red;
-    }
-
-    &-icon {
-    }
 
     &-label {
       font-size: 0.75rem;

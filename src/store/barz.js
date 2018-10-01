@@ -4,6 +4,8 @@ import Vue from 'vue'
 
 import { bar as defaultBar, articles as defaultArticles } from './default-data'
 
+export const REMOVE_BAR = `ACTION_REMOVE_BAR`
+
 export const state = () => ({
   entities: {
     [defaultBar.id]: clonedeep(defaultBar),
@@ -40,12 +42,9 @@ export const mutations = {
     const existingBar = state.entities[id]
     if (existingBar) return (state.entities[id] = barWithItems)
   },
-  REMOVE_BAR(state, payload) {
+  [REMOVE_BAR](state, payload) {
     const { barId } = payload
-    const bar = state.entities[barId]
-    if (!bar) return
-    if (bar.isDefault) return
-    delete state.entities[barId]
+    Vue.delete(state.entities, barId)
     state.ids = state.ids.filter(id => id !== barId)
   },
   RESET(state) {
@@ -53,5 +52,15 @@ export const mutations = {
       [defaultBar.id]: clonedeep(defaultBar),
     }
     state.ids = [defaultBar.id]
+  },
+}
+
+export const actions = {
+  REMOVE_BAR(store, payload) {
+    const { barId } = payload
+    const bar = store.state.entities[barId]
+    if (!bar) return
+    if (bar.isDefault) return
+    store.commit(REMOVE_BAR, payload)
   },
 }
