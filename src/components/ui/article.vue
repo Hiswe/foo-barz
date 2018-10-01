@@ -37,6 +37,7 @@ export default {
   right: 0;
   bottom: 0;
   left: 0;
+  // prevent oversized icon
   max-height: 200px;
 
   * {

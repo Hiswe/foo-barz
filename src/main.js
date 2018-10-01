@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import VueClipboard from 'vue-clipboard2'
 import VueNotifications from 'vue-notification'
+import AlloyFinger from 'alloyfinger'
+import * as AlloyFingerPlugin from 'alloyfinger/vue/alloy_finger.vue'
 
 import App from './App.vue'
 import router from './router'
@@ -18,6 +20,9 @@ import ListItem from '@/components/ui/list-item'
 
 Vue.use(VueClipboard)
 Vue.use(VueNotifications)
+Vue.use(AlloyFingerPlugin, {
+  AlloyFinger,
+})
 
 Vue.filter(`date`, value =>
   new Date(value).toLocaleString(`en-GB`, {
@@ -26,7 +31,9 @@ Vue.filter(`date`, value =>
     day: `numeric`,
   }),
 )
-Vue.filter(`price`, value => `${value}฿`)
+Vue.filter(`price`, value => {
+  return `${value}${store.state.settings.currency}`
+})
 
 Vue.component(`foobarz-main-content`, MainContent)
 Vue.component(`foobarz-icon`, SvgIcon)
