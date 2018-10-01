@@ -37,7 +37,9 @@ export default {
 <i18n>
 {
   "en": {
-    "description": "a simple app to compute a bar's bill"
+    "description": "a simple app to compute a bar's bill",
+    "edit": "edit",
+    "hangout": "go"
   }
 }
 </i18n>
@@ -57,10 +59,14 @@ foobarz-main-content(page="barz" title="Barz" noPadding)
       //- ): foobarz-icon(name="delete-forever" :scale="1.25")
       router-link.barz__action.barz__action--edit(
         :to="`/barz/${bar.id}`"
-      ): foobarz-icon(name="edit" :scale="1.25")
+      )
+        foobarz-icon.barz__action-icon(name="edit" :scale="1.25")
+        span.barz__action-label {{ $t(`edit`) }}
       .barz__action.barz__action--new-night(
         @click="newNight(bar.id)"
-      ): foobarz-icon(name="new-night" :scale="1.15")
+      )
+        foobarz-icon.barz__action-icon(name="new-night" :scale="1.15")
+        span.barz__action-label {{ $t(`hangout`) }}
   foobarz-button(@click="newBar" fab)
     foobarz-icon(name="add" :scale="1.5")
 </template>
@@ -86,8 +92,21 @@ foobarz-main-content(page="barz" title="Barz" noPadding)
   }
   &__action {
     margin-left: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: currentColor;
+    text-decoration: none;
+
     &--remove .icon {
       fill: red;
+    }
+
+    &-icon {
+    }
+
+    &-label {
+      font-size: 0.75rem;
     }
   }
 }
