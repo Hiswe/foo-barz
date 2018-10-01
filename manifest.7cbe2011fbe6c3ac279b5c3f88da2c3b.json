@@ -1,0 +1,47 @@
+{
+  "icons": [
+    {
+      "src": "/img/icons/icon_512x512.62736e7c8027196ccc7998f435ffe005.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/img/icons/icon_384x384.c85766d9017ac1bcbf04731c9a05f574.png",
+      "sizes": "384x384",
+      "type": "image/png"
+    },
+    {
+      "src": "/img/icons/icon_192x192.04e9b2f05133947417346e077f245188.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/img/icons/icon_152x152.cca6371b6c96c6d1621fd1309c7c05fe.png",
+      "sizes": "152x152",
+      "type": "image/png"
+    },
+    {
+      "src": "/img/icons/icon_144x144.9948da5dc314497f310110a2d08fa58a.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    },
+    {
+      "src": "/img/icons/icon_120x120.fd379adc2ba90f2b49e80ec622d2dae0.png",
+      "sizes": "120x120",
+      "type": "image/png"
+    },
+    {
+      "src": "/img/icons/icon_64x64.c9d34aefeb2f28536cfc677ec2112a2b.png",
+      "sizes": "64x64",
+      "type": "image/png"
+    }
+  ],
+  "name": "foo barz",
+  "short_name": "foo barz",
+  "orientation": "portrait",
+  "display": "standalone",
+  "start_url": "https://foo-barz-7d9a2.firebaseapp.com/",
+  "description": "get your foo barz bill",
+  "background_color": "#000000",
+  "theme_color": "#000000"
+}
