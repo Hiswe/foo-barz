@@ -21,7 +21,6 @@
 
 <style lang="scss" scoped>
 .input {
-  margin-top: 1rem;
   display: flex;
   align-items: center;
 
@@ -35,6 +34,7 @@
 
     &:focus {
       border-color: var(--c-primary-lighter);
+      color: var(--c-accent);
     }
     &[type='number'] {
       text-align: right;

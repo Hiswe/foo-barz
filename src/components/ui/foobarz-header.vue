@@ -11,7 +11,7 @@ header.header
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 50px;
+    height: var(--navigation-height);
     font-weight: 300;
     font-size: 1.15em;
     font-variant: small-caps;
