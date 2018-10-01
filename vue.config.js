@@ -23,21 +23,27 @@ module.exports = {
           SW_NAME: JSON.stringify(serviceWorkerConfig.name),
         },
       }),
+      // PWA Manifest
+      // https://www.npmjs.com/package/webpack-pwa-manifest
       new WebpackPwaManifest({
         name: pkg.name.replace(/-/g, ` `),
         short_name: pkg.name.replace(/-/g, ` `),
         description: pkg.description,
         background_color: `#000000`,
         theme_color: `#000000`,
+        start_url: pkg.homepage,
+        ios: true,
         icons: [
           {
             src: path.resolve('src/assets/logo.png'),
-            // same size as nuxt-pwa
+            // same sizes as nuxt-pwa
             sizes: [64, 120, 144, 152, 192, 384, 512],
             destination: `img/icons`,
+            ios: true,
           },
         ],
       }),
+      // Workbox Service Worker
       // https://developers.google.com/web/tools/workbox/modules/workbox-webpack-plugin#injectmanifest_plugin_1
       new InjectManifest({
         swSrc: `src/${serviceWorkerConfig.name}`,
