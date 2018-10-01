@@ -1,4 +1,5 @@
 import clonedeep from 'lodash.clonedeep'
+import shortid from 'shortid'
 
 export const articles = {
   ctFq_MtBE: {
@@ -77,4 +78,22 @@ export const night = {
     all: 0,
     perPerson: false,
   },
+}
+
+export const colorList = [
+  `#738588`,
+  `#000`,
+  `rgb(237, 98, 55)`,
+  `rgb(151, 192, 92)`,
+  `rgb(70, 169, 238)`,
+]
+
+export function createArticle() {
+  return {
+    id: shortid.generate(),
+    icon: icons[0].name,
+    name: `new product`,
+    color: colorList[0],
+    price: 100,
+  }
 }

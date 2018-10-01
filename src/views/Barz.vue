@@ -27,7 +27,6 @@ export default {
         params: { barId, nightId: this.lastNightId },
       })
     },
-    // ...mapMutations([`REMOVE_BAR`, `CREATE_BAR`]),
     ...mapMutations([`CREATE_BAR`]),
     ...mapActions([`ADD_NIGHT`, `REMOVE_BAR`]),
   },

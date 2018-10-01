@@ -166,7 +166,7 @@ test(`bar – prices update`, t => {
 })
 
 test(`bar – remove`, t => {
-  const { store, barId, bar, testArticle } = t.context
+  const { store } = t.context
   store.commit(`CREATE_BAR`)
   const newBar = getLastBar(store)
   store.dispatch(`ADD_NIGHT`, { barId: newBar.id })

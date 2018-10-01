@@ -1,3 +1,32 @@
+<script>
+import { colorList } from '@/store/default-data'
+
+export default {
+  name: `foobarz-icon-picker`,
+  data() {
+    return {
+      colorList: colorList.slice(),
+      open: false,
+    }
+  },
+  props: {
+    value: {
+      default: `#000`,
+      type: String,
+    },
+  },
+  methods: {
+    toggle() {
+      this.open = !this.open
+    },
+    setColor(color) {
+      this.$emit('input', color)
+      this.open = false
+    },
+  },
+}
+</script>
+
 <template lang="pug">
 .foobarz-color-picker
   .foobarz-color-picker__bucket(
@@ -37,36 +66,3 @@
   }
 }
 </style>
-
-<script>
-export default {
-  name: `foobarz-icon-picker`,
-  data() {
-    return {
-      colorList: [
-        `#738588`,
-        `#000`,
-        `rgb(237, 98, 55)`,
-        `rgb(151, 192, 92)`,
-        `rgb(70, 169, 238)`,
-      ],
-      open: false,
-    }
-  },
-  props: {
-    value: {
-      default: `#000`,
-      type: String,
-    },
-  },
-  methods: {
-    toggle() {
-      this.open = !this.open
-    },
-    setColor(color) {
-      this.$emit('input', color)
-      this.open = false
-    },
-  },
-}
-</script>

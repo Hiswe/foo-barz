@@ -1,8 +1,10 @@
 <script>
+import Vue from 'vue'
 import cloneDeep from 'lodash.clonedeep'
 import { mapState, mapMutations } from 'vuex'
 
 import ArticleEdit from '@/components/ui/article-edit'
+import { createArticle } from '@/store/default-data'
 
 export default {
   name: `page-bar`,
@@ -37,9 +39,13 @@ export default {
   },
   methods: {
     updateBar() {
-      console.log(`update`)
       this.UPDATE_BAR(this.bar)
       this.$el.blur()
+    },
+    addProduct() {
+      const newProduct = createArticle()
+      Vue.set(this.bar.articles, newProduct.id, newProduct)
+      this.editArticleId = newProduct.id
     },
     onSave() {
       this.UPDATE_BAR(this.bar)
@@ -69,6 +75,8 @@ foobarz-main-content(page="barz-new-edit" :title="bar.name")
         foobarz-article(
           :article="article"
         )
+      button.products__add(@click="addProduct")
+        foobarz-icon(name="add" :scale="2.5")
     foobarz-article-edit(
       :article="editedArticle"
       @close="closeEditArticle"
@@ -88,16 +96,24 @@ foobarz-main-content(page="barz-new-edit" :title="bar.name")
   grid-gap: 0.5rem;
   padding-top: 1rem;
 
+  &__add,
   &__item {
     width: 100%;
     padding: 100% 0 0;
     position: relative;
     background: var(--c-black);
     border-radius: 0.5rem;
+  }
 
-    &--edit {
-      padding: 0;
-      grid-column: 1 / 4;
+  &__add {
+    background: var(--c-accent-darkest);
+    border: 2px dotted var(--c-accent-darker);
+    .icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      fill: var(--c-accent);
     }
   }
 }
@@ -148,7 +164,6 @@ foobarz-main-content(page="barz-new-edit" :title="bar.name")
 
     &-price {
       margin: 0;
-      // width: 40%;
     }
   }
 }

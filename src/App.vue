@@ -18,9 +18,11 @@
 
   --c-accent-h: 32;
   --c-accent-s: 100%;
-  --c-accent: hsl(var(--c-accent-h), var(--c-accent-s), 50%);
-  --c-accent-lighter: hsl(var(--c-accent-h), var(--c-accent-s), 65%);
   --c-accent-lightest: hsl(var(--c-accent-h), var(--c-accent-s), 80%);
+  --c-accent-lighter: hsl(var(--c-accent-h), var(--c-accent-s), 65%);
+  --c-accent: hsl(var(--c-accent-h), var(--c-accent-s), 50%);
+  --c-accent-darker: hsl(var(--c-accent-h), var(--c-accent-s), 35%);
+  --c-accent-darkest: hsl(var(--c-accent-h), var(--c-accent-s), 10%);
 
   --navigation-height: 50px;
 
