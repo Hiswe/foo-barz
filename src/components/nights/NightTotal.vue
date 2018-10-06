@@ -10,15 +10,6 @@ export default {
 }
 </script>
 
-<i18n>
-{
-  "en": {
-    "total": "total",
-    "total-person": "per person"
-  }
-}
-</i18n>
-
 <template lang="pug">
 .totals
   p.totals__all
