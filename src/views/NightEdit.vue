@@ -58,8 +58,8 @@ section.night(v-if="isValidParams")
     :nightId="nightId"
   )
 
-  section.selection.selection--articles(v-if="night.articles.length")
-    .selection__content
+  section.selection(v-if="night.articles.length")
+    .selection__content.selection__content--articles
       .selection__article(
         v-for="article in night.articles"
         :key="article.id"
@@ -69,10 +69,9 @@ section.night(v-if="isValidParams")
           :article="bar.articles[article.articleId]"
           simple
         )
-  section.selection.selection--people(v-if="night.persons.length")
-    .selection__content
-
-      button.article(
+  section.selection(v-if="night.persons.length")
+    .selection__content.selection__content--people
+      button.person(
         v-for="person in night.persons"
         :key="person.id"
         @click="removePerson({nightId, personId: person.id})"
@@ -124,10 +123,24 @@ section.night(v-if="isValidParams")
     width: 100%;
     padding: 100% 0 0;
     position: relative;
+
+    &:only-child {
+      // prevent single oversized icon
+      max-height: 200px;
+      width: 200px;
+      padding-top: 200px;
+      margin: 0 auto;
+    }
   }
 }
 
 .selection + .selection {
   border-top: 5px solid var(--c-primary-darker);
+}
+
+.person {
+  background: none;
+  border: 0;
+  text-align: center;
 }
 </style>
