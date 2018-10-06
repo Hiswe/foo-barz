@@ -84,7 +84,7 @@ section.night(v-if="isValidParams")
 
 <style lang="scss" scoped>
 .night {
-  --total-height: 65px;
+  --total-height: 70px;
   --menu-size: #{percentage(2/7)};
   position: relative;
   padding-bottom: calc(var(--navigation-height) + var(--total-height));

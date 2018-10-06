@@ -20,42 +20,45 @@ export default {
 </i18n>
 
 <template lang="pug">
-dl.totals
-  dt.totals__label {{ $t( 'total') }}
-  dd.totals__value {{ night.total.all | price }}
-  template(v-if="night.total.perPerson")
-    dt.totals__label {{ $t( 'total-person') }} ({{night.persons.length}})
-    dd.totals__value {{ night.total.perPerson | price }}
+.totals
+  p.totals__all
+    span.totals__price {{ night.total.all | price }}
+  p.totals__person(v-if="night.total.perPerson")
+    span.totals__person-count {{night.persons.length}}
+    span.totals__price {{ night.total.perPerson | price }}
 </template>
 
 <style lang="scss" scoped>
 .totals {
-  background: linear-gradient(
-    to bottom,
-    var(--c-primary-darker),
-    var(--c-black)
-  );
-  padding: 0.5rem 3.5rem 0.5rem 1rem;
-  margin: 0;
-  display: grid;
-  grid-template-rows: repeat(2, min-content);
-  grid-gap: 0.5rem;
   grid-area: total;
+  background: var(--c-primary-darkest);
+  padding: 0 3.5rem;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
 
-  &__label,
-  &__value {
+  &__all,
+  &__person {
     margin: 0;
-    padding: 0;
+    padding: 0 0.5rem;
+    font-size: 1.75rem;
+    white-space: nowrap;
+  }
+
+  &__all {
     text-align: center;
   }
-  &__label {
-    text-transform: uppercase;
-    font-size: 0.8rem;
-    grid-row: 1;
-  }
-  &__value {
-    grid-row: 2;
+
+  &__price {
     color: var(--c-accent);
+  }
+
+  &__person-count {
+    &::after {
+      content: '*';
+    }
   }
 }
 </style>
