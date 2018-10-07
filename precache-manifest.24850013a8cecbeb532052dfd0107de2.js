@@ -1,6 +1,6 @@
 self.__precacheManifest = [
   {
-    "revision": "dca7d85b523b6eded090e49377a97309",
+    "revision": "1b4687ceb3b727e8b260a7ee9852ef17",
     "url": "/index.html"
   },
   {
@@ -23,27 +23,27 @@ self.__precacheManifest = [
     "url": "/robots.txt"
   },
   {
-    "revision": "25a4e21cb05120edefba",
-    "url": "/js/information.c4082279.js"
+    "revision": "63732c082d0f41995e8f",
+    "url": "/js/information.bf9e09dc.js"
   },
   {
-    "revision": "78cb42267f1a3eee3f7b",
-    "url": "/js/app.39d8c4ea.js"
+    "revision": "c25b902418768d6adcb4",
+    "url": "/js/app.bb5dc162.js"
   },
   {
     "revision": "9097269ebf45688f872d",
     "url": "/js/nights.583c99ab.js"
   },
   {
-    "revision": "67cfdf00fe788fdebe5f",
-    "url": "/js/nights-edit.b9986559.js"
+    "revision": "3a63ba5e95503c001537",
+    "url": "/js/nights-edit.902303f0.js"
   },
   {
     "url": "/img/icons/icon_384x384.c85766d9017ac1bcbf04731c9a05f574.png"
   },
   {
-    "revision": "67cfdf00fe788fdebe5f",
-    "url": "/css/nights-edit.c5540deb.css"
+    "revision": "3a63ba5e95503c001537",
+    "url": "/css/nights-edit.d009c7d2.css"
   },
   {
     "url": "/img/icons/icon_120x120.fd379adc2ba90f2b49e80ec622d2dae0.png"
@@ -69,7 +69,7 @@ self.__precacheManifest = [
     "url": "/img/icons/icon_152x152.cca6371b6c96c6d1621fd1309c7c05fe.png"
   },
   {
-    "revision": "25a4e21cb05120edefba",
+    "revision": "63732c082d0f41995e8f",
     "url": "/css/information.e1e0e63b.css"
   },
   {
@@ -77,7 +77,7 @@ self.__precacheManifest = [
     "url": "/css/barz-edit.ca879a38.css"
   },
   {
-    "revision": "78cb42267f1a3eee3f7b",
-    "url": "/css/app.46da19de.css"
+    "revision": "c25b902418768d6adcb4",
+    "url": "/css/app.3b11506e.css"
   }
 ];
