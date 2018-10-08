@@ -38,7 +38,6 @@ export default {
 
     #{$root}__all {
       color: white;
-      // opacity: 0.5;
 
       &::before {
         content: '=';
