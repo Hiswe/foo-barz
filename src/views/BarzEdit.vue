@@ -77,7 +77,10 @@ foobarz-main-content(page="barz-new-edit" :title="bar.name")
         foobarz-article(
           :article="article"
         )
-      button.products__add(@click="addProduct")
+      button.products__add(
+        @click="addProduct"
+        type="button"
+      )
         foobarz-icon(name="add" :scale="2.5")
     foobarz-article-edit(
       :article="editedArticle"
