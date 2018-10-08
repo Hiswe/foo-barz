@@ -17,6 +17,7 @@ import PageHeader from '@/components/ui/page-header'
 import Article from '@/components/ui/article'
 import List from '@/components/ui/list'
 import ListItem from '@/components/ui/list-item'
+import PricePerPerson from '@/components/ui/price-per-person'
 
 Vue.use(VueClipboard)
 Vue.use(VueNotifications)
@@ -41,6 +42,7 @@ Vue.component(`foobarz-header`, PageHeader)
 Vue.component(`foobarz-article`, Article)
 Vue.component(`foobarz-ul`, List)
 Vue.component(`foobarz-li`, ListItem)
+Vue.component(`foobarz-per-person`, PricePerPerson)
 
 Vue.config.productionTip = false
 

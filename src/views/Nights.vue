@@ -47,17 +47,18 @@ foobarz-main-content(page="nights" :title="$t(`title`)" noPadding)
           | {{ $t(`at`) }}
           |
           span.night__bar {{ night.barName }}
-      .night__cost
-        p.night__price {{ night.total.all | price }}
-        template(v-if="night.total.perPerson")
-          p.night__price-per-person
-            | {{ night.total.perPerson | price }} {{ $t(`for`) }}
-          p.night__guests
-            | {{ $t(`people`, {count: night.persons.length}) }}
+      .night__cost(:class="{'night__cost--divided': night.total.perPerson}")
+        foobarz-per-person.night__per-person(
+          :total="night.total"
+          :persons="night.persons"
+        )
+        p.night__total {{ night.total.all | price }}
+
 </template>
 
 <style lang="scss" scoped>
 .night {
+  $root: &;
   text-align: center;
 
   /deep/ .list__item-content {
@@ -83,25 +84,32 @@ foobarz-main-content(page="nights" :title="$t(`title`)" noPadding)
     display: block;
   }
   &__bar,
-  &__price {
+  &__total,
+  &__per-person {
     font-size: 1.2em;
   }
   &__date,
   &__bar {
     color: white;
   }
-  &__price {
+  &__total {
     color: var(--c-accent);
     margin: 0;
   }
-  &__price-per-person,
+  &__per-person,
   &__guests {
-    font-size: 0.8em;
     margin: 0;
     color: var(--c-primary);
   }
-  &__price-per-person {
+  &__per-person {
     margin-top: 0.25rem;
+  }
+  &__cost--divided {
+    #{$root}__total {
+      font-size: 1rem;
+      padding-top: 0.15em;
+      opacity: 0.35;
+    }
   }
   .night + .night {
     border-top: 2px solid var(--c-black);
