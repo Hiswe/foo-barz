@@ -62,6 +62,7 @@ aside.article-edit(
     .article-edit__actions
       foobarz-button.article-edit__remove(
         @click="archive"
+        preventTab
         danger
       ) {{ $t(`remove`) }}
       input.article-edit__submit(

@@ -64,14 +64,17 @@ export default {
 .input {
   display: flex;
   align-items: center;
+  width: 100%;
 
   &__field {
-    flex: 1 1 auto;
+    flex: 1 1 100%;
     display: block;
     background: none;
     width: 100%;
     border: 2px solid var(--c-primary);
     padding: 0.5em 0.75em;
+    // needed for Firefox sizing
+    min-width: 0;
 
     &:focus {
       border-color: var(--c-primary-lighter);
@@ -79,10 +82,21 @@ export default {
     }
     &[type='number'] {
       text-align: right;
+      // need textfield for Firefox
+      appearance: textfield;
+
+      // remove spinner for Safari
+      &::-webkit-inner-spin-button,
+      &::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
     }
   }
   &__decrement,
   &__increment {
+    flex: 0 0 1.5rem;
+
     &:active {
       fill: var(--c-accent);
     }

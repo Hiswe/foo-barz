@@ -14,6 +14,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    preventTab: {
+      type: Boolean,
+      default: false,
+    },
   },
   computed: {
     additionalClass() {
@@ -30,6 +34,7 @@ export default {
 button.foobarz-button(
   :type="type"
   :class="additionalClass"
+  :tabindex="preventTab ? -1 : 0"
   v-on="$listeners"
 )
   slot
