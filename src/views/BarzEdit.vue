@@ -33,9 +33,7 @@ export default {
         return isValidBar
       },
     }),
-    ...mapGetters({
-      getBar: `bar`,
-    }),
+    ...mapGetters([`getBar`]),
   },
   created() {
     if (!this.isValidParams) return this.$router.push({ name: `404` })

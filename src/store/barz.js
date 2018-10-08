@@ -28,6 +28,17 @@ export const getters = {
       }, {})
     return bar
   },
+  getBar: state => barId => {
+    const bar = clonedeep(state.entities[barId])
+    if (!bar) return false
+    bar.articles = Object.values(bar.articles)
+      .filter(article => !article.archived)
+      .reduce((acc, article) => {
+        acc[article.id] = article
+        return acc
+      }, {})
+    return bar
+  },
   lastBarId: state => state.ids[0],
 }
 

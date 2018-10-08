@@ -20,19 +20,20 @@ export default {
     nightId() {
       return this.$route.params.nightId
     },
+    bar(state) {
+      return this.getBar(this.barId)
+    },
     ...mapState({
       isValidParams(state) {
         const isValidBar = state.barz.ids.includes(this.barId)
         const isValidNight = state.nights.ids.includes(this.nightId)
         return isValidBar && isValidNight
       },
-      bar(state) {
-        return state.barz.entities[this.barId]
-      },
       night(state) {
         return state.nights.entities[this.nightId]
       },
     }),
+    ...mapGetters([`getBar`]),
   },
   methods: {
     ...mapActions({
