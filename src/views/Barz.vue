@@ -62,7 +62,7 @@ foobarz-main-content(page="barz" title="Barz" noPadding)
       .barz__action.barz__action--new-night(
         @click="newNight(bar.id)"
       )
-        foobarz-icon.barz__action-icon(name="new-night" :scale="1.15")
+        foobarz-icon.barz__action-icon(name="new-night" :scale="1")
         span.barz__action-label {{ $t(`hangout`) }}
   foobarz-button(@click="newBar" fab)
     foobarz-icon(name="add" :scale="1.5")
@@ -81,6 +81,7 @@ foobarz-main-content(page="barz" title="Barz" noPadding)
     text-decoration: none;
     display: flex;
     align-items: center;
+    // height: 100%;
   }
   &__name {
     margin-right: auto;
@@ -92,8 +93,10 @@ foobarz-main-content(page="barz" title="Barz" noPadding)
     align-items: center;
     color: currentColor;
     text-decoration: none;
+    align-self: stretch;
 
     &-label {
+      margin-top: auto;
       font-size: 0.75rem;
     }
   }

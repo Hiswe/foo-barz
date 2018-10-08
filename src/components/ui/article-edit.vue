@@ -1,6 +1,6 @@
 <script>
-import ColorPicker from '@/components/ui/ColorPicker'
-import IconPicker from '@/components/ui/IconPicker'
+import ColorPicker from '@/components/form/color-picker'
+import IconPicker from '@/components/form/icon-picker'
 
 export default {
   name: `foobarz-article-edit`,
@@ -83,11 +83,16 @@ aside.article-edit(
       'name name name'
       'icon color price';
     grid-gap: 1rem;
-    background: black;
-    border: 2px solid var(--c-primary-darker);
+    background: var(--c-primary-darkest);
     border-radius: 0.5rem;
     margin: 0;
     padding: 2rem 1rem;
+  }
+
+  & /deep/ input {
+    text-align: center;
+    background: black;
+    border-color: black;
   }
 
   &__name {
