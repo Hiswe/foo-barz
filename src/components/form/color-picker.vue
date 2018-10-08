@@ -1,8 +1,15 @@
 <script>
 import { colorList } from '@/store/default-data'
+import globalEvents from '@/global-events.js'
 
 export default {
   name: `foobarz-icon-picker`,
+  mounted() {
+    globalEvents.$on(`picker-open`, this.close)
+  },
+  beforeDestroy() {
+    globalEvents.$off(`picker-open`, this.close)
+  },
   data() {
     return {
       colorList: colorList.slice(),
@@ -17,11 +24,15 @@ export default {
   },
   methods: {
     toggle() {
+      globalEvents.$emit(``)
       this.open = !this.open
+    },
+    close() {
+      this.open = false
     },
     setColor(color) {
       this.$emit('input', color)
-      this.open = false
+      this.close()
     },
   },
 }
