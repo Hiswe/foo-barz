@@ -1,9 +1,10 @@
 <script>
-import { mapActions } from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 
 export default {
   name: `page-nights`,
   computed: {
+    ...mapGetters([`weeklyTotal`]),
     nights() {
       return this.$store.getters.nights()
     },
@@ -24,6 +25,7 @@ export default {
 {
   "en": {
     "title": "Perdition list",
+    "weekly-total": "this week:",
     "at": " at"
   }
 }
@@ -31,6 +33,9 @@ export default {
 
 <template lang="pug">
 foobarz-main-content(page="nights" :title="$t(`title`)" noPadding)
+  dl.weekly-total
+    dt.weekly-total__label {{ $t('weekly-total') }}
+    dd.weekly-total__price {{ weeklyTotal | price }}
   foobarz-ul
     foobarz-li.night(
       v-for="night in nights"
@@ -108,8 +113,25 @@ foobarz-main-content(page="nights" :title="$t(`title`)" noPadding)
       opacity: 0.35;
     }
   }
-  .night + .night {
-    border-top: 2px solid var(--c-black);
+}
+
+.weekly-total {
+  padding: 0.5rem;
+  margin: 0;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  background: var(--c-primary-darker);
+
+  &__label,
+  &__price {
+    margin: 0;
+  }
+  &__price {
+    padding: 0 0 0 0.25em;
+    font-size: 1.5rem;
+    color: var(--c-accent);
   }
 }
 </style>

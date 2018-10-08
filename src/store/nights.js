@@ -1,6 +1,7 @@
 import shortid from 'shortid'
 import clonedeep from 'lodash.clonedeep'
 import Vue from 'vue'
+import dayjs from 'dayjs'
 
 import * as defaultData from './default-data'
 import { REMOVE_BAR } from './barz'
@@ -50,6 +51,23 @@ export const state = () => ({
 export const getters = {
   nights: state => pagination => {
     return state.ids.map(id => state.entities[id])
+  },
+  weeklyTotal(state) {
+    const now = dayjs()
+    const start = now.startOf(`week`).valueOf()
+    const end = now.endOf(`week`).valueOf()
+
+    const weeklyTotal = state.ids
+      .filter(id => {
+        const { createdAt } = state.entities[id]
+        return createdAt > start && createdAt < end
+      })
+      .reduce((sum, id) => {
+        const { total } = state.entities[id]
+        sum = sum + (total.perPerson === false ? total.all : total.perPerson)
+        return sum
+      }, 0)
+    return weeklyTotal
   },
   lastNightId: state => state.ids[0],
 }
