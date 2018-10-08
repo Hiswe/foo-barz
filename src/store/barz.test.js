@@ -85,3 +85,34 @@ test(`reset`, t => {
   t.is(store.state.barz.ids.length, 1)
   t.is(getLastBar(store).name, `generic`)
 })
+
+test(`bar getter`, t => {
+  const { store } = t.context
+  const { getBar } = store.getters
+  const bar = getLastBar(store)
+  t.false(
+    getBar(shortid.generate()),
+    `no bar is returned if a wrong barId is passed`,
+  )
+  const getterResult = getBar(bar.id)
+  t.is(getterResult.id, bar.id, `the right bar is returned`)
+  t.deepEqual(
+    getterResult.articles,
+    bar.articles,
+    `has the same number of article`,
+  )
+  const barUpdate = clonedeep(bar)
+  const articleId = Object.keys(barUpdate.articles)[0]
+  barUpdate.articles[articleId].archived = true
+  store.commit(`UPDATE_BAR`, barUpdate)
+  const getterResultAfterBarUpdate = getBar(bar.id)
+  t.is(
+    Object.keys(bar.articles).length - 1,
+    Object.keys(getterResultAfterBarUpdate).length,
+    `getBar filter articles depending on archived articles`,
+  )
+  t.falsy(
+    getterResultAfterBarUpdate.articles[articleId],
+    `the right article has been removed`,
+  )
+})
