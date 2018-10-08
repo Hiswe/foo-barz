@@ -19,10 +19,22 @@ export default {
     close() {
       this.$emit(`close`)
     },
+    archive() {
+      this.article.archived = true
+      this.$emit(`close`)
+    },
     noop() {},
   },
 }
 </script>
+
+<i18n>
+{
+  "en": {
+    "remove": "remove"
+  }
+}
+</i18n>
 
 <template lang="pug">
 aside.article-edit(
@@ -47,9 +59,14 @@ aside.article-edit(
       v-model="article.price"
       type="number"
     )
-    input.article-edit__submit(
-      @focus="close"
-    )
+    .article-edit__actions
+      foobarz-button.article-edit__remove(
+        @click="archive"
+        danger
+      ) {{ $t(`remove`) }}
+      input.article-edit__submit(
+        @focus="close"
+      )
 </template>
 
 <style lang="scss" scoped>
@@ -79,9 +96,11 @@ aside.article-edit(
     display: grid;
     align-items: center;
     grid-template-columns: repeat(40px, 2fr) 1fr;
+    grid-auto-rows: auto;
     grid-template-areas:
       'name name name'
-      'icon color price';
+      'icon color price'
+      'actions actions actions';
     grid-gap: 1rem;
     background: var(--c-primary-darkest);
     border-radius: 0.5rem;
@@ -112,6 +131,10 @@ aside.article-edit(
 
   &__price {
     grid-area: price;
+  }
+  &__actions {
+    text-align: center;
+    grid-area: actions;
   }
   &__submit {
     width: 5px;

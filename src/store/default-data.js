@@ -8,6 +8,7 @@ export const articles = {
     name: `beer leo`,
     color: `#738588`,
     price: 70,
+    archived: false,
   },
   __ay3tMUY: {
     id: `__ay3tMUY`,
@@ -15,6 +16,7 @@ export const articles = {
     name: `sangsom`,
     color: `#738588`,
     price: 375,
+    archived: false,
   },
   Zd6cI_aIP: {
     id: `Zd6cI_aIP`,
@@ -22,6 +24,7 @@ export const articles = {
     name: `mixer`,
     color: `#738588`,
     price: 30,
+    archived: false,
   },
   '53ARc_XD5': {
     id: `53ARc_XD5`,
@@ -29,6 +32,7 @@ export const articles = {
     name: `ice bucket`,
     color: `#738588`,
     price: 30,
+    archived: false,
   },
   WPXHXTsJp: {
     id: `WPXHXTsJp`,
@@ -36,6 +40,7 @@ export const articles = {
     name: `3 beers`,
     color: `#738588`,
     price: 200,
+    archived: false,
   },
 }
 
@@ -95,5 +100,6 @@ export function createArticle() {
     name: `new product`,
     color: colorList[0],
     price: 100,
+    archived: false,
   }
 }

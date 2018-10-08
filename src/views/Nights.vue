@@ -24,10 +24,7 @@ export default {
 {
   "en": {
     "title": "Perdition list",
-    "remove": "remove",
-    "at": " at",
-    "for": " for",
-    "people": "{count} peoples"
+    "at": " at"
   }
 }
 </i18n>

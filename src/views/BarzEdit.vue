@@ -1,9 +1,9 @@
 <script>
 import Vue from 'vue'
 import cloneDeep from 'lodash.clonedeep'
-import { mapState, mapMutations } from 'vuex'
+import { mapState, mapMutations, mapGetters } from 'vuex'
 
-import ArticleEdit from '@/components/ui/article-edit'
+import ArticleEdit from '@/components/article/edit'
 import { createArticle } from '@/store/default-data'
 
 export default {
@@ -24,14 +24,17 @@ export default {
       if (!this.editArticleId) return false
       return this.bar.articles[this.editArticleId]
     },
+    bar() {
+      return this.getBar(this.barId)
+    },
     ...mapState({
       isValidParams(state) {
         const isValidBar = state.barz.ids.includes(this.barId)
         return isValidBar
       },
-      bar(state) {
-        return state.barz.entities[this.barId]
-      },
+    }),
+    ...mapGetters({
+      getBar: `bar`,
     }),
   },
   created() {
@@ -56,6 +59,7 @@ export default {
     },
     closeEditArticle() {
       this.editArticleId = false
+      this.UPDATE_BAR(this.bar)
     },
     ...mapMutations([`UPDATE_BAR`]),
   },
@@ -81,7 +85,6 @@ foobarz-main-content(page="barz-new-edit" :title="bar.name")
       :article="editedArticle"
       @close="closeEditArticle"
     )
-
     foobarz-button(
       fab
       @click="onSave"

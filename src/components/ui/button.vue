@@ -41,7 +41,6 @@ button.foobarz-button(
   display: block;
   padding: 0.5em 1em;
   border: 0 none;
-  margin-top: 1.5rem;
   width: 100%;
   text-transform: uppercase;
   color: var(--c-primary-darkest);

@@ -6,7 +6,7 @@ foobarz-main-content(page="information" title="Information")
     //- use v-clipboard:copy instead of this.$copyText
     //- for better browser support
     //- https://www.npmjs.com/package/vue-clipboard2#i-want-to-copy-texts-without-a-specific-button
-    foobarz-button(
+    foobarz-button.information__copy(
       v-clipboard:copy="homepage"
       v-clipboard:success="onCopy"
     ) {{ $t(`shareButton`) }}
@@ -20,6 +20,9 @@ foobarz-main-content(page="information" title="Information")
 </template>
 
 <style lang="scss" scoped>
+.information__copy {
+  margin-top: 1.5rem;
+}
 p {
   text-align: center;
 }
