@@ -37,6 +37,7 @@ foobarz-main-content(page="nights" :title="$t(`title`)" noPadding)
       v-for="bar in barz"
       :key="bar.id"
       @click="newNight(bar.id)"
+      :preventRemove="true"
     ): p.bar-name {{bar.name}}
 </template>
 

@@ -84,7 +84,6 @@ export const actions = {
     const { barId } = payload
     const bar = store.state.entities[barId]
     if (!bar) return
-    if (bar.isDefault) return
     store.commit(REMOVE_BAR, payload)
   },
 }

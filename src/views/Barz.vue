@@ -49,7 +49,6 @@ foobarz-main-content(page="barz" title="Barz" noPadding)
       v-for="bar in barz"
       :key="bar.id"
       @remove="remove(bar.id)"
-      :preventRemove="bar.isDefault === true"
     )
       span.barz__name {{bar.name}}
       router-link.barz__action.barz__action--edit(
