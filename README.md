@@ -1,4 +1,4 @@
-<img src="src/assets-source/logo-foobarz.svg" width="100" heigh="100" style="display: block; margin: 0 auto"/>
+<img src="assets-source/logo-foobarz.svg" width="100" heigh="100" style="display: block; margin: 0 auto"/>
 
 # Foo Barz
 
