@@ -1,3 +1,14 @@
+<script>
+import FoobarzMainNavigation from '@/components/main-navigation'
+
+export default {
+  name: `app`,
+  components: {
+    FoobarzMainNavigation,
+  },
+}
+</script>
+
 <template lang="pug">
 #app
   foobarz-main-navigation
@@ -160,14 +171,3 @@ button {
   }
 }
 </style>
-
-<script>
-import MainNavigation from '@/components/MainNavigation'
-
-export default {
-  name: `app`,
-  components: {
-    'foobarz-main-navigation': MainNavigation,
-  },
-}
-</script>

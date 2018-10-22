@@ -1,11 +1,31 @@
+<script>
+export default {
+  name: `main-navigation`,
+}
+</script>
+
+<i18n>
+{
+  "en": {
+    "hangout": "hangout",
+    "barz": "barz",
+    "info": "info",
+    "nights": "nights"
+  }
+}
+</i18n>
+
 <template lang="pug">
 nav.main-navigation
   router-link.main-navigation__link(to="/")
-    foobarz-icon.main-navigation__icon(name="store" :scale="1")
-    span.main-navigation__label {{ $t(`barz`) }}
+    foobarz-icon.main-navigation__icon(name="glass" :scale=".5")
+    span.main-navigation__label {{ $t(`hangout`) }}
   router-link.main-navigation__link(to="/nights")
     foobarz-icon.main-navigation__icon(name="night" :scale="1")
     span.main-navigation__label {{ $t(`nights`) }}
+  router-link.main-navigation__link(to="/barz")
+    foobarz-icon.main-navigation__icon(name="store" :scale="1")
+    span.main-navigation__label {{ $t(`barz`) }}
   router-link.main-navigation__link(to="/information")
     foobarz-icon.main-navigation__icon(name="info" :scale="1.2")
     span.main-navigation__label {{ $t(`info`) }}
@@ -48,19 +68,3 @@ nav.main-navigation
   }
 }
 </style>
-
-<i18n>
-{
-  "en": {
-    "barz": "barz",
-    "info": "info",
-    "nights": "nights"
-  }
-}
-</i18n>
-
-<script>
-export default {
-  name: `main-navigation`,
-}
-</script>

@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Barz from './views/Barz.vue'
+import NewNight from './views/night-new.vue'
 import NotFound from './views/NotFound.vue'
 
 Vue.use(Router)
@@ -11,7 +12,13 @@ export default new Router({
     {
       path: '/',
       name: 'home',
-      component: Barz,
+      component: NewNight,
+    },
+    {
+      path: '/barz',
+      name: 'barz',
+      component: () =>
+        import(/* webpackChunkName: "barz" */ './views/Barz.vue'),
     },
     {
       path: '/barz/:barId',
@@ -28,6 +35,7 @@ export default new Router({
       component: () =>
         import(/* webpackChunkName: "nights" */ './views/Nights.vue'),
     },
+
     {
       path: '/nights/:barId/:nightId',
       name: 'night',
