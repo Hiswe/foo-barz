@@ -15,7 +15,9 @@ export const state = () => ({
 
 export const getters = {
   barz: state => pagination => {
-    return state.ids.map(id => state.entities[id])
+    return state.ids
+      .map(id => state.entities[id])
+      .sort((a, b) => a.name > b.name)
   },
   bar: state => barId => {
     const bar = clonedeep(state.entities[barId])
