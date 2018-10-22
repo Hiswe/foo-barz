@@ -36,11 +36,11 @@ menu.bar-menu
 .bar-menu {
   background: linear-gradient(
     to bottom,
-    var(--c-black),
-    var(--c-primary-darkest)
+    var(--c-black) 65%,
+    var(--c-accent-darkest)
   );
   margin: 0;
-  padding: 0.5rem;
+  padding: 0 0.5rem 0.25rem;
   overflow-x: scroll; /* has to be scroll, not auto */
   -webkit-overflow-scrolling: touch;
 
@@ -52,10 +52,10 @@ menu.bar-menu
   &__article {
     flex: 0 0 auto;
     margin: 0 0.25rem;
-    background: var(--c-black);
-    border: 1px solid var(--c-primary-darker);
-    height: 70px;
-    width: 70px;
+    background: none;
+    border: none;
+    height: 80px;
+    width: 80px;
     padding: 0;
     position: relative;
     display: block;

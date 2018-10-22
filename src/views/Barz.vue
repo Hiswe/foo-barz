@@ -69,6 +69,9 @@ foobarz-main-content(page="barz" title="Barz" noPadding)
 </template>
 
 <style lang="scss" scoped>
+.page-barz {
+  padding-bottom: calc(var(--navigation-height) * 1.35);
+}
 .barz-help {
   text-align: center;
   border-bottom: 2px solid black;

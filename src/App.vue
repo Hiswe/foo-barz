@@ -31,6 +31,25 @@
     'Liberation Mono', 'Nimbus Mono L', Monaco, 'Courier New', Courier,
     monospace;
 }
+
+:root {
+  // Z-Index Scale
+  --zi-1: 100;
+  --zi-2: 200;
+  --zi-3: 300;
+  --zi-4: 400;
+  --zi-5: 500;
+  --zi-6: 600;
+  --zi-7: 700;
+  --zi-8: 800;
+  --zi-9: 900;
+  --zi-10: 1000;
+
+  // Z-Index Applications
+  --zindex-fab: var(--zi-2);
+  --zindex-edit-product: var(--zi-3);
+}
+
 *,
 *::before,
 *::after {

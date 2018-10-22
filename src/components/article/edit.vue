@@ -97,6 +97,7 @@ aside.article-edit(
   margin: 0;
   display: flex;
   flex-direction: column;
+  z-index: var(--zindex-edit-product);
 
   &__fields {
     margin: auto 0;

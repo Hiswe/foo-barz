@@ -1,7 +1,7 @@
 <script>
 import { mapState, mapMutations, mapActions, mapGetters } from 'vuex'
 
-import BarMenu from '@/components/nights/BarMenu'
+import BarMenu from '@/components/nights/bar-menu'
 import NightTotal from '@/components/nights/NightTotal'
 
 export default {

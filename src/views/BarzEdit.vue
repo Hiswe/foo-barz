@@ -67,10 +67,20 @@ export default {
 }
 </script>
 
+<i18n>
+{
+  "en": {
+    "bar-name": "bar name"
+  }
+}
+</i18n>
+
 <template lang="pug">
 foobarz-main-content(page="barz-new-edit" :title="bar.name")
   form(@submit.prevent="updateBar")
-    foobarz-input(v-model="bar.name")
+    .bar-name
+      label.bar-name__label(for="bar-name") {{ $t(`bar-name`) }}
+      foobarz-input.bar-name__input(v-model="bar.name" name="bar-name")
     .products
       .products__item(
         v-for="(article, index) in bar.articles"
@@ -98,10 +108,20 @@ foobarz-main-content(page="barz-new-edit" :title="bar.name")
 </template>
 
 <style lang="scss" scoped>
+.bar-name {
+  text-align: center;
+
+  &__label {
+    color: var(--c-primary);
+  }
+  &__input /deep/ input {
+    text-align: center;
+  }
+}
 .products {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
-  grid-gap: 0.5rem;
+  grid-gap: 1.5rem 0.5rem;
   padding-top: 1rem;
 
   &__add,
@@ -109,7 +129,6 @@ foobarz-main-content(page="barz-new-edit" :title="bar.name")
     width: 100%;
     padding: 100% 0 0;
     position: relative;
-    background: var(--c-black);
     border-radius: 0.5rem;
   }
 

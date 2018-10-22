@@ -32,7 +32,6 @@ export default {
   position: absolute;
   display: flex;
   flex-direction: column;
-  padding-bottom: 0.15rem;
   top: 0;
   right: 0;
   bottom: 0;
@@ -58,10 +57,8 @@ export default {
 
   &__price {
     color: var(--c-accent);
-    position: absolute;
-    z-index: 2;
-    top: 0.15rem;
-    right: 0.15rem;
+    order: -1;
+    text-align: center;
   }
   &__icon {
     z-index: 2;

@@ -5,6 +5,9 @@ export default {
     isNumber() {
       return this.type === `number`
     },
+    _id() {
+      return this.id ? this.id : this.name ? this.name : false
+    },
   },
   props: {
     type: {
@@ -17,6 +20,12 @@ export default {
     value: {
       default: ``,
       type: [String, Number],
+    },
+    name: {
+      type: String,
+    },
+    id: {
+      type: String,
     },
   },
   methods: {
@@ -49,6 +58,8 @@ export default {
     input.input__field(
       :type="type"
       :value="value"
+      :name="name"
+      :id="_id"
       @input="onInput"
       @keyup.enter="onEnter"
     )

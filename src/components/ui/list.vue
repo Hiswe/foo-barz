@@ -1,5 +1,5 @@
 <template lang="pug" functional>
-ul.list
+ul.list(:class="data.staticClass || ``" v-bind="data.attrs")
   slot
 </template>
 

@@ -68,6 +68,7 @@ button.foobarz-button(
     margin: 0;
     padding: 0;
     border: 0;
+    z-index: var(--zindex-fab);
 
     .icon {
       position: absolute;
