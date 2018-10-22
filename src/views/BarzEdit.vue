@@ -59,6 +59,9 @@ export default {
       this.editArticleId = false
       this.UPDATE_BAR(this.bar)
     },
+    onEditProduct() {
+      this.UPDATE_BAR(this.bar)
+    },
     ...mapMutations([`UPDATE_BAR`]),
   },
 }
@@ -84,6 +87,7 @@ foobarz-main-content(page="barz-new-edit" :title="bar.name")
         foobarz-icon(name="add" :scale="2.5")
     foobarz-article-edit(
       :article="editedArticle"
+      @input="onEditProduct"
       @close="closeEditArticle"
     )
     foobarz-button(

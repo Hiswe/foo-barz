@@ -19,6 +19,9 @@ export default {
     close() {
       this.$emit(`close`)
     },
+    bubbleInput() {
+      this.$emit(`input`)
+    },
     archive() {
       this.article.archived = true
       this.$emit(`close`)
@@ -50,16 +53,20 @@ aside.article-edit(
   .article-edit__fields
     foobarz-icon-picker.article-edit__icon(
       v-model="article.icon"
+      @input="bubbleInput"
     )
     foobarz-input.article-edit__name(
       v-model="article.name"
+      @input="bubbleInput"
     )
     foobarz-color-picker.article-edit__color(
       v-model="article.color"
+      @input="bubbleInput"
     )
     foobarz-input.article-edit__price(
       v-model="article.price"
       type="number"
+      @input="bubbleInput"
     )
   .article-edit__actions
     foobarz-icon.article-edit__remove(
