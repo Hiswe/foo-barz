@@ -1,6 +1,6 @@
 self.__precacheManifest = [
   {
-    "revision": "ccc5c2ede4cba3e789cafbd17040d4c8",
+    "revision": "1d33c6f253cf23785e1ac07ea2432698",
     "url": "/index.html"
   },
   {
@@ -11,8 +11,8 @@ self.__precacheManifest = [
     "url": "/img/icons/safari-pinned-tab.svg"
   },
   {
-    "revision": "b915e40fb0d05ff38192",
-    "url": "/js/barz-edit.142cf785.js"
+    "revision": "b13234513c6785dc9cfa",
+    "url": "/js/barz-edit.cfdbba8c.js"
   },
   {
     "revision": "a8e9c3338e25c208178e",
@@ -23,27 +23,27 @@ self.__precacheManifest = [
     "url": "/robots.txt"
   },
   {
-    "revision": "bfaf36f749081a23c4dc",
-    "url": "/js/information.4cecf86f.js"
+    "revision": "39275495db0f63795e9c",
+    "url": "/js/information.687e65d9.js"
   },
   {
-    "revision": "634f9ca2a285b5f6adfd",
-    "url": "/js/app.5f6674d8.js"
+    "revision": "3977a011ee395aefd43a",
+    "url": "/js/app.6e074ab6.js"
   },
   {
     "revision": "14cce238fe69c9dd7292",
     "url": "/js/nights.a33d78e6.js"
   },
   {
-    "revision": "4ebdccace55c481ab19d",
-    "url": "/js/nights-edit.eac61b05.js"
+    "revision": "cfcd4f716fce49bc35d6",
+    "url": "/js/nights-edit.73234350.js"
   },
   {
     "url": "/img/icons/icon_384x384.c85766d9017ac1bcbf04731c9a05f574.png"
   },
   {
-    "revision": "4ebdccace55c481ab19d",
-    "url": "/css/nights-edit.dd2edd02.css"
+    "revision": "cfcd4f716fce49bc35d6",
+    "url": "/css/nights-edit.fbf3e4a2.css"
   },
   {
     "url": "/img/icons/icon_120x120.fd379adc2ba90f2b49e80ec622d2dae0.png"
@@ -69,15 +69,15 @@ self.__precacheManifest = [
     "url": "/img/icons/icon_152x152.cca6371b6c96c6d1621fd1309c7c05fe.png"
   },
   {
-    "revision": "bfaf36f749081a23c4dc",
+    "revision": "39275495db0f63795e9c",
     "url": "/css/information.b73f2b0a.css"
   },
   {
-    "revision": "b915e40fb0d05ff38192",
-    "url": "/css/barz-edit.70cfc008.css"
+    "revision": "b13234513c6785dc9cfa",
+    "url": "/css/barz-edit.2d44c47c.css"
   },
   {
-    "revision": "634f9ca2a285b5f6adfd",
-    "url": "/css/app.078027bf.css"
+    "revision": "3977a011ee395aefd43a",
+    "url": "/css/app.3d3d1756.css"
   }
 ];
