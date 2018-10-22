@@ -1,4 +1,4 @@
-importScripts("/precache-manifest.2a88570de2828d4a69f3b453999fd753.js", "/workbox-v3.6.2/workbox-sw.js");
+importScripts("/precache-manifest.3b9559acd4c0c12f2cf947fc402a1c71.js", "/workbox-v3.6.2/workbox-sw.js");
 workbox.setConfig({modulePathPrefix: "/workbox-v3.6.2"});
 workbox.core.setCacheNameDetails({ prefix: 'foobarz-cache-v1' })
 
