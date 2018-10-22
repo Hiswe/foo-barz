@@ -51,6 +51,7 @@ button.foobarz-button(
   color: var(--c-primary-darkest);
   transition: transform 0.25s;
   border-radius: 0.25rem;
+  border: 3px solid var(--c-accent);
 
   &:active {
     transform: translateY(3px);
@@ -66,6 +67,7 @@ button.foobarz-button(
     bottom: calc(var(--navigation-height) + 0.5rem);
     margin: 0;
     padding: 0;
+    border: 0;
 
     .icon {
       position: absolute;
@@ -79,7 +81,7 @@ button.foobarz-button(
   &--danger {
     color: red;
     background: none;
-    border: 3px solid currentColor;
+    border-color: currentColor;
   }
 }
 </style>
