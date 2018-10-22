@@ -36,7 +36,6 @@ export default {
 <i18n>
 {
   "en": {
-    "description": "a simple app to compute a bar's bill",
     "edit": "edit",
     "hangout": "add"
   }
@@ -45,7 +44,6 @@ export default {
 
 <template lang="pug">
 foobarz-main-content(page="barz" title="Barz" noPadding)
-  p.barz-help {{$t('description')}}
   foobarz-ul
     foobarz-li.barz__item(
       v-for="bar in barz"
@@ -72,19 +70,12 @@ foobarz-main-content(page="barz" title="Barz" noPadding)
 .page-barz {
   padding-bottom: calc(var(--navigation-height) * 1.35);
 }
-.barz-help {
-  text-align: center;
-  border-bottom: 2px solid black;
-  padding: 1rem;
-  margin: 0;
-}
 .barz {
   &__item /deep/ .list__item-content {
     color: currentColor;
     text-decoration: none;
     display: flex;
     align-items: center;
-    // height: 100%;
   }
   &__name {
     margin-right: auto;
