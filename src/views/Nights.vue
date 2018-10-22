@@ -24,7 +24,7 @@ export default {
 <i18n>
 {
   "en": {
-    "title": "Perdition list",
+    "title": "Nights history",
     "weekly-total": "this week:",
     "at": " at"
   }

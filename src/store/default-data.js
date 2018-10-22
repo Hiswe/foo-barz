@@ -71,6 +71,10 @@ export const icons = [
     id: `2LEQRlbIj`,
     name: `promotion`,
   },
+  {
+    id: `mNCknxH-2`,
+    name: `fastfood`,
+  },
 ]
 
 export const night = {

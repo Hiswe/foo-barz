@@ -104,7 +104,7 @@ const icons = () => {
         templates: [`default-demo`, `default-vue`],
       }),
     )
-    .pipe($.if(/[.]vue$/, $.rename(`SvgIcons.vue`)))
+    .pipe($.if(/[.]vue$/, $.rename(`svg-icons.vue`)))
     .pipe($.if(/[.]vue$/, gulp.dest(`src/components/ui`)))
     .pipe($.if(/[.]html$/, gulp.dest(`assets-source`)))
 }
