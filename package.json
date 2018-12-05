@@ -24,6 +24,7 @@
     "toc": "doctoc *.md --github"
   },
   "dependencies": {
+    "@hiswe/focus-ring": "^1.0.4",
     "alloyfinger": "^0.1.15",
     "dayjs": "^1.7.7",
     "lodash.clonedeep": "^4.5.0",

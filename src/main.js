@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueClipboard from 'vue-clipboard2'
 import VueNotifications from 'vue-notification'
+import focusRing from '@hiswe/focus-ring'
 
 import router from './router'
 import store from './store/index'
@@ -53,14 +54,7 @@ new Vue({
   render: h => h(App),
 }).$mount(`#app`)
 
-////////
 // FOCUS RING
-////////
+// https://www.npmjs.com/package/@hiswe/focus-ring
 
-function handleFirstTab(e) {
-  if (e.keyCode === 9) {
-    document.body.classList.add(`user-is-tabbing`)
-    window.removeEventListener(`keydown`, handleFirstTab, { passive: true })
-  }
-}
-window.addEventListener(`keydown`, handleFirstTab)
+focusRing()

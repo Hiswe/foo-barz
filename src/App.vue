@@ -17,6 +17,8 @@ export default {
 </template>
 
 <style lang="scss">
+@import '~@hiswe/focus-ring/dist/focus-ring.scss';
+
 :root {
   --c-primary-h: 190;
   --c-primary-s: 7%;
@@ -86,15 +88,6 @@ textarea,
 select {
   font: inherit;
   color: currentColor;
-}
-body:not(.user-is-tabbing) {
-  a:focus,
-  button:focus,
-  input:focus,
-  select:focus,
-  textarea:focus {
-    outline: none;
-  }
 }
 button {
   touch-action: manipulation;
