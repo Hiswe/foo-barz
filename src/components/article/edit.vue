@@ -35,7 +35,9 @@ export default {
 {
   "en": {
     "remove": "remove",
-    "save": "save"
+    "save": "save",
+    "product-name": "product name",
+    "product-price": "product price"
   }
 }
 </i18n>
@@ -56,6 +58,7 @@ aside.article-edit(
       @input="bubbleInput"
     )
     foobarz-input.article-edit__name(
+      :label="$t( `product-name` )"
       v-model="article.name"
       @input="bubbleInput"
     )
@@ -64,6 +67,7 @@ aside.article-edit(
       @input="bubbleInput"
     )
     foobarz-input.article-edit__price(
+      :label="$t( `product-price` )"
       v-model="article.price"
       type="number"
       @input="bubbleInput"

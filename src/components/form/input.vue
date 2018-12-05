@@ -5,6 +5,9 @@ export default {
     isNumber() {
       return this.type === `number`
     },
+    htmlFor() {
+      return this.id || this.name
+    },
     _id() {
       return this.id ? this.id : this.name ? this.name : false
     },
@@ -25,6 +28,9 @@ export default {
       type: String,
     },
     id: {
+      type: String,
+    },
+    label: {
       type: String,
     },
   },
@@ -49,34 +55,44 @@ export default {
 
 <template lang="pug">
   .input
-    foobarz-icon.input__decrement(
-      v-if="isNumber"
-      name="remove-circle"
-      :scale="2"
-      @click.native="decrement"
-    )
-    input.input__field(
-      :type="type"
-      :value="value"
-      :name="name"
-      :id="_id"
-      @input="onInput"
-      @keyup.enter="onEnter"
-    )
-    foobarz-icon.input__increment(
-      v-if="isNumber"
-      name="add-circle"
-      :scale="2"
-      @click.native="increment"
-    )
+    label.input__label(
+      v-if="label"
+      :for="htmlFor"
+    ) {{ label }}
+    .input__field-wrapper
+      foobarz-icon.input__decrement(
+        v-if="isNumber"
+        name="remove-circle"
+        :scale="2"
+        @click.native="decrement"
+      )
+      input.input__field(
+        :type="type"
+        :value="value"
+        :name="name"
+        :id="htmlFor"
+        @input="onInput"
+        @keyup.enter="onEnter"
+      )
+      foobarz-icon.input__increment(
+        v-if="isNumber"
+        name="add-circle"
+        :scale="2"
+        @click.native="increment"
+      )
 </template>
 
 <style lang="scss" scoped>
-.input {
-  display: flex;
-  align-items: center;
-  width: 100%;
+@import './form-mixins';
 
+.input {
+  @include label();
+
+  &__field-wrapper {
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
   &__field {
     flex: 1 1 100%;
     display: block;

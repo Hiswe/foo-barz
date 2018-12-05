@@ -38,8 +38,17 @@ export default {
 }
 </script>
 
+<i18n>
+{
+  "en": {
+    "icon": "icon"
+  }
+}
+</i18n>
+
 <template lang="pug">
 .foobarz-icon-picker
+  .foobarz-icon-picker__label {{ $t( `icon` ) }}
   .foobarz-icon-picker__icon(
     @click="toggle"
     :value="value"
@@ -54,13 +63,16 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+@import './form-mixins';
+
 .foobarz-icon-picker {
+  @include label();
   position: relative;
 
   &__icon {
-    height: 2rem;
-    width: 2rem;
-    border-radius: 2rem;
+    height: var(--picker-size);
+    width: var(--picker-size);
+    border-radius: var(--picker-size);
     background: black;
     border: 1px solid white;
 

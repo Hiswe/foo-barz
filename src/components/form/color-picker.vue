@@ -38,8 +38,17 @@ export default {
 }
 </script>
 
+<i18n>
+{
+  "en": {
+    "color": "color"
+  }
+}
+</i18n>
+
 <template lang="pug">
 .foobarz-color-picker
+  .foobarz-color-picker__label {{ $t( `color` ) }}
   .foobarz-color-picker__bucket(
     @click="toggle"
     :value="value"
@@ -55,13 +64,16 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+@import './form-mixins';
+
 .foobarz-color-picker {
+  @include label();
   position: relative;
 
   &__bucket {
-    height: 2rem;
-    width: 2rem;
-    border-radius: 2rem;
+    height: var(--picker-size);
+    width: var(--picker-size);
+    border-radius: var(--picker-size);
     background: black;
     border: 1px solid white;
   }
