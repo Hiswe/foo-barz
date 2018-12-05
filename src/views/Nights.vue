@@ -103,9 +103,6 @@ foobarz-main-content(page="nights" :title="$t(`title`)" noPadding)
     margin: 0;
     color: var(--c-primary);
   }
-  &__per-person {
-    margin-top: 0.25rem;
-  }
   &__cost--divided {
     #{$root}__total {
       font-size: 1rem;
