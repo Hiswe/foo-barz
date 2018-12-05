@@ -40,7 +40,7 @@ export default new Router({
       path: '/nights/:barId/:nightId',
       name: 'night',
       component: () =>
-        import(/* webpackChunkName: "nights-edit" */ './views/NightEdit.vue'),
+        import(/* webpackChunkName: "nights-edit" */ './views/night-edit.vue'),
     },
     {
       path: '/information',

@@ -22,9 +22,8 @@ export default {
     :name="props.article.icon"
     :style="{'--secondary-color': props.article.color}"
   )
-  template(v-if="!props.simple")
-    .article__name {{ props.article.name }}
-    .article__price {{ props.article.price | price }}
+  .article__name {{ props.article.name }}
+  .article__price(v-if="!props.simple") {{ props.article.price | price }}
 </template>
 
 <style lang="scss" scoped>
