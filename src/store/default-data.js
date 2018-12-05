@@ -46,7 +46,7 @@ export const articles = {
 
 export const bar = {
   id: `_d6caZLLC`,
-  name: `generic`,
+  name: `generic bar`,
   articles: clonedeep(articles),
 }
 

@@ -3,7 +3,7 @@ import shortid from 'shortid'
 import clonedeep from 'lodash.clonedeep'
 
 import createStateStore from './_create-test-store'
-import { articles as defaultArticles } from './default-data'
+import { articles as defaultArticles, bar as defaultBar } from './default-data'
 
 test.beforeEach(t => {
   const store = createStateStore()
@@ -75,7 +75,7 @@ test(`delete`, t => {
   t.is(store.state.barz.ids.length, 1, `bar id has been erased`)
   t.falsy(store.state.barz.entities[newBar.id], `bar entity has been erased`)
   store.dispatch(`REMOVE_BAR`, { barId: store.state.barz.ids[0] })
-  t.is(store.state.barz.ids.length, 1, `can't remove default bar`)
+  t.is(store.state.barz.ids.length, 0, `can remove default bar`)
 })
 
 test(`reset`, t => {
@@ -83,7 +83,7 @@ test(`reset`, t => {
   store.commit(`CREATE_BAR`)
   store.commit(`RESET`)
   t.is(store.state.barz.ids.length, 1)
-  t.is(getLastBar(store).name, `generic`)
+  t.is(getLastBar(store).name, defaultBar.name)
 })
 
 test(`bar getter`, t => {
