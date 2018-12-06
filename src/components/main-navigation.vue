@@ -10,7 +10,7 @@ export default {
     "hangout": "hangout",
     "barz": "barz",
     "info": "info",
-    "nights": "nights"
+    "history": "history"
   }
 }
 </i18n>
@@ -18,16 +18,16 @@ export default {
 <template lang="pug">
 nav.main-navigation
   router-link.main-navigation__link(to="/")
-    foobarz-icon.main-navigation__icon(name="glass" :scale=".5")
+    foobarz-icon.main-navigation__icon(name="menu-hangout")
     span.main-navigation__label {{ $t(`hangout`) }}
   router-link.main-navigation__link(to="/nights")
-    foobarz-icon.main-navigation__icon(name="night" :scale="1")
-    span.main-navigation__label {{ $t(`nights`) }}
+    foobarz-icon.main-navigation__icon(name="menu-history")
+    span.main-navigation__label {{ $t(`history`) }}
   router-link.main-navigation__link(to="/barz")
-    foobarz-icon.main-navigation__icon(name="store" :scale="1")
+    foobarz-icon.main-navigation__icon(name="menu-bar")
     span.main-navigation__label {{ $t(`barz`) }}
   router-link.main-navigation__link(to="/information")
-    foobarz-icon.main-navigation__icon(name="info" :scale="1.2")
+    foobarz-icon.main-navigation__icon(name="menu-info")
     span.main-navigation__label {{ $t(`info`) }}
 </template>
 

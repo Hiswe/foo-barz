@@ -54,7 +54,7 @@ foobarz-main-content(page="barz" title="Barz" noPadding)
       router-link.barz__action.barz__action--edit(
         :to="`/barz/${bar.id}`"
       )
-        foobarz-icon.barz__action-icon(name="edit" :scale="1.25")
+        foobarz-icon.barz__action-icon(name="edit")
         span.barz__action-label {{ $t(`edit`) }}
       .barz__action.barz__action--new-night(
         @click="newNight(bar.id)"
@@ -62,7 +62,7 @@ foobarz-main-content(page="barz" title="Barz" noPadding)
         foobarz-icon.barz__action-icon(name="new-night" :scale="1")
         span.barz__action-label {{ $t(`hangout`) }}
   foobarz-button(@click="newBar" fab)
-    foobarz-icon(name="add" :scale="1.5")
+    foobarz-icon(name="add")
 </template>
 
 <style lang="scss" scoped>
