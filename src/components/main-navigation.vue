@@ -18,16 +18,16 @@ export default {
 <template lang="pug">
 nav.main-navigation
   router-link.main-navigation__link(to="/")
-    foobarz-icon.main-navigation__icon(name="menu-hangout")
+    foobarz-icon.main-navigation__icon(name="hangout-32")
     span.main-navigation__label {{ $t(`hangout`) }}
   router-link.main-navigation__link(to="/nights")
-    foobarz-icon.main-navigation__icon(name="menu-history")
+    foobarz-icon.main-navigation__icon(name="history-32")
     span.main-navigation__label {{ $t(`history`) }}
   router-link.main-navigation__link(to="/barz")
-    foobarz-icon.main-navigation__icon(name="menu-bar")
+    foobarz-icon.main-navigation__icon(name="bar-32")
     span.main-navigation__label {{ $t(`barz`) }}
   router-link.main-navigation__link(to="/information")
-    foobarz-icon.main-navigation__icon(name="menu-info")
+    foobarz-icon.main-navigation__icon(name="info-32")
     span.main-navigation__label {{ $t(`info`) }}
 </template>
 

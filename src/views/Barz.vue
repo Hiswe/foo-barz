@@ -37,7 +37,7 @@ export default {
 {
   "en": {
     "edit": "edit",
-    "hangout": "add"
+    "hangout": "go"
   }
 }
 </i18n>
@@ -59,7 +59,7 @@ foobarz-main-content(page="barz" title="Barz" noPadding)
       .barz__action.barz__action--new-night(
         @click="newNight(bar.id)"
       )
-        foobarz-icon.barz__action-icon(name="new-night" :scale="1")
+        foobarz-icon.barz__action-icon(name="hangout-32")
         span.barz__action-label {{ $t(`hangout`) }}
   foobarz-button(@click="newBar" fab)
     foobarz-icon(name="add")

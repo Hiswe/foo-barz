@@ -70,12 +70,20 @@ button.foobarz-button(
     border: 0;
     z-index: var(--zindex-fab);
 
-    .icon {
+    /deep/ .icon {
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
       fill: var(--c-black);
+
+      // try to keep the icon as sharp as possible
+      // https://stackoverflow.com/a/14068216
+      image-rendering: optimizeSpeed; /* STOP SMOOTHING, GIVE ME SPEED  */
+      image-rendering: -moz-crisp-edges; /* Firefox */
+      image-rendering: -webkit-optimize-contrast; /* Chrome (and eventually Safari) */
+      image-rendering: pixelated; /* Chrome */
+      image-rendering: optimize-contrast; /* CSS3 Proposed                  */
     }
   }
 

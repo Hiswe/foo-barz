@@ -379,6 +379,11 @@
       height: 48px;
     }
     
+    .gss-showOriginal .gss-iconbox #gss-icon-bar-32 {
+      width: 32px;
+      height: 32px;
+    }
+    
     .gss-showOriginal .gss-iconbox #gss-icon-beer-glass {
       width: 48px;
       height: 48px;
@@ -389,14 +394,19 @@
       height: 48px;
     }
     
+    .gss-showOriginal .gss-iconbox #gss-icon-bucket {
+      width: 48px;
+      height: 48px;
+    }
+    
     .gss-showOriginal .gss-iconbox #gss-icon-close {
       width: 48px;
       height: 48px;
     }
     
-    .gss-showOriginal .gss-iconbox #gss-icon-delete-forever {
-      width: 48px;
-      height: 48px;
+    .gss-showOriginal .gss-iconbox #gss-icon-delete-forever-32 {
+      width: 32px;
+      height: 32px;
     }
     
     .gss-showOriginal .gss-iconbox #gss-icon-edit {
@@ -409,39 +419,24 @@
       height: 48px;
     }
     
-    .gss-showOriginal .gss-iconbox #gss-icon-ice {
-      width: 48px;
-      height: 48px;
-    }
-    
-    .gss-showOriginal .gss-iconbox #gss-icon-menu-bar {
+    .gss-showOriginal .gss-iconbox #gss-icon-hangout-32 {
       width: 32px;
       height: 32px;
     }
     
-    .gss-showOriginal .gss-iconbox #gss-icon-menu-hangout {
+    .gss-showOriginal .gss-iconbox #gss-icon-history-32 {
       width: 32px;
       height: 32px;
     }
     
-    .gss-showOriginal .gss-iconbox #gss-icon-menu-history {
+    .gss-showOriginal .gss-iconbox #gss-icon-info-32 {
       width: 32px;
       height: 32px;
     }
     
-    .gss-showOriginal .gss-iconbox #gss-icon-menu-info {
+    .gss-showOriginal .gss-iconbox #gss-icon-person-add-32 {
       width: 32px;
       height: 32px;
-    }
-    
-    .gss-showOriginal .gss-iconbox #gss-icon-mixer {
-      width: 48px;
-      height: 48px;
-    }
-    
-    .gss-showOriginal .gss-iconbox #gss-icon-person-add {
-      width: 48px;
-      height: 48px;
     }
     
     .gss-showOriginal .gss-iconbox #gss-icon-person {
@@ -454,7 +449,12 @@
       height: 48px;
     }
     
-    .gss-showOriginal .gss-iconbox #gss-icon-save {
+    .gss-showOriginal .gss-iconbox #gss-icon-save-32 {
+      width: 32px;
+      height: 32px;
+    }
+    
+    .gss-showOriginal .gss-iconbox #gss-icon-water {
       width: 48px;
       height: 48px;
     }
@@ -471,24 +471,31 @@
 <body>
 <svg xmlns="http://www.w3.org/2000/svg" class="symbols-dictionary">
   <defs>
-    <clipPath id="menu-bar-a"> <path d="M0 0h32v32H0z"/> </clipPath>
-<clipPath id="mixer-a"> <path d="M0 0h48v48H0z"/> </clipPath>
+    <clipPath id="bar-32-a"> <path d="M0 0h32v32H0z"/> </clipPath>
+<clipPath id="delete-forever-32-a"> <path d="M0 0h32v32H0z"/> </clipPath>
+<clipPath id="water-a"> <path d="M0 0h48v48H0z"/> </clipPath>
   </defs>
   
   <symbol id="add" viewBox="0 0 48 48">
      <path d="M22 10h4v28h-4z"/> <path d="M38 26v-4H10v4h28z"/> 
   </symbol>
+  <symbol id="bar-32" viewBox="0 0 32 32">
+     <g clip-path="url(#bar-32-a)"> <path d="M10 16H7v3h3v1H7v3h3v1H5v-1h1v-7H5v-1h5v1zm0 4h1v3h-1v-3zm0-4h1v3h-1v-3zM26 16h-3v3h3v1h-3v4h-2v-1h1v-7h-1v-1h5v1zm0 4h1v4h-1v-4zm0-4h1v3h-1v-3zM13 19v-3h1v3h4v-3h1v8h-1v-4h-4v4h-1v-4-1zm1-4h4v1h-4v-1zM29 11h1v17h-1zM11 11h10v1H11zM6 10h2V8H6v2zm2-8H6v3H4V2h2V0h2v2zm-5 8h1V8h2V5h2V2h2v3H8v3h2v2h1v1H3v-1zM24 10h2V8h-2v2zm2-8h-2v3h-2V2h2V0h2v2zm-5 8h1V8h2V5h2V2h2v3h-2v3h2v2h1v1h-8v-1z"/> <path d="M1 12h1v-1h1v17h8v1h10v-1h8v1h-1v1h-7-1v1H10v-1H2v-1H1V12zm19 18zm1-1z"/> <path d="M12 23h2v1h-2zM18 23h2v1h-2zM26 23h2v1h-2z"/> </g> 
+  </symbol>
   <symbol id="beer-glass" viewBox="0 0 48 48">
      <path d="M14 44h18v2H14zM12 18h6v26h-6zM20 22h6v16h-6zM28 18h6v26h-6zM18 18h10v4H18zM18 38h10v6H18zM34 20h6v4h-6z"/> <path d="M38 22h4v14h-4zM36 36h4v4h-4z"/> <path d="M34 38h4v4h-4z"/> <path d="M12 12h2v2h-2zM26 16h2v2h-2zM24 12h2v4h-2zM14 10h10v2H14zM10 14h2v4h-2zM24 8h2v2h-2zM34 8h2v2h-2zM26 6h8v2h-8zM36 10h2v6h-2zM34 16h2v2h-2zM16 2h2v2h-2zM10 6h2v2h-2zM36 2h2v2h-2zM20 6h2v2h-2z" class="icon-secondary-color"/> 
   </symbol>
   <symbol id="beer" viewBox="0 0 48 48">
-     <path d="M16 16h16v6H16z"/> <path d="M18 2h12v4H18z" class="icon-secondary-color"/> <path d="M20 8h8v2h-8zM20 14h8v4h-8zM12 18h4v6h-4zM32 18h4v6h-4z"/> <path d="M20 0h8v4h-8z" class="icon-secondary-color"/> <path d="M12 44h24v4H12z"/> <path d="M18 24h12v18H18z" class="icon-secondary-color"/> <path d="M16 26h16v14H16z" class="icon-secondary-color"/> <path d="M10 30h28v6H10zM20 10h8v4h-8z" class="icon-secondary-color"/> <path d="M10 38h4v8h-4zM34 38h4v8h-4zM34 22h4v6h-4zM10 22h4v6h-4z"/> <path d="M12 42h4v4h-4zM32 42h4v4h-4z"/> 
+     <path d="M16 16h16v6H16z"/> <path d="M18 2h12v4H18z" class="icon-secondary-color"/> <path d="M20 8h8v2h-8zM20 14h8v4h-8zM12 18h4v6h-4zM32 18h4v6h-4z"/> <path d="M20 0h8v4h-8z" class="icon-secondary-color"/> <path d="M12 44h24v4H12z"/> <path d="M18 24h12v18H18z" class="icon-secondary-color"/> <path d="M16 26h16v14H16z" class="icon-secondary-color"/> <path d="M10 30h28v6H10zM20 10h8v4h-8z" class="icon-secondary-color"/> <path d="M10 38h4v8h-4zM34 38h4v8h-4zM34 22h4v6h-4zM10 22h4v6h-4z"/> <path d="M12 42h4v4h-4zM32 42h4v4h-4zM14 18h20v4H14z"/> 
+  </symbol>
+  <symbol id="bucket" viewBox="0 0 48 48">
+     <path d="M12 32h24v14H12z"/> <path d="M8 20h32v22H8zM4 18h4v14H4z"/> <path d="M4 10h2v18H4zM42 10h2v18h-2z"/> <path d="M40 18h4v14h-4z"/> <path d="M10 10h4v8h-4zM16 10h2v4h-2z" class="icon-secondary-color"/> <path d="M8 12h10v4H8zM34 10h4v8h-4zM20 2h6v16h-6z" class="icon-secondary-color"/> <path d="M20 8h10v8H20z" class="icon-secondary-color"/> <path d="M14 14h20v4H14z" class="icon-secondary-color"/> <path d="M18 14h2v4h-2z" class="icon-secondary-color"/> <path d="M28 4h6v2h-6zM34 6h6v2h-6zM14 4h4v2h-4zM8 6h6v2H8zM6 8h2v2H6zM40 8h2v2h-2zM4 20h40v12H4z"/> <path d="M30 12h10v4H30z" class="icon-secondary-color"/> 
   </symbol>
   <symbol id="close" viewBox="0 0 48 48">
      <path d="M22 22h4v4h-4zM26 18h4v4h-4zM10 34h4v4h-4zM14 14v-4h-4v4h4zM30 30v-4h-4v4h4zM30 14h4v4h-4zM14 30h4v4h-4zM18 18v-4h-4v4h4zM34 34v-4h-4v4h4zM34 10h4v4h-4zM18 26h4v4h-4zM22 22v-4h-4v4h4zM38 38v-4h-4v4h4z"/> 
   </symbol>
-  <symbol id="delete-forever" viewBox="0 0 48 48">
-     <path d="M8 14h2v28H8zM38 14h2v28h-2zM14 42h20v4H14zM4 6h40v4H4zM8 12h32v2H8zM16 2h16v4H16z"/> <path d="M14 4h20v4H14zM10 42h28v2H10zM22 26h4v4h-4zM26 30h4v4h-4zM30 34h4v4h-4zM18 22h4v4h-4zM14 18h4v4h-4zM26 22h4v4h-4zM30 18h4v4h-4zM18 30h4v4h-4zM14 34h4v4h-4z"/> 
+  <symbol id="delete-forever-32" viewBox="0 0 32 32">
+     <g clip-path="url(#delete-forever-32-a)"> <path d="M28 10v18h-2V10H6v18H4V8h24v2zM2 4h6V2h4V0h8v2h4v2h4.667v2H2V4zM22.667 30v2H9.333v-2h13.334zM26 28v2H6v-2h20z"/> <path d="M15 18h2v2h-2zM17 16h2v2h-2zM17 20h2v2h-2zM19 14h2v2h-2zM19 22h2v2h-2zM13 16h2v2h-2zM13 20h2v2h-2zM11 14h2v2h-2zM11 22h2v2h-2zM9 12h2v2H9zM9 24h2v2H9zM21 12h2v2h-2zM21 24h2v2h-2z"/> </g> 
   </symbol>
   <symbol id="edit" viewBox="0 0 48 48">
      <path d="M6 34h4v8H6zM10 38h4v4h-4zM14 36h2v4h-2zM10 30h2v4h-2zM8 32h2v2H8zM12 28h2v4h-2zM14 26h2v4h-2zM16 24h2v4h-2zM18 22h2v4h-2zM20 20h2v4h-2zM22 18h2v4h-2zM24 16h2v4h-2zM16 34h2v4h-2zM18 32h2v4h-2zM20 30h2v4h-2zM22 28h2v4h-2zM24 26h2v4h-2zM26 24h2v4h-2zM28 22h2v4h-2zM30 20h2v4h-2zM26 14h4v4h-4z"/> <path d="M28 16h4v4h-4z"/> <path d="M30 18h4v4h-4zM32 8h4v4h-4z"/> <path d="M34 8h6v6h-6z"/> <path d="M36 12h4v4h-4zM34 6h4v4h-4z"/> <path d="M38 10h4v4h-4zM22 18h4v2h-4zM20 20h4v2h-4zM18 22h4v2h-4zM16 24h4v2h-4zM14 26h4v2h-4zM12 28h4v2h-4zM10 30h4v2h-4zM8 32h4v2H8zM28 22h4v2h-4zM26 24h4v2h-4zM24 26h4v2h-4zM22 28h4v2h-4zM20 30h4v2h-4zM18 32h4v2h-4zM16 34h4v2h-4zM14 36h4v2h-4zM12 38h4v2h-4z"/> 
@@ -496,26 +503,17 @@
   <symbol id="food" viewBox="0 0 48 48">
      <path d="M4 42h28v2H4zM4 30h28v4H4z"/> <path d="M6 26h24v6H6z"/> <path d="M8 24h20v4H8zM34 18h8v27.998h-8z"/> <path d="M32 14h12v14H32z"/> <path d="M30 14h4v10h-4z"/> <path d="M28 14h4v8h-4z"/> <path d="M24 14h6v6h-6z"/> <path d="M22 14h4v4h-4z"/> <path d="M32 2h4v10h-4z" class="icon-secondary-color"/> <path d="M10 22h16v4H10zM6 42h24v3.998H6z"/> <path d="M4 36h28v4H4z" class="icon-secondary-color"/> 
   </symbol>
-  <symbol id="ice" viewBox="0 0 48 48">
-     <path d="M12 32h24v14H12z"/> <path d="M8 20h32v22H8zM4 18h4v14H4z"/> <path d="M4 10h2v18H4zM42 10h2v18h-2z"/> <path d="M40 18h4v14h-4z"/> <path d="M10 10h4v8h-4zM16 10h2v4h-2z" class="icon-secondary-color"/> <path d="M8 12h10v4H8zM34 10h4v8h-4zM20 2h6v16h-6z" class="icon-secondary-color"/> <path d="M20 8h10v8H20z" class="icon-secondary-color"/> <path d="M14 14h20v6H14z" class="icon-secondary-color"/> <path d="M18 14h2v4h-2z" class="icon-secondary-color"/> <path d="M28 4h6v2h-6zM34 6h6v2h-6zM14 4h4v2h-4zM8 6h6v2H8zM6 8h2v2H6zM40 8h2v2h-2zM4 20h40v12H4z"/> <path d="M30 12h10v4H30z" class="icon-secondary-color"/> 
-  </symbol>
-  <symbol id="menu-bar" viewBox="0 0 32 32">
-     <g clip-path="url(#menu-bar-a)"> <path d="M10 16H7v3h3v1H7v3h3v1H5v-1h1v-7H5v-1h5v1zm0 4h1v3h-1v-3zm0-4h1v3h-1v-3zM26 16h-3v3h3v1h-3v4h-2v-1h1v-7h-1v-1h5v1zm0 4h1v4h-1v-4zm0-4h1v3h-1v-3zM13 19v-3h1v3h4v-3h1v8h-1v-4h-4v4h-1v-4-1zm1-4h4v1h-4v-1zM29 11h1v17h-1zM11 11h10v1H11zM6 10h2V8H6v2zm2-8H6v3H4V2h2V0h2v2zm-5 8h1V8h2V5h2V2h2v3H8v3h2v2h1v1H3v-1zM24 10h2V8h-2v2zm2-8h-2v3h-2V2h2V0h2v2zm-5 8h1V8h2V5h2V2h2v3h-2v3h2v2h1v1h-8v-1z"/> <path d="M1 12h1v-1h1v17h8v1h10v-1h8v1h-1v1h-7-1v1H10v-1H2v-1H1V12zm19 18zm1-1z"/> <path d="M12 23h2v1h-2zM18 23h2v1h-2zM26 23h2v1h-2z"/> </g> 
-  </symbol>
-  <symbol id="menu-hangout" viewBox="0 0 32 32">
+  <symbol id="hangout-32" viewBox="0 0 32 32">
      <path d="M10 10h14v2H10zM28 14h2v8h-2zM6 2h2v10H6z"/> <path d="M2 6h10v2H2zM22 14h8v2h-8zM22 22h6v2h-6z"/> <path d="M20 10h4v18h-4zM16 12h2v18h-2z"/> <path d="M10 26h14v2H10zM11 12h12v4H11z"/> <path d="M10 10h4v18h-4z"/> <path d="M12 26h10v4H12z"/> 
   </symbol>
-  <symbol id="menu-history" viewBox="0 0 32 32">
+  <symbol id="history-32" viewBox="0 0 32 32">
      <path d="M28 2h2v22h-2zM2 2h2v24H2z"/> <path d="M2 2h28v2H2zM6 6h2v2H6zM6 10h2v2H6zM6 14h2v2H6zM6 18h2v2H6zM10 6h14v2H10zM10 10h14v2H10zM10 14h14v2H10zM10 18h14v2H10zM6 28h2v2H6z"/> <path d="M6 28h2v2H6z"/> <path d="M6 28h2v2H6zM14 28h2v2h-2z"/> <path d="M14 28h2v2h-2z"/> <path d="M14 28h2v2h-2zM22 28h2v2h-2z"/> <path d="M22 28h2v2h-2z"/> <path d="M22 28h2v2h-2zM4 26h2v2H4z"/> <path d="M4 26h2v2H4z"/> <path d="M4 26h2v2H4zM12 26h2v2h-2z"/> <path d="M12 26h2v2h-2z"/> <path d="M12 26h2v2h-2zM20 26h2v2h-2z"/> <path d="M20 26h2v2h-2z"/> <path d="M20 26h2v2h-2zM8 26h2v2H8zM16 26h2v2h-2zM24 26h2v2h-2zM10 24h2v2h-2z"/> <path d="M10 24h2v2h-2zM18 24h2v2h-2z"/> <path d="M18 24h2v2h-2zM26 24h2v2h-2z"/> 
   </symbol>
-  <symbol id="menu-info" viewBox="0 0 32 32">
+  <symbol id="info-32" viewBox="0 0 32 32">
      <path d="M14 14h4v10h-4zM14 8h4v4h-4z"/> <path d="M14 20h4v4h-4zM12 2h8v2h-8zM12 28h8v2h-8zM4 8h2v4H4zM4 20h2v4H4zM26 8h2v4h-2zM26 20h2v4h-2zM6 6h2v2H6zM6 24h2v2H6zM24 6h2v2h-2zM24 24h2v2h-2zM28 12h2v8h-2zM2 12h2v8H2zM8 4h4v2H8zM8 26h4v2H8zM20 4h4v2h-4zM20 26h4v2h-4z"/> 
   </symbol>
-  <symbol id="mixer" viewBox="0 0 48 48">
-     <g clip-path="url(#mixer-a)"> <path d="M18 2h12v4H18z" class="icon-secondary-color"/> <path d="M20 6h2v8h-2zM16 14h4v2h-4zM14 16h2v2h-2zM12 18h2v2h-2zM28 14h4v2h-4zM32 16h2v2h-2zM34 18h2v2h-2zM26 6h2v8h-2z"/> <path d="M20 0h8v2h-8z" class="icon-secondary-color"/> <path d="M12 46h24v2H12z"/> <path d="M18 26h12v14H18z" class="icon-secondary-color"/> <path d="M32 38V28H16v10h16z" class="icon-secondary-color"/> <path d="M10 20h2v26h-2zM36 20h2v26h-2z"/> </g> 
-  </symbol>
-  <symbol id="person-add" viewBox="0 0 48 48">
-     <path d="M22 14h16v4H22z"/> <path d="M32 24V8h-4v16h4z"/> <path d="M36 22V10H24v12h12zM46 40v-4H14v4h32z"/> <path d="M44 38v-6H16v6h28z"/> <path d="M40 34v-4H20v4h20z"/> <path d="M34 32v-4h-8v4h8zM8 14h4v16H8z"/> <path d="M2 20h16v4H2z"/> 
+  <symbol id="person-add-32" viewBox="0 0 32 32">
+     <path d="M12 8h2V6h2V4h6v2h2v2h2v6h-2v2h-2v2h-6v-2h-2v-2h-2V8zM8 26h2v-2h2v-2h4v-2h5.333v2h4v2H28v2h2v2H8v-2zM2 16h4v-4h2v4h4v2H8v4H6v-4H2v-2z"/> 
   </symbol>
   <symbol id="person" viewBox="0 0 48 48">
      <path d="M16 14h16v4H16z"/> <path d="M26 24V8h-4v16h4z"/> <path d="M30 22V10H18v12h12zM40 40v-4H8v4h32z"/> <path d="M38 38v-6H10v6h28z"/> <path d="M34 34v-4H14v4h20z"/> <path d="M28 32v-4h-8v4h8z"/> 
@@ -523,11 +521,14 @@
   <symbol id="promotion" viewBox="0 0 48 48">
      <path d="M2 14h44v8H2z"/> <path d="M4 12h40v12H4zM6 26h14v18H6zM28 26h14v18H28z"/> <path d="M8 26h12v20H8zM28 26h10v20H28z"/> <path d="M22 26h4v20h-4zM20 4h8v8h-8zM32 2h8v2h-8zM40 4h2v4h-2zM36 8h4v2h-4zM32 10h4v2h-4z" class="icon-secondary-color"/> <path d="M18 8h12v2H18zM16 4h2v4h-2zM30 4h2v4h-2zM8 2h8v2H8zM6 4h2v4H6zM8 8h4v2H8zM12 10h4v2h-4zM22 2h4v4h-4z" class="icon-secondary-color"/> 
   </symbol>
-  <symbol id="save" viewBox="0 0 48 48">
-     <path d="M8 6h24v2H8zM8 40h32v2H8zM6 8h2v32H6zM40 16h2v24h-2zM32 8h2v2h-2zM34 10h2v2h-2zM36 12h2v2h-2zM38 14h2v2h-2zM10 12h18v8H10zM18 28h12v4H18z"/> <path d="M22 24h4v12h-4z"/> <path d="M20 26h8v8h-8z"/> 
+  <symbol id="save-32" viewBox="0 0 32 32">
+     <path d="M4 3h17v2H4zM4 28h23v2H4zM2 5h2v23H2zM27 11h2v17h-2zM6 8h12v5H6zM15 16h2v8h-2z"/> <path d="M20 21v-2h-8v2h8z"/> <path d="M13 17h6v6h-6zM21 5h2v2h-2zM23 7h2v2h-2zM25 9h2v2h-2z"/> 
+  </symbol>
+  <symbol id="water" viewBox="0 0 48 48">
+     <g clip-path="url(#water-a)"> <path d="M18 2h12v4H18z" class="icon-secondary-color"/> <path d="M20 6h2v8h-2zM16 14h4v2h-4zM14 16h2v2h-2zM12 18h2v2h-2zM28 14h4v2h-4zM32 16h2v2h-2zM34 18h2v2h-2zM26 6h2v8h-2z"/> <path d="M20 0h8v2h-8z" class="icon-secondary-color"/> <path d="M12 46h24v2H12z"/> <path d="M18 26h12v14H18z" class="icon-secondary-color"/> <path d="M32 38V28H16v10h16z" class="icon-secondary-color"/> <path d="M10 20h2v26h-2zM36 20h2v26h-2z"/> </g> 
   </symbol>
   <symbol id="whisky" viewBox="0 0 48 48">
-     <path d="M6 28h36v8H6z" class="icon-secondary-color"/> <path d="M6 20h36v4H6z"/> <path d="M8 18h32v6H8z"/> <path d="M14 16h20v4H14zM18 4h12v6H18z"/> <path d="M20 12h8v10h-8zM20 2h8v4h-8zM10 40h28v6H10zM6 38h4v4H6zM38 38h4v4h-4z"/> <path d="M8 40h32v4H8zM12 22h24v4H12z"/> <path d="M12 36h24v2H12zM6 26h4v2H6zM38 26h4v2h-4z" class="icon-secondary-color"/> 
+     <path d="M6 28h36v8H6z" class="icon-secondary-color"/> <path d="M6 20h36v4H6z"/> <path d="M8 18h32v6H8z"/> <path d="M14 16h20v4H14zM18 4h12v6H18z"/> <path d="M20 12h8v10h-8zM20 2h8v4h-8zM10 40h28v6H10zM6 38h4v4H6zM38 38h4v4h-4z"/> <path d="M8 40h32v4H8zM12 22h24v4H12z"/> <path d="M12 32h24v6H12zM6 26h4v2H6zM38 26h4v2h-4z" class="icon-secondary-color"/> 
   </symbol>
   <symbol id="gss-icon-list" viewBox="0 0 5 5">
     <rect width="2" height="2" x="0" y="0"></rect>
@@ -581,6 +582,35 @@
     </div>
   </div>
   <div class="gss-iconbox gss-searchable"
+       id="gss-iconbox-bar-32"
+       data-search="bar-32 bar-32 32x32 <1 <2 <3 <4 <5 <6 <7 <8 <9">
+    <div class="gss-iconbox-header">
+      <h2>bar-32</h2>
+      <span>0.6&thinsp;kB</span>
+    </div>
+    <p class="gss-iconbox-head2">
+      <span>bar-32.svg</span>
+      <span>32&thinsp;×&thinsp;32</span>
+      <span>629&thinsp;B</span>
+    </p>
+    <div class="gss-iconbox-wrapper">
+      <div class="gss-iconbox-icon" data-dimensions="32&thinsp;×&thinsp;32">
+        <svg role="img" id="gss-icon-bar-32">
+          <use xlink:href="#bar-32"></use>
+        </svg>
+      </div>
+      <div class="gss-iconbox-code">
+        <code>&lt;svg role=&quot;img&quot; class=&quot;bar-32&quot;&gt;
+  &lt;use xlink:href=&quot;#bar-32&quot;&gt;&lt;/use&gt;
+&lt;/svg&gt;</code>
+      </div>
+    </div>
+    <div class="gss-iconbox-action">
+      <button data-action="copy">Copy</button>
+      <button data-action="info">Show</button>
+    </div>
+  </div>
+  <div class="gss-iconbox gss-searchable"
        id="gss-iconbox-beer-glass"
        data-search="beer-glass beer-glass 48x48 <1 <2 <3 <4 <5 <6 <7 <8 <9">
     <div class="gss-iconbox-header">
@@ -619,7 +649,7 @@
     <p class="gss-iconbox-head2">
       <span>beer.svg</span>
       <span>48&thinsp;×&thinsp;48</span>
-      <span>587&thinsp;B</span>
+      <span>602&thinsp;B</span>
     </p>
     <div class="gss-iconbox-wrapper">
       <div class="gss-iconbox-icon" data-dimensions="48&thinsp;×&thinsp;48">
@@ -630,6 +660,35 @@
       <div class="gss-iconbox-code">
         <code>&lt;svg role=&quot;img&quot; class=&quot;beer&quot;&gt;
   &lt;use xlink:href=&quot;#beer&quot;&gt;&lt;/use&gt;
+&lt;/svg&gt;</code>
+      </div>
+    </div>
+    <div class="gss-iconbox-action">
+      <button data-action="copy">Copy</button>
+      <button data-action="info">Show</button>
+    </div>
+  </div>
+  <div class="gss-iconbox gss-searchable"
+       id="gss-iconbox-bucket"
+       data-search="bucket bucket 48x48 <1 <2 <3 <4 <5 <6 <7 <8 <9">
+    <div class="gss-iconbox-header">
+      <h2>bucket</h2>
+      <span>0.7&thinsp;kB</span>
+    </div>
+    <p class="gss-iconbox-head2">
+      <span>bucket.svg</span>
+      <span>48&thinsp;×&thinsp;48</span>
+      <span>675&thinsp;B</span>
+    </p>
+    <div class="gss-iconbox-wrapper">
+      <div class="gss-iconbox-icon" data-dimensions="48&thinsp;×&thinsp;48">
+        <svg role="img" id="gss-icon-bucket">
+          <use xlink:href="#bucket"></use>
+        </svg>
+      </div>
+      <div class="gss-iconbox-code">
+        <code>&lt;svg role=&quot;img&quot; class=&quot;bucket&quot;&gt;
+  &lt;use xlink:href=&quot;#bucket&quot;&gt;&lt;/use&gt;
 &lt;/svg&gt;</code>
       </div>
     </div>
@@ -668,26 +727,26 @@
     </div>
   </div>
   <div class="gss-iconbox gss-searchable"
-       id="gss-iconbox-delete-forever"
-       data-search="delete-forever delete-forever 48x48 <1 <2 <3 <4 <5 <6 <7 <8 <9">
+       id="gss-iconbox-delete-forever-32"
+       data-search="delete-forever-32 delete-forever-32 32x32 <1 <2 <3 <4 <5 <6 <7 <8 <9">
     <div class="gss-iconbox-header">
-      <h2>delete-forever</h2>
-      <span>0.3&thinsp;kB</span>
+      <h2>delete-forever-32</h2>
+      <span>0.4&thinsp;kB</span>
     </div>
     <p class="gss-iconbox-head2">
-      <span>delete-forever.svg</span>
-      <span>48&thinsp;×&thinsp;48</span>
-      <span>328&thinsp;B</span>
+      <span>delete-forever-32.svg</span>
+      <span>32&thinsp;×&thinsp;32</span>
+      <span>428&thinsp;B</span>
     </p>
     <div class="gss-iconbox-wrapper">
-      <div class="gss-iconbox-icon" data-dimensions="48&thinsp;×&thinsp;48">
-        <svg role="img" id="gss-icon-delete-forever">
-          <use xlink:href="#delete-forever"></use>
+      <div class="gss-iconbox-icon" data-dimensions="32&thinsp;×&thinsp;32">
+        <svg role="img" id="gss-icon-delete-forever-32">
+          <use xlink:href="#delete-forever-32"></use>
         </svg>
       </div>
       <div class="gss-iconbox-code">
-        <code>&lt;svg role=&quot;img&quot; class=&quot;delete-forever&quot;&gt;
-  &lt;use xlink:href=&quot;#delete-forever&quot;&gt;&lt;/use&gt;
+        <code>&lt;svg role=&quot;img&quot; class=&quot;delete-forever-32&quot;&gt;
+  &lt;use xlink:href=&quot;#delete-forever-32&quot;&gt;&lt;/use&gt;
 &lt;/svg&gt;</code>
       </div>
     </div>
@@ -755,84 +814,26 @@
     </div>
   </div>
   <div class="gss-iconbox gss-searchable"
-       id="gss-iconbox-ice"
-       data-search="ice ice 48x48 <1 <2 <3 <4 <5 <6 <7 <8 <9">
+       id="gss-iconbox-hangout-32"
+       data-search="hangout-32 hangout-32 32x32 <1 <2 <3 <4 <5 <6 <7 <8 <9">
     <div class="gss-iconbox-header">
-      <h2>ice</h2>
-      <span>0.7&thinsp;kB</span>
-    </div>
-    <p class="gss-iconbox-head2">
-      <span>ice.svg</span>
-      <span>48&thinsp;×&thinsp;48</span>
-      <span>672&thinsp;B</span>
-    </p>
-    <div class="gss-iconbox-wrapper">
-      <div class="gss-iconbox-icon" data-dimensions="48&thinsp;×&thinsp;48">
-        <svg role="img" id="gss-icon-ice">
-          <use xlink:href="#ice"></use>
-        </svg>
-      </div>
-      <div class="gss-iconbox-code">
-        <code>&lt;svg role=&quot;img&quot; class=&quot;ice&quot;&gt;
-  &lt;use xlink:href=&quot;#ice&quot;&gt;&lt;/use&gt;
-&lt;/svg&gt;</code>
-      </div>
-    </div>
-    <div class="gss-iconbox-action">
-      <button data-action="copy">Copy</button>
-      <button data-action="info">Show</button>
-    </div>
-  </div>
-  <div class="gss-iconbox gss-searchable"
-       id="gss-iconbox-menu-bar"
-       data-search="menu-bar menu-bar 32x32 <1 <2 <3 <4 <5 <6 <7 <8 <9">
-    <div class="gss-iconbox-header">
-      <h2>menu-bar</h2>
-      <span>0.6&thinsp;kB</span>
-    </div>
-    <p class="gss-iconbox-head2">
-      <span>menu-bar.svg</span>
-      <span>32&thinsp;×&thinsp;32</span>
-      <span>633&thinsp;B</span>
-    </p>
-    <div class="gss-iconbox-wrapper">
-      <div class="gss-iconbox-icon" data-dimensions="32&thinsp;×&thinsp;32">
-        <svg role="img" id="gss-icon-menu-bar">
-          <use xlink:href="#menu-bar"></use>
-        </svg>
-      </div>
-      <div class="gss-iconbox-code">
-        <code>&lt;svg role=&quot;img&quot; class=&quot;menu-bar&quot;&gt;
-  &lt;use xlink:href=&quot;#menu-bar&quot;&gt;&lt;/use&gt;
-&lt;/svg&gt;</code>
-      </div>
-    </div>
-    <div class="gss-iconbox-action">
-      <button data-action="copy">Copy</button>
-      <button data-action="info">Show</button>
-    </div>
-  </div>
-  <div class="gss-iconbox gss-searchable"
-       id="gss-iconbox-menu-hangout"
-       data-search="menu-hangout menu-hangout 32x32 <1 <2 <3 <4 <5 <6 <7 <8 <9">
-    <div class="gss-iconbox-header">
-      <h2>menu-hangout</h2>
+      <h2>hangout-32</h2>
       <span>0.3&thinsp;kB</span>
     </div>
     <p class="gss-iconbox-head2">
-      <span>menu-hangout.svg</span>
+      <span>hangout-32.svg</span>
       <span>32&thinsp;×&thinsp;32</span>
-      <span>312&thinsp;B</span>
+      <span>310&thinsp;B</span>
     </p>
     <div class="gss-iconbox-wrapper">
       <div class="gss-iconbox-icon" data-dimensions="32&thinsp;×&thinsp;32">
-        <svg role="img" id="gss-icon-menu-hangout">
-          <use xlink:href="#menu-hangout"></use>
+        <svg role="img" id="gss-icon-hangout-32">
+          <use xlink:href="#hangout-32"></use>
         </svg>
       </div>
       <div class="gss-iconbox-code">
-        <code>&lt;svg role=&quot;img&quot; class=&quot;menu-hangout&quot;&gt;
-  &lt;use xlink:href=&quot;#menu-hangout&quot;&gt;&lt;/use&gt;
+        <code>&lt;svg role=&quot;img&quot; class=&quot;hangout-32&quot;&gt;
+  &lt;use xlink:href=&quot;#hangout-32&quot;&gt;&lt;/use&gt;
 &lt;/svg&gt;</code>
       </div>
     </div>
@@ -842,26 +843,26 @@
     </div>
   </div>
   <div class="gss-iconbox gss-searchable"
-       id="gss-iconbox-menu-history"
-       data-search="menu-history menu-history 32x32 <1 <2 <3 <4 <5 <6 <7 <8 <9">
+       id="gss-iconbox-history-32"
+       data-search="history-32 history-32 32x32 <1 <2 <3 <4 <5 <6 <7 <8 <9">
     <div class="gss-iconbox-header">
-      <h2>menu-history</h2>
+      <h2>history-32</h2>
       <span>0.8&thinsp;kB</span>
     </div>
     <p class="gss-iconbox-head2">
-      <span>menu-history.svg</span>
+      <span>history-32.svg</span>
       <span>32&thinsp;×&thinsp;32</span>
-      <span>765&thinsp;B</span>
+      <span>763&thinsp;B</span>
     </p>
     <div class="gss-iconbox-wrapper">
       <div class="gss-iconbox-icon" data-dimensions="32&thinsp;×&thinsp;32">
-        <svg role="img" id="gss-icon-menu-history">
-          <use xlink:href="#menu-history"></use>
+        <svg role="img" id="gss-icon-history-32">
+          <use xlink:href="#history-32"></use>
         </svg>
       </div>
       <div class="gss-iconbox-code">
-        <code>&lt;svg role=&quot;img&quot; class=&quot;menu-history&quot;&gt;
-  &lt;use xlink:href=&quot;#menu-history&quot;&gt;&lt;/use&gt;
+        <code>&lt;svg role=&quot;img&quot; class=&quot;history-32&quot;&gt;
+  &lt;use xlink:href=&quot;#history-32&quot;&gt;&lt;/use&gt;
 &lt;/svg&gt;</code>
       </div>
     </div>
@@ -871,26 +872,26 @@
     </div>
   </div>
   <div class="gss-iconbox gss-searchable"
-       id="gss-iconbox-menu-info"
-       data-search="menu-info menu-info 32x32 <1 <2 <3 <4 <5 <6 <7 <8 <9">
+       id="gss-iconbox-info-32"
+       data-search="info-32 info-32 32x32 <1 <2 <3 <4 <5 <6 <7 <8 <9">
     <div class="gss-iconbox-header">
-      <h2>menu-info</h2>
+      <h2>info-32</h2>
       <span>0.3&thinsp;kB</span>
     </div>
     <p class="gss-iconbox-head2">
-      <span>menu-info.svg</span>
+      <span>info-32.svg</span>
       <span>32&thinsp;×&thinsp;32</span>
-      <span>331&thinsp;B</span>
+      <span>329&thinsp;B</span>
     </p>
     <div class="gss-iconbox-wrapper">
       <div class="gss-iconbox-icon" data-dimensions="32&thinsp;×&thinsp;32">
-        <svg role="img" id="gss-icon-menu-info">
-          <use xlink:href="#menu-info"></use>
+        <svg role="img" id="gss-icon-info-32">
+          <use xlink:href="#info-32"></use>
         </svg>
       </div>
       <div class="gss-iconbox-code">
-        <code>&lt;svg role=&quot;img&quot; class=&quot;menu-info&quot;&gt;
-  &lt;use xlink:href=&quot;#menu-info&quot;&gt;&lt;/use&gt;
+        <code>&lt;svg role=&quot;img&quot; class=&quot;info-32&quot;&gt;
+  &lt;use xlink:href=&quot;#info-32&quot;&gt;&lt;/use&gt;
 &lt;/svg&gt;</code>
       </div>
     </div>
@@ -900,55 +901,26 @@
     </div>
   </div>
   <div class="gss-iconbox gss-searchable"
-       id="gss-iconbox-mixer"
-       data-search="mixer mixer 48x48 <1 <2 <3 <4 <5 <6 <7 <8 <9">
+       id="gss-iconbox-person-add-32"
+       data-search="person-add-32 person-add-32 32x32 <1 <2 <3 <4 <5 <6 <7 <8 <9">
     <div class="gss-iconbox-header">
-      <h2>mixer</h2>
-      <span>0.5&thinsp;kB</span>
+      <h2>person-add-32</h2>
+      <span>0.2&thinsp;kB</span>
     </div>
     <p class="gss-iconbox-head2">
-      <span>mixer.svg</span>
-      <span>48&thinsp;×&thinsp;48</span>
-      <span>515&thinsp;B</span>
+      <span>person-add-32.svg</span>
+      <span>32&thinsp;×&thinsp;32</span>
+      <span>210&thinsp;B</span>
     </p>
     <div class="gss-iconbox-wrapper">
-      <div class="gss-iconbox-icon" data-dimensions="48&thinsp;×&thinsp;48">
-        <svg role="img" id="gss-icon-mixer">
-          <use xlink:href="#mixer"></use>
+      <div class="gss-iconbox-icon" data-dimensions="32&thinsp;×&thinsp;32">
+        <svg role="img" id="gss-icon-person-add-32">
+          <use xlink:href="#person-add-32"></use>
         </svg>
       </div>
       <div class="gss-iconbox-code">
-        <code>&lt;svg role=&quot;img&quot; class=&quot;mixer&quot;&gt;
-  &lt;use xlink:href=&quot;#mixer&quot;&gt;&lt;/use&gt;
-&lt;/svg&gt;</code>
-      </div>
-    </div>
-    <div class="gss-iconbox-action">
-      <button data-action="copy">Copy</button>
-      <button data-action="info">Show</button>
-    </div>
-  </div>
-  <div class="gss-iconbox gss-searchable"
-       id="gss-iconbox-person-add"
-       data-search="person-add person-add 48x48 <1 <2 <3 <4 <5 <6 <7 <8 <9">
-    <div class="gss-iconbox-header">
-      <h2>person-add</h2>
-      <span>0.3&thinsp;kB</span>
-    </div>
-    <p class="gss-iconbox-head2">
-      <span>person-add.svg</span>
-      <span>48&thinsp;×&thinsp;48</span>
-      <span>300&thinsp;B</span>
-    </p>
-    <div class="gss-iconbox-wrapper">
-      <div class="gss-iconbox-icon" data-dimensions="48&thinsp;×&thinsp;48">
-        <svg role="img" id="gss-icon-person-add">
-          <use xlink:href="#person-add"></use>
-        </svg>
-      </div>
-      <div class="gss-iconbox-code">
-        <code>&lt;svg role=&quot;img&quot; class=&quot;person-add&quot;&gt;
-  &lt;use xlink:href=&quot;#person-add&quot;&gt;&lt;/use&gt;
+        <code>&lt;svg role=&quot;img&quot; class=&quot;person-add-32&quot;&gt;
+  &lt;use xlink:href=&quot;#person-add-32&quot;&gt;&lt;/use&gt;
 &lt;/svg&gt;</code>
       </div>
     </div>
@@ -1016,26 +988,55 @@
     </div>
   </div>
   <div class="gss-iconbox gss-searchable"
-       id="gss-iconbox-save"
-       data-search="save save 48x48 <1 <2 <3 <4 <5 <6 <7 <8 <9">
+       id="gss-iconbox-save-32"
+       data-search="save-32 save-32 32x32 <1 <2 <3 <4 <5 <6 <7 <8 <9">
     <div class="gss-iconbox-header">
-      <h2>save</h2>
-      <span>0.3&thinsp;kB</span>
+      <h2>save-32</h2>
+      <span>0.2&thinsp;kB</span>
     </div>
     <p class="gss-iconbox-head2">
-      <span>save.svg</span>
-      <span>48&thinsp;×&thinsp;48</span>
-      <span>260&thinsp;B</span>
+      <span>save-32.svg</span>
+      <span>32&thinsp;×&thinsp;32</span>
+      <span>245&thinsp;B</span>
     </p>
     <div class="gss-iconbox-wrapper">
-      <div class="gss-iconbox-icon" data-dimensions="48&thinsp;×&thinsp;48">
-        <svg role="img" id="gss-icon-save">
-          <use xlink:href="#save"></use>
+      <div class="gss-iconbox-icon" data-dimensions="32&thinsp;×&thinsp;32">
+        <svg role="img" id="gss-icon-save-32">
+          <use xlink:href="#save-32"></use>
         </svg>
       </div>
       <div class="gss-iconbox-code">
-        <code>&lt;svg role=&quot;img&quot; class=&quot;save&quot;&gt;
-  &lt;use xlink:href=&quot;#save&quot;&gt;&lt;/use&gt;
+        <code>&lt;svg role=&quot;img&quot; class=&quot;save-32&quot;&gt;
+  &lt;use xlink:href=&quot;#save-32&quot;&gt;&lt;/use&gt;
+&lt;/svg&gt;</code>
+      </div>
+    </div>
+    <div class="gss-iconbox-action">
+      <button data-action="copy">Copy</button>
+      <button data-action="info">Show</button>
+    </div>
+  </div>
+  <div class="gss-iconbox gss-searchable"
+       id="gss-iconbox-water"
+       data-search="water water 48x48 <1 <2 <3 <4 <5 <6 <7 <8 <9">
+    <div class="gss-iconbox-header">
+      <h2>water</h2>
+      <span>0.5&thinsp;kB</span>
+    </div>
+    <p class="gss-iconbox-head2">
+      <span>water.svg</span>
+      <span>48&thinsp;×&thinsp;48</span>
+      <span>515&thinsp;B</span>
+    </p>
+    <div class="gss-iconbox-wrapper">
+      <div class="gss-iconbox-icon" data-dimensions="48&thinsp;×&thinsp;48">
+        <svg role="img" id="gss-icon-water">
+          <use xlink:href="#water"></use>
+        </svg>
+      </div>
+      <div class="gss-iconbox-code">
+        <code>&lt;svg role=&quot;img&quot; class=&quot;water&quot;&gt;
+  &lt;use xlink:href=&quot;#water&quot;&gt;&lt;/use&gt;
 &lt;/svg&gt;</code>
       </div>
     </div>

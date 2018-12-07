@@ -38,7 +38,7 @@ li.list__item(
     @click.stop="remove"
     v-if="!preventRemove"
   )
-    foobarz-icon(name="delete-forever" :scale="1.5")
+    foobarz-icon(name="delete-forever-32")
 </template>
 
 

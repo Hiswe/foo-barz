@@ -94,7 +94,7 @@ foobarz-main-content(page="barz-new-edit" :title="bar.name")
         @click="addProduct"
         type="button"
       )
-        foobarz-icon(name="add" :scale="2.5")
+        foobarz-icon(name="add" :scale="1.5")
     foobarz-article-edit(
       :article="editedArticle"
       @input="onEditProduct"
@@ -104,7 +104,7 @@ foobarz-main-content(page="barz-new-edit" :title="bar.name")
       fab
       @click="onSave"
     )
-      foobarz-icon(name="save" :scale="1.5")
+      foobarz-icon(name="save-32" )
 </template>
 
 <style lang="scss" scoped>

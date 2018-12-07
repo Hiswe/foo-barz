@@ -50,7 +50,7 @@ export default {
 section.night(v-if="isValidParams")
   foobarz-header(:title="bar.name")
   foobarz-button.night__add-person(@click="addPerson({nightId})" fab)
-    foobarz-icon(name="person-add" :scale="1.5")
+    foobarz-icon(name="button-person-add")
 
   night-total.night__total(:night="night")
 

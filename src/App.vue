@@ -97,6 +97,12 @@ button {
 
 .icon {
   fill: var(--c-primary);
+
+  // keep icons sharp
+  // https://stackoverflow.com/a/22165796
+  * {
+    shape-rendering: crispEdges;
+  }
 }
 .icon-secondary-color {
   fill: var(--secondary-color, --c-primary);
