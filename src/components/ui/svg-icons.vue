@@ -58,7 +58,7 @@ const SVG_LIB = {
     width: {size: 48, unit: `px`},
     height: {size: 48, unit: `px`},
     'viewBox': `0 0 48 48`,
-    content: ` <path d="M12 32h24v14H12z"/> <path d="M8 20h32v22H8zM4 18h4v14H4z"/> <path d="M4 10h2v18H4zM42 10h2v18h-2z"/> <path d="M40 18h4v14h-4z"/> <path d="M10 10h4v8h-4zM16 10h2v4h-2z" class="icon-secondary-color"/> <path d="M8 12h10v4H8zM34 10h4v8h-4zM20 2h6v16h-6z" class="icon-secondary-color"/> <path d="M20 8h10v8H20z" class="icon-secondary-color"/> <path d="M14 14h20v4H14z" class="icon-secondary-color"/> <path d="M18 14h2v4h-2z" class="icon-secondary-color"/> <path d="M28 4h6v2h-6zM34 6h6v2h-6zM14 4h4v2h-4zM8 6h6v2H8zM6 8h2v2H6zM40 8h2v2h-2zM4 20h40v12H4z"/> <path d="M30 12h10v4H30z" class="icon-secondary-color"/> `,
+    content: ` <path d="M12 32h24v14H12z"/> <path d="M8 20h32v22H8zM4 18h4v14H4z"/> <path d="M4 10h2v18H4zM42 10h2v18h-2z"/> <path d="M40 18h4v14h-4z"/> <path d="M10 10h4v8h-4zM16 10h2v4h-2z" class="icon-secondary-color"/> <path d="M8 12h10v4H8zM34 10h4v8h-4zM20 2h6v12h-6zM28 8h4v4h-4zM12 16h16v2H12zM28 14h4v4h-4z" class="icon-secondary-color"/> <path d="M28 4h6v2h-6zM34 6h6v2h-6zM14 4h4v2h-4zM8 6h6v2H8zM6 8h2v2H6zM40 8h2v2h-2zM4 20h40v12H4z"/> <path d="M32 12h8v4h-8z" class="icon-secondary-color"/> `,
   },
   "close": {
     id: `close`,
@@ -94,7 +94,7 @@ const SVG_LIB = {
     width: {size: 32, unit: `px`},
     height: {size: 32, unit: `px`},
     'viewBox': `0 0 32 32`,
-    content: ` <path d="M5 20h2v2H5zM11 26h2v2h-2zM7 18h2v2H7zM13 24h2v2h-2zM9 16h2v2H9zM15 22h2v2h-2zM11 14h2v2h-2zM17 20h2v2h-2zM13 12h2v2h-2zM19 18h2v2h-2zM3 22h2v2h2v2h2v2h2v2H3v-8zM23 2h2v2h2v2h2v2h2v2h-2v2h-2v-2h-2V8h-2V6h-2V4h2V2zM15 10h2V8h2v2h2v2h2v2h2v2h-2v2h-2v-2h-2v-2h-2v-2h-2v-2zM19 6h2v2h-2z"/> <path d="M21 8h2v2h-2zM23 10h2v2h-2zM25 12h2v2h-2z"/> `,
+    content: ` <path d="M5 20h2v2H5zM11 26h2v2h-2zM7 18h2v2H7zM13 24h2v2h-2zM9 16h2v2H9zM15 22h2v2h-2zM11 14h2v2h-2zM17 20h2v2h-2zM13 12h2v2h-2zM19 18h2v2h-2zM3 22h2v2h2v2h2v2h2v2H3v-8zM23 2h2v2h2v2h2v2h2v2h-2v2h-2v-2h-2V8h-2V6h-2V4h2V2z"/> <path d="M17 8h2V6h2v2h2v2h2v2h2v2h-2v2h-2v-2h-2v-2h-2v-2h-2V8zM15 10h2v2h-2zM21 16h2v2h-2z"/> `,
   },
   "food": {
     id: `food`,
@@ -154,7 +154,7 @@ const SVG_LIB = {
     width: {size: 32, unit: `px`},
     height: {size: 32, unit: `px`},
     'viewBox': `0 0 32 32`,
-    content: ` <path d="M12 8h2V6h2V4h6v2h2v2h2v6h-2v2h-2v2h-6v-2h-2v-2h-2V8zM8 26h2v-2h2v-2h4v-2h5.333v2h4v2H28v2h2v2H8v-2zM2 16h4v-4h2v4h4v2H8v4H6v-4H2v-2z"/> `,
+    content: ` <path d="M12 8h2V6h2V4h6v2h2v2h2v6h-2v2h-2v2h-6v-2h-2v-2h-2V8zM8 24h2v-2h4v-2h10v2h4v2h2v4H8v-4zM2 16h4v-4h2v4h4v2H8v4H6v-4H2v-2z"/> `,
   },
   "person": {
     id: `person`,
@@ -190,7 +190,7 @@ const SVG_LIB = {
     width: {size: 32, unit: `px`},
     height: {size: 32, unit: `px`},
     'viewBox': `0 0 32 32`,
-    content: ` <path d="M4 3h17v2H4zM4 28h23v2H4zM2 5h2v23H2zM27 11h2v17h-2zM6 8h12v5H6zM15 16h2v8h-2z"/> <path d="M20 21v-2h-8v2h8z"/> <path d="M13 17h6v6h-6zM21 5h2v2h-2zM23 7h2v2h-2zM25 9h2v2h-2z"/> `,
+    content: ` <path d="M4 3h17v2H4zM4 28h23v2H4zM2 5h2v23H2zM27 11h2v17h-2zM6 8h12v5H6zM12 18h2v-2h4v2h2v4h-2v2h-4v-2h-2v-4zM21 5h2v2h-2zM23 7h2v2h-2zM25 9h2v2h-2z"/> `,
   },
   "water": {
     id: `water`,
@@ -214,7 +214,7 @@ const SVG_LIB = {
     width: {size: 48, unit: `px`},
     height: {size: 48, unit: `px`},
     'viewBox': `0 0 48 48`,
-    content: ` <path d="M6 28h36v8H6z" class="icon-secondary-color"/> <path d="M6 20h36v4H6z"/> <path d="M8 18h32v6H8z"/> <path d="M14 16h20v4H14zM18 4h12v6H18z"/> <path d="M20 12h8v10h-8zM20 2h8v4h-8zM10 40h28v6H10zM6 38h4v4H6zM38 38h4v4h-4z"/> <path d="M8 40h32v4H8zM12 22h24v4H12z"/> <path d="M12 32h24v6H12zM6 26h4v2H6zM38 26h4v2h-4z" class="icon-secondary-color"/> `,
+    content: ` <path d="M18 6h2V4h8v2h2v6H18V6zM6 40h4v2h28v-2h4v4h-2v2h-2v2H10v-2H8v-2H6v-4zM6 22h2v-2h6v-2h6v-4h8v4h6v2h6v2h2v4h-6v2H12v-2H6v-4z"/> <path d="M6 28h4v2h28v-2h4v10h-6v2H12v-2H6V28z" class="icon-secondary-color"/> `,
   },
 }
 const SVG_ATTRS = {
