@@ -54,7 +54,7 @@ foobarz-main-content(page="barz" title="Barz" noPadding)
       router-link.barz__action.barz__action--edit(
         :to="`/barz/${bar.id}`"
       )
-        foobarz-icon.barz__action-icon(name="edit")
+        foobarz-icon.barz__action-icon(name="edit-32")
         span.barz__action-label {{ $t(`edit`) }}
       .barz__action.barz__action--new-night(
         @click="newNight(bar.id)"

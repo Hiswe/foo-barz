@@ -84,17 +84,17 @@ const SVG_LIB = {
     'viewBox': `0 0 32 32`,
     content: `<defs><clipPath id="delete-forever-32-a"> <path d="M0 0h32v32H0z"/> </clipPath></defs> <g clip-path="url(#delete-forever-32-a)"> <path d="M28 10v18h-2V10H6v18H4V8h24v2zM2 4h6V2h4V0h8v2h4v2h4.667v2H2V4zM22.667 30v2H9.333v-2h13.334zM26 28v2H6v-2h20z"/> <path d="M15 18h2v2h-2zM17 16h2v2h-2zM17 20h2v2h-2zM19 14h2v2h-2zM19 22h2v2h-2zM13 16h2v2h-2zM13 20h2v2h-2zM11 14h2v2h-2zM11 22h2v2h-2zM9 12h2v2H9zM9 24h2v2H9zM21 12h2v2h-2zM21 24h2v2h-2z"/> </g> `,
   },
-  "edit": {
-    id: `edit`,
+  "edit-32": {
+    id: `edit-32`,
     class: [
       `icon`,
-      `icon--edit`,
+      `icon--edit-32`,
     ],
     preserveAspectRatio: ``,
-    width: {size: 48, unit: `px`},
-    height: {size: 48, unit: `px`},
-    'viewBox': `0 0 48 48`,
-    content: ` <path d="M6 34h4v8H6zM10 38h4v4h-4zM14 36h2v4h-2zM10 30h2v4h-2zM8 32h2v2H8zM12 28h2v4h-2zM14 26h2v4h-2zM16 24h2v4h-2zM18 22h2v4h-2zM20 20h2v4h-2zM22 18h2v4h-2zM24 16h2v4h-2zM16 34h2v4h-2zM18 32h2v4h-2zM20 30h2v4h-2zM22 28h2v4h-2zM24 26h2v4h-2zM26 24h2v4h-2zM28 22h2v4h-2zM30 20h2v4h-2zM26 14h4v4h-4z"/> <path d="M28 16h4v4h-4z"/> <path d="M30 18h4v4h-4zM32 8h4v4h-4z"/> <path d="M34 8h6v6h-6z"/> <path d="M36 12h4v4h-4zM34 6h4v4h-4z"/> <path d="M38 10h4v4h-4zM22 18h4v2h-4zM20 20h4v2h-4zM18 22h4v2h-4zM16 24h4v2h-4zM14 26h4v2h-4zM12 28h4v2h-4zM10 30h4v2h-4zM8 32h4v2H8zM28 22h4v2h-4zM26 24h4v2h-4zM24 26h4v2h-4zM22 28h4v2h-4zM20 30h4v2h-4zM18 32h4v2h-4zM16 34h4v2h-4zM14 36h4v2h-4zM12 38h4v2h-4z"/> `,
+    width: {size: 32, unit: `px`},
+    height: {size: 32, unit: `px`},
+    'viewBox': `0 0 32 32`,
+    content: ` <path d="M5 20h2v2H5zM11 26h2v2h-2zM7 18h2v2H7zM13 24h2v2h-2zM9 16h2v2H9zM15 22h2v2h-2zM11 14h2v2h-2zM17 20h2v2h-2zM13 12h2v2h-2zM19 18h2v2h-2zM3 22h2v2h2v2h2v2h2v2H3v-8zM23 2h2v2h2v2h2v2h2v2h-2v2h-2v-2h-2V8h-2V6h-2V4h2V2zM15 10h2V8h2v2h2v2h2v2h2v2h-2v2h-2v-2h-2v-2h-2v-2h-2v-2zM19 6h2v2h-2z"/> <path d="M21 8h2v2h-2zM23 10h2v2h-2zM25 12h2v2h-2z"/> `,
   },
   "food": {
     id: `food`,
