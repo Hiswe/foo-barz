@@ -1,0 +1,28 @@
+$c-primary: hsl(190, 7%, 50%);
+// need a value without deg to work in Chrome/Safari
+// https://stackoverflow.com/questions/7169625/using-sass-how-to-convert-a-percentage-to-a-decimal/7180653
+$c-primary-h: hue($c-primary) / 1deg;
+$c-primary-s: saturation($c-primary);
+$c-primary-l: lightness($c-primary);
+
+$c-accent: hsl(32, 100%, 50%);
+$c-accent-h: hue($c-accent) / 1deg;
+$c-accent-s: saturation($c-accent);
+$c-accent-l: lightness($c-accent);
+
+@function url-friendly-colour($color) {
+  @return '%23' + str-slice('#{$color}', 2, -1);
+}
+
+@function ufc($color) {
+  @return url-friendly-colour($color);
+}
+
+// css var doesn't work in url
+@function small-round-corner($color) {
+  @return url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><rect x='4' y='0' width='16' height='4' fill='#{ufc($color)}'></rect><rect x='20' y='4' width='4' height='16' fill='#{ufc($color)}'></rect><rect x='4' y='20' width='16' height='4' fill='#{ufc($color)}'></rect><rect x='0' y='4' width='4' height='16' fill='#{ufc($color)}'></rect></svg>");
+}
+
+@function big-round-corner($color) {
+  @return url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'><rect x='4' y='4' width='4' height='4' fill='#{ufc($color)}'></rect><rect x='8' y='0' width='8' height='4' fill='#{ufc($color)}'></rect><rect x='16' y='4' width='4' height='4' fill='#{ufc($color)}'></rect><rect x='20' y='8' width='4' height='8' fill='#{ufc($color)}'></rect><rect x='16' y='16' width='4' height='4' fill='#{ufc($color)}'></rect><rect x='8' y='20' width='8' height='4' fill='#{ufc($color)}'></rect><rect x='4' y='16' width='4' height='4' fill='#{ufc($color)}'></rect><rect x='0' y='8' width='4' height='8' fill='#{ufc($color)}'></rect></svg>");
+}

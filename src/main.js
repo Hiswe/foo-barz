@@ -9,7 +9,7 @@ import './register-service-worker'
 import i18n from './i18n'
 import AlloyFingerVue from './alloy-finger'
 
-import App from './App.vue'
+import App from '@/application-root.vue'
 import MainContent from '@/components/MainContent'
 import Input from '@/components/form/input'
 import SvgIcon from '@/components/ui/svg-icons'

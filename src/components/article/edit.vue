@@ -49,7 +49,7 @@ aside.article-edit(
 )
   foobarz-icon.article-edit__close(
     name="close"
-    :scale="2"
+    :scale="1"
     @click.native="close"
   )
   .article-edit__fields

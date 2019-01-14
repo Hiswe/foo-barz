@@ -10,6 +10,15 @@ const serviceWorkerConfig = require('./service-worker.config.js')
 
 const isPreProd = process.env.OUTPUT_DIR === `pre-production`
 
+function addStyleResource(rule) {
+  rule
+    .use(`style-resource`)
+    .loader(`style-resources-loader`)
+    .options({
+      patterns: [path.resolve(__dirname, `./src/assets/theme.scss`)],
+    })
+}
+
 module.exports = {
   outputDir: isPreProd ? `dist-preprod` : `dist`,
 
@@ -60,6 +69,11 @@ module.exports = {
       .type(`javascript/auto`)
       .use(`i18n`)
       .loader(`@kazupon/vue-i18n-loader`)
+
+    const types = [`vue-modules`, `vue`, `normal-modules`, `normal`]
+    types.forEach(type =>
+      addStyleResource(config.module.rule(`scss`).oneOf(type)),
+    )
   },
 
   pluginOptions: {
@@ -68,6 +82,10 @@ module.exports = {
       fallbackLocale: `en`,
       localeDir: `locales`,
       enableInSFC: true,
+    },
+    'style-resources-loader': {
+      preProcessor: `scss`,
+      patterns: [path.resolve(__dirname, `./src/assets/theme.scss`)],
     },
   },
 }

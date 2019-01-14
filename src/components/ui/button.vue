@@ -42,33 +42,40 @@ button.foobarz-button(
 
 <style lang="scss" scoped>
 .foobarz-button {
-  background: var(--c-accent);
   display: block;
   padding: 0.5em 1em;
-  border: 0 none;
   width: 100%;
   text-transform: uppercase;
+  font-weight: 700;
   color: var(--c-primary-darkest);
   transition: transform 0.25s;
-  border-radius: 0.25rem;
-  border: 3px solid var(--c-accent);
+
+  background: var(--c-accent);
+  background-clip: padding-box;
+  border: solid 4px green;
+  border-image-source: small-round-corner($c-accent);
+  border-image-slice: 8;
+  border-image-width: 8px;
+  border-image-outset: 0;
 
   &:active {
     transform: translateY(3px);
   }
 
   &--fab {
-    --size: 50px;
+    --size: 45px;
     position: fixed;
     width: var(--size);
     height: var(--size);
-    border-radius: var(--size);
     right: 0.5rem;
     bottom: calc(var(--navigation-height) + 0.5rem);
     margin: 0;
     padding: 0;
-    border: 0;
     z-index: var(--zindex-fab);
+
+    border-image-source: big-round-corner($c-accent);
+    // border-width: 8px;
+    // border-image-width: 16px;
 
     /deep/ .icon {
       position: absolute;
@@ -90,6 +97,7 @@ button.foobarz-button(
   &--danger {
     color: red;
     background: none;
+    border-image-source: small-round-corner(#f00);
     border-color: currentColor;
   }
 }
