@@ -98,13 +98,19 @@ export default {
     display: block;
     background: none;
     width: 100%;
-    border: 2px solid var(--c-primary);
     padding: 0.5em 0.75em;
     // needed for Firefox sizing
     min-width: 0;
+    border: solid 4px green;
+    background-color: #000;
+    background-clip: padding-box;
+    border-image-source: small-round-corner(#000);
+    border-image-slice: 8;
+    border-image-width: 8px;
+    border-image-outset: 0;
 
     &:focus {
-      border-color: var(--c-primary-lighter);
+      border-image-source: small-round-corner($c-primary-darker);
       color: var(--c-accent);
     }
     &[type='number'] {

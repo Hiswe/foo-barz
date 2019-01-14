@@ -120,8 +120,7 @@ aside.article-edit(
   }
   & /deep/ input {
     text-align: center;
-    background: black;
-    border-color: black;
+    background-color: black;
   }
   &__name {
     grid-area: name;
