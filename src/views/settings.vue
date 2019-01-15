@@ -1,6 +1,7 @@
 <script>
-import { mapMutations } from 'vuex'
+import { mapMutations, mapActions, mapState } from 'vuex'
 
+import { SET_LANG, SET_CURRENCY } from '@/store/settings'
 import { name, homepage, description, version } from '../../package.json'
 
 import Category from '@/components/ui/Category'
@@ -15,8 +16,26 @@ export default {
       homepage,
       version,
       homepageNoProtocol: homepage.replace(`https://`, ``).replace(`/`, ``),
-      lang: `en`,
     }
+  },
+  computed: {
+    ...mapState([`settings`]),
+    lang: {
+      get() {
+        return this.settings.lang
+      },
+      set(lang) {
+        this.SET_LANG(lang)
+      },
+    },
+    currency: {
+      get() {
+        return this.settings.currency
+      },
+      set(currency) {
+        this.SET_CURRENCY(currency)
+      },
+    },
   },
   methods: {
     onCopy() {
@@ -39,6 +58,7 @@ export default {
       window.localStorage.removeItem(`foo-barz`)
     },
     ...mapMutations([`RESET`]),
+    ...mapActions([SET_LANG, SET_CURRENCY]),
   },
 }
 </script>
@@ -52,7 +72,17 @@ export default {
     "shareButton": "Share",
     "dangerZone": "danger zone",
     "shareCopied": "Link copied!",
-    "reset": "Reset",
+    "reset": "Reset the app",
+    "version": "version"
+  },
+  "fr": {
+    "language": "langue",
+    "shareTitle": "Partager FooBarz",
+    "shareDescription": "FooBarz peut être partagé avec ce lien :",
+    "shareButton": "Partager",
+    "dangerZone": "Attention danger !",
+    "shareCopied": "Lien copié !",
+    "reset": "réinitialiser l'application",
     "version": "version"
   }
 }
@@ -61,13 +91,14 @@ export default {
 <template lang="pug">
 foobarz-main-content(page="information" :title="$t(`settings`)")
   foobarz-category(:title="$t(`language`)")
-    label.radio
-      input.radio__input(type="radio" name="lang" value="en" v-model="lang")
-      span.radio__label en
-    label.radio
-      input.radio__input(type="radio" name="lang" value="fr" v-model="lang")
-      span.radio__label fr
-
+    label.radio(v-for="language in settings.languages")
+      input.radio__input(type="radio" name="lang" :value="language" v-model="lang")
+      span.radio__label(v-text="language")
+  foobarz-category(:title="$t(`currency`)")
+    label.radio(v-for="symbol in settings.currencies")
+      input.radio__input(type="radio" name="currency" :value="symbol" v-model="currency")
+      span.radio__label(v-text="symbol")
+  hr.separator
   foobarz-category(:title="$t(`shareTitle`)")
     p {{ $t(`shareDescription`) }}
     a(:href="homepage") {{ homepageNoProtocol }}
@@ -138,6 +169,9 @@ a {
   height: 20px;
   margin-right: 0.5rem;
   display: inline-block;
+}
+.radio__input:checked + .radio__label {
+  color: var(--c-accent);
 }
 .radio__input:checked + .radio__label::before {
   background: arrow($c-primary);

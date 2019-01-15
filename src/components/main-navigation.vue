@@ -4,16 +4,6 @@ export default {
 }
 </script>
 
-<i18n>
-{
-  "en": {
-    "hangout": "hangout",
-    "barz": "barz",
-    "history": "history"
-  }
-}
-</i18n>
-
 <template lang="pug">
 nav.main-navigation
   router-link.main-navigation__link(to="/")
