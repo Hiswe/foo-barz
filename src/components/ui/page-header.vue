@@ -10,7 +10,6 @@ export default {
 }
 </script>
 
-
 <template lang="pug" functional>
 header.header
   h1.header__title {{props.title}}

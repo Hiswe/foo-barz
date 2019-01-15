@@ -20,19 +20,19 @@ export default new Router({
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () =>
-        import(/* webpackChunkName: "barz" */ './views/Barz.vue'),
+        import(/* webpackChunkName: "barz" */ './views/barz.vue'),
     },
     {
       path: '/barz/:barId',
       name: 'bar',
       component: () =>
-        import(/* webpackChunkName: "barz-edit" */ './views/BarzEdit.vue'),
+        import(/* webpackChunkName: "barz-edit" */ './views/barz-edit.vue'),
     },
     {
       path: '/nights',
       name: 'nights',
       component: () =>
-        import(/* webpackChunkName: "nights" */ './views/Nights.vue'),
+        import(/* webpackChunkName: "nights" */ './views/nights.vue'),
     },
 
     {

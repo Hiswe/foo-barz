@@ -42,6 +42,9 @@ export default {
 {
   "en": {
     "color": "color"
+  },
+  "fr": {
+    "color": "couleur"
   }
 }
 </i18n>

@@ -26,6 +26,9 @@ export default {
 {
   "en": {
     "title": "Choose your bar"
+  },
+  "fr": {
+    "title": "Choisis ton bar"
   }
 }
 </i18n>

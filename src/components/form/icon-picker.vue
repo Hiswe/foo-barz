@@ -42,6 +42,9 @@ export default {
 {
   "en": {
     "icon": "icon"
+  },
+  "fr": {
+    "icon": "icône"
   }
 }
 </i18n>

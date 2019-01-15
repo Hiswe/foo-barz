@@ -27,6 +27,11 @@ export default {
     "title": "Nights history",
     "weekly-total": "this week:",
     "at": " at"
+  },
+  "fr": {
+    "title": "Historique des sorties",
+    "weekly-total": "cette semaine :",
+    "at": " à"
   }
 }
 </i18n>

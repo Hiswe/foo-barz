@@ -38,6 +38,10 @@ export default {
   "en": {
     "edit": "edit",
     "hangout": "go"
+  },
+  "fr": {
+    "edit": "éditer",
+    "hangout": "aller"
   }
 }
 </i18n>

@@ -71,6 +71,9 @@ export default {
 {
   "en": {
     "bar-name": "bar name"
+  },
+  "fr": {
+    "bar-name": "nom du bar"
   }
 }
 </i18n>

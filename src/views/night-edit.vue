@@ -2,7 +2,7 @@
 import { mapState, mapMutations, mapActions, mapGetters } from 'vuex'
 
 import BarMenu from '@/components/nights/bar-menu'
-import NightTotal from '@/components/nights/NightTotal'
+import NightTotal from '@/components/nights/night-total'
 
 export default {
   name: `page-night`,

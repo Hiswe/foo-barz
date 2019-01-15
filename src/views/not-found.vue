@@ -11,6 +11,12 @@ export default {
     "description": "there's nothing here.",
     "back": "back to homepage",
     "home": "home"
+  },
+  "fr": {
+    "not-found": "page non trouvée",
+    "description": "il n'y a rien ici.",
+    "back": "retour à l'accueil",
+    "home": "accueil"
   }
 }
 </i18n>
