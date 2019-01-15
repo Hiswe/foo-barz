@@ -42,8 +42,8 @@ export default {
   "fr": {
     "remove": "enlever",
     "save": "sauver",
-    "product-name": "nom de l'article'",
-    "product-price": "prix de l'article"
+    "product-name": "nom de l'article",
+    "product-price": "prix"
   }
 }
 </i18n>

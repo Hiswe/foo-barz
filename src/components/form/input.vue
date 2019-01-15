@@ -110,7 +110,7 @@ export default {
     border-image-outset: 0;
 
     &:focus {
-      border-image-source: small-round-corner($c-primary-darker);
+      border-image-source: small-round-corner-filled($c-primary-darker);
       color: var(--c-accent);
     }
     &[type='number'] {
