@@ -1,8 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Barz from './views/Barz.vue'
 import NewNight from './views/night-new.vue'
-import NotFound from './views/NotFound.vue'
+import NotFound from './views/not-found.vue'
 
 Vue.use(Router)
 
@@ -43,10 +42,10 @@ export default new Router({
         import(/* webpackChunkName: "nights-edit" */ './views/night-edit.vue'),
     },
     {
-      path: '/information',
-      name: 'information',
+      path: '/settings',
+      name: 'settings',
       component: () =>
-        import(/* webpackChunkName: "information" */ './views/Information.vue'),
+        import(/* webpackChunkName: "settings" */ './views/settings.vue'),
     },
     {
       path: '/404',

@@ -192,6 +192,18 @@ const SVG_LIB = {
     'viewBox': `0 0 32 32`,
     content: ` <path d="M4 3h17v2H4zM4 28h23v2H4zM2 5h2v23H2zM27 11h2v17h-2zM6 8h12v5H6zM12 18h2v-2h4v2h2v4h-2v2h-4v-2h-2v-4zM21 5h2v2h-2zM23 7h2v2h-2zM25 9h2v2h-2z"/> `,
   },
+  "settings-32": {
+    id: `settings-32`,
+    class: [
+      `icon`,
+      `icon--settings-32`,
+    ],
+    preserveAspectRatio: ``,
+    width: {size: 32, unit: `px`},
+    height: {size: 32, unit: `px`},
+    'viewBox': `0 0 32 32`,
+    content: ` <path d="M4 18h4v10H4zM4 4h4v12H4zM14 4h4v4h-4zM14 10h4v18h-4zM24 24h4v4h-4zM24 4h4v18h-4zM8 16h2v2H8zM18 8h2v2h-2zM28 22h2v2h-2zM2 16h2v2H2zM12 8h2v2h-2zM22 22h2v2h-2z"/> `,
+  },
   "water": {
     id: `water`,
     class: [

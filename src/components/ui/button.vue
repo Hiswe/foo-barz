@@ -53,7 +53,7 @@ button.foobarz-button(
   background: var(--c-accent);
   background-clip: padding-box;
   border: solid 4px green;
-  border-image-source: small-round-corner($c-accent);
+  border-image-source: small-round-corner-filled($c-accent);
   border-image-slice: 8;
   border-image-width: 8px;
   border-image-outset: 0;

@@ -9,7 +9,6 @@ export default {
   "en": {
     "hangout": "hangout",
     "barz": "barz",
-    "info": "info",
     "history": "history"
   }
 }
@@ -26,9 +25,9 @@ nav.main-navigation
   router-link.main-navigation__link(to="/barz")
     foobarz-icon.main-navigation__icon(name="bar-32")
     span.main-navigation__label {{ $t(`barz`) }}
-  router-link.main-navigation__link(to="/information")
-    foobarz-icon.main-navigation__icon(name="info-32")
-    span.main-navigation__label {{ $t(`info`) }}
+  router-link.main-navigation__link(to="/settings")
+    foobarz-icon.main-navigation__icon(name="settings-32")
+    span.main-navigation__label {{ $t(`settings`) }}
 </template>
 
 <style lang="scss" scoped>
