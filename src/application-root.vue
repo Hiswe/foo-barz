@@ -114,19 +114,27 @@ button {
 // NOTIFICATION
 //////
 
-// override default notification styling
-// https://github.com/euvl/vue-notification/blob/master/demo/src/App.vue#L267-L287
-.notification.foobarz-notifications {
+.foobarz-notifications {
   margin: 1rem;
   margin-bottom: 0;
-  border-radius: 0.25em;
-  font-size: 1.5em;
+  border-radius: 0;
+  font-size: 1.5rem;
   text-align: center;
   padding: 10px 20px;
   color: var(--c-text);
   background: var(--c-accent-lightest);
   border: 0;
   color: var(--c-black);
+
+  background: $c-accent-lightest;
+  color: white;
+  background: var(--c-black);
+  background-clip: padding-box;
+  border: solid 4px $c-accent-lightest;
+  border-image-source: small-round-corner-filled($c-accent-lighter);
+  border-image-slice: 8;
+  border-image-width: 8px;
+  border-image-outset: 0;
 }
 
 //////

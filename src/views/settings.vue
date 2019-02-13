@@ -1,5 +1,6 @@
 <script>
 import { mapMutations, mapActions, mapState } from 'vuex'
+import copy from 'copy-to-clipboard'
 
 import { SET_LANG, SET_CURRENCY } from '@/store/settings'
 import { name, homepage, description, version } from '../../package.json'
@@ -15,7 +16,6 @@ export default {
     return {
       homepage,
       version,
-      homepageNoProtocol: homepage.replace(`https://`, ``).replace(`/`, ``),
     }
   },
   computed: {
@@ -38,8 +38,8 @@ export default {
     },
   },
   methods: {
-    onCopy() {
-      if (!navigator.share) return this.notifyCopy()
+    onShare() {
+      if (!navigator.share) return this.copyToClipboard()
       return navigator
         .share({
           title: name.replace(`-`, ` `),
@@ -47,11 +47,15 @@ export default {
           url: homepage,
         })
         .catch(error => {
-          this.notifyCopy()
+          this.copyToClipboard()
         })
     },
-    notifyCopy() {
-      this.$notify(this.$t(`shareCopied`))
+    copyToClipboard() {
+      copy(homepage)
+      this.$notify({
+        text: this.$t(`shareCopied`),
+        duration: -1,
+      })
     },
     reset() {
       this.RESET()
@@ -68,7 +72,7 @@ export default {
   "en": {
     "language": "language",
     "shareTitle": "Share the app",
-    "shareDescription": "The app can be shared with this link",
+    "shareDescription": "or copy this link:",
     "shareButton": "Share",
     "dangerZone": "danger zone",
     "shareCopied": "Link copied!",
@@ -78,7 +82,7 @@ export default {
   "fr": {
     "language": "langue",
     "shareTitle": "Partager FooBarz",
-    "shareDescription": "FooBarz peut être partagé avec ce lien :",
+    "shareDescription": "ou copiez ce lien :",
     "shareButton": "Partager",
     "dangerZone": "Attention danger !",
     "shareCopied": "Lien copié !",
@@ -100,15 +104,15 @@ foobarz-main-content(page="information" :title="$t(`settings`)")
       span.radio__label(v-text="symbol")
   hr.separator
   foobarz-category(:title="$t(`shareTitle`)")
+    foobarz-button.information__copy(
+      @click="onShare"
+    ) {{ $t(`shareButton`) }}
     p {{ $t(`shareDescription`) }}
-    a(:href="homepage") {{ homepageNoProtocol }}
+    a(:href="homepage") {{ homepage }}
     //- use v-clipboard:copy instead of this.$copyText
     //- for better browser support
     //- https://www.npmjs.com/package/vue-clipboard2#i-want-to-copy-texts-without-a-specific-button
-    foobarz-button.information__copy(
-      v-clipboard:copy="homepage"
-      v-clipboard:success="onCopy"
-    ) {{ $t(`shareButton`) }}
+    
   hr.separator
   p {{ $t(`dangerZone`) }}
   foobarz-button(

@@ -1,5 +1,4 @@
 import Vue from 'vue'
-import VueClipboard from 'vue-clipboard2'
 import VueNotifications from 'vue-notification'
 import focusRing from '@hiswe/focus-ring'
 
@@ -20,7 +19,6 @@ import List from '@/components/ui/list'
 import ListItem from '@/components/ui/list-item'
 import PricePerPerson from '@/components/ui/price-per-person'
 
-Vue.use(VueClipboard)
 Vue.use(VueNotifications)
 Vue.use(AlloyFingerVue)
 

@@ -12,6 +12,8 @@ $c-accent: hsl(32, 100%, 50%);
 $c-accent-h: hue($c-accent) / 1deg;
 $c-accent-s: saturation($c-accent);
 $c-accent-l: lightness($c-accent);
+$c-accent-lighter: hsl($c-accent-h, $c-accent-s, 65%);
+$c-accent-lightest: hsl($c-accent-h, $c-accent-s, 90%);
 
 @function url-friendly-colour($color) {
   @return '%23' + str-slice('#{$color}', 2, -1);
