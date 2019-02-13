@@ -4,7 +4,7 @@ import { mapMutations, mapActions, mapState } from 'vuex'
 import { SET_LANG, SET_CURRENCY } from '@/store/settings'
 import { name, homepage, description, version } from '../../package.json'
 
-import Category from '@/components/ui/category'
+import Category from '@/components/ui/setting-category'
 
 export default {
   name: 'page-settings',
