@@ -23,9 +23,9 @@ function reduceArticles(articles, key) {
 
 test(`create`, t => {
   const { store } = t.context
-  t.is(store.state.barz.ids.length, 1)
+  t.is(store.state.barz.ids.length, 0)
   store.commit(`CREATE_BAR`)
-  t.is(store.state.barz.ids.length, 2, `a new bar has been added`)
+  t.is(store.state.barz.ids.length, 1, `a new bar has been added`)
   t.truthy(
     store.state.barz.entities[store.state.barz.ids[0]],
     `the entities list has been update `,
@@ -61,7 +61,9 @@ test(`create`, t => {
 
 test(`edit`, t => {
   const { store } = t.context
+  store.commit(`CREATE_BAR`)
   const update = clonedeep(getLastBar(store))
+  t.is(update.name, `new-bar`, `default bar`)
   update.name = `clapou`
   store.commit(`UPDATE_BAR`, update)
   t.is(getLastBar(store).name, `clapou`, `can update`)
@@ -72,29 +74,29 @@ test(`delete`, t => {
   store.commit(`CREATE_BAR`)
   const newBar = getLastBar(store)
   store.dispatch(`REMOVE_BAR`, { barId: newBar.id })
-  t.is(store.state.barz.ids.length, 1, `bar id has been erased`)
+  t.is(store.state.barz.ids.length, 0, `bar id has been erased`)
   t.falsy(store.state.barz.entities[newBar.id], `bar entity has been erased`)
-  store.dispatch(`REMOVE_BAR`, { barId: store.state.barz.ids[0] })
-  t.is(store.state.barz.ids.length, 0, `can remove default bar`)
 })
 
 test(`reset`, t => {
   const { store } = t.context
   store.commit(`CREATE_BAR`)
   store.commit(`RESET`)
-  t.is(store.state.barz.ids.length, 1)
-  t.is(getLastBar(store).name, defaultBar.name)
+  t.is(store.state.barz.ids.length, 0)
+  t.falsy(getLastBar(store))
 })
 
 test(`bar getter`, t => {
   const { store } = t.context
   const { getBar } = store.getters
+  store.commit(`CREATE_BAR`)
   const bar = getLastBar(store)
   t.false(
     getBar(shortid.generate()),
     `no bar is returned if a wrong barId is passed`,
   )
   const getterResult = getBar(bar.id)
+  
   t.is(getterResult.id, bar.id, `the right bar is returned`)
   t.deepEqual(
     getterResult.articles,
@@ -107,8 +109,8 @@ test(`bar getter`, t => {
   store.commit(`UPDATE_BAR`, barUpdate)
   const getterResultAfterBarUpdate = getBar(bar.id)
   t.is(
-    Object.keys(bar.articles).length - 1,
-    Object.keys(getterResultAfterBarUpdate).length,
+    Object.keys(getterResult.articles).length - 1,
+    Object.keys(getterResultAfterBarUpdate.articles).length,
     `getBar filter articles depending on archived articles`,
   )
   t.falsy(

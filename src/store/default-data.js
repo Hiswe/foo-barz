@@ -4,6 +4,34 @@ import shortid from 'shortid'
 // https://npm.runkit.com/shortid
 
 export const localizedArticles = {
+  en: {
+    f2WqoRFOk: {
+      id: `f2WqoRFOk`,
+      icon: `beer`,
+      name: `budweiser`,
+      color: `#738588`,
+      price: 3.25,
+      archived: false,
+    }
+  },
+  fr: {
+    HSYpTpxRy: {
+      id: `HSYpTpxRy`,
+      icon: `beer-glass`,
+      name: `1664`,
+      color: `#738588`,
+      price: 3.25,
+      archived: false,
+    },
+    ggoxKYcu4: {
+      id: `ggoxKYcu4`,
+      icon: `beer-glass`,
+      name: `heineken`,
+      color: `#738588`,
+      price: 3.25,
+      archived: false,
+    }
+  },
   th: {
     ctFq_MtBE: {
       id: `ctFq_MtBE`,

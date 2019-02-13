@@ -2,15 +2,13 @@ import shortid from 'shortid'
 import clonedeep from 'lodash.clonedeep'
 import Vue from 'vue'
 
-import { bar as defaultBar, articles as defaultArticles } from './default-data'
+import { articles as defaultArticles } from './default-data'
 
 export const REMOVE_BAR = `ACTION_REMOVE_BAR`
 
 export const state = () => ({
-  entities: {
-    [defaultBar.id]: clonedeep(defaultBar),
-  },
-  ids: [defaultBar.id],
+  entities: {},
+  ids: [],
 })
 
 export const getters = {
@@ -72,10 +70,8 @@ export const mutations = {
     state.ids = state.ids.filter(id => id !== barId)
   },
   RESET(state) {
-    state.entities = {
-      [defaultBar.id]: clonedeep(defaultBar),
-    }
-    state.ids = [defaultBar.id]
+    state.entities = {}
+    state.ids = []
   },
 }
 

@@ -10,6 +10,7 @@ function getLastBar(store) {
 
 test.beforeEach(t => {
   const store = createStateStore()
+  store.commit(`CREATE_BAR`)
   t.context.store = store
   const bar = store.state.barz.entities[store.state.barz.ids[0]]
   t.context.bar = bar
