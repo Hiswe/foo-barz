@@ -54,7 +54,6 @@ export default {
       copy(homepage)
       this.$notify({
         text: this.$t(`shareCopied`),
-        duration: -1,
       })
     },
     reset() {
