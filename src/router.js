@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+
 import NewNight from './views/night-new.vue'
 import NotFound from './views/not-found.vue'
 
@@ -20,7 +21,7 @@ export default new Router({
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () =>
-        import(/* webpackChunkName: "barz" */ './views/barz.vue'),
+        import(/* webpackChunkName: "barz" */ './views/barz-list.vue'),
     },
     {
       path: '/barz/:barId',
@@ -32,7 +33,7 @@ export default new Router({
       path: '/nights',
       name: 'nights',
       component: () =>
-        import(/* webpackChunkName: "nights" */ './views/nights.vue'),
+        import(/* webpackChunkName: "nights" */ './views/night-list.vue'),
     },
 
     {
