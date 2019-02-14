@@ -1,3 +1,6 @@
+import { M_BAR_RESET, M_NIGHT_RESET } from './mutations'
+import { RESET } from './actions'
+
 export const state = () => ({
   lang: `en`,
   languages: [`en`, `fr`, `th`],
@@ -34,5 +37,9 @@ export const actions = {
     commit(UPDATE_SETTINGS, {
       currency: payload,
     })
+  },
+  [RESET](vuexContext) {
+    vuexContext.commit(M_BAR_RESET)
+    vuexContext.commit(M_NIGHT_RESET)
   },
 }

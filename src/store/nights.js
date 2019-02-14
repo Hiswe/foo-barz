@@ -4,15 +4,26 @@ import Vue from 'vue'
 import dayjs from 'dayjs'
 
 import * as defaultData from './default-data'
-import { REMOVE_BAR } from './barz'
-
-const ADD_NIGHT = `ACTION_ADD_NIGHT`
-const COMPUTE_NIGHT = `ACTION_COMPUTE_NIGHT`
-const REMOVE_NIGHT = `ACTION_REMOVE_NIGHT`
-const ADD_NIGHT_ARTICLE = `ACTION_ADD_NIGHT_ARTICLE`
-const REMOVE_NIGHT_ARTICLE = `ACTION_REMOVE_NIGHT_ARTICLE`
-const ADD_PERSON = `ACTION_ADD_PERSON`
-const REMOVE_PERSON = `ACTION_REMOVE_PERSON`
+import {
+  M_NIGHT_CREATE,
+  M_NIGHT_COMPUTE,
+  M_NIGHT_DELETE,
+  M_NIGHT_ARTICLE_ADD,
+  M_NIGHT_ARTICLE_REMOVE,
+  M_NIGHT_PERSON_ADD,
+  M_NIGHT_PERSON_REMOVE,
+  M_NIGHT_RESET,
+  M_BAR_UPDATE,
+  M_BAR_DELETE,
+} from './mutations'
+import {
+  NIGHT_CREATE,
+  NIGHT_DELETE,
+  NIGHT_ARTICLE_ADD,
+  NIGHT_ARTICLE_REMOVE,
+  NIGHT_PERSON_ADD,
+  NIGHT_PERSON_REMOVE,
+} from './actions'
 
 function computeTotal(night, bar) {
   const all = night.articles.reduce(
@@ -73,7 +84,7 @@ export const getters = {
 }
 
 export const mutations = {
-  [ADD_NIGHT](state, payload) {
+  [M_NIGHT_CREATE](state, payload) {
     const { barId, barName } = payload
     const nightId = shortid.generate()
     state.ids.unshift(nightId)
@@ -85,17 +96,17 @@ export const mutations = {
       createdAt: new Date().valueOf(),
     })
   },
-  [REMOVE_NIGHT](state, payload) {
+  [M_NIGHT_DELETE](state, payload) {
     const { nightId } = payload
     Vue.delete(state.entities, nightId)
     state.ids = state.ids.filter(id => id !== nightId)
   },
-  [COMPUTE_NIGHT](state, payload) {
+  [M_NIGHT_COMPUTE](state, payload) {
     const { nightId, bar } = payload
     const night = state.entities[nightId]
     night.total = computeTotal(night, bar)
   },
-  [ADD_NIGHT_ARTICLE](state, payload) {
+  [M_NIGHT_ARTICLE_ADD](state, payload) {
     const { nightId, article } = payload
     const night = state.entities[nightId]
     night.articles.push({
@@ -103,12 +114,12 @@ export const mutations = {
       articleId: article.id,
     })
   },
-  [REMOVE_NIGHT_ARTICLE](state, payload) {
+  [M_NIGHT_ARTICLE_REMOVE](state, payload) {
     const { nightId, articleId } = payload
     const night = state.entities[nightId]
     night.articles = night.articles.filter(article => article.id !== articleId)
   },
-  [ADD_PERSON](state, payload) {
+  [M_NIGHT_PERSON_ADD](state, payload) {
     const { nightId } = payload
     const night = state.entities[nightId]
     if (!night.persons.length) {
@@ -120,7 +131,7 @@ export const mutations = {
       id: shortid.generate(),
     })
   },
-  [REMOVE_PERSON](state, payload) {
+  [M_NIGHT_PERSON_REMOVE](state, payload) {
     const { nightId, personId } = payload
     const night = state.entities[nightId]
     if (night.persons.length < 3) {
@@ -129,7 +140,7 @@ export const mutations = {
       night.persons = night.persons.filter(person => person.id !== personId)
     }
   },
-  UPDATE_BAR(state, bar) {
+  [M_BAR_UPDATE](state, bar) {
     const barId = bar.id
     Object.values(state.entities)
       .filter(night => night.barId === barId)
@@ -138,7 +149,7 @@ export const mutations = {
         night.total = computeTotal(night, bar)
       })
   },
-  [REMOVE_BAR](state, payload) {
+  [M_BAR_DELETE](state, payload) {
     const { barId } = payload
     const NightsToRemove = Object.values(state.entities)
       .filter(night => night.barId === barId)
@@ -147,27 +158,27 @@ export const mutations = {
         state.ids = state.ids.filter(id => id !== night.id)
       })
   },
-  RESET(state) {
+  [M_NIGHT_RESET](state) {
     state.entities = {}
     state.ids = []
   },
 }
 
 export const actions = {
-  ADD_NIGHT(store, payload) {
+  [NIGHT_CREATE](store, payload) {
     const { barId } = payload
     const bar = store.rootState.barz.entities[barId]
     if (!bar) return console.warn(`ADD NIGHT – no bar found`)
     payload.barName = bar.name
-    store.commit(ADD_NIGHT, payload)
+    store.commit(M_NIGHT_CREATE, payload)
   },
-  REMOVE_NIGHT(store, payload) {
+  [NIGHT_DELETE](store, payload) {
     const { nightId } = payload
     const night = store.state.entities[nightId]
     if (!night) return
-    store.commit(REMOVE_NIGHT, payload)
+    store.commit(M_NIGHT_DELETE, payload)
   },
-  ADD_NIGHT_ARTICLE(store, payload) {
+  [NIGHT_ARTICLE_ADD](store, payload) {
     const { nightId, article } = payload
     const { night, bar } = getNightAndBar(store, nightId, `ADD NIGHT ARTICLE`)
     if (!night) return
@@ -175,13 +186,13 @@ export const actions = {
     if (!isValidArticle) {
       return console.warn(`ADD NIGHT ARTICLE – no article found`)
     }
-    store.commit(ADD_NIGHT_ARTICLE, payload)
-    store.commit(COMPUTE_NIGHT, {
+    store.commit(M_NIGHT_ARTICLE_ADD, payload)
+    store.commit(M_NIGHT_COMPUTE, {
       nightId,
       bar,
     })
   },
-  REMOVE_NIGHT_ARTICLE(store, payload) {
+  [NIGHT_ARTICLE_REMOVE](store, payload) {
     const { nightId } = payload
     const { night, bar } = getNightAndBar(
       store,
@@ -189,28 +200,28 @@ export const actions = {
       `REMOVE NIGHT ARTICLE`,
     )
     if (!night) return
-    store.commit(REMOVE_NIGHT_ARTICLE, payload)
-    store.commit(COMPUTE_NIGHT, {
+    store.commit(M_NIGHT_ARTICLE_REMOVE, payload)
+    store.commit(M_NIGHT_COMPUTE, {
       nightId,
       bar,
     })
   },
-  ADD_PERSON(store, payload) {
+  [NIGHT_PERSON_ADD](store, payload) {
     const { nightId } = payload
     const { night, bar } = getNightAndBar(store, nightId, `ADD PERSON`)
     if (!night) return
-    store.commit(ADD_PERSON, payload)
-    store.commit(COMPUTE_NIGHT, {
+    store.commit(M_NIGHT_PERSON_ADD, payload)
+    store.commit(M_NIGHT_COMPUTE, {
       nightId,
       bar,
     })
   },
-  REMOVE_PERSON(store, payload) {
+  [NIGHT_PERSON_REMOVE](store, payload) {
     const { nightId } = payload
     const { night, bar } = getNightAndBar(store, nightId, `REMOVE PERSON`)
     if (!night) return
-    store.commit(REMOVE_PERSON, payload)
-    store.commit(COMPUTE_NIGHT, {
+    store.commit(M_NIGHT_PERSON_REMOVE, payload)
+    store.commit(M_NIGHT_COMPUTE, {
       nightId,
       bar,
     })

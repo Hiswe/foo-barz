@@ -3,7 +3,8 @@ import shortid from 'shortid'
 import clonedeep from 'lodash.clonedeep'
 
 import createStateStore from './_create-test-store'
-import { articles as defaultArticles, bar as defaultBar } from './default-data'
+import { BAR_CREATE, BAR_UPDATE, BAR_DELETE, RESET } from './actions'
+import { articles as defaultArticles } from './default-data'
 
 test.beforeEach(t => {
   const store = createStateStore()
@@ -24,7 +25,7 @@ function reduceArticles(articles, key) {
 test(`create`, t => {
   const { store } = t.context
   t.is(store.state.barz.ids.length, 0)
-  store.commit(`CREATE_BAR`)
+  store.dispatch(BAR_CREATE)
   t.is(store.state.barz.ids.length, 1, `a new bar has been added`)
   t.truthy(
     store.state.barz.entities[store.state.barz.ids[0]],
@@ -61,27 +62,27 @@ test(`create`, t => {
 
 test(`edit`, t => {
   const { store } = t.context
-  store.commit(`CREATE_BAR`)
+  store.dispatch(BAR_CREATE)
   const update = clonedeep(getLastBar(store))
   t.is(update.name, `new-bar`, `default bar`)
   update.name = `clapou`
-  store.commit(`UPDATE_BAR`, update)
+  store.dispatch(BAR_UPDATE, update)
   t.is(getLastBar(store).name, `clapou`, `can update`)
 })
 
 test(`delete`, t => {
   const { store } = t.context
-  store.commit(`CREATE_BAR`)
+  store.dispatch(BAR_CREATE)
   const newBar = getLastBar(store)
-  store.dispatch(`REMOVE_BAR`, { barId: newBar.id })
+  store.dispatch(BAR_DELETE, { barId: newBar.id })
   t.is(store.state.barz.ids.length, 0, `bar id has been erased`)
   t.falsy(store.state.barz.entities[newBar.id], `bar entity has been erased`)
 })
 
 test(`reset`, t => {
   const { store } = t.context
-  store.commit(`CREATE_BAR`)
-  store.commit(`RESET`)
+  store.dispatch(BAR_CREATE)
+  store.dispatch(RESET)
   t.is(store.state.barz.ids.length, 0)
   t.falsy(getLastBar(store))
 })
@@ -89,14 +90,14 @@ test(`reset`, t => {
 test(`bar getter`, t => {
   const { store } = t.context
   const { getBar } = store.getters
-  store.commit(`CREATE_BAR`)
+  store.dispatch(BAR_CREATE)
   const bar = getLastBar(store)
   t.false(
     getBar(shortid.generate()),
     `no bar is returned if a wrong barId is passed`,
   )
   const getterResult = getBar(bar.id)
-  
+
   t.is(getterResult.id, bar.id, `the right bar is returned`)
   t.deepEqual(
     getterResult.articles,
@@ -106,7 +107,7 @@ test(`bar getter`, t => {
   const barUpdate = clonedeep(bar)
   const articleId = Object.keys(barUpdate.articles)[0]
   barUpdate.articles[articleId].archived = true
-  store.commit(`UPDATE_BAR`, barUpdate)
+  store.dispatch(BAR_UPDATE, barUpdate)
   const getterResultAfterBarUpdate = getBar(bar.id)
   t.is(
     Object.keys(getterResult.articles).length - 1,

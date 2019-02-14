@@ -3,8 +3,13 @@ import clonedeep from 'lodash.clonedeep'
 import Vue from 'vue'
 
 import { articles as defaultArticles } from './default-data'
-
-export const REMOVE_BAR = `ACTION_REMOVE_BAR`
+import {
+  M_BAR_CREATE,
+  M_BAR_UPDATE,
+  M_BAR_DELETE,
+  M_BAR_RESET,
+} from './mutations'
+import { BAR_CREATE, BAR_UPDATE, BAR_DELETE } from './actions'
 
 export const state = () => ({
   entities: {},
@@ -43,7 +48,7 @@ export const getters = {
 }
 
 export const mutations = {
-  CREATE_BAR(state) {
+  [M_BAR_CREATE](state) {
     const articles = {}
 
     Object.values(clonedeep(defaultArticles)).forEach(article => {
@@ -58,28 +63,35 @@ export const mutations = {
     Vue.set(state.entities, bar.id, bar)
     state.ids.unshift(bar.id)
   },
-  UPDATE_BAR(state, barWithItems) {
+  [M_BAR_UPDATE](state, barWithItems) {
     barWithItems.name = barWithItems.name.trim()
     const { id } = barWithItems
     const existingBar = state.entities[id]
     if (existingBar) return (state.entities[id] = barWithItems)
   },
-  [REMOVE_BAR](state, payload) {
+  [M_BAR_DELETE](state, payload) {
     const { barId } = payload
     Vue.delete(state.entities, barId)
     state.ids = state.ids.filter(id => id !== barId)
   },
-  RESET(state) {
+  [M_BAR_RESET](state) {
     state.entities = {}
     state.ids = []
   },
 }
 
 export const actions = {
-  REMOVE_BAR(store, payload) {
+  [BAR_CREATE](store) {
+    store.commit(M_BAR_CREATE)
+  },
+  [BAR_UPDATE](store, barWithItems) {
+    if (!barWithItems) return
+    store.commit(M_BAR_UPDATE, barWithItems)
+  },
+  [BAR_DELETE](store, payload) {
     const { barId } = payload
     const bar = store.state.entities[barId]
     if (!bar) return
-    store.commit(REMOVE_BAR, payload)
+    store.commit(M_BAR_DELETE, payload)
   },
 }

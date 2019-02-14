@@ -3,6 +3,7 @@ import { mapMutations, mapActions, mapState } from 'vuex'
 import copy from 'copy-to-clipboard'
 
 import { SET_LANG, SET_CURRENCY } from '@/store/settings'
+import { RESET_BAR } from '@/store/barz'
 import { name, homepage, description, version } from '../../package.json'
 
 import Category from '@/components/ui/setting-category'
@@ -57,11 +58,10 @@ export default {
       })
     },
     reset() {
-      this.RESET()
+      this[RESET_BAR]()
       window.localStorage.removeItem(`foo-barz`)
     },
-    ...mapMutations([`RESET`]),
-    ...mapActions([SET_LANG, SET_CURRENCY]),
+    ...mapActions([SET_LANG, SET_CURRENCY, RESET_BAR]),
   },
 }
 </script>
