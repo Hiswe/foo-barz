@@ -99,6 +99,7 @@ button {
 
 .icon {
   fill: var(--c-primary);
+  max-width: 100%;
 
   // keep icons sharp
   // https://stackoverflow.com/a/22165796
