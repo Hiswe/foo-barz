@@ -1,10 +1,13 @@
 <script>
-import { mapMutations, mapActions, mapState } from 'vuex'
+import { mapActions, mapState } from 'vuex'
 import copy from 'copy-to-clipboard'
 
-import { SET_LANG, SET_CURRENCY } from '@/store/settings'
-import { RESET_BAR } from '@/store/barz'
 import { name, homepage, description, version } from '../../package.json'
+import {
+  SETTINGS_UPDATE_LANG,
+  SETTINGS_UPDATE_CURRENCY,
+  RESET_STORE,
+} from '@/store/actions'
 
 import Category from '@/components/ui/setting-category'
 
@@ -26,7 +29,7 @@ export default {
         return this.settings.lang
       },
       set(lang) {
-        this.SET_LANG(lang)
+        this.setLang(lang)
       },
     },
     currency: {
@@ -34,7 +37,7 @@ export default {
         return this.settings.currency
       },
       set(currency) {
-        this.SET_CURRENCY(currency)
+        this.setCurrency(currency)
       },
     },
   },
@@ -58,10 +61,14 @@ export default {
       })
     },
     reset() {
-      this[RESET_BAR]()
+      this.resetStore()
       window.localStorage.removeItem(`foo-barz`)
     },
-    ...mapActions([SET_LANG, SET_CURRENCY, RESET_BAR]),
+    ...mapActions({
+      setLang: SETTINGS_UPDATE_LANG,
+      setCurrency: SETTINGS_UPDATE_CURRENCY,
+      resetStore: RESET_STORE,
+    }),
   },
 }
 </script>

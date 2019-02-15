@@ -1,5 +1,7 @@
 <script>
-import { mapGetters, mapMutations, mapActions } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
+
+import { BAR_CREATE, BAR_REMOVE, NIGHT_CREATE } from '@/store/actions'
 
 export default {
   name: 'page-barz',
@@ -11,24 +13,27 @@ export default {
   },
   methods: {
     newBar() {
-      this.CREATE_BAR()
+      this.createBar()
       this.$router.push({
         name: `bar`,
         params: { barId: this.lastBarId },
       })
     },
     remove(barId) {
-      this.REMOVE_BAR({ barId })
+      this.removeBar({ barId })
     },
     newNight(barId) {
-      this.ADD_NIGHT({ barId })
+      this.createNight({ barId })
       this.$router.push({
         name: `night`,
         params: { barId, nightId: this.lastNightId },
       })
     },
-    ...mapMutations([`CREATE_BAR`]),
-    ...mapActions([`ADD_NIGHT`, `REMOVE_BAR`]),
+    ...mapActions({
+      createBar: BAR_CREATE,
+      removeBar: BAR_REMOVE,
+      createNight: NIGHT_CREATE,
+    }),
   },
 }
 </script>

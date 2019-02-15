@@ -1,10 +1,11 @@
 <script>
 import Vue from 'vue'
 import cloneDeep from 'lodash.clonedeep'
-import { mapState, mapMutations, mapGetters } from 'vuex'
+import { mapState, mapActions, mapGetters } from 'vuex'
 
 import ArticleEdit from '@/components/article/edit'
 import { createArticle } from '@/store/default-data'
+import { BAR_UPDATE } from '@/store/actions'
 
 export default {
   name: `page-bar`,
@@ -40,7 +41,7 @@ export default {
   },
   methods: {
     updateBar() {
-      this.UPDATE_BAR(this.bar)
+      this.updateStoreBar(this.bar)
       this.$el.blur()
     },
     addProduct() {
@@ -49,7 +50,7 @@ export default {
       this.editArticleId = newProduct.id
     },
     onSave() {
-      this.UPDATE_BAR(this.bar)
+      this.updateStoreBar(this.bar)
       this.$router.push({ name: `home` })
     },
     openEditArticle(articleId) {
@@ -57,12 +58,14 @@ export default {
     },
     closeEditArticle() {
       this.editArticleId = false
-      this.UPDATE_BAR(this.bar)
+      this.updateStoreBar(this.bar)
     },
     onEditProduct() {
-      this.UPDATE_BAR(this.bar)
+      this.updateStoreBar(this.bar)
     },
-    ...mapMutations([`UPDATE_BAR`]),
+    ...mapActions({
+      updateStoreBar: BAR_UPDATE,
+    }),
   },
 }
 </script>

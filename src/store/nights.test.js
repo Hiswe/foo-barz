@@ -12,7 +12,7 @@ import {
   NIGHT_ARTICLE_REMOVE,
   NIGHT_PERSON_ADD,
   NIGHT_PERSON_REMOVE,
-  RESET,
+  RESET_STORE,
 } from './actions'
 
 function getLastBar(store) {
@@ -49,7 +49,7 @@ test(`new night`, t => {
 test(`reset`, t => {
   const { store, barId } = t.context
   store.dispatch(NIGHT_CREATE, { barId })
-  store.dispatch(RESET)
+  store.dispatch(RESET_STORE)
   t.is(store.state.nights.ids.length, 0, `can reset ids`)
   t.is(Object.keys(store.state.nights.entities).length, 0, `can reset entities`)
 })

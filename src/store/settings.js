@@ -1,5 +1,9 @@
-import { M_BAR_RESET, M_NIGHT_RESET } from './mutations'
-import { RESET } from './actions'
+import { M_SETTINGS_UPDATE, M_BAR_RESET, M_NIGHT_RESET } from './mutations'
+import {
+  SETTINGS_UPDATE_LANG,
+  SETTINGS_UPDATE_CURRENCY,
+  RESET_STORE,
+} from './actions'
 
 export const state = () => ({
   lang: `en`,
@@ -12,33 +16,28 @@ export const getters = {
   locale: state => state.lang,
 }
 
-const UPDATE_SETTINGS = `UPDATE_SETTINGS`
-
 export const mutations = {
-  [UPDATE_SETTINGS](state, payload = {}) {
+  [M_SETTINGS_UPDATE](state, payload = {}) {
     const { lang, currency } = payload
     state.lang = lang ? lang : state.lang
     state.currency = currency ? currency : state.currency
   },
 }
 
-export const SET_LANG = `SET_LANG`
-export const SET_CURRENCY = `SET_CURRENCY`
-
 export const actions = {
-  [SET_LANG](vuexContext, payload) {
+  [SETTINGS_UPDATE_LANG](vuexContext, payload) {
     const { commit } = vuexContext
-    commit(UPDATE_SETTINGS, {
+    commit(M_SETTINGS_UPDATE, {
       lang: payload,
     })
   },
-  [SET_CURRENCY](vuexContext, payload) {
+  [SETTINGS_UPDATE_CURRENCY](vuexContext, payload) {
     const { commit } = vuexContext
-    commit(UPDATE_SETTINGS, {
+    commit(M_SETTINGS_UPDATE, {
       currency: payload,
     })
   },
-  [RESET](vuexContext) {
+  [RESET_STORE](vuexContext) {
     vuexContext.commit(M_BAR_RESET)
     vuexContext.commit(M_NIGHT_RESET)
   },

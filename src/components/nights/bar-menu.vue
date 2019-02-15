@@ -1,6 +1,8 @@
 <script>
 import { mapActions } from 'vuex'
 
+import { NIGHT_ARTICLE_ADD } from '@/store/actions'
+
 export default {
   name: `foobarz-bar-menu`,
   props: {
@@ -15,7 +17,7 @@ export default {
   },
   methods: {
     ...mapActions({
-      addArticle: `ADD_NIGHT_ARTICLE`,
+      addArticle: NIGHT_ARTICLE_ADD,
     }),
   },
 }

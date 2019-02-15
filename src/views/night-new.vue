@@ -1,5 +1,7 @@
 <script>
-import { mapGetters, mapMutations, mapActions } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
+
+import { NIGHT_CREATE } from '@/store/actions'
 
 export default {
   name: `page-new-night`,
@@ -11,13 +13,15 @@ export default {
   },
   methods: {
     newNight(barId) {
-      this.ADD_NIGHT({ barId })
+      this.createNight({ barId })
       this.$router.push({
         name: `night`,
         params: { barId, nightId: this.lastNightId },
       })
     },
-    ...mapActions([`ADD_NIGHT`]),
+    ...mapActions({
+      createNight: NIGHT_CREATE,
+    }),
   },
 }
 </script>

@@ -1,6 +1,8 @@
 <script>
 import { mapActions, mapGetters } from 'vuex'
 
+import { NIGHT_DELETE } from '@/store/actions'
+
 export default {
   name: `page-nights`,
   computed: {
@@ -14,9 +16,11 @@ export default {
       this.$router.push(`/nights/${night.barId}/${night.id}`)
     },
     remove(nightId) {
-      this.REMOVE_NIGHT({ nightId })
+      this.deleteNight({ nightId })
     },
-    ...mapActions([`REMOVE_NIGHT`]),
+    ...mapActions({
+      deleteNight: NIGHT_DELETE,
+    }),
   },
 }
 </script>

@@ -1,6 +1,11 @@
 <script>
-import { mapState, mapMutations, mapActions, mapGetters } from 'vuex'
+import { mapState, mapActions, mapGetters } from 'vuex'
 
+import {
+  NIGHT_ARTICLE_REMOVE,
+  NIGHT_PERSON_ADD,
+  NIGHT_PERSON_REMOVE,
+} from '@/store/actions'
 import BarMenu from '@/components/nights/bar-menu'
 import NightTotal from '@/components/nights/night-total'
 
@@ -37,9 +42,9 @@ export default {
   },
   methods: {
     ...mapActions({
-      removeArticle: `REMOVE_NIGHT_ARTICLE`,
-      addPerson: `ADD_PERSON`,
-      removePerson: `REMOVE_PERSON`,
+      removeArticle: NIGHT_ARTICLE_REMOVE,
+      addPerson: NIGHT_PERSON_ADD,
+      removePerson: NIGHT_PERSON_REMOVE,
     }),
   },
 }

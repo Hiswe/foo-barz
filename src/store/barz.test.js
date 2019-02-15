@@ -3,7 +3,7 @@ import shortid from 'shortid'
 import clonedeep from 'lodash.clonedeep'
 
 import createStateStore from './_create-test-store'
-import { BAR_CREATE, BAR_UPDATE, BAR_DELETE, RESET } from './actions'
+import { BAR_CREATE, BAR_UPDATE, BAR_DELETE, RESET_STORE } from './actions'
 import { articles as defaultArticles } from './default-data'
 
 test.beforeEach(t => {
@@ -82,7 +82,7 @@ test(`delete`, t => {
 test(`reset`, t => {
   const { store } = t.context
   store.dispatch(BAR_CREATE)
-  store.dispatch(RESET)
+  store.dispatch(RESET_STORE)
   t.is(store.state.barz.ids.length, 0)
   t.falsy(getLastBar(store))
 })
