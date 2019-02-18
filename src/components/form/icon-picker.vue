@@ -4,16 +4,9 @@ import globalEvents from '@/global-events.js'
 
 export default {
   name: `foobarz-icon-picker`,
-  mounted() {
-    globalEvents.$on(`picker-open`, this.close)
-  },
-  beforeDestroy() {
-    globalEvents.$off(`picker-open`, this.close)
-  },
   data() {
     return {
       iconList: defaultData.icons,
-      open: false,
     }
   },
   props: {
@@ -23,16 +16,8 @@ export default {
     },
   },
   methods: {
-    toggle() {
-      if (!this.open) globalEvents.$emit(`picker-open`)
-      this.open = !this.open
-    },
-    close() {
-      this.open = false
-    },
     setIcon(icon) {
-      this.$emit('input', icon)
-      this.close()
+      this.$emit(`input`, icon)
     },
   },
 }
@@ -51,16 +36,12 @@ export default {
 
 <template lang="pug">
 .foobarz-icon-picker
-  .foobarz-icon-picker__label {{ $t( `icon` ) }}
-  .foobarz-icon-picker__icon(
-    @click="toggle"
-    :value="value"
-  ): foobarz-icon(:name="value")
-  ul.foobarz-icon-picker__list(v-if="open")
+  ul.foobarz-icon-picker__list
     li.foobarz-icon-picker__icon(
       v-for="icon in iconList"
       :key="icon.id"
       @click="setIcon(icon.name)"
+      :class="icon.name === value ? `foobarz-icon-picker__icon--selected` : ``"
     )
       foobarz-icon(:name="icon.name")
 </template>
@@ -68,32 +49,31 @@ export default {
 <style lang="scss" scoped>
 @import './form-mixins';
 
-.foobarz-icon-picker {
-  @include label();
-  position: relative;
+.foobarz-icon-picker__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.foobarz-icon-picker__icon {
+  height: var(--picker-size);
+  width: var(--picker-size);
+  margin-top: 0.5rem;
 
-  &__icon {
-    height: var(--picker-size);
-    width: var(--picker-size);
-    border-radius: var(--picker-size);
-    background: black;
-    border: 1px solid white;
-
-    .icon {
-      height: 100%;
-      width: 100%;
-    }
+  &:first-child {
+    margin-top: 0;
   }
-  &__list {
-    background: var(--c-primary-lighter);
-    list-style: none;
-    border-radius: 0.5rem;
-    padding: 0.5rem;
-    position: absolute;
-    left: 100%;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 2;
+
+  .icon {
+    height: 100%;
+    width: 100%;
+  }
+}
+.foobarz-icon-picker__icon--selected {
+  .icon {
+    fill: white;
   }
 }
 </style>

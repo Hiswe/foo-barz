@@ -59,23 +59,28 @@ aside.article-edit(
     @click.native="close"
   )
   .article-edit__fields
-    foobarz-icon-picker.article-edit__icon(
-      v-model="article.icon"
-      @input="bubbleInput"
-    )
     foobarz-input.article-edit__name(
       :label="$t( `product-name` )"
       v-model="article.name"
-      @input="bubbleInput"
-    )
-    foobarz-color-picker.article-edit__color(
-      v-model="article.color"
       @input="bubbleInput"
     )
     foobarz-input.article-edit__price(
       :label="$t( `product-price` )"
       v-model="article.price"
       type="number"
+      @input="bubbleInput"
+    )
+    .article-edit__icon-preview
+      foobarz-article(
+        :article="article"
+        simple
+      )
+    foobarz-icon-picker.article-edit__icon(
+      v-model="article.icon"
+      @input="bubbleInput"
+    )
+    foobarz-color-picker.article-edit__color(
+      v-model="article.color"
       @input="bubbleInput"
     )
   .article-edit__actions
@@ -95,6 +100,7 @@ aside.article-edit(
 
 <style lang="scss" scoped>
 .article-edit {
+  --side-columns: calc(var(--picker-size) * 2);
   position: fixed;
   top: 0;
   right: 0;
@@ -108,16 +114,18 @@ aside.article-edit(
   display: flex;
   flex-direction: column;
   z-index: var(--zindex-edit-product);
+  overflow: auto;
 
   &__fields {
     margin: auto 0;
     display: grid;
     align-items: center;
-    grid-template-columns: repeat(40px, 2fr) 1fr;
+    grid-template-columns: var(--side-columns) 1fr var(--side-columns);
     grid-auto-rows: auto;
     grid-template-areas:
       'name name name'
-      'icon color price';
+      '. price .'
+      'icon icon-preview color';
     grid-gap: 1rem;
   }
   &__close {
@@ -135,14 +143,14 @@ aside.article-edit(
       text-align: center;
     }
   }
+  &__price {
+    grid-area: price;
+  }
   &__color {
     grid-area: color;
   }
   &__icon {
     grid-area: icon;
-  }
-  &__price {
-    grid-area: price;
   }
   &__actions {
     text-align: center;
@@ -169,5 +177,10 @@ aside.article-edit(
     position: absolute !important;
     width: 1px !important;
   }
+}
+.article-edit__icon-preview {
+  position: relative;
+  height: 100px;
+  grid-area: icon-preview;
 }
 </style>
