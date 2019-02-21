@@ -100,7 +100,7 @@ aside.article-edit(
 
 <style lang="scss" scoped>
 .article-edit {
-  --side-columns: calc(var(--picker-size) * 2);
+  --side-columns: calc(var(--picker-size) * 2 + 8px);
   position: fixed;
   top: 0;
   right: 0;
@@ -126,11 +126,12 @@ aside.article-edit(
       'name name name'
       '. price .'
       'icon icon-preview color';
-    grid-gap: 1rem;
+    grid-gap: 0.5rem 0;
   }
   &__close {
     align-self: flex-end;
     fill: var(--c-accent);
+    flex: 0 0 auto;
   }
   & /deep/ input {
     text-align: center;

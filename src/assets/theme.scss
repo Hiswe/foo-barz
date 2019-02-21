@@ -15,6 +15,8 @@ $c-accent-l: lightness($c-accent);
 $c-accent-lighter: hsl($c-accent-h, $c-accent-s, 65%);
 $c-accent-lightest: hsl($c-accent-h, $c-accent-s, 90%);
 
+// Don't know why but can't extract this to it's own file…
+
 @function url-friendly-colour($color) {
   @return '%23' + str-slice('#{$color}', 2, -1);
 }

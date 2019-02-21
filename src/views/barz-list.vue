@@ -1,7 +1,7 @@
 <script>
 import { mapGetters, mapActions } from 'vuex'
 
-import { BAR_CREATE, BAR_REMOVE, NIGHT_CREATE } from '@/store/actions'
+import { BAR_CREATE, BAR_DELETE, NIGHT_CREATE } from '@/store/actions'
 
 export default {
   name: 'page-barz',
@@ -20,7 +20,7 @@ export default {
       })
     },
     remove(barId) {
-      this.removeBar({ barId })
+      this.deleteBar({ barId })
     },
     newNight(barId) {
       this.createNight({ barId })
@@ -31,7 +31,7 @@ export default {
     },
     ...mapActions({
       createBar: BAR_CREATE,
-      removeBar: BAR_REMOVE,
+      deleteBar: BAR_DELETE,
       createNight: NIGHT_CREATE,
     }),
   },

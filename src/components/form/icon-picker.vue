@@ -47,8 +47,6 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-@import './form-mixins';
-
 .foobarz-icon-picker__list {
   list-style: none;
   margin: 0;
@@ -56,6 +54,14 @@ export default {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+
+  background-clip: padding-box;
+  border: solid 4px $c-primary-darker;
+  background-color: #000;
+  border-image-source: small-round-corner-filled(#000);
+  border-image-slice: 8;
+  border-image-width: 8px;
+  border-image-outset: 0;
 }
 .foobarz-icon-picker__icon {
   height: var(--picker-size);
