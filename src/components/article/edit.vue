@@ -118,15 +118,15 @@ aside.article-edit(
 
   &__fields {
     margin: auto 0;
-    display: grid;
     align-items: center;
-    grid-template-columns: var(--side-columns) 1fr var(--side-columns);
-    grid-auto-rows: auto;
-    grid-template-areas:
-      'name name name'
-      '. price .'
-      'icon icon-preview color';
-    grid-gap: 0.5rem 0;
+    // display: grid;
+    // grid-template-columns: var(--side-columns) 1fr var(--side-columns);
+    // grid-auto-rows: auto;
+    // grid-template-areas:
+    //   'name name name'
+    //   '. price .'
+    //   'icon icon-preview color';
+    // grid-gap: 0.5rem 0;
   }
   &__close {
     align-self: flex-end;

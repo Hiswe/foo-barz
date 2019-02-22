@@ -51,14 +51,15 @@ export default {
   list-style: none;
   margin: 0;
   padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(var(--picker-size), 1fr));
+  padding: 0.5rem;
+  grid-gap: 0.5rem;
+  place-content: center;
 
   background-clip: padding-box;
   border: solid 4px $c-primary-darker;
-  background-color: #000;
-  border-image-source: small-round-corner-filled(#000);
+  border-image-source: small-round-corner(#000);
   border-image-slice: 8;
   border-image-width: 8px;
   border-image-outset: 0;
@@ -66,7 +67,6 @@ export default {
 .foobarz-icon-picker__icon {
   height: var(--picker-size);
   width: var(--picker-size);
-  margin-top: 0.5rem;
 
   &:first-child {
     margin-top: 0;
